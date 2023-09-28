@@ -21,12 +21,15 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:support@vapi.ai"
     }
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "url": "https://dashboard.vapi.com"
+  },
+  "primaryTab": {
+    "name": "Documentation"
   },
   "tabs": [
     {
@@ -34,49 +37,48 @@
       "url": "api-reference"
     }
   ],
-  "anchors": [
-    {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
-    {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
-    },
-    {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
-    }
-  ],
   "navigation": [
     {
       "group": "Get Started",
-      "pages": ["introduction", "quickstart", "development"]
+      "pages": ["welcome", "how_it_works", "support"]
     },
     {
-      "group": "Essentials",
-      "pages": ["essentials/markdown", "essentials/code", "essentials/images", "essentials/settings", "essentials/navigation"]
-    },
-    {
-      "group": "API Documentation",
-      "pages": ["api-reference/authentication"]
-    },
-    {
-      "group": "Endpoint Examples",
+      "group": "",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/update",
-        "api-reference/endpoint/delete"
+        "api-reference/get-",
+        "api-reference/get-health",
+        "api-reference/get-agent",
+        "api-reference/post-agent",
+        "api-reference/get-agent-1",
+        "api-reference/delete-agent",
+        "api-reference/patch-agent",
+        "api-reference/get-customer",
+        "api-reference/post-customer",
+        "api-reference/get-customer-1",
+        "api-reference/delete-customer",
+        "api-reference/patch-customer",
+        "api-reference/get-phone-number",
+        "api-reference/post-phone-number",
+        "api-reference/get-phone-number-1",
+        "api-reference/delete-phone-number",
+        "api-reference/patch-phone-number",
+        "api-reference/get-call",
+        "api-reference/get-call-1",
+        "api-reference/post-callphone",
+        "api-reference/post-callphonedemo",
+        "api-reference/post-callweb",
+        "api-reference/get-token",
+        "api-reference/post-token",
+        "api-reference/get-token-1",
+        "api-reference/delete-token"
       ]
     }
   ],
-  "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
-  }
+  "api": {
+    "baseUrl": "https://api-tv2l.onrender.com",
+    "auth": {
+      "method": "bearer"
+    }
+  },
+  "openapi": "/api-json"
 }
