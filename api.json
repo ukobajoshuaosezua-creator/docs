@@ -1,1 +1,557 @@
-{"openapi":"3.0.0","paths":{"/":{"get":{"operationId":"AppController_getHello","parameters":[],"responses":{"200":{"description":""}}}},"/health":{"get":{"operationId":"HealthController_get","parameters":[],"responses":{"200":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/StatusResponse"}}}}}}},"/agent":{"post":{"operationId":"AgentController_create","parameters":[],"requestBody":{"required":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/AgentParams"}}}},"responses":{"201":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Agent"}}}}}},"get":{"operationId":"AgentController_findAll","parameters":[],"responses":{"200":{"description":"","content":{"application/json":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/Agent"}}}}}}}},"/agent/{id}":{"get":{"operationId":"AgentController_findOne","parameters":[{"name":"id","required":true,"in":"path","schema":{"type":"string"}}],"responses":{"200":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Agent"}}}}}},"patch":{"operationId":"AgentController_update","parameters":[{"name":"id","required":true,"in":"path","schema":{"type":"string"}}],"requestBody":{"required":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/AgentParams"}}}},"responses":{"204":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Agent"}}}}}},"delete":{"operationId":"AgentController_remove","parameters":[{"name":"id","required":true,"in":"path","schema":{"type":"string"}}],"responses":{"204":{"description":""}}}},"/customer":{"post":{"operationId":"CustomerController_create","parameters":[],"requestBody":{"required":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/CustomerParams"}}}},"responses":{"201":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Customer"}}}}}},"get":{"operationId":"CustomerController_findAll","parameters":[],"responses":{"200":{"description":"","content":{"application/json":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/Customer"}}}}}}}},"/customer/{id}":{"get":{"operationId":"CustomerController_findOne","parameters":[{"name":"id","required":true,"in":"path","schema":{"type":"string"}}],"responses":{"200":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Customer"}}}}}},"patch":{"operationId":"CustomerController_update","parameters":[{"name":"id","required":true,"in":"path","schema":{"type":"string"}}],"requestBody":{"required":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/CustomerParams"}}}},"responses":{"200":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Customer"}}}}}},"delete":{"operationId":"CustomerController_remove","parameters":[{"name":"id","required":true,"in":"path","schema":{"type":"string"}}],"responses":{"204":{"description":""}}}},"/phone-number":{"post":{"operationId":"PhoneNumberController_create","parameters":[],"requestBody":{"required":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreatePhoneNumberParams"}}}},"responses":{"201":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/PhoneNumber"}}}}}},"get":{"operationId":"PhoneNumberController_findAll","parameters":[],"responses":{"200":{"description":"","content":{"application/json":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/PhoneNumber"}}}}}}}},"/phone-number/{id}":{"get":{"operationId":"PhoneNumberController_findOne","parameters":[{"name":"id","required":true,"in":"path","schema":{"type":"string"}}],"responses":{"200":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/PhoneNumber"}}}}}},"patch":{"operationId":"PhoneNumberController_update","parameters":[{"name":"id","required":true,"in":"path","schema":{"type":"string"}}],"requestBody":{"required":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdatePhoneNumberParams"}}}},"responses":{"200":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/PhoneNumber"}}}}}},"delete":{"operationId":"PhoneNumberController_remove","parameters":[{"name":"id","required":true,"in":"path","schema":{"type":"string"}}],"responses":{"204":{"description":""}}}},"/call":{"get":{"operationId":"CallController_findAll","parameters":[],"responses":{"200":{"description":"","content":{"application/json":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/Call"}}}}}}}},"/call/{id}":{"get":{"operationId":"CallController_findOne","parameters":[{"name":"id","required":true,"in":"path","schema":{"type":"string"}}],"responses":{"200":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Call"}}}}}}},"/call/phone":{"post":{"operationId":"CallController_createPhoneCall","parameters":[],"requestBody":{"required":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateOutboundCallCallParams"}}}},"responses":{"201":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Call"}}}}}}},"/call/phone/demo":{"post":{"operationId":"CallController_createDemoPhoneCall","parameters":[],"requestBody":{"required":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateOutboundCallDemoCallParams"}}}},"responses":{"201":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Call"}}}}}}},"/call/web":{"post":{"operationId":"CallController_createWebCall","parameters":[],"requestBody":{"required":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateWebCallCallParams"}}}},"responses":{"201":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/WebCallResponse"}}}}}}},"/token":{"post":{"operationId":"TokenController_create","parameters":[],"responses":{"201":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Token"}}}}}},"get":{"operationId":"TokenController_findAll","parameters":[],"responses":{"200":{"description":"","content":{"application/json":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/Token"}}}}}}}},"/token/{id}":{"get":{"operationId":"TokenController_findOne","parameters":[{"name":"id","required":true,"in":"path","schema":{"type":"string"}}],"responses":{"200":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Token"}}}}}},"delete":{"operationId":"TokenController_remove","parameters":[{"name":"id","required":true,"in":"path","schema":{"type":"string"}}],"responses":{"204":{"description":""}}}}},"info":{"title":"Vapi API","description":"API for talking AIs","version":"1.0","contact":{}},"tags":[],"servers":[],"components":{"schemas":{"StatusResponse":{"type":"object","properties":{"status":{"type":"string"}},"required":["status"]},"Function":{"type":"object","properties":{}},"AgentParams":{"type":"object","properties":{"model":{"type":"string","enum":["gpt-4-32k","gpt-4","gpt-3.5-turbo-16k","gpt-3.5-turbo"]},"voice":{"type":"string","enum":["burt","phillip","steve","joseph","myra","paula","ryan","drew","paul","mrb","matilda","davis","jenny","aria","steffan","sara","jason"]},"name":{"type":"string"},"context":{"type":"string"},"functions":{"type":"array","items":{"$ref":"#/components/schemas/Function"}},"callbackUrl":{"type":"string"}}},"Agent":{"type":"object","properties":{"model":{"type":"string","enum":["gpt-4-32k","gpt-4","gpt-3.5-turbo-16k","gpt-3.5-turbo"]},"voice":{"type":"string","enum":["burt","phillip","steve","joseph","myra","paula","ryan","drew","paul","mrb","matilda","davis","jenny","aria","steffan","sara","jason"]},"name":{"type":"string"},"context":{"type":"string"},"functions":{"type":"array","items":{"$ref":"#/components/schemas/Function"}},"callbackUrl":{"type":"string"},"id":{"type":"string"},"orgId":{"type":"string"},"createdAt":{"type":"string"},"updatedAt":{"type":"string"}},"required":["id","orgId","createdAt","updatedAt"]},"CustomerParams":{"type":"object","properties":{"number":{"type":"string"}},"required":["number"]},"Customer":{"type":"object","properties":{"number":{"type":"string"},"id":{"type":"string"},"orgId":{"type":"string"},"createdAt":{"type":"string"},"updatedAt":{"type":"string"}},"required":["number","id","orgId","createdAt","updatedAt"]},"CreatePhoneNumberParams":{"type":"object","properties":{"areaCode":{"type":"string"}},"required":["areaCode"]},"PhoneNumber":{"type":"object","properties":{"number":{"type":"string"},"agentId":{"type":"string"},"startTalking":{"type":"boolean"},"forwardingPhoneNumber":{"type":"string"},"id":{"type":"string"},"createdAt":{"type":"string"},"updatedAt":{"type":"string"},"orgId":{"type":"string"}},"required":["number","id","createdAt","updatedAt","orgId"]},"UpdatePhoneNumberParams":{"type":"object","properties":{"agentId":{"type":"string"},"startTalking":{"type":"boolean"},"forwardingPhoneNumber":{"type":"string"}}},"PhoneCallParams":{"type":"object","properties":{"startTalking":{"type":"boolean"},"callSid":{"type":"string"},"userPhoneNumber":{"type":"string"},"twilioPhoneNumber":{"type":"string"},"forwardingPhoneNumber":{"type":"string"}},"required":["userPhoneNumber","twilioPhoneNumber"]},"Call":{"type":"object","properties":{"type":{"type":"string"},"agentId":{"type":"string"},"customerId":{"type":"string"},"phoneNumberId":{"type":"string"},"startedAt":{"type":"string"},"endedAt":{"type":"string"},"transcript":{"type":"string"},"recordingUrl":{"type":"string"},"summary":{"type":"string"},"agentParams":{"type":"array","items":{"$ref":"#/components/schemas/AgentParams"}},"callParams":{"type":"array","items":{"$ref":"#/components/schemas/PhoneCallParams"}},"id":{"type":"string"},"orgId":{"type":"string"},"createdAt":{"type":"string"},"updatedAt":{"type":"string"}},"required":["type","agentParams","callParams","id","orgId","createdAt","updatedAt"]},"CreateOutboundCallCallParams":{"type":"object","properties":{"agentId":{"type":"string"},"agent":{"$ref":"#/components/schemas/Agent"},"phoneNumberId":{"type":"string"},"userPhoneNumber":{"type":"string"},"forwardingPhoneNumber":{"type":"string"},"startTalking":{"type":"boolean"}},"required":["phoneNumberId","userPhoneNumber"]},"CreateOutboundCallDemoCallParams":{"type":"object","properties":{"userPhoneNumber":{"type":"string"}},"required":["userPhoneNumber"]},"CreateWebCallCallParams":{"type":"object","properties":{"agentId":{"type":"string"},"agent":{"$ref":"#/components/schemas/Agent"},"startTalking":{"type":"boolean"}}},"WebCallResponse":{"type":"object","properties":{"url":{"type":"string"},"callId":{"type":"string"}},"required":["url","callId"]},"Token":{"type":"object","properties":{"id":{"type":"string"},"orgId":{"type":"string"},"createdAt":{"type":"string"},"updatedAt":{"type":"string"}},"required":["id","orgId","createdAt","updatedAt"]}}}}
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/agent": {
+      "post": {
+        "operationId": "AgentController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/AgentParams" }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Agent" }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "a",
+        "operationId": "AgentController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/Agent" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/agent/{id}": {
+      "get": {
+        "operationId": "AgentController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Agent" }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "AgentController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/AgentParams" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Agent" }
+              }
+            }
+          },
+          "204": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Agent" }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "AgentController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "" },
+          "204": { "description": "" }
+        }
+      }
+    },
+    "/phone-number": {
+      "post": {
+        "operationId": "PhoneNumberController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePhoneNumberParams"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/PhoneNumber" }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "PhoneNumberController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/PhoneNumber" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/phone-number/{id}": {
+      "get": {
+        "operationId": "PhoneNumberController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/PhoneNumber" }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "PhoneNumberController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePhoneNumberParams"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/PhoneNumber" }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "PhoneNumberController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "" },
+          "204": { "description": "" }
+        }
+      }
+    },
+    "/call": {
+      "get": {
+        "operationId": "CallController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/Call" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/call/{id}": {
+      "get": {
+        "operationId": "CallController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Call" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/call/phone": {
+      "post": {
+        "operationId": "CallController_createPhoneCall",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOutboundCallCallParams"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Call" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/call/web": {
+      "post": {
+        "operationId": "CallController_createWebCall",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateWebCallCallParams"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/WebCallResponse" }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "info": {
+    "title": "Vapi API",
+    "description": "API for talking AIs",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "schemas": {
+      "OpenAIFunctionParamaters": {
+        "type": "object",
+        "properties": {
+          "type": { "type": "string" },
+          "properties": { "type": "object" },
+          "required": { "type": "array", "items": { "type": "string" } }
+        },
+        "required": ["type", "properties"]
+      },
+      "OpenAIFunction": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "This is the the name of the function to be called. Must be a-z, A-Z, 0-9, or contain underscores and dashes, with a maximum length of 64."
+          },
+          "description": {
+            "type": "string",
+            "description": "This is a description of what the function does, used by the AI to choose when and how to call the function."
+          },
+          "parameters": {
+            "description": "These are the parameters the functions accepts, described as a JSON Schema object. See the [OpenAI guide](https://platform.openai.com/docs/guides/gpt/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema) for documentation about the format.\n\nTo describe a function that accepts no parameters, provide the value {\"type\": \"object\", \"properties\": {}}.",
+            "allOf": [
+              { "$ref": "#/components/schemas/OpenAIFunctionParamaters" }
+            ]
+          }
+        },
+        "required": ["name", "parameters"]
+      },
+      "AgentParams": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "This is the agent’s name, just for your own reference."
+          },
+          "context": {
+            "type": "string",
+            "description": "This is the system prompt, which sets the objective and background before the call."
+          },
+          "model": {
+            "type": "object",
+            "description": "This is the OpenAI model that will be used."
+          },
+          "voice": {
+            "type": "object",
+            "description": "This is the voice that will be used.\n\nPro Voices: steve, joseph, myra, paula, drew, phillip, paul, and mrb.\n\nBasic Voices: davis, jenny, aria, steffan, sara, and jason."
+          },
+          "functions": {
+            "description": "These are the functions that the agent can execute during the call.",
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/OpenAIFunction" }
+          },
+          "callbackUrl": {
+            "type": "string",
+            "description": "This is the URL Vapi will send GET / POST requests for retrieving context, function calling, and end-of-call reports. All requests will be sent with userPhoneNumber, botPhoneNumber, and all the agent parameters.\n\nFunction Calling POST Request:\nWhen the agent wants to call a function, we'll POST your callbackURL with `name` and `arguments`.\nRespond with a JSON object of the result. For example: `{ result: \"Hello world!\" }` or `{ result: { temperature: \"38 degrees\" } }`. If empty, return `{}.\n\nEnd-of-Call Report POST Request:\nYou'll get `transcript`, `recordingUrl` and `summary` of the call.\n\nContext Retrieval GET Request:\nIf the agent's context isn't set, it'll ask for context before starting the call. Respond with `{ context: \"You are an assistant...\" }`"
+          }
+        }
+      },
+      "Agent": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "This is the agent’s name, just for your own reference."
+          },
+          "context": {
+            "type": "string",
+            "description": "This is the system prompt, which sets the objective and background before the call."
+          },
+          "model": {
+            "type": "object",
+            "description": "This is the OpenAI model that will be used."
+          },
+          "voice": {
+            "type": "object",
+            "description": "This is the voice that will be used.\n\nPro Voices: steve, joseph, myra, paula, drew, phillip, paul, and mrb.\n\nBasic Voices: davis, jenny, aria, steffan, sara, and jason."
+          },
+          "functions": {
+            "description": "These are the functions that the agent can execute during the call.",
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/OpenAIFunction" }
+          },
+          "callbackUrl": {
+            "type": "string",
+            "description": "This is the URL Vapi will send GET / POST requests for retrieving context, function calling, and end-of-call reports. All requests will be sent with userPhoneNumber, botPhoneNumber, and all the agent parameters.\n\nFunction Calling POST Request:\nWhen the agent wants to call a function, we'll POST your callbackURL with `name` and `arguments`.\nRespond with a JSON object of the result. For example: `{ result: \"Hello world!\" }` or `{ result: { temperature: \"38 degrees\" } }`. If empty, return `{}.\n\nEnd-of-Call Report POST Request:\nYou'll get `transcript`, `recordingUrl` and `summary` of the call.\n\nContext Retrieval GET Request:\nIf the agent's context isn't set, it'll ask for context before starting the call. Respond with `{ context: \"You are an assistant...\" }`"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the agent."
+          },
+          "orgId": {
+            "type": "string",
+            "description": "Unique identifier for the organization that this agent is part of."
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "ISO 8601 date-time string of when the agent was created."
+          },
+          "updatedAt": {
+            "type": "string",
+            "description": "ISO 8601 date-time string of when the agent was last updated."
+          }
+        },
+        "required": ["id", "orgId", "createdAt", "updatedAt"]
+      },
+      "CreatePhoneNumberParams": {
+        "type": "object",
+        "properties": {
+          "areaCode": {
+            "type": "string",
+            "description": "This is the area code of the phone number to purchase."
+          }
+        },
+        "required": ["areaCode"]
+      },
+      "PhoneNumber": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "createdAt": { "type": "string" },
+          "updatedAt": { "type": "string" },
+          "orgId": { "type": "string" },
+          "number": { "type": "string" },
+          "agentId": { "type": "string" },
+          "startTalking": { "type": "boolean" },
+          "forwardingPhoneNumber": { "type": "string" }
+        },
+        "required": ["id", "createdAt", "updatedAt", "orgId", "number"]
+      },
+      "UpdatePhoneNumberParams": {
+        "type": "object",
+        "properties": {
+          "agentId": {
+            "type": "string",
+            "description": "This is the agent that will be used to handle inbound calls to this phone number."
+          },
+          "startTalking": { "type": "boolean" },
+          "forwardingPhoneNumber": { "type": "string" }
+        }
+      },
+      "Call": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "orgId": { "type": "string" },
+          "createdAt": { "type": "string" },
+          "updatedAt": { "type": "string" },
+          "type": { "type": "object" },
+          "agentId": { "type": "string" },
+          "customerId": { "type": "string" },
+          "phoneNumberId": { "type": "string" },
+          "startedAt": { "type": "string" },
+          "endedAt": { "type": "string" },
+          "transcript": { "type": "string" },
+          "recordingUrl": { "type": "string" },
+          "summary": { "type": "string" },
+          "agentParams": { "type": "object" },
+          "callParams": { "type": "object" }
+        },
+        "required": ["id", "orgId", "createdAt", "updatedAt", "type"]
+      },
+      "CreateOutboundCallCallParams": {
+        "type": "object",
+        "properties": {
+          "agentId": {
+            "type": "string",
+            "description": "This is the agent that will be used for the call. To create a transient agent, use `agent` instead."
+          },
+          "agent": {
+            "description": "This is the agent that will be used for the call. To use an existing agent, use `agentId` instead.",
+            "allOf": [{ "$ref": "#/components/schemas/Agent" }]
+          },
+          "phoneNumberId": {
+            "type": "string",
+            "description": "This is the phone number that will be used for the call."
+          },
+          "userPhoneNumber": {
+            "type": "string",
+            "description": "This is the number that will be called."
+          },
+          "forwardingPhoneNumber": {
+            "type": "string",
+            "description": "This is the number the agent will transfer to if it runs into any issues."
+          },
+          "startTalking": {
+            "type": "boolean",
+            "description": "Whether the AI should talk first when the call is connected."
+          }
+        },
+        "required": ["phoneNumberId", "userPhoneNumber"]
+      },
+      "CreateWebCallCallParams": {
+        "type": "object",
+        "properties": {
+          "agentId": {
+            "type": "string",
+            "description": "This is the agent that will be used for the call. To create a transient agent, use `agent` instead."
+          },
+          "agent": {
+            "description": "This is the agent that will be used for the call. To use an existing agent, use `agentId` instead.",
+            "allOf": [{ "$ref": "#/components/schemas/Agent" }]
+          },
+          "startTalking": {
+            "type": "boolean",
+            "description": "Whether the AI should talk first when the call is connected."
+          }
+        }
+      },
+      "WebCallResponse": {
+        "type": "object",
+        "properties": {
+          "url": { "type": "string" },
+          "callId": { "type": "string" }
+        },
+        "required": ["url", "callId"]
+      }
+    }
+  }
+}

@@ -43,20 +43,13 @@
       "pages": ["welcome", "how_it_works", "support"]
     },
     {
-      "group": "",
+      "group": "Endpoints",
       "pages": [
-        "api-reference/get-",
-        "api-reference/get-health",
         "api-reference/get-agent",
         "api-reference/post-agent",
         "api-reference/get-agent-1",
         "api-reference/delete-agent",
         "api-reference/patch-agent",
-        "api-reference/get-customer",
-        "api-reference/post-customer",
-        "api-reference/get-customer-1",
-        "api-reference/delete-customer",
-        "api-reference/patch-customer",
         "api-reference/get-phone-number",
         "api-reference/post-phone-number",
         "api-reference/get-phone-number-1",
@@ -65,12 +58,7 @@
         "api-reference/get-call",
         "api-reference/get-call-1",
         "api-reference/post-callphone",
-        "api-reference/post-callphonedemo",
-        "api-reference/post-callweb",
-        "api-reference/get-token",
-        "api-reference/post-token",
-        "api-reference/get-token-1",
-        "api-reference/delete-token"
+        "api-reference/post-callweb"
       ]
     }
   ],
