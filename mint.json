@@ -67,6 +67,5 @@
     "auth": {
       "method": "bearer"
     }
-  },
-  "openapi": "/api-json"
+  }
 }
