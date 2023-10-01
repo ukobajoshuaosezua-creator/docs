@@ -3,23 +3,21 @@ title: "How it works 🧠"
 sidebarTitle: "How it works"
 ---
 
-The [API](/api-reference) is the main way to interact with the platform. It allows you to create and manage agents, place outbound calls, and receive inbound calls.
+The [API](/api-reference) is the main way to interact with the platform. It allows you to create and manage agents, phone numbers, and create calls.
 
 # Agents
 
-`Agent` is a fancy word for an AI configuration that can be used in both inbound and outbound phone calls. (Coming soon, you'll also be able to use your agents on web with a snippet!)
+`Agent` is a fancy word for an AI configuration that can be used in both web and phone calls.
 
-You can specify the agent's voice, context, and other properties. You can use an agent's `id` when placing an outbound call or create an `InboundPhone` that will use the agent when receiving inbound calls.
+You can specify the agent's voice, context, and other properties. You can use an agent's `id` when creating a call or create an `PhoneNumber` that will use the agent when receiving inbound calls.
 
 ## Callback URL
 
-As part of the `Agent`, you can specify a `callbackUrl`. This is your server's URL that the agent will use when retreiving context, performing function calls, and sending call summaries / recordings.
+As part of the `Agent`, you can optionally specify a `callbackUrl`. This is your server's URL that the agent will use when retreiving context, performing function calls, and sending call summaries / recordings.
 
 ### Retreiving Context
 
-If you need to customize the agent's context based on who the user is, or to retrieve context from your database, you can enable `getContextFromCallback` when creating an agent.
-
-If `getContextFromCallback` is enabled and a call begins, the agent will make a `GET` request to the `callbackUrl` with the `userPhoneNumber` and `agentId` as query parameters. Your server should respond with a JSON object containing the context, like so:
+This is for if you need to customize the agent's context by retrieving it from your server. If `callbackUrl` is specified and `context` is not, the agent will make a `GET` request to the `callbackUrl` with the `userPhoneNumber` and `agentId` as query parameters. Your server should respond with a JSON object containing the context, like so:
 
 ```json
 {
@@ -49,14 +47,6 @@ When a call ends, the agent will make a `POST` request to the `callbackUrl` with
 
 <Snippet file="end.body.mdx" />
 
-# Inbound Phone Calls
+# Phone Numbers
 
-An `InboundPhone` is a configuration that maps a phone number to an agent. When a call is received on the phone number, the agent will be used to handle the call.
-
-When creating an `InboundPhone`, it uses your Twilio API keys to configure the provided phone number to forward calls to Vapi. You can also specify a `forwardingPhoneNumber`, which the agent can use to forward the call to a human if it can't handle a request or a user asks.
-
-# Outbound Phone Calls
-
-An `OutboundCall` will initiate a phone call to the `userPhoneNumber` from the `twilioPhoneNumber`, with the provided agent.
-
-An [existing agent](/api-reference/outbound_call/create) can be specified by its `id`, or you can create a [transient agent](/api-reference/outbound_call/create.transient) on the fly.
+When a call is received on a `PhoneNumber`, the specified agent will be used to handle the call.
