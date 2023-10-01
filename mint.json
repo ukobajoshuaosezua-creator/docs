@@ -26,7 +26,7 @@
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://dashboard.vapi.com"
+    "url": "https://dashboard.vapi.ai"
   },
   "primaryTab": {
     "name": "Documentation"
@@ -40,25 +40,35 @@
   "navigation": [
     {
       "group": "Get Started",
-      "pages": ["welcome", "how_it_works", "support"]
+      "pages": ["welcome", "how_it_works"]
     },
     {
-      "group": "Endpoints",
+      "group": "Calls",
       "pages": [
-        "api-reference/get-agent",
-        "api-reference/post-agent",
-        "api-reference/get-agent-1",
-        "api-reference/delete-agent",
-        "api-reference/patch-agent",
-        "api-reference/get-phone-number",
-        "api-reference/post-phone-number",
-        "api-reference/get-phone-number-1",
-        "api-reference/delete-phone-number",
-        "api-reference/patch-phone-number",
-        "api-reference/get-call",
-        "api-reference/get-call-1",
-        "api-reference/post-callphone",
-        "api-reference/post-callweb"
+        "api-reference/calls/list-calls",
+        "api-reference/calls/get-call",
+        "api-reference/calls/create-phone-call",
+        "api-reference/calls/create-web-call"
+      ]
+    },
+    {
+      "group": "Agents",
+      "pages": [
+        "api-reference/agents/list-agents",
+        "api-reference/agents/create-agent",
+        "api-reference/agents/get-agent",
+        "api-reference/agents/delete-agent",
+        "api-reference/agents/update-agent"
+      ]
+    },
+    {
+      "group": "Phone Numbers",
+      "pages": [
+        "api-reference/phone-numbers/list-phone-numbers",
+        "api-reference/phone-numbers/create-phone-number",
+        "api-reference/phone-numbers/get-phone-number",
+        "api-reference/phone-numbers/delete-phone-number",
+        "api-reference/phone-numbers/update-phone-number"
       ]
     }
   ],
@@ -67,5 +77,6 @@
     "auth": {
       "method": "bearer"
     }
-  }
+  },
+  "openapi": "api-json.json"
 }
