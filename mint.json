@@ -81,7 +81,7 @@
     }
   ],
   "api": {
-    "baseUrl": "https://api-tv2l.onrender.com",
+    "baseUrl": "https://api.vapi.ai",
     "auth": {
       "method": "bearer"
     }
