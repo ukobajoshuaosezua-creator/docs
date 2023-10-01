@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Vapi",
   "logo": {
     "dark": "/logo/dark.png",
     "light": "/logo/light.png"
@@ -43,6 +43,14 @@
       "pages": ["welcome", "how_it_works"]
     },
     {
+      "group": "",
+      "pages": [
+        "api-reference/swagger",
+        "api-reference/openapi",
+        "api-reference/postman"
+      ]
+    },
+    {
       "group": "Calls",
       "pages": [
         "api-reference/calls/list-calls",
@@ -78,5 +86,5 @@
       "method": "bearer"
     }
   },
-  "openapi": "api-json.json"
+  "openapi": "/api-json"
 }
