@@ -9,7 +9,7 @@ The [API](/api-reference) is the main way to interact with the platform. It allo
 
 `Agent` is a fancy word for an AI configuration that can be used in both web and phone calls.
 
-You can specify the agent's voice, context, and other properties. You can use an agent's `id` when creating a call or create an `PhoneNumber` that will use the agent when receiving inbound calls.
+You can specify the agent's voice, context, and other properties. You can use an agent's `id` when creating a call or create a `PhoneNumber` that will use the agent when receiving inbound calls.
 
 ## Callback URL
 
@@ -46,7 +46,3 @@ Your server should respond with a JSON object containing the function's response
 When a call ends, the agent will make a `POST` request to the `callbackUrl` with the following body:
 
 <Snippet file="end.body.mdx" />
-
-# Phone Numbers
-
-When a call is received on a `PhoneNumber`, the specified agent will be used to handle the call.
