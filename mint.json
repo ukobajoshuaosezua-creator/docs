@@ -14,8 +14,8 @@
       "dark": "#1c1e26"
     },
     "anchors": {
-      "from": "#FF7F57",
-      "to": "#9563FF"
+      "from": "#37AA9D",
+      "to": "#2e726e"
     }
   },
   "topbarLinks": [
@@ -31,16 +31,37 @@
   "primaryTab": {
     "name": "Documentation"
   },
-  "tabs": [
+  "anchors": [
     {
       "name": "API Reference",
-      "url": "api-reference"
+      "url": "api-reference",
+      "icon": "code"
+    },
+    {
+      "name": "Dashboard",
+      "url": "https://dashboard.vapi.ai",
+      "icon": "gauge-max"
+    },
+    {
+      "name": "Web SDK",
+      "url": "https://github.com/VapiAI/web",
+      "icon": "browser"
+    },
+    {
+      "name": "Support",
+      "url": "mailto:support@vapi.ai",
+      "icon": "comments-question"
     }
   ],
   "navigation": [
     {
-      "group": "Get Started",
-      "pages": ["welcome", "how_it_works"]
+      "group": "Welcome",
+      "pages": [
+        "introduction",
+        "getting_started",
+        "function_calling",
+        "pricing"
+      ]
     },
     {
       "group": "",

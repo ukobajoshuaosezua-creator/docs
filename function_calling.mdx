@@ -1,15 +1,8 @@
 ---
-title: "How it works 🧠"
-sidebarTitle: "How it works"
+title: "Function Calling 🧠"
+sidebarTitle: "Function Calling"
+description: "Learn how to set up your server to handle function calls from Vapi."
 ---
-
-The [API](/api-reference) is the main way to interact with the platform. It allows you to create and manage agents, phone numbers, and create calls.
-
-# Agents
-
-`Agent` is a fancy word for an AI configuration that can be used in both web and phone calls.
-
-You can specify the agent's voice, context, and other properties. You can use an agent's `id` when creating a call or create a `PhoneNumber` that will use the agent when receiving inbound calls.
 
 ## Callback URL
 
@@ -17,7 +10,7 @@ As part of the `Agent`, you can optionally specify a `callbackUrl`. This is your
 
 ### Retreiving Context
 
-This is for if you need to customize the agent's context by retrieving it from your server. If `callbackUrl` is specified and `context` is not, the agent will make a `GET` request to the `callbackUrl` with the `userPhoneNumber` and `agentId` as query parameters. Your server should respond with a JSON object containing the context, like so:
+This is for if you need to customize the agent's context by retrieving it from your server. If `callbackUrl` is specified and `context` is not, the agent will make a `GET` request to the `callbackUrl` with the `customerPhoneNumber` and `agentId` as query parameters. Your server should respond with a JSON object containing the context, like so:
 
 ```json
 {
