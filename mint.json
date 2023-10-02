@@ -72,8 +72,9 @@
     {
       "group": "Phone Numbers",
       "pages": [
+        "api-reference/phone-numbers/buy-phone-number",
+        "api-reference/phone-numbers/import-twilio-number",
         "api-reference/phone-numbers/list-phone-numbers",
-        "api-reference/phone-numbers/create-phone-number",
         "api-reference/phone-numbers/get-phone-number",
         "api-reference/phone-numbers/delete-phone-number",
         "api-reference/phone-numbers/update-phone-number"
