@@ -1,1 +1,756 @@
-{"openapi":"3.0.0","paths":{"/agent":{"post":{"operationId":"AgentController_create","summary":"Create Agent","parameters":[],"requestBody":{"required":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateAgentDTO"}}}},"responses":{"201":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Agent"}}}}},"tags":["Agents"]},"get":{"operationId":"AgentController_findAll","summary":"List Agents","parameters":[],"responses":{"200":{"description":"","content":{"application/json":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/Agent"}}}}}},"tags":["Agents"]}},"/agent/{id}":{"get":{"operationId":"AgentController_findOne","summary":"Get Agent","parameters":[{"name":"id","required":true,"in":"path","schema":{"type":"string"}}],"responses":{"200":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Agent"}}}}},"tags":["Agents"]},"patch":{"operationId":"AgentController_update","summary":"Update Agent","parameters":[{"name":"id","required":true,"in":"path","schema":{"type":"string"}}],"requestBody":{"required":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdateAgentDTO"}}}},"responses":{"200":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Agent"}}}},"204":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Agent"}}}}},"tags":["Agents"]},"delete":{"operationId":"AgentController_remove","summary":"Delete Agent","parameters":[{"name":"id","required":true,"in":"path","schema":{"type":"string"}}],"responses":{"200":{"description":""},"204":{"description":""}},"tags":["Agents"]}},"/phone-number":{"post":{"operationId":"PhoneNumberController_create","summary":"Create Phone Number","parameters":[],"requestBody":{"required":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreatePhoneNumberDto"}}}},"responses":{"201":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/PhoneNumber"}}}}},"tags":["Phone Numbers"]},"get":{"operationId":"PhoneNumberController_findAll","summary":"List Phone Numbers","parameters":[],"responses":{"200":{"description":"","content":{"application/json":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/PhoneNumber"}}}}}},"tags":["Phone Numbers"]}},"/phone-number/{id}":{"get":{"operationId":"PhoneNumberController_findOne","summary":"Get Phone Number","parameters":[{"name":"id","required":true,"in":"path","schema":{"type":"string"}}],"responses":{"200":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/PhoneNumber"}}}}},"tags":["Phone Numbers"]},"patch":{"operationId":"PhoneNumberController_update","summary":"Update Phone Number","parameters":[{"name":"id","required":true,"in":"path","schema":{"type":"string"}}],"requestBody":{"required":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/UpdatePhoneNumberDto"}}}},"responses":{"200":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/PhoneNumber"}}}}},"tags":["Phone Numbers"]},"delete":{"operationId":"PhoneNumberController_remove","summary":"Delete Phone Number","parameters":[{"name":"id","required":true,"in":"path","schema":{"type":"string"}}],"responses":{"200":{"description":""},"204":{"description":""}},"tags":["Phone Numbers"]}},"/call":{"get":{"operationId":"CallController_findAll","summary":"List Calls","parameters":[],"responses":{"200":{"description":"","content":{"application/json":{"schema":{"type":"array","items":{"$ref":"#/components/schemas/Call"}}}}}},"tags":["Calls"]}},"/call/{id}":{"get":{"operationId":"CallController_findOne","summary":"Get Call","parameters":[{"name":"id","required":true,"in":"path","schema":{"type":"string"}}],"responses":{"200":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Call"}}}}},"tags":["Calls"]}},"/call/phone":{"post":{"operationId":"CallController_createPhoneCall","summary":"Create Phone Call","parameters":[],"requestBody":{"required":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateOutboundCallDto"}}}},"responses":{"201":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/Call"}}}}},"tags":["Calls"]}},"/call/web":{"post":{"operationId":"CallController_createWebCall","summary":"Create Web Call","parameters":[],"requestBody":{"required":true,"content":{"application/json":{"schema":{"$ref":"#/components/schemas/CreateWebCallDto"}}}},"responses":{"201":{"description":"","content":{"application/json":{"schema":{"$ref":"#/components/schemas/WebCallResponseDto"}}}}},"tags":["Calls"]}}},"info":{"title":"Vapi API","description":"API for talking AIs","version":"1.0","contact":{}},"tags":[],"servers":[],"components":{"schemas":{"OpenAIFunctionParamaters":{"type":"object","properties":{"type":{"type":"string"},"properties":{"type":"object"},"required":{"type":"array","items":{"type":"string"}}},"required":["type","properties"]},"OpenAIFunction":{"type":"object","properties":{"name":{"type":"string","description":"This is the the name of the function to be called. Must be a-z, A-Z, 0-9, or contain underscores and dashes, with a maximum length of 64."},"description":{"type":"string","description":"This is a description of what the function does, used by the AI to choose when and how to call the function."},"parameters":{"description":"These are the parameters the functions accepts, described as a JSON Schema object. See the [OpenAI guide](https://platform.openai.com/docs/guides/gpt/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema) for documentation about the format.\n\nTo describe a function that accepts no parameters, provide the value {\"type\": \"object\", \"properties\": {}}.","allOf":[{"$ref":"#/components/schemas/OpenAIFunctionParamaters"}]}},"required":["name","parameters"]},"CreateAgentDTO":{"type":"object","properties":{"model":{"type":"string","description":"This is the OpenAI model that will be used.","enum":["gpt-4-32k","gpt-4","gpt-3.5-turbo-16k","gpt-3.5-turbo"]},"voice":{"type":"string","description":"This is the voice that will be used.\n\nPro Voices: steve, joseph, myra, paula, drew, phillip, paul, and mrb.\n\nBasic Voices: davis, jenny, aria, steffan, sara, and jason.","enum":["burt","phillip","steve","joseph","myra","paula","ryan","drew","paul","mrb","matilda","davis","jenny","aria","steffan","sara","jason"]},"name":{"type":"string","description":"This is the agent’s name, just for your own reference."},"context":{"type":"string","description":"This is the system prompt, which sets the objective and background before the call."},"functions":{"description":"These are the functions that the agent can execute during the call.","type":"array","items":{"$ref":"#/components/schemas/OpenAIFunction"}},"callbackUrl":{"type":"string","description":"This is the URL Vapi will send GET / POST requests for retrieving context, function calling, and end-of-call reports. All requests will be sent with customerPhoneNumber, botPhoneNumber, and all the agent parameters.\n\nFunction Calling POST Request:\nWhen the agent wants to call a function, we'll POST your callbackURL with `name` and `arguments`.\nRespond with a JSON object of the result. For example: `{ result: \"Hello world!\" }` or `{ result: { temperature: \"38 degrees\" } }`. If empty, return `{}.\n\nEnd-of-Call Report POST Request:\nYou'll get `transcript`, `recordingUrl` and `summary` of the call.\n\nContext Retrieval GET Request:\nIf the agent's context isn't set, it'll ask for context before starting the call. Respond with `{ context: \"You are an assistant...\" }`"},"forwardingPhoneNumber":{"type":"string","description":"This is the number the agent will transfer to if it runs into any issues."},"startTalking":{"type":"boolean","description":"Whether the AI should talk first when the call is connected."}}},"Agent":{"type":"object","properties":{"model":{"type":"string","description":"This is the OpenAI model that will be used.","enum":["gpt-4-32k","gpt-4","gpt-3.5-turbo-16k","gpt-3.5-turbo"]},"voice":{"type":"string","description":"This is the voice that will be used.\n\nPro Voices: steve, joseph, myra, paula, drew, phillip, paul, and mrb.\n\nBasic Voices: davis, jenny, aria, steffan, sara, and jason.","enum":["burt","phillip","steve","joseph","myra","paula","ryan","drew","paul","mrb","matilda","davis","jenny","aria","steffan","sara","jason"]},"id":{"type":"string","description":"Unique identifier for the agent."},"orgId":{"type":"string","description":"Unique identifier for the organization that this agent belongs to."},"createdAt":{"type":"string","description":"ISO 8601 date-time string of when the agent was created."},"updatedAt":{"type":"string","description":"ISO 8601 date-time string of when the agent was last updated."},"name":{"type":"string","description":"This is the agent’s name, just for your own reference."},"context":{"type":"string","description":"This is the system prompt, which sets the objective and background before the call."},"functions":{"description":"These are the functions that the agent can execute during the call.","type":"array","items":{"$ref":"#/components/schemas/OpenAIFunction"}},"callbackUrl":{"type":"string","description":"This is the URL Vapi will send GET / POST requests for retrieving context, function calling, and end-of-call reports. All requests will be sent with customerPhoneNumber, botPhoneNumber, and all the agent parameters.\n\nFunction Calling POST Request:\nWhen the agent wants to call a function, we'll POST your callbackURL with `name` and `arguments`.\nRespond with a JSON object of the result. For example: `{ result: \"Hello world!\" }` or `{ result: { temperature: \"38 degrees\" } }`. If empty, return `{}.\n\nEnd-of-Call Report POST Request:\nYou'll get `transcript`, `recordingUrl` and `summary` of the call.\n\nContext Retrieval GET Request:\nIf the agent's context isn't set, it'll ask for context before starting the call. Respond with `{ context: \"You are an assistant...\" }`"},"forwardingPhoneNumber":{"type":"string","description":"This is the number the agent will transfer to if it runs into any issues."},"startTalking":{"type":"boolean","description":"Whether the AI should talk first when the call is connected."}},"required":["id","orgId","createdAt","updatedAt"]},"UpdateAgentDTO":{"type":"object","properties":{"model":{"type":"string","description":"This is the OpenAI model that will be used.","enum":["gpt-4-32k","gpt-4","gpt-3.5-turbo-16k","gpt-3.5-turbo"]},"voice":{"type":"string","description":"This is the voice that will be used.\n\nPro Voices: steve, joseph, myra, paula, drew, phillip, paul, and mrb.\n\nBasic Voices: davis, jenny, aria, steffan, sara, and jason.","enum":["burt","phillip","steve","joseph","myra","paula","ryan","drew","paul","mrb","matilda","davis","jenny","aria","steffan","sara","jason"]},"name":{"type":"string","description":"This is the agent’s name, just for your own reference."},"context":{"type":"string","description":"This is the system prompt, which sets the objective and background before the call."},"functions":{"description":"These are the functions that the agent can execute during the call.","type":"array","items":{"$ref":"#/components/schemas/OpenAIFunction"}},"callbackUrl":{"type":"string","description":"This is the URL Vapi will send GET / POST requests for retrieving context, function calling, and end-of-call reports. All requests will be sent with customerPhoneNumber, botPhoneNumber, and all the agent parameters.\n\nFunction Calling POST Request:\nWhen the agent wants to call a function, we'll POST your callbackURL with `name` and `arguments`.\nRespond with a JSON object of the result. For example: `{ result: \"Hello world!\" }` or `{ result: { temperature: \"38 degrees\" } }`. If empty, return `{}.\n\nEnd-of-Call Report POST Request:\nYou'll get `transcript`, `recordingUrl` and `summary` of the call.\n\nContext Retrieval GET Request:\nIf the agent's context isn't set, it'll ask for context before starting the call. Respond with `{ context: \"You are an assistant...\" }`"},"forwardingPhoneNumber":{"type":"string","description":"This is the number the agent will transfer to if it runs into any issues."},"startTalking":{"type":"boolean","description":"Whether the AI should talk first when the call is connected."}}},"CreatePhoneNumberDto":{"type":"object","properties":{"areaCode":{"type":"string","description":"This is the area code of the phone number to purchase."},"agentId":{"type":"string"}},"required":["areaCode"]},"PhoneNumber":{"type":"object","properties":{"id":{"type":"string"},"createdAt":{"type":"string"},"updatedAt":{"type":"string"},"orgId":{"type":"string"},"stripeSubscriptionId":{"type":"string"},"number":{"type":"string"},"agentId":{"type":"string"}},"required":["id","createdAt","updatedAt","orgId","number"]},"UpdatePhoneNumberDto":{"type":"object","properties":{"agentId":{"type":"string","description":"This is the agent that will be used to handle inbound calls to this phone number."}}},"PhoneCallParams":{"type":"object","properties":{"callSid":{"type":"string"},"customerPhoneNumber":{"type":"string"},"twilioPhoneNumber":{"type":"string"}},"required":["customerPhoneNumber","twilioPhoneNumber"]},"Call":{"type":"object","properties":{"type":{"type":"string","enum":["inboundPhoneCall","outboundPhoneCall","webCall"]},"id":{"type":"string"},"orgId":{"type":"string"},"createdAt":{"type":"string"},"updatedAt":{"type":"string"},"agentId":{"type":"string"},"customerId":{"type":"string"},"phoneNumberId":{"type":"string"},"startedAt":{"type":"string"},"endedAt":{"type":"string"},"transcript":{"type":"string"},"recordingUrl":{"type":"string"},"cost":{"type":"number"},"summary":{"type":"string"},"agentParams":{"type":"object"},"callParams":{"$ref":"#/components/schemas/PhoneCallParams"}},"required":["type","id","orgId","createdAt","updatedAt","startedAt"]},"CreateOutboundCallDto":{"type":"object","properties":{"agentId":{"type":"string","description":"This is the agent that will be used for the call. To create a transient agent, use `agent` instead."},"agent":{"description":"This is the agent that will be used for the call. To use an existing agent, use `agentId` instead.","allOf":[{"$ref":"#/components/schemas/CreateAgentDTO"}]},"phoneNumberId":{"type":"string","description":"This is the phone number that will be used for the call."},"customerPhoneNumber":{"type":"string","description":"This is the number that will be called."}},"required":["phoneNumberId","customerPhoneNumber"]},"CreateWebCallDto":{"type":"object","properties":{"agentId":{"type":"string","description":"This is the agent that will be used for the call. To create a transient agent, use `agent` instead."},"agent":{"description":"This is the agent that will be used for the call. To use an existing agent, use `agentId` instead.","allOf":[{"$ref":"#/components/schemas/CreateAgentDTO"}]}}},"WebCallResponseDto":{"type":"object","properties":{"url":{"type":"string"},"callId":{"type":"string"}},"required":["url","callId"]}}}}
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/call": {
+      "get": {
+        "operationId": "CallController_findAll",
+        "summary": "List Calls",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/Call" }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Calls"]
+      }
+    },
+    "/call/{id}": {
+      "get": {
+        "operationId": "CallController_findOne",
+        "summary": "Get Call",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Call" }
+              }
+            }
+          }
+        },
+        "tags": ["Calls"]
+      }
+    },
+    "/call/phone": {
+      "post": {
+        "operationId": "CallController_createPhoneCall",
+        "summary": "Create Phone Call",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CreateOutboundCallDto" }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Call" }
+              }
+            }
+          }
+        },
+        "tags": ["Calls"]
+      }
+    },
+    "/call/web": {
+      "post": {
+        "operationId": "CallController_createWebCall",
+        "summary": "Create Web Call",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CreateWebCallDto" }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/WebCallResponseDto" }
+              }
+            }
+          }
+        },
+        "tags": ["Calls"]
+      }
+    },
+    "/agent": {
+      "post": {
+        "operationId": "AgentController_create",
+        "summary": "Create Agent",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CreateAgentDTO" }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Agent" }
+              }
+            }
+          }
+        },
+        "tags": ["Agents"]
+      },
+      "get": {
+        "operationId": "AgentController_findAll",
+        "summary": "List Agents",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/Agent" }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Agents"]
+      }
+    },
+    "/agent/{id}": {
+      "get": {
+        "operationId": "AgentController_findOne",
+        "summary": "Get Agent",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Agent" }
+              }
+            }
+          }
+        },
+        "tags": ["Agents"]
+      },
+      "patch": {
+        "operationId": "AgentController_update",
+        "summary": "Update Agent",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpdateAgentDTO" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Agent" }
+              }
+            }
+          },
+          "204": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Agent" }
+              }
+            }
+          }
+        },
+        "tags": ["Agents"]
+      },
+      "delete": {
+        "operationId": "AgentController_remove",
+        "summary": "Delete Agent",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "" },
+          "204": { "description": "" }
+        },
+        "tags": ["Agents"]
+      }
+    },
+    "/phone-number/buy": {
+      "post": {
+        "operationId": "PhoneNumberController_buy",
+        "summary": "Buy Phone Number",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/BuyPhoneNumberDto" }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/PhoneNumber" }
+              }
+            }
+          }
+        },
+        "tags": ["Phone Numbers"]
+      }
+    },
+    "/phone-number/import": {
+      "post": {
+        "operationId": "PhoneNumberController_import",
+        "summary": "Import Twilio Number",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ImportTwilioPhoneNumberDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/PhoneNumber" }
+              }
+            }
+          }
+        },
+        "tags": ["Phone Numbers"]
+      }
+    },
+    "/phone-number": {
+      "get": {
+        "operationId": "PhoneNumberController_findAll",
+        "summary": "List Phone Numbers",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/PhoneNumber" }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Phone Numbers"]
+      }
+    },
+    "/phone-number/{id}": {
+      "get": {
+        "operationId": "PhoneNumberController_findOne",
+        "summary": "Get Phone Number",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/PhoneNumber" }
+              }
+            }
+          }
+        },
+        "tags": ["Phone Numbers"]
+      },
+      "patch": {
+        "operationId": "PhoneNumberController_update",
+        "summary": "Update Phone Number",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpdatePhoneNumberDto" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/PhoneNumber" }
+              }
+            }
+          }
+        },
+        "tags": ["Phone Numbers"]
+      },
+      "delete": {
+        "operationId": "PhoneNumberController_remove",
+        "summary": "Delete Phone Number",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "" },
+          "204": { "description": "" }
+        },
+        "tags": ["Phone Numbers"]
+      }
+    }
+  },
+  "info": {
+    "title": "Vapi API",
+    "description": "API for talking AIs",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "schemas": {
+      "PhoneCallParams": {
+        "type": "object",
+        "properties": {
+          "callSid": { "type": "string" },
+          "customerPhoneNumber": { "type": "string" },
+          "twilioPhoneNumber": { "type": "string" },
+          "twilioAccountSid": { "type": "string" },
+          "twilioAuthToken": { "type": "string" }
+        },
+        "required": [
+          "customerPhoneNumber",
+          "twilioPhoneNumber",
+          "twilioAccountSid",
+          "twilioAuthToken"
+        ]
+      },
+      "Call": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["inboundPhoneCall", "outboundPhoneCall", "webCall"]
+          },
+          "id": { "type": "string" },
+          "orgId": { "type": "string" },
+          "createdAt": { "type": "string" },
+          "updatedAt": { "type": "string" },
+          "agentId": { "type": "string" },
+          "customerId": { "type": "string" },
+          "phoneNumberId": { "type": "string" },
+          "startedAt": { "type": "string" },
+          "endedAt": { "type": "string" },
+          "transcript": { "type": "string" },
+          "recordingUrl": { "type": "string" },
+          "cost": { "type": "number" },
+          "summary": { "type": "string" },
+          "agentParams": { "type": "object" },
+          "callParams": { "$ref": "#/components/schemas/PhoneCallParams" }
+        },
+        "required": [
+          "type",
+          "id",
+          "orgId",
+          "createdAt",
+          "updatedAt",
+          "startedAt"
+        ]
+      },
+      "OpenAIFunctionParamaters": {
+        "type": "object",
+        "properties": {
+          "type": { "type": "string" },
+          "properties": { "type": "object" },
+          "required": { "type": "array", "items": { "type": "string" } }
+        },
+        "required": ["type", "properties"]
+      },
+      "OpenAIFunction": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "This is the the name of the function to be called. Must be a-z, A-Z, 0-9, or contain underscores and dashes, with a maximum length of 64."
+          },
+          "description": {
+            "type": "string",
+            "description": "This is a description of what the function does, used by the AI to choose when and how to call the function."
+          },
+          "parameters": {
+            "description": "These are the parameters the functions accepts, described as a JSON Schema object. See the [OpenAI guide](https://platform.openai.com/docs/guides/gpt/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema) for documentation about the format.\n\nTo describe a function that accepts no parameters, provide the value {\"type\": \"object\", \"properties\": {}}.",
+            "allOf": [
+              { "$ref": "#/components/schemas/OpenAIFunctionParamaters" }
+            ]
+          }
+        },
+        "required": ["name", "parameters"]
+      },
+      "CreateAgentDTO": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "type": "string",
+            "description": "This is the OpenAI model that will be used.",
+            "enum": ["gpt-4-32k", "gpt-4", "gpt-3.5-turbo-16k", "gpt-3.5-turbo"]
+          },
+          "voice": {
+            "type": "string",
+            "description": "This is the voice that will be used.\n\nPro Voices: steve, joseph, myra, paula, drew, phillip, paul, and mrb.\n\nBasic Voices: davis, jenny, aria, steffan, sara, and jason.",
+            "enum": [
+              "burt",
+              "phillip",
+              "steve",
+              "joseph",
+              "myra",
+              "paula",
+              "ryan",
+              "drew",
+              "paul",
+              "mrb",
+              "matilda",
+              "davis",
+              "jenny",
+              "aria",
+              "steffan",
+              "sara",
+              "jason"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "description": "This is the agent’s name, just for your own reference."
+          },
+          "context": {
+            "type": "string",
+            "description": "This is the system prompt, which sets the objective and background before the call."
+          },
+          "functions": {
+            "description": "These are the functions that the agent can execute during the call.",
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/OpenAIFunction" }
+          },
+          "callbackUrl": {
+            "type": "string",
+            "description": "This is the URL Vapi will send GET / POST requests for retrieving context, function calling, and end-of-call reports. All requests will be sent with customerPhoneNumber, botPhoneNumber, and all the agent parameters.\n\nFunction Calling POST Request:\nWhen the agent wants to call a function, we'll POST your callbackURL with `name` and `arguments`.\nRespond with a JSON object of the result. For example: `{ result: \"Hello world!\" }` or `{ result: { temperature: \"38 degrees\" } }`. If empty, return `{}.\n\nEnd-of-Call Report POST Request:\nYou'll get `transcript`, `recordingUrl` and `summary` of the call.\n\nContext Retrieval GET Request:\nIf the agent's context isn't set, it'll ask for context before starting the call. Respond with `{ context: \"You are an assistant...\" }`"
+          },
+          "forwardingPhoneNumber": {
+            "type": "string",
+            "description": "This is the number the agent will transfer to if it runs into any issues."
+          },
+          "startTalking": {
+            "type": "boolean",
+            "description": "Whether the AI should talk first when the call is connected."
+          }
+        }
+      },
+      "CreateOutboundCallDto": {
+        "type": "object",
+        "properties": {
+          "agentId": {
+            "type": "string",
+            "description": "This is the agent that will be used for the call. To create a transient agent, use `agent` instead."
+          },
+          "agent": {
+            "description": "This is the agent that will be used for the call. To use an existing agent, use `agentId` instead.",
+            "allOf": [{ "$ref": "#/components/schemas/CreateAgentDTO" }]
+          },
+          "phoneNumberId": {
+            "type": "string",
+            "description": "This is the phone number that will be used for the call."
+          },
+          "customerPhoneNumber": {
+            "type": "string",
+            "description": "This is the number that will be called."
+          }
+        },
+        "required": ["phoneNumberId", "customerPhoneNumber"]
+      },
+      "CreateWebCallDto": {
+        "type": "object",
+        "properties": {
+          "agentId": {
+            "type": "string",
+            "description": "This is the agent that will be used for the call. To create a transient agent, use `agent` instead."
+          },
+          "agent": {
+            "description": "This is the agent that will be used for the call. To use an existing agent, use `agentId` instead.",
+            "allOf": [{ "$ref": "#/components/schemas/CreateAgentDTO" }]
+          }
+        }
+      },
+      "WebCallResponseDto": {
+        "type": "object",
+        "properties": {
+          "url": { "type": "string" },
+          "callId": { "type": "string" }
+        },
+        "required": ["url", "callId"]
+      },
+      "Agent": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "type": "string",
+            "description": "This is the OpenAI model that will be used.",
+            "enum": ["gpt-4-32k", "gpt-4", "gpt-3.5-turbo-16k", "gpt-3.5-turbo"]
+          },
+          "voice": {
+            "type": "string",
+            "description": "This is the voice that will be used.\n\nPro Voices: steve, joseph, myra, paula, drew, phillip, paul, and mrb.\n\nBasic Voices: davis, jenny, aria, steffan, sara, and jason.",
+            "enum": [
+              "burt",
+              "phillip",
+              "steve",
+              "joseph",
+              "myra",
+              "paula",
+              "ryan",
+              "drew",
+              "paul",
+              "mrb",
+              "matilda",
+              "davis",
+              "jenny",
+              "aria",
+              "steffan",
+              "sara",
+              "jason"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the agent."
+          },
+          "orgId": {
+            "type": "string",
+            "description": "Unique identifier for the organization that this agent belongs to."
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "ISO 8601 date-time string of when the agent was created."
+          },
+          "updatedAt": {
+            "type": "string",
+            "description": "ISO 8601 date-time string of when the agent was last updated."
+          },
+          "name": {
+            "type": "string",
+            "description": "This is the agent’s name, just for your own reference."
+          },
+          "context": {
+            "type": "string",
+            "description": "This is the system prompt, which sets the objective and background before the call."
+          },
+          "functions": {
+            "description": "These are the functions that the agent can execute during the call.",
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/OpenAIFunction" }
+          },
+          "callbackUrl": {
+            "type": "string",
+            "description": "This is the URL Vapi will send GET / POST requests for retrieving context, function calling, and end-of-call reports. All requests will be sent with customerPhoneNumber, botPhoneNumber, and all the agent parameters.\n\nFunction Calling POST Request:\nWhen the agent wants to call a function, we'll POST your callbackURL with `name` and `arguments`.\nRespond with a JSON object of the result. For example: `{ result: \"Hello world!\" }` or `{ result: { temperature: \"38 degrees\" } }`. If empty, return `{}.\n\nEnd-of-Call Report POST Request:\nYou'll get `transcript`, `recordingUrl` and `summary` of the call.\n\nContext Retrieval GET Request:\nIf the agent's context isn't set, it'll ask for context before starting the call. Respond with `{ context: \"You are an assistant...\" }`"
+          },
+          "forwardingPhoneNumber": {
+            "type": "string",
+            "description": "This is the number the agent will transfer to if it runs into any issues."
+          },
+          "startTalking": {
+            "type": "boolean",
+            "description": "Whether the AI should talk first when the call is connected."
+          }
+        },
+        "required": ["id", "orgId", "createdAt", "updatedAt"]
+      },
+      "UpdateAgentDTO": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "type": "string",
+            "description": "This is the OpenAI model that will be used.",
+            "enum": ["gpt-4-32k", "gpt-4", "gpt-3.5-turbo-16k", "gpt-3.5-turbo"]
+          },
+          "voice": {
+            "type": "string",
+            "description": "This is the voice that will be used.\n\nPro Voices: steve, joseph, myra, paula, drew, phillip, paul, and mrb.\n\nBasic Voices: davis, jenny, aria, steffan, sara, and jason.",
+            "enum": [
+              "burt",
+              "phillip",
+              "steve",
+              "joseph",
+              "myra",
+              "paula",
+              "ryan",
+              "drew",
+              "paul",
+              "mrb",
+              "matilda",
+              "davis",
+              "jenny",
+              "aria",
+              "steffan",
+              "sara",
+              "jason"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "description": "This is the agent’s name, just for your own reference."
+          },
+          "context": {
+            "type": "string",
+            "description": "This is the system prompt, which sets the objective and background before the call."
+          },
+          "functions": {
+            "description": "These are the functions that the agent can execute during the call.",
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/OpenAIFunction" }
+          },
+          "callbackUrl": {
+            "type": "string",
+            "description": "This is the URL Vapi will send GET / POST requests for retrieving context, function calling, and end-of-call reports. All requests will be sent with customerPhoneNumber, botPhoneNumber, and all the agent parameters.\n\nFunction Calling POST Request:\nWhen the agent wants to call a function, we'll POST your callbackURL with `name` and `arguments`.\nRespond with a JSON object of the result. For example: `{ result: \"Hello world!\" }` or `{ result: { temperature: \"38 degrees\" } }`. If empty, return `{}.\n\nEnd-of-Call Report POST Request:\nYou'll get `transcript`, `recordingUrl` and `summary` of the call.\n\nContext Retrieval GET Request:\nIf the agent's context isn't set, it'll ask for context before starting the call. Respond with `{ context: \"You are an assistant...\" }`"
+          },
+          "forwardingPhoneNumber": {
+            "type": "string",
+            "description": "This is the number the agent will transfer to if it runs into any issues."
+          },
+          "startTalking": {
+            "type": "boolean",
+            "description": "Whether the AI should talk first when the call is connected."
+          }
+        }
+      },
+      "BuyPhoneNumberDto": {
+        "type": "object",
+        "properties": {
+          "areaCode": {
+            "type": "string",
+            "description": "This is the area code of the phone number to purchase."
+          },
+          "agentId": { "type": "string" }
+        },
+        "required": ["areaCode"]
+      },
+      "PhoneNumber": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "createdAt": { "type": "string" },
+          "updatedAt": { "type": "string" },
+          "orgId": { "type": "string" },
+          "stripeSubscriptionId": { "type": "string" },
+          "number": { "type": "string" },
+          "agentId": { "type": "string" },
+          "twilioAccountSid": { "type": "string" },
+          "twilioAuthToken": { "type": "string" }
+        },
+        "required": [
+          "id",
+          "createdAt",
+          "updatedAt",
+          "orgId",
+          "number",
+          "twilioAccountSid",
+          "twilioAuthToken"
+        ]
+      },
+      "ImportTwilioPhoneNumberDto": {
+        "type": "object",
+        "properties": {
+          "twilioAccountSid": {
+            "type": "string",
+            "description": "This is the area code of the phone number to purchase."
+          },
+          "twilioAuthToken": { "type": "string" },
+          "twilioPhoneNumber": { "type": "string" },
+          "agentId": { "type": "string" }
+        },
+        "required": ["twilioAccountSid", "twilioAuthToken", "twilioPhoneNumber"]
+      },
+      "UpdatePhoneNumberDto": {
+        "type": "object",
+        "properties": {
+          "agentId": {
+            "type": "string",
+            "description": "This is the agent that will be used to handle inbound calls to this phone number."
+          }
+        }
+      }
+    }
+  }
+}
