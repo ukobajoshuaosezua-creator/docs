@@ -81,13 +81,13 @@
       ]
     },
     {
-      "group": "Agents",
+      "group": "Assistants",
       "pages": [
-        "api-reference/agents/list-agents",
-        "api-reference/agents/create-agent",
-        "api-reference/agents/get-agent",
-        "api-reference/agents/delete-agent",
-        "api-reference/agents/update-agent"
+        "api-reference/assistants/list-assistants",
+        "api-reference/assistants/create-assistant",
+        "api-reference/assistants/get-assistant",
+        "api-reference/assistants/delete-assistant",
+        "api-reference/assistants/update-assistant"
       ]
     },
     {

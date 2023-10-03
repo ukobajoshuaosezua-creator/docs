@@ -6,11 +6,11 @@ description: "Learn how to set up your server to handle function calls from Vapi
 
 ## Callback URL
 
-As part of the `Agent`, you can optionally specify a `callbackUrl`. This is your server's URL that the agent will use when retreiving context, performing function calls, and sending call summaries / recordings.
+As part of the `Assistant`, you can optionally specify a `callbackUrl`. This is your server's URL that the assistant will use when retreiving context, performing function calls, and sending call summaries / recordings.
 
 ### Retreiving Context
 
-This is for if you need to customize the agent's context by retrieving it from your server. If `callbackUrl` is specified and `context` is not, the agent will make a `GET` request to the `callbackUrl` with the `customerPhoneNumber` and `agentId` as query parameters. Your server should respond with a JSON object containing the context, like so:
+This is for if you need to customize the assistant's context by retrieving it from your server. If `callbackUrl` is specified and `context` is not, the assistant will make a `GET` request to the `callbackUrl` with the `customerPhoneNumber` and `assistantId` as query parameters. Your server should respond with a JSON object containing the context, like so:
 
 ```json
 {
@@ -20,9 +20,9 @@ This is for if you need to customize the agent's context by retrieving it from y
 
 ### Function Calling
 
-Vapi fully supports [OpenAI's function calling API](https://platform.openai.com/docs/guides/gpt/function-calling), so you can have agents ping your server to perform actions like sending emails, retrieve information, and more. GPT-4 will automatically determine what functions to call based on the context you provide and the user's input.
+Vapi fully supports [OpenAI's function calling API](https://platform.openai.com/docs/guides/gpt/function-calling), so you can have assistants ping your server to perform actions like sending emails, retrieve information, and more. GPT-4 will automatically determine what functions to call based on the context you provide and the user's input.
 
-If `functions` are defined on the agent, it will use the `callbackUrl` to make a `POST` request with the following body:
+If `functions` are defined on the assistant, it will use the `callbackUrl` to make a `POST` request with the following body:
 
 <Snippet file="function.body.mdx" />
 
@@ -36,6 +36,6 @@ Your server should respond with a JSON object containing the function's response
 
 ### End of Call Report
 
-When a call ends, the agent will make a `POST` request to the `callbackUrl` with the following body:
+When a call ends, the assistant will make a `POST` request to the `callbackUrl` with the following body:
 
 <Snippet file="end.body.mdx" />

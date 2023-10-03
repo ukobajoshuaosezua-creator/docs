@@ -19,7 +19,7 @@
 </ParamField>
 
 <ParamField body="forwardingPhoneNumber" type="string" default="null">
-  This is the number the agent will transfer to if it runs into any issues.
+  This is the number the assistant will transfer to if it runs into any issues.
 </ParamField>
 
 <ParamField body="callbackUrl" type="string" default="null">
@@ -30,7 +30,7 @@ For function calling, respond with a JSON object of the result. If empty, return
   <Expandable title="Function Calling Callback Object">
 
     <ResponseField name="name" type="string">
-      This is the name of the function the agent wants to invoke.
+      This is the name of the function the assistant wants to invoke.
     </ResponseField>
 
     <ResponseField name="arguments" type="object">
@@ -58,8 +58,8 @@ For function calling, respond with a JSON object of the result. If empty, return
 </ParamField>
 
 <ParamField body="voice" type="string" default="joseph">
-  This is the voice that the agent will use. Options are `joseph`, `phillip`,
-  `sarah`, `joanne`, `mark`, and `maya`.
+  This is the voice that the assistant will use. Options are `joseph`,
+  `phillip`, `sarah`, `joanne`, `mark`, and `maya`.
 </ParamField>
 
 <ParamField body="model" type="string" default="gpt-4">
@@ -94,5 +94,5 @@ For function calling, respond with a JSON object of the result. If empty, return
 </ParamField>
 
 <ParamField body="acceptInbound" type="boolean" default="false">
-  This controls whether the agent accepts calls.
+  This controls whether the assistant accepts calls.
 </ParamField>

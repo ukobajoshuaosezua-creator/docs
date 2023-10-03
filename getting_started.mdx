@@ -1,24 +1,24 @@
 ---
 title: "Getting Started 🚀"
 sidebarTitle: "Getting Started"
-description: "Learn how to set up agents, phone numbers, and create calls."
+description: "Learn how to set up assistants, phone numbers, and create calls."
 ---
 
 ## Signing Up
 
 You can sign up [here](https://dashboard.vapi.ai) using the traditional method of email plus password or sign up using Google OAuth. Once you sign up, you will be redirected to the dashboard.
 
-From the dashboard, you can create agents, set up phone numbers, view your call history, and more. Your API keys can be found in the **Account** page.
+From the dashboard, you can create assistants, set up phone numbers, view your call history, and more. Your API keys can be found in the **Account** page.
 
-## Creating an Agent
+## Creating an Assistant
 
-`Agent` is a fancy word for an AI configuration that can be used in both web and phone calls.
+`Assistant` is a fancy word for an AI configuration that can be used in both web and phone calls.
 
-You can specify the agent's voice, context, and other properties. You can use an agent's `id` when creating a call or create a `PhoneNumber` that will use the agent when receiving inbound calls.
+You can specify the assistant's voice, context, and other properties. You can use an assistant's `id` when creating a call or create a `PhoneNumber` that will use the assistant when receiving inbound calls.
 
 ## Set up a Phone Number
 
-You can set up a phone number to place and receive phone calls. Phone numbers can be bought directly through Vapi or you use your own from Twilio. You can provide an `agentId` to a phone number so that it will use the agent when receiving inbound calls.
+You can set up a phone number to place and receive phone calls. Phone numbers can be bought directly through Vapi or you use your own from Twilio. You can provide an `assistantId` to a phone number so that it will use the assistant when receiving inbound calls.
 
 You can buy a phone number through the dashboard or use the [`/phone-numbers/buy`](/api-reference/phone-numbers/buy-phone-number)` endpoint.
 
@@ -26,8 +26,8 @@ If you want to use your own phone number, you can also use the dashboard or the 
 
 ### Placing an Outbound Call
 
-You can place an outbound call from one of your phone numbers using the [`/call/phone`](/api-reference/call/phone) endpoint. If the context will be different with every call, you can specify a temporary agent in the `agent` field. If you want to reuse an agent, you can specify it's ID in the `agentId` field.
+You can place an outbound call from one of your phone numbers using the [`/call/phone`](/api-reference/call/phone) endpoint. If the context will be different with every call, you can specify a temporary assistant in the `assistant` field. If you want to reuse an assistant, you can specify it's ID in the `assistantId` field.
 
 ## Set up the Web SDK
 
-You can use the [Web SDK](https://github.com/VapiAI/web) to add Vapi agents to your webapp. Just like with phone numbers, you can specify an agent and provide functions it can use to interact with your server and/or webapp.
+You can use the [Web SDK](https://github.com/VapiAI/web) to add Vapi assistants to your webapp. Just like with phone numbers, you can specify an assistant and provide functions it can use to interact with your server and/or webapp.

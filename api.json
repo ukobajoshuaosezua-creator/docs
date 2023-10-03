@@ -99,16 +99,16 @@
         "tags": ["Calls"]
       }
     },
-    "/agent": {
+    "/assistant": {
       "post": {
-        "operationId": "AgentController_create",
-        "summary": "Create Agent",
+        "operationId": "AssistantController_create",
+        "summary": "Create Assistant",
         "parameters": [],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
-              "schema": { "$ref": "#/components/schemas/CreateAgentDTO" }
+              "schema": { "$ref": "#/components/schemas/CreateAssistantDTO" }
             }
           }
         },
@@ -117,16 +117,16 @@
             "description": "",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/Agent" }
+                "schema": { "$ref": "#/components/schemas/Assistant" }
               }
             }
           }
         },
-        "tags": ["Agents"]
+        "tags": ["Assistants"]
       },
       "get": {
-        "operationId": "AgentController_findAll",
-        "summary": "List Agents",
+        "operationId": "AssistantController_findAll",
+        "summary": "List Assistants",
         "parameters": [],
         "responses": {
           "200": {
@@ -135,19 +135,19 @@
               "application/json": {
                 "schema": {
                   "type": "array",
-                  "items": { "$ref": "#/components/schemas/Agent" }
+                  "items": { "$ref": "#/components/schemas/Assistant" }
                 }
               }
             }
           }
         },
-        "tags": ["Agents"]
+        "tags": ["Assistants"]
       }
     },
-    "/agent/{id}": {
+    "/assistant/{id}": {
       "get": {
-        "operationId": "AgentController_findOne",
-        "summary": "Get Agent",
+        "operationId": "AssistantController_findOne",
+        "summary": "Get Assistant",
         "parameters": [
           {
             "name": "id",
@@ -161,16 +161,16 @@
             "description": "",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/Agent" }
+                "schema": { "$ref": "#/components/schemas/Assistant" }
               }
             }
           }
         },
-        "tags": ["Agents"]
+        "tags": ["Assistants"]
       },
       "patch": {
-        "operationId": "AgentController_update",
-        "summary": "Update Agent",
+        "operationId": "AssistantController_update",
+        "summary": "Update Assistant",
         "parameters": [
           {
             "name": "id",
@@ -183,7 +183,7 @@
           "required": true,
           "content": {
             "application/json": {
-              "schema": { "$ref": "#/components/schemas/UpdateAgentDTO" }
+              "schema": { "$ref": "#/components/schemas/UpdateAssistantDTO" }
             }
           }
         },
@@ -192,7 +192,7 @@
             "description": "",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/Agent" }
+                "schema": { "$ref": "#/components/schemas/Assistant" }
               }
             }
           },
@@ -200,16 +200,16 @@
             "description": "",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/Agent" }
+                "schema": { "$ref": "#/components/schemas/Assistant" }
               }
             }
           }
         },
-        "tags": ["Agents"]
+        "tags": ["Assistants"]
       },
       "delete": {
-        "operationId": "AgentController_remove",
-        "summary": "Delete Agent",
+        "operationId": "AssistantController_remove",
+        "summary": "Delete Assistant",
         "parameters": [
           {
             "name": "id",
@@ -222,7 +222,7 @@
           "200": { "description": "" },
           "204": { "description": "" }
         },
-        "tags": ["Agents"]
+        "tags": ["Assistants"]
       }
     },
     "/phone-number/buy": {
@@ -411,7 +411,7 @@
           "orgId": { "type": "string" },
           "createdAt": { "type": "string" },
           "updatedAt": { "type": "string" },
-          "agentId": { "type": "string" },
+          "assistantId": { "type": "string" },
           "customerId": { "type": "string" },
           "phoneNumberId": { "type": "string" },
           "startedAt": { "type": "string" },
@@ -420,7 +420,7 @@
           "recordingUrl": { "type": "string" },
           "cost": { "type": "number" },
           "summary": { "type": "string" },
-          "agentParams": { "type": "object" },
+          "assistantParams": { "type": "object" },
           "callParams": { "$ref": "#/components/schemas/PhoneCallParams" }
         },
         "required": [
@@ -461,7 +461,7 @@
         },
         "required": ["name", "parameters"]
       },
-      "CreateAgentDTO": {
+      "CreateAssistantDTO": {
         "type": "object",
         "properties": {
           "model": {
@@ -494,24 +494,24 @@
           },
           "name": {
             "type": "string",
-            "description": "This is the agent’s name, just for your own reference."
+            "description": "This is the assistant’s name, just for your own reference."
           },
           "context": {
             "type": "string",
             "description": "This is the system prompt, which sets the objective and background before the call."
           },
           "functions": {
-            "description": "These are the functions that the agent can execute during the call.",
+            "description": "These are the functions that the assistant can execute during the call.",
             "type": "array",
             "items": { "$ref": "#/components/schemas/OpenAIFunction" }
           },
           "callbackUrl": {
             "type": "string",
-            "description": "This is the URL Vapi will send GET / POST requests for retrieving context, function calling, and end-of-call reports. All requests will be sent with customerPhoneNumber and all the agent parameters. You can find more details in the Function Calling documentation."
+            "description": "This is the URL Vapi will send GET / POST requests for retrieving context, function calling, and end-of-call reports. All requests will be sent with customerPhoneNumber and all the assistant parameters. You can find more details in the Function Calling documentation."
           },
           "forwardingPhoneNumber": {
             "type": "string",
-            "description": "This is the number the agent will transfer to if it runs into any issues."
+            "description": "This is the number the assistant will transfer to if it runs into any issues."
           },
           "startTalking": {
             "type": "boolean",
@@ -522,13 +522,13 @@
       "CreateOutboundCallDto": {
         "type": "object",
         "properties": {
-          "agentId": {
+          "assistantId": {
             "type": "string",
-            "description": "This is the agent that will be used for the call. To create a transient agent, use `agent` instead."
+            "description": "This is the assistant that will be used for the call. To create a transient assistant, use `assistant` instead."
           },
-          "agent": {
-            "description": "This is the agent that will be used for the call. To use an existing agent, use `agentId` instead.",
-            "allOf": [{ "$ref": "#/components/schemas/CreateAgentDTO" }]
+          "assistant": {
+            "description": "This is the assistant that will be used for the call. To use an existing assistant, use `assistantId` instead.",
+            "allOf": [{ "$ref": "#/components/schemas/CreateAssistantDTO" }]
           },
           "phoneNumberId": {
             "type": "string",
@@ -544,13 +544,13 @@
       "CreateWebCallDto": {
         "type": "object",
         "properties": {
-          "agentId": {
+          "assistantId": {
             "type": "string",
-            "description": "This is the agent that will be used for the call. To create a transient agent, use `agent` instead."
+            "description": "This is the assistant that will be used for the call. To create a transient assistant, use `assistant` instead."
           },
-          "agent": {
-            "description": "This is the agent that will be used for the call. To use an existing agent, use `agentId` instead.",
-            "allOf": [{ "$ref": "#/components/schemas/CreateAgentDTO" }]
+          "assistant": {
+            "description": "This is the assistant that will be used for the call. To use an existing assistant, use `assistantId` instead.",
+            "allOf": [{ "$ref": "#/components/schemas/CreateAssistantDTO" }]
           }
         }
       },
@@ -562,7 +562,7 @@
         },
         "required": ["url", "callId"]
       },
-      "Agent": {
+      "Assistant": {
         "type": "object",
         "properties": {
           "model": {
@@ -595,40 +595,40 @@
           },
           "id": {
             "type": "string",
-            "description": "Unique identifier for the agent."
+            "description": "Unique identifier for the assistant."
           },
           "orgId": {
             "type": "string",
-            "description": "Unique identifier for the organization that this agent belongs to."
+            "description": "Unique identifier for the organization that this assistant belongs to."
           },
           "createdAt": {
             "type": "string",
-            "description": "ISO 8601 date-time string of when the agent was created."
+            "description": "ISO 8601 date-time string of when the assistant was created."
           },
           "updatedAt": {
             "type": "string",
-            "description": "ISO 8601 date-time string of when the agent was last updated."
+            "description": "ISO 8601 date-time string of when the assistant was last updated."
           },
           "name": {
             "type": "string",
-            "description": "This is the agent’s name, just for your own reference."
+            "description": "This is the assistant’s name, just for your own reference."
           },
           "context": {
             "type": "string",
             "description": "This is the system prompt, which sets the objective and background before the call."
           },
           "functions": {
-            "description": "These are the functions that the agent can execute during the call.",
+            "description": "These are the functions that the assistant can execute during the call.",
             "type": "array",
             "items": { "$ref": "#/components/schemas/OpenAIFunction" }
           },
           "callbackUrl": {
             "type": "string",
-            "description": "This is the URL Vapi will send GET / POST requests for retrieving context, function calling, and end-of-call reports. All requests will be sent with customerPhoneNumber and all the agent parameters. You can find more details in the Function Calling documentation."
+            "description": "This is the URL Vapi will send GET / POST requests for retrieving context, function calling, and end-of-call reports. All requests will be sent with customerPhoneNumber and all the assistant parameters. You can find more details in the Function Calling documentation."
           },
           "forwardingPhoneNumber": {
             "type": "string",
-            "description": "This is the number the agent will transfer to if it runs into any issues."
+            "description": "This is the number the assistant will transfer to if it runs into any issues."
           },
           "startTalking": {
             "type": "boolean",
@@ -637,7 +637,7 @@
         },
         "required": ["id", "orgId", "createdAt", "updatedAt"]
       },
-      "UpdateAgentDTO": {
+      "UpdateAssistantDTO": {
         "type": "object",
         "properties": {
           "model": {
@@ -670,24 +670,24 @@
           },
           "name": {
             "type": "string",
-            "description": "This is the agent’s name, just for your own reference."
+            "description": "This is the assistant’s name, just for your own reference."
           },
           "context": {
             "type": "string",
             "description": "This is the system prompt, which sets the objective and background before the call."
           },
           "functions": {
-            "description": "These are the functions that the agent can execute during the call.",
+            "description": "These are the functions that the assistant can execute during the call.",
             "type": "array",
             "items": { "$ref": "#/components/schemas/OpenAIFunction" }
           },
           "callbackUrl": {
             "type": "string",
-            "description": "This is the URL Vapi will send GET / POST requests for retrieving context, function calling, and end-of-call reports. All requests will be sent with customerPhoneNumber and all the agent parameters. You can find more details in the Function Calling documentation."
+            "description": "This is the URL Vapi will send GET / POST requests for retrieving context, function calling, and end-of-call reports. All requests will be sent with customerPhoneNumber and all the assistant parameters. You can find more details in the Function Calling documentation."
           },
           "forwardingPhoneNumber": {
             "type": "string",
-            "description": "This is the number the agent will transfer to if it runs into any issues."
+            "description": "This is the number the assistant will transfer to if it runs into any issues."
           },
           "startTalking": {
             "type": "boolean",
@@ -702,7 +702,7 @@
             "type": "string",
             "description": "This is the area code of the phone number to purchase."
           },
-          "agentId": { "type": "string" }
+          "assistantId": { "type": "string" }
         },
         "required": ["areaCode"]
       },
@@ -715,7 +715,7 @@
           "orgId": { "type": "string" },
           "stripeSubscriptionId": { "type": "string" },
           "number": { "type": "string" },
-          "agentId": { "type": "string" },
+          "assistantId": { "type": "string" },
           "twilioAccountSid": { "type": "string" },
           "twilioAuthToken": { "type": "string" }
         },
@@ -738,16 +738,16 @@
           },
           "twilioAuthToken": { "type": "string" },
           "twilioPhoneNumber": { "type": "string" },
-          "agentId": { "type": "string" }
+          "assistantId": { "type": "string" }
         },
         "required": ["twilioAccountSid", "twilioAuthToken", "twilioPhoneNumber"]
       },
       "UpdatePhoneNumberDto": {
         "type": "object",
         "properties": {
-          "agentId": {
+          "assistantId": {
             "type": "string",
-            "description": "This is the agent that will be used to handle inbound calls to this phone number."
+            "description": "This is the assistant that will be used to handle inbound calls to this phone number."
           }
         }
       }
