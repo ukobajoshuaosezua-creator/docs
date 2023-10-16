@@ -43,11 +43,6 @@
       "icon": "gauge-max"
     },
     {
-      "name": "Web SDK",
-      "url": "https://github.com/VapiAI/web",
-      "icon": "browser"
-    },
-    {
       "name": "Support",
       "url": "mailto:support@vapi.ai",
       "icon": "comments-question"
