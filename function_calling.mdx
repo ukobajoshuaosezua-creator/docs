@@ -34,7 +34,7 @@ Your server should respond with a JSON object containing the function's response
 
 ### Call Status Updates
 
-When a call ends, the assistant will make a `POST` request to the `callbackUrl` with the following body:
+During the call, the assistant will make multiple `POST` requests to the `callbackUrl` with the following body:
 
 ```json
 { "status": "started" }
