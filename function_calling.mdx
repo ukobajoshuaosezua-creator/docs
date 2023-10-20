@@ -1,10 +1,8 @@
 ---
-title: "Function Calling 🧠"
-sidebarTitle: "Function Calling"
-description: "Learn how to set up your server to handle function calls from Vapi."
+title: "Callback URL 🧠"
+sidebarTitle: "Callback URL"
+description: "Learn how to set up your server to receive and respond to messages from Vapi."
 ---
-
-## Callback URL
 
 As part of the `Assistant`, you can optionally specify a `callbackUrl`. This is your server's URL that the assistant will use when retreiving context, performing function calls, and sending call summaries / recordings.
 
@@ -34,8 +32,29 @@ Your server should respond with a JSON object containing the function's response
 }
 ```
 
+### Call Status Updates
+
+When a call ends, the assistant will make a `POST` request to the `callbackUrl` with the following body:
+
+```json
+{ "status": "started" }
+```
+
+The status events are:
+
+- `started`: The call has started.
+- `voicemail`: The call has been sent to voicemail.
+- `transfer`: The call has been transferred.
+- `ended`: The call has ended.
+
 ### End of Call Report
 
 When a call ends, the assistant will make a `POST` request to the `callbackUrl` with the following body:
 
-<Snippet file="end.body.mdx" />
+```json
+{
+  "transcript": "Hello there!...",
+  "summary": "The assistant started the call by saying...",
+  "recordingUrl": "https://vapi-public.s3.amazonaws.com/recordings/1234.mp3"
+}
+```
