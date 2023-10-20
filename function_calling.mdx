@@ -11,9 +11,7 @@ As part of the `Assistant`, you can optionally specify a `callbackUrl`. This is 
 This is for if you need to customize the assistant's context by retrieving it from your server. If `callbackUrl` is specified and `context` is not, the assistant will make a `GET` request to the `callbackUrl` with the `customerPhoneNumber` and `assistantId` as query parameters. Your server should respond with a JSON object containing the context, like so:
 
 ```json
-{
-  "context": "You are an assistant at a law firm. You are calling to confirm an appointment with a client."
-}
+{ "context": "You are an assistant at a law firm. You are calling to..." }
 ```
 
 ### Function Calling
@@ -27,9 +25,7 @@ If `functions` are defined on the assistant, it will use the `callbackUrl` to ma
 Your server should respond with a JSON object containing the function's response, like so:
 
 ```json
-{
-  "result": "Your email has been sent."
-}
+{ "result": "Your email has been sent." }
 ```
 
 ### Call Status Updates
