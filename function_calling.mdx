@@ -28,6 +28,8 @@ Your server should respond with a JSON object containing the function's response
 { "result": "Your email has been sent." }
 ```
 
+The result will be appended to the conversation, and the assistant will decide what to do with the response based on its context.
+
 ### Call Status Updates
 
 During the call, the assistant will make multiple `POST` requests to the `callbackUrl` with the following body:
