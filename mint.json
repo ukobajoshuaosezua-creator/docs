@@ -59,12 +59,12 @@
       ]
     },
     {
+      "group": "Links",
+      "pages": ["privacy", "tos"]
+    },
+    {
       "group": "",
-      "pages": [
-        "api-reference/swagger",
-        "api-reference/openapi",
-        "api-reference/postman"
-      ]
+      "pages": ["api-reference/swagger", "api-reference/openapi"]
     },
     {
       "group": "Calls",
