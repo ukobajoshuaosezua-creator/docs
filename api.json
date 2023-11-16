@@ -495,7 +495,7 @@
           },
           "customLlmUrl": {
             "type": "string",
-            "description": "If you are using a custom LLM, this is the URL Vapi will use instead of hitting OpenAI.\n\nA POST request will be sent with an array of messages, and the response should be a stream\nof tokens, like so:\n\n```\n{ type: 'start' }\n{ type: 'output', output: 'Hello' }\n{ type: 'output', output: ' World.' }\n{ type: 'end' }\n```"
+            "description": "If you are using a custom LLM, this is the URL Vapi will use instead of hitting OpenAI.\n\nA POST request will be sent with an array of messages, and the response should be like so:\n\n```\n{ message: \"Oh hey! How are...\" }\n```"
           },
           "forwardingPhoneNumber": {
             "type": "string",
@@ -765,7 +765,7 @@
           },
           "customLlmUrl": {
             "type": "string",
-            "description": "If you are using a custom LLM, this is the URL Vapi will use instead of hitting OpenAI.\n\nA POST request will be sent with an array of messages, and the response should be a stream\nof tokens, like so:\n\n```\n{ type: 'start' }\n{ type: 'output', output: 'Hello' }\n{ type: 'output', output: ' World.' }\n{ type: 'end' }\n```"
+            "description": "If you are using a custom LLM, this is the URL Vapi will use instead of hitting OpenAI.\n\nA POST request will be sent with an array of messages, and the response should be like so:\n\n```\n{ message: \"Oh hey! How are...\" }\n```"
           },
           "forwardingPhoneNumber": {
             "type": "string",
@@ -868,7 +868,7 @@
           },
           "customLlmUrl": {
             "type": "string",
-            "description": "If you are using a custom LLM, this is the URL Vapi will use instead of hitting OpenAI.\n\nA POST request will be sent with an array of messages, and the response should be a stream\nof tokens, like so:\n\n```\n{ type: 'start' }\n{ type: 'output', output: 'Hello' }\n{ type: 'output', output: ' World.' }\n{ type: 'end' }\n```"
+            "description": "If you are using a custom LLM, this is the URL Vapi will use instead of hitting OpenAI.\n\nA POST request will be sent with an array of messages, and the response should be like so:\n\n```\n{ message: \"Oh hey! How are...\" }\n```"
           },
           "forwardingPhoneNumber": {
             "type": "string",
