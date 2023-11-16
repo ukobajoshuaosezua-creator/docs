@@ -493,6 +493,10 @@
             "type": "string",
             "description": "This is the URL Vapi will send GET / POST requests for retrieving context, function calling, and end-of-call reports.\n\nAll requests will be sent with customerPhoneNumber and all the assistant parameters. You can find more details in the Function Calling documentation."
           },
+          "customLlmUrl": {
+            "type": "string",
+            "description": "If you are using a custom LLM, this is the URL Vapi will use instead of hitting OpenAI.\n\nA POST request will be sent with an array of messages, and the response should be a stream\nof tokens, like so:\n\n```\n{ type: 'start' }\n{ type: 'output', output: 'Hello' }\n{ type: 'output', output: ' World.' }\n{ type: 'end' }\n```"
+          },
           "forwardingPhoneNumber": {
             "type": "string",
             "description": "This is the number to forward to if assistant runs into issues."
@@ -759,6 +763,10 @@
             "type": "string",
             "description": "This is the URL Vapi will send GET / POST requests for retrieving context, function calling, and end-of-call reports.\n\nAll requests will be sent with customerPhoneNumber and all the assistant parameters. You can find more details in the Function Calling documentation."
           },
+          "customLlmUrl": {
+            "type": "string",
+            "description": "If you are using a custom LLM, this is the URL Vapi will use instead of hitting OpenAI.\n\nA POST request will be sent with an array of messages, and the response should be a stream\nof tokens, like so:\n\n```\n{ type: 'start' }\n{ type: 'output', output: 'Hello' }\n{ type: 'output', output: ' World.' }\n{ type: 'end' }\n```"
+          },
           "forwardingPhoneNumber": {
             "type": "string",
             "description": "This is the number to forward to if assistant runs into issues."
@@ -857,6 +865,10 @@
           "callbackUrl": {
             "type": "string",
             "description": "This is the URL Vapi will send GET / POST requests for retrieving context, function calling, and end-of-call reports.\n\nAll requests will be sent with customerPhoneNumber and all the assistant parameters. You can find more details in the Function Calling documentation."
+          },
+          "customLlmUrl": {
+            "type": "string",
+            "description": "If you are using a custom LLM, this is the URL Vapi will use instead of hitting OpenAI.\n\nA POST request will be sent with an array of messages, and the response should be a stream\nof tokens, like so:\n\n```\n{ type: 'start' }\n{ type: 'output', output: 'Hello' }\n{ type: 'output', output: ' World.' }\n{ type: 'end' }\n```"
           },
           "forwardingPhoneNumber": {
             "type": "string",
