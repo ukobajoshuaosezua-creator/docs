@@ -97,5 +97,10 @@
       ]
     }
   ],
-  "openapi": "https://api.vapi.ai/api-json"
+  "openapi": "https://api.vapi.ai/api-json",
+  "feedback": {
+    "thumbsRating": true,
+    "suggestEdit": true,
+    "raiseIssue": true
+  }
 }
