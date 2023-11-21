@@ -97,8 +97,5 @@
       ]
     }
   ],
-  "api": {
-    "baseUrl": "https://api.vapi.ai"
-  },
   "openapi": "https://api.vapi.ai/api-json"
 }
