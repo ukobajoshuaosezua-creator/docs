@@ -391,7 +391,7 @@
     "contact": {}
   },
   "tags": [],
-  "servers": [],
+  "servers": [{ "url": "https://api.vapi.ai" }],
   "components": {
     "securitySchemes": {
       "bearer": {
@@ -402,11 +402,25 @@
       }
     },
     "schemas": {
-      "OpenAIFunctionParamaters": {
+      "OpenAIFunctionParameterProperty": {
         "type": "object",
         "properties": {
-          "type": { "type": "string" },
-          "properties": { "type": "object" },
+          "type": { "type": "string", "enum": ["string", "number", "boolean"] },
+          "enum": { "type": "array", "items": { "type": "string" } },
+          "description": { "type": "string" }
+        },
+        "required": ["type"]
+      },
+      "OpenAIFunctionParameters": {
+        "type": "object",
+        "properties": {
+          "type": { "type": "string", "enum": ["object"] },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/OpenAIFunctionParameterProperty"
+            }
+          },
           "required": { "type": "array", "items": { "type": "string" } }
         },
         "required": ["type", "properties"]
@@ -419,6 +433,10 @@
             "description": "This is the the name of the function to be called.\n\nMust be a-z, A-Z, 0-9, or contain underscores and dashes, with a maximum length of 64.",
             "maxLength": 64
           },
+          "async": {
+            "type": "boolean",
+            "description": "Setting async: true will cause the function to be called asynchronously, meaning that the Assistant will not wait for the function to return before continuing."
+          },
           "description": {
             "type": "string",
             "description": "This is the description of what the function does, used by the AI to choose when and how to call the function."
@@ -426,7 +444,7 @@
           "parameters": {
             "description": "These are the parameters the functions accepts, described as a JSON Schema object.\n\nSee the [OpenAI guide](https://platform.openai.com/docs/guides/gpt/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema) for documentation about the format.\n\nTo describe a function that accepts no parameters, provide the value {\"type\": \"object\", \"properties\": {}}.",
             "allOf": [
-              { "$ref": "#/components/schemas/OpenAIFunctionParamaters" }
+              { "$ref": "#/components/schemas/OpenAIFunctionParameters" }
             ]
           }
         },
@@ -438,7 +456,7 @@
           "model": {
             "type": "string",
             "description": "This is the OpenAI model that will be used.",
-            "enum": ["gpt-4-32k", "gpt-4", "gpt-3.5-turbo-16k", "gpt-3.5-turbo"]
+            "enum": ["gpt-4", "gpt-3.5-turbo"]
           },
           "voice": {
             "type": "string",
@@ -504,15 +522,19 @@
           "firstMessage": {
             "type": "string",
             "description": "This is the first message that the assistant will say.\n\nIf unspecified, it will wait for the user to speak.",
-            "maxLength": 280
+            "maxLength": 400
+          },
+          "interruptionsEnabled": {
+            "type": "boolean",
+            "description": "This sets whether the user can interrupt the assistant while it's speaking. Defaults to true."
           },
           "recordingEnabled": {
             "type": "boolean",
-            "description": "This sets whether calls are recorded for the assistant."
+            "description": "This sets whether calls are recorded for the assistant. Defaults to true."
           },
           "voicemailEnabled": {
             "type": "boolean",
-            "description": "This sets whether assistant leaves voicemails when call is not picked up."
+            "description": "This sets whether assistant leaves voicemails when call is not picked up. Defaults to true."
           }
         }
       },
@@ -708,7 +730,7 @@
           "model": {
             "type": "string",
             "description": "This is the OpenAI model that will be used.",
-            "enum": ["gpt-4-32k", "gpt-4", "gpt-3.5-turbo-16k", "gpt-3.5-turbo"]
+            "enum": ["gpt-4", "gpt-3.5-turbo"]
           },
           "voice": {
             "type": "string",
@@ -774,15 +796,19 @@
           "firstMessage": {
             "type": "string",
             "description": "This is the first message that the assistant will say.\n\nIf unspecified, it will wait for the user to speak.",
-            "maxLength": 280
+            "maxLength": 400
+          },
+          "interruptionsEnabled": {
+            "type": "boolean",
+            "description": "This sets whether the user can interrupt the assistant while it's speaking. Defaults to true."
           },
           "recordingEnabled": {
             "type": "boolean",
-            "description": "This sets whether calls are recorded for the assistant."
+            "description": "This sets whether calls are recorded for the assistant. Defaults to true."
           },
           "voicemailEnabled": {
             "type": "boolean",
-            "description": "This sets whether assistant leaves voicemails when call is not picked up."
+            "description": "This sets whether assistant leaves voicemails when call is not picked up. Defaults to true."
           },
           "id": {
             "type": "string",
@@ -811,7 +837,7 @@
           "model": {
             "type": "string",
             "description": "This is the OpenAI model that will be used.",
-            "enum": ["gpt-4-32k", "gpt-4", "gpt-3.5-turbo-16k", "gpt-3.5-turbo"]
+            "enum": ["gpt-4", "gpt-3.5-turbo"]
           },
           "voice": {
             "type": "string",
@@ -877,15 +903,19 @@
           "firstMessage": {
             "type": "string",
             "description": "This is the first message that the assistant will say.\n\nIf unspecified, it will wait for the user to speak.",
-            "maxLength": 280
+            "maxLength": 400
+          },
+          "interruptionsEnabled": {
+            "type": "boolean",
+            "description": "This sets whether the user can interrupt the assistant while it's speaking. Defaults to true."
           },
           "recordingEnabled": {
             "type": "boolean",
-            "description": "This sets whether calls are recorded for the assistant."
+            "description": "This sets whether calls are recorded for the assistant. Defaults to true."
           },
           "voicemailEnabled": {
             "type": "boolean",
-            "description": "This sets whether assistant leaves voicemails when call is not picked up."
+            "description": "This sets whether assistant leaves voicemails when call is not picked up. Defaults to true."
           }
         }
       },
