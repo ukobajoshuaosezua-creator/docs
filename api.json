@@ -524,6 +524,11 @@
             "description": "This is the first message that the assistant will say.\n\nIf unspecified, it will wait for the user to speak.",
             "maxLength": 400
           },
+          "voicemailMessage": {
+            "type": "string",
+            "description": "This is the message that the assistant will say if the call is forwarded to voicemail.\n\nIf unspecified, it will hang up.",
+            "maxLength": 400
+          },
           "interruptionsEnabled": {
             "type": "boolean",
             "description": "This sets whether the user can interrupt the assistant while it's speaking. Defaults to true."
@@ -531,10 +536,6 @@
           "recordingEnabled": {
             "type": "boolean",
             "description": "This sets whether calls are recorded for the assistant. Defaults to true."
-          },
-          "voicemailEnabled": {
-            "type": "boolean",
-            "description": "This sets whether assistant leaves voicemails when call is not picked up. Defaults to true."
           }
         }
       },
@@ -798,6 +799,11 @@
             "description": "This is the first message that the assistant will say.\n\nIf unspecified, it will wait for the user to speak.",
             "maxLength": 400
           },
+          "voicemailMessage": {
+            "type": "string",
+            "description": "This is the message that the assistant will say if the call is forwarded to voicemail.\n\nIf unspecified, it will hang up.",
+            "maxLength": 400
+          },
           "interruptionsEnabled": {
             "type": "boolean",
             "description": "This sets whether the user can interrupt the assistant while it's speaking. Defaults to true."
@@ -805,10 +811,6 @@
           "recordingEnabled": {
             "type": "boolean",
             "description": "This sets whether calls are recorded for the assistant. Defaults to true."
-          },
-          "voicemailEnabled": {
-            "type": "boolean",
-            "description": "This sets whether assistant leaves voicemails when call is not picked up. Defaults to true."
           },
           "id": {
             "type": "string",
@@ -905,6 +907,11 @@
             "description": "This is the first message that the assistant will say.\n\nIf unspecified, it will wait for the user to speak.",
             "maxLength": 400
           },
+          "voicemailMessage": {
+            "type": "string",
+            "description": "This is the message that the assistant will say if the call is forwarded to voicemail.\n\nIf unspecified, it will hang up.",
+            "maxLength": 400
+          },
           "interruptionsEnabled": {
             "type": "boolean",
             "description": "This sets whether the user can interrupt the assistant while it's speaking. Defaults to true."
@@ -912,10 +919,6 @@
           "recordingEnabled": {
             "type": "boolean",
             "description": "This sets whether calls are recorded for the assistant. Defaults to true."
-          },
-          "voicemailEnabled": {
-            "type": "boolean",
-            "description": "This sets whether assistant leaves voicemails when call is not picked up. Defaults to true."
           }
         }
       },
