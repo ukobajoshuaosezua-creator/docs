@@ -493,6 +493,27 @@
               "nova-rimeai"
             ]
           },
+          "language": {
+            "type": "string",
+            "description": "This sets the spoken language of the user. The assistant will do its best to respond in the same language.\nWhen using a language other than `en-*`, only `*-11labs` voices will pronounce the words correctly. There will also be ~1sec of additional latency.",
+            "enum": [
+              "en",
+              "en-US",
+              "en-AU",
+              "en-GB",
+              "en-NZ",
+              "en-IN",
+              "fr",
+              "fr-CA",
+              "de",
+              "hi",
+              "hi-Latn",
+              "pt",
+              "pt-BR",
+              "es",
+              "es-419"
+            ]
+          },
           "name": {
             "type": "string",
             "description": "This is the name of the assistant. This is just for your own reference.",
@@ -768,6 +789,27 @@
               "nova-rimeai"
             ]
           },
+          "language": {
+            "type": "string",
+            "description": "This sets the spoken language of the user. The assistant will do its best to respond in the same language.\nWhen using a language other than `en-*`, only `*-11labs` voices will pronounce the words correctly. There will also be ~1sec of additional latency.",
+            "enum": [
+              "en",
+              "en-US",
+              "en-AU",
+              "en-GB",
+              "en-NZ",
+              "en-IN",
+              "fr",
+              "fr-CA",
+              "de",
+              "hi",
+              "hi-Latn",
+              "pt",
+              "pt-BR",
+              "es",
+              "es-419"
+            ]
+          },
           "name": {
             "type": "string",
             "description": "This is the name of the assistant. This is just for your own reference.",
@@ -874,6 +916,27 @@
               "daphne-rimeai",
               "aurora-rimeai",
               "nova-rimeai"
+            ]
+          },
+          "language": {
+            "type": "string",
+            "description": "This sets the spoken language of the user. The assistant will do its best to respond in the same language.\nWhen using a language other than `en-*`, only `*-11labs` voices will pronounce the words correctly. There will also be ~1sec of additional latency.",
+            "enum": [
+              "en",
+              "en-US",
+              "en-AU",
+              "en-GB",
+              "en-NZ",
+              "en-IN",
+              "fr",
+              "fr-CA",
+              "de",
+              "hi",
+              "hi-Latn",
+              "pt",
+              "pt-BR",
+              "es",
+              "es-419"
             ]
           },
           "name": {
