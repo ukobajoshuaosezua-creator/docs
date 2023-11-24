@@ -1,0 +1,35 @@
+---
+title: "Call Functions"
+sidebarTitle: "Call Functions"
+description: "Learn how to transfer and hang up calls with Vapi assistants."
+---
+
+Under the hood, Vapi assistants are given two additional functions: `transferCall` and `endCall`. These functions can be used to transfer and hang up calls, respectively.
+
+You **do not** need to add these functions to your assistant's `functions` array.
+
+## Transfer Call
+
+When a `forwardingPhoneNumber` is present on an assistant, the assistant will be given a `transferCall` function. This function can be used to transfer the call to the `forwardingPhoneNumber`.
+
+```json
+{
+  "context": "You are an assistant at a law firm. When the user asks"
+           + "to be transferred, use the transferCall function.",
+  "voice": "steve-11labs",
+  ...
+}
+```
+
+## End Call
+
+Both phone and web calls are provided this function. The assistant can use this function to end the call.
+
+```json
+{
+  "context": "You are an assistant at a law firm. If the user isn't"
+           + "taking the call seriously, use the endCall function.",
+  "voice": "steve-11labs",
+  ...
+}
+```

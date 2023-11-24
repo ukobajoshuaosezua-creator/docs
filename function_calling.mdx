@@ -4,23 +4,64 @@ sidebarTitle: "Callback URL"
 description: "Learn how to set up your server to receive and respond to messages from Vapi."
 ---
 
-As part of the `Assistant`, you can optionally specify a `callbackUrl`. This is your server's URL that the assistant will use when retreiving context, performing function calls, and sending call summaries / recordings.
+As part of the `Assistant`, you can optionally specify a `callbackUrl`. This is your server's URL that the assistant will use when retreiving context, performing function calls, and more.
 
-### Retreiving Context
+## Callback Messages
 
-This is for if you need to customize the assistant's context by retrieving it from your server. If `callbackUrl` is specified and `context` is not, the assistant will make a `GET` request to the `callbackUrl` with the `customerPhoneNumber` and `assistantId` as query parameters. Your server should respond with a JSON object containing the context, like so:
+All messages sent to your `callbackUrl` will be `POST` requests with the following body:
 
 ```json
-{ "context": "You are an assistant at a law firm. You are calling to..." }
+{
+  "message": {
+    "type": "function-call",
+    "call": { Call Object },
+    ...other message properties
+  }
+}
 ```
+
+They include the type of message, the call object, and any other properties that are relevant to the message type. Below are the different types of messages that can be sent to your `callbackUrl`.
 
 ### Function Calling
 
-Vapi fully supports [OpenAI's function calling API](https://platform.openai.com/docs/guides/gpt/function-calling), so you can have assistants ping your server to perform actions like sending emails, retrieve information, and more. GPT-4 will automatically determine what functions to call based on the context you provide and the user's input.
+Vapi fully supports [OpenAI's function calling API](https://platform.openai.com/docs/guides/gpt/function-calling), so you can have assistants ping your server to perform actions like sending emails, retrieve information, and more.
 
-If `functions` are defined on the assistant, it will use the `callbackUrl` to make a `POST` request with the following body:
+With each response, the assistant will automatically determine what functions to call based on the directions provided in the `context`. Here's an example of what the assistant might look like:
 
-<Snippet file="function.body.mdx" />
+```json
+{
+  "context": "You are an assistant at a law firm."
+           + "When the user gives their email address,"
+           + "send them an email with the sendEmail function.",
+  "functions": [
+    {
+      "name": "sendEmail",
+      "description": "Used to send an email to a client.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "color": { "type": "string" }
+        }
+      }
+    }
+  ]
+}
+```
+
+Once a function is triggered, the assistant will send a message to your `callbackUrl` with the following body:
+
+```json
+{
+  "message": {
+    "type": "function-call",
+    "call": { Call Object },
+    "functionCall": {
+      "name": "sendEmail",
+      "arguments": "{ \"emailAddress\": \"john@example.com\"}"
+    }
+  }
+}
+```
 
 Your server should respond with a JSON object containing the function's response, like so:
 
@@ -30,12 +71,42 @@ Your server should respond with a JSON object containing the function's response
 
 The result will be appended to the conversation, and the assistant will decide what to do with the response based on its context.
 
+If you don't need to return a response, you can use the `async: true` parameter in your assitant's function configuration. This will prevent the assistant from waiting for a response from your server.
+
+### Retrieving Context
+
+Sometimes you may want to dynamically set the assistant's context at the start of the call. This is how you'd set up an inbound phone number to have a different context depending on the caller's phone number.
+
+If `callbackUrl` is specified and `context` is not, the assistant will make a `POST` request, like so:
+
+```json
+{
+  "message": {
+    "type": "context-request",
+    "call": { Call Object },
+  }
+}
+```
+
+Your server should respond with a JSON object containing the context, like so:
+
+```json
+{ "context": "You are an assistant at a law firm. You are calling to..." }
+```
+
 ### Call Status Updates
 
 During the call, the assistant will make multiple `POST` requests to the `callbackUrl` with the following body:
 
 ```json
-{ "status": "started" }
+{
+  "message": {
+    "type": "status-update",
+    "call": { Call Object },
+    "status": "ended",
+    "reason": "voicemail"
+  }
+}
 ```
 
 The status events are:
@@ -43,7 +114,10 @@ The status events are:
 - `started`: The call has started.
 - `voicemail`: The call has been sent to voicemail.
 - `transfer`: The call is about to be transferred.
-- `ended`: The call has ended.
+- `ended`: The call has ended. This will also include a `reason`:
+  - `hangup`: The user hung up.
+  - `silence-timeout`: The user didn't respond for 30 seconds.
+  - `voicemail`: The call was sent to voicemail.
 
 ### End of Call Report
 
@@ -51,8 +125,25 @@ When a call ends, the assistant will make a `POST` request to the `callbackUrl` 
 
 ```json
 {
-  "transcript": "Hello there!...",
-  "summary": "The assistant started the call by saying...",
-  "recordingUrl": "https://vapi-public.s3.amazonaws.com/recordings/1234.mp3"
+  "message": {
+    "type": "end-of-call-report",
+    "call": { Call Object },
+    "recordingUrl": "https://vapi-public.s3.amazonaws.com/recordings/1234.wav",
+    "summary": "The user picked up the phone then asked about the weather...",
+    "transcript": "AI: How can I help? User: What's the weather? ...",
+    "messages":[
+      {
+        "type": "bot",
+        "message": "How can I help?",
+        "time": 1700747423707
+      },
+      {
+        "type": "user",
+        "message": "What's the weather?"
+        "time": 1700747425787
+      },
+      ...
+    ]
+  }
 }
 ```

@@ -1,0 +1,42 @@
+---
+title: "Custom LLM URL"
+sidebarTitle: "Custom LLM URL"
+description: "Learn how to set up your server to act as the LLM."
+---
+
+If you want more control over the LLM, you can give an assistant a `customLlmUrl` instead of a `model`. Instead of hitting OpenAI's API, the assistant will make requests to your server, and your server will be responsible for making requests to an LLM.
+
+You might want to set this up to:
+
+- Use your own LLM, like LLAMA
+- Update the context during the conversation
+- Customize the messages before they're sent to an LLM
+
+When `customLlmUrl` is definied, the assistant will make a `POST` request to your server with the following body:
+
+```json
+{
+  "call": { Call Object },
+  "messages": [
+    {
+      "type": "bot",
+      "message": "How can I help?",
+      "time": 1700747423707
+    },
+    {
+      "type": "user",
+      "message": "What's the weather?"
+      "time": 1700747425787
+    },
+    ...
+  ]
+}
+```
+
+The `messages` will only include the spoken transcript. Any messages that have been interrupted will not be included.
+
+Your server should respond with a JSON object containing what the assistant should say next. For example:
+
+```json
+{ "message": "It's sunny today." }
+```
