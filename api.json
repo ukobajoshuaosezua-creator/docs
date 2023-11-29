@@ -557,6 +557,10 @@
           "recordingEnabled": {
             "type": "boolean",
             "description": "This sets whether calls are recorded for the assistant. Defaults to true."
+          },
+          "endCallFunctionEnabled": {
+            "type": "boolean",
+            "description": "This sets whether the assistant will be able to hang up the call. Defaults to false."
           }
         }
       },
@@ -854,6 +858,10 @@
             "type": "boolean",
             "description": "This sets whether calls are recorded for the assistant. Defaults to true."
           },
+          "endCallFunctionEnabled": {
+            "type": "boolean",
+            "description": "This sets whether the assistant will be able to hang up the call. Defaults to false."
+          },
           "id": {
             "type": "string",
             "description": "This is the unique identifier for the assistant."
@@ -982,6 +990,10 @@
           "recordingEnabled": {
             "type": "boolean",
             "description": "This sets whether calls are recorded for the assistant. Defaults to true."
+          },
+          "endCallFunctionEnabled": {
+            "type": "boolean",
+            "description": "This sets whether the assistant will be able to hang up the call. Defaults to false."
           }
         }
       },
