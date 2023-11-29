@@ -561,6 +561,10 @@
           "endCallFunctionEnabled": {
             "type": "boolean",
             "description": "This sets whether the assistant will be able to hang up the call. Defaults to false."
+          },
+          "fillersEnabled": {
+            "type": "boolean",
+            "description": "This sets whether the assistant will use fillers like Well..., Okay cool..., etc. Defaults to true when using gpt-4."
           }
         }
       },
@@ -862,6 +866,10 @@
             "type": "boolean",
             "description": "This sets whether the assistant will be able to hang up the call. Defaults to false."
           },
+          "fillersEnabled": {
+            "type": "boolean",
+            "description": "This sets whether the assistant will use fillers like Well..., Okay cool..., etc. Defaults to true when using gpt-4."
+          },
           "id": {
             "type": "string",
             "description": "This is the unique identifier for the assistant."
@@ -994,6 +1002,10 @@
           "endCallFunctionEnabled": {
             "type": "boolean",
             "description": "This sets whether the assistant will be able to hang up the call. Defaults to false."
+          },
+          "fillersEnabled": {
+            "type": "boolean",
+            "description": "This sets whether the assistant will use fillers like Well..., Okay cool..., etc. Defaults to true when using gpt-4."
           }
         }
       },
@@ -1048,6 +1060,7 @@
             "description": "This is the subscription's status."
           },
           "stripeSubscriptionCurrentPeriodStart": {
+            "format": "date-time",
             "type": "string",
             "description": "This is the subscription's current period start."
           },
