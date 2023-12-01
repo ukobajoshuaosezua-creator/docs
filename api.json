@@ -391,7 +391,7 @@
     "contact": {}
   },
   "tags": [],
-  "servers": [{ "url": "https://api.vapi.ai" }],
+  "servers": [{ "url": "https://hugely-stirred-krill.ngrok-free.app" }],
   "components": {
     "securitySchemes": {
       "bearer": {
@@ -576,6 +576,11 @@
           "fillersEnabled": {
             "type": "boolean",
             "description": "This sets whether the assistant will use fillers like Well..., Okay cool..., etc. Defaults to true when using gpt-4. Else, defaults to false."
+          },
+          "keywords": {
+            "description": "These keywords are passed to the transcription model to help it pick up use-case specific words.",
+            "type": "array",
+            "items": { "type": "string" }
           }
         }
       },
@@ -892,6 +897,11 @@
             "type": "boolean",
             "description": "This sets whether the assistant will use fillers like Well..., Okay cool..., etc. Defaults to true when using gpt-4. Else, defaults to false."
           },
+          "keywords": {
+            "description": "These keywords are passed to the transcription model to help it pick up use-case specific words.",
+            "type": "array",
+            "items": { "type": "string" }
+          },
           "id": {
             "type": "string",
             "description": "This is the unique identifier for the assistant."
@@ -1039,6 +1049,11 @@
           "fillersEnabled": {
             "type": "boolean",
             "description": "This sets whether the assistant will use fillers like Well..., Okay cool..., etc. Defaults to true when using gpt-4. Else, defaults to false."
+          },
+          "keywords": {
+            "description": "These keywords are passed to the transcription model to help it pick up use-case specific words.",
+            "type": "array",
+            "items": { "type": "string" }
           }
         }
       },
