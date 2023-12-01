@@ -493,7 +493,15 @@
               "colette-rimeai",
               "daphne-rimeai",
               "aurora-rimeai",
-              "nova-rimeai"
+              "nova-rimeai",
+              "apollo-beta",
+              "orion-beta",
+              "aurora-beta",
+              "asteria-beta",
+              "stella-beta",
+              "artemis-beta",
+              "andromeda-beta",
+              "atlas-beta"
             ]
           },
           "language": {
@@ -520,7 +528,7 @@
           "name": {
             "type": "string",
             "description": "This is the name of the assistant. This is just for your own reference.",
-            "maxLength": 40
+            "maxLength": 100
           },
           "context": {
             "type": "string",
@@ -533,7 +541,7 @@
           },
           "callbackUrl": {
             "type": "string",
-            "description": "This is the URL Vapi will send GET / POST requests for retrieving context, function calling, and end-of-call reports.\n\nAll requests will be sent with customerPhoneNumber and all the assistant parameters. You can find more details in the Function Calling documentation."
+            "description": "This is the URL Vapi will send GET / POST requests for retrieving context, function calling, and end-of-call reports.\n\nAll requests will be sent with the `call` object among other things relevant to that callback. You can find more details in the Function Calling documentation."
           },
           "customLlmUrl": {
             "type": "string",
@@ -559,7 +567,7 @@
           },
           "recordingEnabled": {
             "type": "boolean",
-            "description": "This sets whether calls are recorded for the assistant. Defaults to true."
+            "description": "This sets whether the assistant's calls are recorded. Defaults to true."
           },
           "endCallFunctionEnabled": {
             "type": "boolean",
@@ -567,7 +575,7 @@
           },
           "fillersEnabled": {
             "type": "boolean",
-            "description": "This sets whether the assistant will use fillers like Well..., Okay cool..., etc. Defaults to true when using gpt-4."
+            "description": "This sets whether the assistant will use fillers like Well..., Okay cool..., etc. Defaults to true when using gpt-4. Else, defaults to false."
           }
         }
       },
@@ -800,7 +808,15 @@
               "colette-rimeai",
               "daphne-rimeai",
               "aurora-rimeai",
-              "nova-rimeai"
+              "nova-rimeai",
+              "apollo-beta",
+              "orion-beta",
+              "aurora-beta",
+              "asteria-beta",
+              "stella-beta",
+              "artemis-beta",
+              "andromeda-beta",
+              "atlas-beta"
             ]
           },
           "language": {
@@ -827,7 +843,7 @@
           "name": {
             "type": "string",
             "description": "This is the name of the assistant. This is just for your own reference.",
-            "maxLength": 40
+            "maxLength": 100
           },
           "context": {
             "type": "string",
@@ -840,7 +856,7 @@
           },
           "callbackUrl": {
             "type": "string",
-            "description": "This is the URL Vapi will send GET / POST requests for retrieving context, function calling, and end-of-call reports.\n\nAll requests will be sent with customerPhoneNumber and all the assistant parameters. You can find more details in the Function Calling documentation."
+            "description": "This is the URL Vapi will send GET / POST requests for retrieving context, function calling, and end-of-call reports.\n\nAll requests will be sent with the `call` object among other things relevant to that callback. You can find more details in the Function Calling documentation."
           },
           "customLlmUrl": {
             "type": "string",
@@ -866,7 +882,7 @@
           },
           "recordingEnabled": {
             "type": "boolean",
-            "description": "This sets whether calls are recorded for the assistant. Defaults to true."
+            "description": "This sets whether the assistant's calls are recorded. Defaults to true."
           },
           "endCallFunctionEnabled": {
             "type": "boolean",
@@ -874,7 +890,7 @@
           },
           "fillersEnabled": {
             "type": "boolean",
-            "description": "This sets whether the assistant will use fillers like Well..., Okay cool..., etc. Defaults to true when using gpt-4."
+            "description": "This sets whether the assistant will use fillers like Well..., Okay cool..., etc. Defaults to true when using gpt-4. Else, defaults to false."
           },
           "id": {
             "type": "string",
@@ -940,7 +956,15 @@
               "colette-rimeai",
               "daphne-rimeai",
               "aurora-rimeai",
-              "nova-rimeai"
+              "nova-rimeai",
+              "apollo-beta",
+              "orion-beta",
+              "aurora-beta",
+              "asteria-beta",
+              "stella-beta",
+              "artemis-beta",
+              "andromeda-beta",
+              "atlas-beta"
             ]
           },
           "language": {
@@ -967,7 +991,7 @@
           "name": {
             "type": "string",
             "description": "This is the name of the assistant. This is just for your own reference.",
-            "maxLength": 40
+            "maxLength": 100
           },
           "context": {
             "type": "string",
@@ -980,7 +1004,7 @@
           },
           "callbackUrl": {
             "type": "string",
-            "description": "This is the URL Vapi will send GET / POST requests for retrieving context, function calling, and end-of-call reports.\n\nAll requests will be sent with customerPhoneNumber and all the assistant parameters. You can find more details in the Function Calling documentation."
+            "description": "This is the URL Vapi will send GET / POST requests for retrieving context, function calling, and end-of-call reports.\n\nAll requests will be sent with the `call` object among other things relevant to that callback. You can find more details in the Function Calling documentation."
           },
           "customLlmUrl": {
             "type": "string",
@@ -1006,7 +1030,7 @@
           },
           "recordingEnabled": {
             "type": "boolean",
-            "description": "This sets whether calls are recorded for the assistant. Defaults to true."
+            "description": "This sets whether the assistant's calls are recorded. Defaults to true."
           },
           "endCallFunctionEnabled": {
             "type": "boolean",
@@ -1014,7 +1038,7 @@
           },
           "fillersEnabled": {
             "type": "boolean",
-            "description": "This sets whether the assistant will use fillers like Well..., Okay cool..., etc. Defaults to true when using gpt-4."
+            "description": "This sets whether the assistant will use fillers like Well..., Okay cool..., etc. Defaults to true when using gpt-4. Else, defaults to false."
           }
         }
       },
