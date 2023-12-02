@@ -391,7 +391,7 @@
     "contact": {}
   },
   "tags": [],
-  "servers": [{ "url": "https://hugely-stirred-krill.ngrok-free.app" }],
+  "servers": [{ "url": "https://api.vapi.ai" }],
   "components": {
     "securitySchemes": {
       "bearer": {
