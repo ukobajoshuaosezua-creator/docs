@@ -561,6 +561,11 @@
             "description": "This is the message that the assistant will say if the call is forwarded to voicemail.\n\nIf unspecified, it will hang up.",
             "maxLength": 400
           },
+          "endCallMessage": {
+            "type": "string",
+            "description": "This is the message that the assistant will say if it ends the call.\n\nIf unspecified, it will hang up without saying anything.",
+            "maxLength": 400
+          },
           "interruptionsEnabled": {
             "type": "boolean",
             "description": "This sets whether the user can interrupt the assistant while it's speaking. Defaults to true."
@@ -578,7 +583,7 @@
             "description": "This sets whether the assistant will use fillers like Well..., Okay cool..., etc. Defaults to true when using gpt-4. Else, defaults to false."
           },
           "keywords": {
-            "description": "These keywords are passed to the transcription model to help it pick up use-case specific words.",
+            "description": "These keywords are passed to the transcription model to help it pick up use-case specific words. Anything that may not be a common word, like your company name, should be added here.",
             "type": "array",
             "items": { "type": "string" }
           }
@@ -881,6 +886,11 @@
             "description": "This is the message that the assistant will say if the call is forwarded to voicemail.\n\nIf unspecified, it will hang up.",
             "maxLength": 400
           },
+          "endCallMessage": {
+            "type": "string",
+            "description": "This is the message that the assistant will say if it ends the call.\n\nIf unspecified, it will hang up without saying anything.",
+            "maxLength": 400
+          },
           "interruptionsEnabled": {
             "type": "boolean",
             "description": "This sets whether the user can interrupt the assistant while it's speaking. Defaults to true."
@@ -898,7 +908,7 @@
             "description": "This sets whether the assistant will use fillers like Well..., Okay cool..., etc. Defaults to true when using gpt-4. Else, defaults to false."
           },
           "keywords": {
-            "description": "These keywords are passed to the transcription model to help it pick up use-case specific words.",
+            "description": "These keywords are passed to the transcription model to help it pick up use-case specific words. Anything that may not be a common word, like your company name, should be added here.",
             "type": "array",
             "items": { "type": "string" }
           },
@@ -1034,6 +1044,11 @@
             "description": "This is the message that the assistant will say if the call is forwarded to voicemail.\n\nIf unspecified, it will hang up.",
             "maxLength": 400
           },
+          "endCallMessage": {
+            "type": "string",
+            "description": "This is the message that the assistant will say if it ends the call.\n\nIf unspecified, it will hang up without saying anything.",
+            "maxLength": 400
+          },
           "interruptionsEnabled": {
             "type": "boolean",
             "description": "This sets whether the user can interrupt the assistant while it's speaking. Defaults to true."
@@ -1051,7 +1066,7 @@
             "description": "This sets whether the assistant will use fillers like Well..., Okay cool..., etc. Defaults to true when using gpt-4. Else, defaults to false."
           },
           "keywords": {
-            "description": "These keywords are passed to the transcription model to help it pick up use-case specific words.",
+            "description": "These keywords are passed to the transcription model to help it pick up use-case specific words. Anything that may not be a common word, like your company name, should be added here.",
             "type": "array",
             "items": { "type": "string" }
           }
