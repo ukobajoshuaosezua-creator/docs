@@ -104,20 +104,15 @@ During the call, the assistant will make multiple `POST` requests to the `callba
     "type": "status-update",
     "call": { Call Object },
     "status": "ended",
-    "reason": "voicemail"
   }
 }
 ```
 
 The status events are:
 
-- `started`: The call has started.
-- `voicemail`: The call has been sent to voicemail.
-- `transfer`: The call is about to be transferred.
-- `ended`: The call has ended. This will also include a `reason`:
-  - `hangup`: The user hung up.
-  - `silence-timeout`: The user didn't respond for 30 seconds.
-  - `voicemail`: The call was sent to voicemail.
+- `in-progress`: The call has started.
+- `forwarding`: The call is about to be forwarded to `forwardingPhoneNumber`.
+- `ended`: The call has ended.
 
 ### End of Call Report
 
@@ -127,6 +122,7 @@ When a call ends, the assistant will make a `POST` request to the `callbackUrl` 
 {
   "message": {
     "type": "end-of-call-report",
+    "endedReason": "hangup",
     "call": { Call Object },
     "recordingUrl": "https://vapi-public.s3.amazonaws.com/recordings/1234.wav",
     "summary": "The user picked up the phone then asked about the weather...",
@@ -147,3 +143,23 @@ When a call ends, the assistant will make a `POST` request to the `callbackUrl` 
   }
 }
 ```
+
+`endedReason` can be one of the following:
+
+- `assistant-ended`
+- `assistant-error`
+- `assistant-join-timeout`
+- `busy`
+- `canceled`
+- `customer-ended`
+- `forwarded`
+- `max-duration-timeout`
+- `no-answer`
+- `no-server-available`
+- `server-shutdown`
+- `silence-timeout`
+- `twilio-call-error`
+- `twilio-websocket-close`
+- `twilio-websocket-error`
+- `unknown-error`
+- `voicemail`
