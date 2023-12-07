@@ -705,50 +705,9 @@
               "es-419"
             ]
           },
-          "context": {
-            "type": "string",
-            "description": "Use `model.systemPrompt` instead.",
-            "deprecated": true
-          },
-          "functions": {
-            "description": "Use `model.functions` instead.",
-            "deprecated": true,
-            "type": "array",
-            "items": { "$ref": "#/components/schemas/OpenAIFunction" }
-          },
-          "callbackUrl": {
-            "type": "string",
-            "description": "Add a Server URL to your Org on the Account page in the dashboard instead.",
-            "deprecated": true
-          },
-          "customLlmUrl": {
-            "type": "string",
-            "description": "Use `model.url` instead.",
-            "deprecated": true
-          },
-          "keywords": {
-            "description": "Use `transcriber.keywords` instead.",
-            "deprecated": true,
-            "type": "array",
-            "items": { "type": "string" }
-          },
-          "name": {
-            "type": "string",
-            "description": "This is the name of the assistant. This is just for your own reference.",
-            "maxLength": 100
-          },
-          "transcriber": {
-            "description": "These are the options for the assistant's transcriber.",
-            "allOf": [{ "$ref": "#/components/schemas/DeepgramTranscriber" }]
-          },
           "forwardingPhoneNumber": {
             "type": "string",
             "description": "This is the number to forward to if assistant runs into issues."
-          },
-          "firstMessage": {
-            "type": "string",
-            "description": "This is the first message that the assistant will say.\n\nIf unspecified, it will wait for the user to speak.",
-            "maxLength": 1000
           },
           "voicemailMessage": {
             "type": "string",
@@ -762,15 +721,32 @@
           },
           "interruptionsEnabled": {
             "type": "boolean",
-            "description": "This sets whether the user can interrupt the assistant while it's speaking. Defaults to true."
+            "description": "This sets whether the user can interrupt the assistant while it's speaking. Defaults to true.",
+            "default": true
           },
           "recordingEnabled": {
             "type": "boolean",
-            "description": "This sets whether the assistant's calls are recorded. Defaults to true."
+            "description": "This sets whether the assistant's calls are recorded. Defaults to true.",
+            "default": true
           },
           "endCallFunctionEnabled": {
             "type": "boolean",
-            "description": "This sets whether the assistant will be able to hang up the call. Defaults to false."
+            "description": "This sets whether the assistant will be able to hang up the call. Defaults to false.",
+            "default": false
+          },
+          "name": {
+            "type": "string",
+            "description": "This is the name of the assistant. This is just for your own reference.",
+            "maxLength": 100
+          },
+          "transcriber": {
+            "description": "These are the options for the assistant's transcriber.",
+            "allOf": [{ "$ref": "#/components/schemas/DeepgramTranscriber" }]
+          },
+          "firstMessage": {
+            "type": "string",
+            "description": "This is the first message that the assistant will say.\n\nIf unspecified, it will wait for the user to speak.",
+            "maxLength": 1000
           },
           "fillersEnabled": {
             "type": "boolean",
@@ -886,50 +862,9 @@
               "es-419"
             ]
           },
-          "context": {
-            "type": "string",
-            "description": "Use `model.systemPrompt` instead.",
-            "deprecated": true
-          },
-          "functions": {
-            "description": "Use `model.functions` instead.",
-            "deprecated": true,
-            "type": "array",
-            "items": { "$ref": "#/components/schemas/OpenAIFunction" }
-          },
-          "callbackUrl": {
-            "type": "string",
-            "description": "Add a Server URL to your Org on the Account page in the dashboard instead.",
-            "deprecated": true
-          },
-          "customLlmUrl": {
-            "type": "string",
-            "description": "Use `model.url` instead.",
-            "deprecated": true
-          },
-          "keywords": {
-            "description": "Use `transcriber.keywords` instead.",
-            "deprecated": true,
-            "type": "array",
-            "items": { "type": "string" }
-          },
-          "name": {
-            "type": "string",
-            "description": "This is the name of the assistant. This is just for your own reference.",
-            "maxLength": 100
-          },
-          "transcriber": {
-            "description": "These are the options for the assistant's transcriber.",
-            "allOf": [{ "$ref": "#/components/schemas/DeepgramTranscriber" }]
-          },
           "forwardingPhoneNumber": {
             "type": "string",
             "description": "This is the number to forward to if assistant runs into issues."
-          },
-          "firstMessage": {
-            "type": "string",
-            "description": "This is the first message that the assistant will say.\n\nIf unspecified, it will wait for the user to speak.",
-            "maxLength": 1000
           },
           "voicemailMessage": {
             "type": "string",
@@ -943,15 +878,32 @@
           },
           "interruptionsEnabled": {
             "type": "boolean",
-            "description": "This sets whether the user can interrupt the assistant while it's speaking. Defaults to true."
+            "description": "This sets whether the user can interrupt the assistant while it's speaking. Defaults to true.",
+            "default": true
           },
           "recordingEnabled": {
             "type": "boolean",
-            "description": "This sets whether the assistant's calls are recorded. Defaults to true."
+            "description": "This sets whether the assistant's calls are recorded. Defaults to true.",
+            "default": true
           },
           "endCallFunctionEnabled": {
             "type": "boolean",
-            "description": "This sets whether the assistant will be able to hang up the call. Defaults to false."
+            "description": "This sets whether the assistant will be able to hang up the call. Defaults to false.",
+            "default": false
+          },
+          "name": {
+            "type": "string",
+            "description": "This is the name of the assistant. This is just for your own reference.",
+            "maxLength": 100
+          },
+          "transcriber": {
+            "description": "These are the options for the assistant's transcriber.",
+            "allOf": [{ "$ref": "#/components/schemas/DeepgramTranscriber" }]
+          },
+          "firstMessage": {
+            "type": "string",
+            "description": "This is the first message that the assistant will say.\n\nIf unspecified, it will wait for the user to speak.",
+            "maxLength": 1000
           },
           "fillersEnabled": {
             "type": "boolean",
@@ -1086,50 +1038,9 @@
               "es-419"
             ]
           },
-          "context": {
-            "type": "string",
-            "description": "Use `model.systemPrompt` instead.",
-            "deprecated": true
-          },
-          "functions": {
-            "description": "Use `model.functions` instead.",
-            "deprecated": true,
-            "type": "array",
-            "items": { "$ref": "#/components/schemas/OpenAIFunction" }
-          },
-          "callbackUrl": {
-            "type": "string",
-            "description": "Add a Server URL to your Org on the Account page in the dashboard instead.",
-            "deprecated": true
-          },
-          "customLlmUrl": {
-            "type": "string",
-            "description": "Use `model.url` instead.",
-            "deprecated": true
-          },
-          "keywords": {
-            "description": "Use `transcriber.keywords` instead.",
-            "deprecated": true,
-            "type": "array",
-            "items": { "type": "string" }
-          },
-          "name": {
-            "type": "string",
-            "description": "This is the name of the assistant. This is just for your own reference.",
-            "maxLength": 100
-          },
-          "transcriber": {
-            "description": "These are the options for the assistant's transcriber.",
-            "allOf": [{ "$ref": "#/components/schemas/DeepgramTranscriber" }]
-          },
           "forwardingPhoneNumber": {
             "type": "string",
             "description": "This is the number to forward to if assistant runs into issues."
-          },
-          "firstMessage": {
-            "type": "string",
-            "description": "This is the first message that the assistant will say.\n\nIf unspecified, it will wait for the user to speak.",
-            "maxLength": 1000
           },
           "voicemailMessage": {
             "type": "string",
@@ -1143,15 +1054,32 @@
           },
           "interruptionsEnabled": {
             "type": "boolean",
-            "description": "This sets whether the user can interrupt the assistant while it's speaking. Defaults to true."
+            "description": "This sets whether the user can interrupt the assistant while it's speaking. Defaults to true.",
+            "default": true
           },
           "recordingEnabled": {
             "type": "boolean",
-            "description": "This sets whether the assistant's calls are recorded. Defaults to true."
+            "description": "This sets whether the assistant's calls are recorded. Defaults to true.",
+            "default": true
           },
           "endCallFunctionEnabled": {
             "type": "boolean",
-            "description": "This sets whether the assistant will be able to hang up the call. Defaults to false."
+            "description": "This sets whether the assistant will be able to hang up the call. Defaults to false.",
+            "default": false
+          },
+          "name": {
+            "type": "string",
+            "description": "This is the name of the assistant. This is just for your own reference.",
+            "maxLength": 100
+          },
+          "transcriber": {
+            "description": "These are the options for the assistant's transcriber.",
+            "allOf": [{ "$ref": "#/components/schemas/DeepgramTranscriber" }]
+          },
+          "firstMessage": {
+            "type": "string",
+            "description": "This is the first message that the assistant will say.\n\nIf unspecified, it will wait for the user to speak.",
+            "maxLength": 1000
           },
           "fillersEnabled": {
             "type": "boolean",
