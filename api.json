@@ -600,15 +600,6 @@
       "CreateAssistantDTO": {
         "type": "object",
         "properties": {
-          "name": {
-            "type": "string",
-            "description": "This is the name of the assistant. This is just for your own reference.",
-            "maxLength": 100
-          },
-          "transcriber": {
-            "description": "These are the options for the assistant's transcriber.",
-            "allOf": [{ "$ref": "#/components/schemas/DeepgramTranscriber" }]
-          },
           "model": {
             "description": "These are the options for the assistant's LLM.",
             "oneOf": [
@@ -691,8 +682,7 @@
                 "title": "RimeAIVoice"
               },
               { "$ref": "#/components/schemas/BetaVoice", "title": "BetaVoice" }
-            ],
-            "default": "jennifer-playht"
+            ]
           },
           "language": {
             "type": "string",
@@ -719,12 +709,6 @@
             "type": "string",
             "description": "This is the number to forward to if assistant runs into issues."
           },
-          "firstMessage": {
-            "type": "string",
-            "description": "This is the first message that the assistant will say.\n\nIf unspecified, it will wait for the user to speak.",
-            "maxLength": 1000,
-            "default": "Hey there!"
-          },
           "voicemailMessage": {
             "type": "string",
             "description": "This is the message that the assistant will say if the call is forwarded to voicemail.\n\nIf unspecified, it will hang up.",
@@ -737,15 +721,59 @@
           },
           "interruptionsEnabled": {
             "type": "boolean",
-            "description": "This sets whether the user can interrupt the assistant while it's speaking. Defaults to true."
+            "description": "This sets whether the user can interrupt the assistant while it's speaking. Defaults to true.",
+            "default": true
           },
           "recordingEnabled": {
             "type": "boolean",
-            "description": "This sets whether the assistant's calls are recorded. Defaults to true."
+            "description": "This sets whether the assistant's calls are recorded. Defaults to true.",
+            "default": true
           },
           "endCallFunctionEnabled": {
             "type": "boolean",
-            "description": "This sets whether the assistant will be able to hang up the call. Defaults to false."
+            "description": "This sets whether the assistant will be able to hang up the call. Defaults to false.",
+            "default": false
+          },
+          "context": {
+            "type": "string",
+            "deprecated": true,
+            "description": "Use `model.systemPrompt` instead."
+          },
+          "functions": {
+            "deprecated": true,
+            "description": "Use `model.functions` instead.",
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "callbackUrl": {
+            "type": "string",
+            "deprecated": true,
+            "description": "Add a Server URL to your Org on the Account page in the dashboard instead."
+          },
+          "customLlmUrl": {
+            "type": "string",
+            "deprecated": true,
+            "description": "Use `model.url` instead."
+          },
+          "keywords": {
+            "deprecated": true,
+            "description": "Use `transcriber.keywords` instead.",
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "name": {
+            "type": "string",
+            "description": "This is the name of the assistant. This is just for your own reference.",
+            "maxLength": 100
+          },
+          "transcriber": {
+            "description": "These are the options for the assistant's transcriber.",
+            "allOf": [{ "$ref": "#/components/schemas/DeepgramTranscriber" }]
+          },
+          "firstMessage": {
+            "type": "string",
+            "description": "This is the first message that the assistant will say.\n\nIf unspecified, it will wait for the user to speak.",
+            "maxLength": 1000
           },
           "fillersEnabled": {
             "type": "boolean",
@@ -756,15 +784,6 @@
       "Assistant": {
         "type": "object",
         "properties": {
-          "name": {
-            "type": "string",
-            "description": "This is the name of the assistant. This is just for your own reference.",
-            "maxLength": 100
-          },
-          "transcriber": {
-            "description": "These are the options for the assistant's transcriber.",
-            "allOf": [{ "$ref": "#/components/schemas/DeepgramTranscriber" }]
-          },
           "model": {
             "description": "These are the options for the assistant's LLM.",
             "oneOf": [
@@ -847,8 +866,7 @@
                 "title": "RimeAIVoice"
               },
               { "$ref": "#/components/schemas/BetaVoice", "title": "BetaVoice" }
-            ],
-            "default": "jennifer-playht"
+            ]
           },
           "language": {
             "type": "string",
@@ -875,12 +893,6 @@
             "type": "string",
             "description": "This is the number to forward to if assistant runs into issues."
           },
-          "firstMessage": {
-            "type": "string",
-            "description": "This is the first message that the assistant will say.\n\nIf unspecified, it will wait for the user to speak.",
-            "maxLength": 1000,
-            "default": "Hey there!"
-          },
           "voicemailMessage": {
             "type": "string",
             "description": "This is the message that the assistant will say if the call is forwarded to voicemail.\n\nIf unspecified, it will hang up.",
@@ -893,15 +905,59 @@
           },
           "interruptionsEnabled": {
             "type": "boolean",
-            "description": "This sets whether the user can interrupt the assistant while it's speaking. Defaults to true."
+            "description": "This sets whether the user can interrupt the assistant while it's speaking. Defaults to true.",
+            "default": true
           },
           "recordingEnabled": {
             "type": "boolean",
-            "description": "This sets whether the assistant's calls are recorded. Defaults to true."
+            "description": "This sets whether the assistant's calls are recorded. Defaults to true.",
+            "default": true
           },
           "endCallFunctionEnabled": {
             "type": "boolean",
-            "description": "This sets whether the assistant will be able to hang up the call. Defaults to false."
+            "description": "This sets whether the assistant will be able to hang up the call. Defaults to false.",
+            "default": false
+          },
+          "context": {
+            "type": "string",
+            "deprecated": true,
+            "description": "Use `model.systemPrompt` instead."
+          },
+          "functions": {
+            "deprecated": true,
+            "description": "Use `model.functions` instead.",
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "callbackUrl": {
+            "type": "string",
+            "deprecated": true,
+            "description": "Add a Server URL to your Org on the Account page in the dashboard instead."
+          },
+          "customLlmUrl": {
+            "type": "string",
+            "deprecated": true,
+            "description": "Use `model.url` instead."
+          },
+          "keywords": {
+            "deprecated": true,
+            "description": "Use `transcriber.keywords` instead.",
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "name": {
+            "type": "string",
+            "description": "This is the name of the assistant. This is just for your own reference.",
+            "maxLength": 100
+          },
+          "transcriber": {
+            "description": "These are the options for the assistant's transcriber.",
+            "allOf": [{ "$ref": "#/components/schemas/DeepgramTranscriber" }]
+          },
+          "firstMessage": {
+            "type": "string",
+            "description": "This is the first message that the assistant will say.\n\nIf unspecified, it will wait for the user to speak.",
+            "maxLength": 1000
           },
           "fillersEnabled": {
             "type": "boolean",
@@ -931,15 +987,6 @@
       "UpdateAssistantDTO": {
         "type": "object",
         "properties": {
-          "name": {
-            "type": "string",
-            "description": "This is the name of the assistant. This is just for your own reference.",
-            "maxLength": 100
-          },
-          "transcriber": {
-            "description": "These are the options for the assistant's transcriber.",
-            "allOf": [{ "$ref": "#/components/schemas/DeepgramTranscriber" }]
-          },
           "model": {
             "description": "These are the options for the assistant's LLM.",
             "oneOf": [
@@ -1022,8 +1069,7 @@
                 "title": "RimeAIVoice"
               },
               { "$ref": "#/components/schemas/BetaVoice", "title": "BetaVoice" }
-            ],
-            "default": "jennifer-playht"
+            ]
           },
           "language": {
             "type": "string",
@@ -1050,12 +1096,6 @@
             "type": "string",
             "description": "This is the number to forward to if assistant runs into issues."
           },
-          "firstMessage": {
-            "type": "string",
-            "description": "This is the first message that the assistant will say.\n\nIf unspecified, it will wait for the user to speak.",
-            "maxLength": 1000,
-            "default": "Hey there!"
-          },
           "voicemailMessage": {
             "type": "string",
             "description": "This is the message that the assistant will say if the call is forwarded to voicemail.\n\nIf unspecified, it will hang up.",
@@ -1068,15 +1108,59 @@
           },
           "interruptionsEnabled": {
             "type": "boolean",
-            "description": "This sets whether the user can interrupt the assistant while it's speaking. Defaults to true."
+            "description": "This sets whether the user can interrupt the assistant while it's speaking. Defaults to true.",
+            "default": true
           },
           "recordingEnabled": {
             "type": "boolean",
-            "description": "This sets whether the assistant's calls are recorded. Defaults to true."
+            "description": "This sets whether the assistant's calls are recorded. Defaults to true.",
+            "default": true
           },
           "endCallFunctionEnabled": {
             "type": "boolean",
-            "description": "This sets whether the assistant will be able to hang up the call. Defaults to false."
+            "description": "This sets whether the assistant will be able to hang up the call. Defaults to false.",
+            "default": false
+          },
+          "context": {
+            "type": "string",
+            "deprecated": true,
+            "description": "Use `model.systemPrompt` instead."
+          },
+          "functions": {
+            "deprecated": true,
+            "description": "Use `model.functions` instead.",
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "callbackUrl": {
+            "type": "string",
+            "deprecated": true,
+            "description": "Add a Server URL to your Org on the Account page in the dashboard instead."
+          },
+          "customLlmUrl": {
+            "type": "string",
+            "deprecated": true,
+            "description": "Use `model.url` instead."
+          },
+          "keywords": {
+            "deprecated": true,
+            "description": "Use `transcriber.keywords` instead.",
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "name": {
+            "type": "string",
+            "description": "This is the name of the assistant. This is just for your own reference.",
+            "maxLength": 100
+          },
+          "transcriber": {
+            "description": "These are the options for the assistant's transcriber.",
+            "allOf": [{ "$ref": "#/components/schemas/DeepgramTranscriber" }]
+          },
+          "firstMessage": {
+            "type": "string",
+            "description": "This is the first message that the assistant will say.\n\nIf unspecified, it will wait for the user to speak.",
+            "maxLength": 1000
           },
           "fillersEnabled": {
             "type": "boolean",
