@@ -1,108 +1,6 @@
 {
   "openapi": "3.0.0",
   "paths": {
-    "/call": {
-      "get": {
-        "operationId": "CallController_findAll",
-        "summary": "List Calls",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": { "$ref": "#/components/schemas/Call" }
-                }
-              }
-            }
-          }
-        },
-        "tags": ["Calls"],
-        "security": [{ "bearer": [] }]
-      }
-    },
-    "/call/{id}": {
-      "get": {
-        "operationId": "CallController_findOne",
-        "summary": "Get Call",
-        "parameters": [
-          {
-            "name": "id",
-            "required": true,
-            "in": "path",
-            "schema": { "type": "string" }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": { "$ref": "#/components/schemas/Call" }
-              }
-            }
-          }
-        },
-        "tags": ["Calls"],
-        "security": [{ "bearer": [] }]
-      }
-    },
-    "/call/phone": {
-      "post": {
-        "operationId": "CallController_createPhoneCall",
-        "summary": "Create Phone Call",
-        "parameters": [],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": { "$ref": "#/components/schemas/CreateOutboundCallDTO" }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": { "$ref": "#/components/schemas/Call" }
-              }
-            }
-          }
-        },
-        "tags": ["Calls"],
-        "security": [{ "bearer": [] }]
-      }
-    },
-    "/call/web": {
-      "post": {
-        "operationId": "CallController_createWebCall",
-        "summary": "Create Web Call",
-        "parameters": [],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": { "$ref": "#/components/schemas/CreateWebCallDTO" }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": { "$ref": "#/components/schemas/Call" }
-              }
-            }
-          }
-        },
-        "tags": ["Calls"],
-        "security": [{ "bearer": [] }]
-      }
-    },
     "/assistant": {
       "post": {
         "operationId": "AssistantController_create",
@@ -229,6 +127,108 @@
           }
         },
         "tags": ["Assistants"],
+        "security": [{ "bearer": [] }]
+      }
+    },
+    "/call": {
+      "get": {
+        "operationId": "CallController_findAll",
+        "summary": "List Calls",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/Call" }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Calls"],
+        "security": [{ "bearer": [] }]
+      }
+    },
+    "/call/{id}": {
+      "get": {
+        "operationId": "CallController_findOne",
+        "summary": "Get Call",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Call" }
+              }
+            }
+          }
+        },
+        "tags": ["Calls"],
+        "security": [{ "bearer": [] }]
+      }
+    },
+    "/call/phone": {
+      "post": {
+        "operationId": "CallController_createPhoneCall",
+        "summary": "Create Phone Call",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CreateOutboundCallDTO" }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Call" }
+              }
+            }
+          }
+        },
+        "tags": ["Calls"],
+        "security": [{ "bearer": [] }]
+      }
+    },
+    "/call/web": {
+      "post": {
+        "operationId": "CallController_createWebCall",
+        "summary": "Create Web Call",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CreateWebCallDTO" }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Call" }
+              }
+            }
+          }
+        },
+        "tags": ["Calls"],
         "security": [{ "bearer": [] }]
       }
     },
@@ -402,6 +402,94 @@
       }
     },
     "schemas": {
+      "BetaVoice": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`\n\nBasic Voices: `rimeai`, `beta`",
+            "enum": ["beta"]
+          },
+          "voiceId": {
+            "type": "string",
+            "description": "This is the provider-specific ID that will be used."
+          }
+        },
+        "required": ["provider", "voiceId"]
+      },
+      "CustomModel": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "description": "This is the provider that will be used for the model. Currently, only OpenAI and Custom LLM URLs are supported.\n\nIf you have your own LLM, you can use the URL of your LLM endpoint here.",
+            "enum": ["custom"]
+          },
+          "url": {
+            "type": "string",
+            "description": "These are the options that will be passed to the provider."
+          },
+          "systemPrompt": {
+            "type": "string",
+            "description": "This sets the objective and understanding for the assistant."
+          }
+        },
+        "required": ["provider", "url"]
+      },
+      "DeepgramTranscriber": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "description": "This is the transcription provider that will be used. Currently, only Deepgram is supported.",
+            "enum": ["deepgram"]
+          },
+          "model": {
+            "description": "This is the Deepgram model that will be used. A list of models can be found here: https://developers.deepgram.com/docs/models-languages-overview",
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "nova-2",
+                  "nova-2-general",
+                  "nova-2-meeting",
+                  "nova-2-phonecall",
+                  "nova-2-finance",
+                  "nova-2-conversationalai",
+                  "nova-2-voicemail",
+                  "nova-2-video",
+                  "nova-2-medical",
+                  "nova-2-drivethru",
+                  "nova-2-automotive",
+                  "nova-2-custom"
+                ]
+              },
+              { "type": "string" }
+            ]
+          },
+          "keywords": {
+            "description": "These keywords are passed to the transcription model to help it pick up use-case specific words. Anything that may not be a common word, like your company name, should be added here.",
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "required": ["provider"]
+      },
+      "ElevenLabsVoice": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`\n\nBasic Voices: `rimeai`, `beta`",
+            "enum": ["11labs"]
+          },
+          "voiceId": {
+            "type": "string",
+            "description": "This is the provider-specific ID that will be used."
+          }
+        },
+        "required": ["provider", "voiceId"]
+      },
       "OpenAIFunctionParameterProperty": {
         "type": "object",
         "properties": {
@@ -450,63 +538,155 @@
         },
         "required": ["name", "parameters"]
       },
-      "CreateAssistantDTO": {
+      "OpenAIModel": {
         "type": "object",
         "properties": {
+          "provider": {
+            "type": "string",
+            "description": "This is the provider that will be used for the model. Currently, only OpenAI and Custom LLM URLs are supported.\n\nIf you have your own LLM, you can use the URL of your LLM endpoint here.",
+            "enum": ["openai"]
+          },
           "model": {
             "type": "string",
             "description": "This is the OpenAI model that will be used.",
             "enum": ["gpt-4", "gpt-3.5-turbo"]
           },
-          "voice": {
+          "systemPrompt": {
             "type": "string",
-            "description": "This is the voice that will be used.\n\nPro Voices: `*-11labs`, `*-playht`\n\nBasic Voices: `*-rimeai`",
-            "enum": [
-              "jennifer-playht",
-              "melissa-playht",
-              "will-playht",
-              "chris-playht",
-              "matt-playht",
-              "jack-playht",
-              "ruby-playht",
-              "davis-playht",
-              "donna-playht",
-              "michael-playht",
-              "burt-11labs",
-              "andrea-11labs",
-              "phillip-11labs",
-              "steve-11labs",
-              "joseph-11labs",
-              "myra-11labs",
-              "paula-11labs",
-              "ryan-11labs",
-              "drew-11labs",
-              "paul-11labs",
-              "mrb-11labs",
-              "matilda-11labs",
-              "kai-rimeai",
-              "zion-rimeai",
-              "xavier-rimeai",
-              "marty-rimeai",
-              "hudson-rimeai",
-              "savannah-rimeai",
-              "colette-rimeai",
-              "daphne-rimeai",
-              "aurora-rimeai",
-              "nova-rimeai",
-              "apollo-beta",
-              "orion-beta",
-              "aurora-beta",
-              "asteria-beta",
-              "stella-beta",
-              "artemis-beta",
-              "andromeda-beta",
-              "atlas-beta"
+            "description": "This sets the objective and understanding for the assistant."
+          },
+          "temperature": {
+            "type": "number",
+            "description": "This is the temperature that will be used for OpenAI calls."
+          },
+          "functions": {
+            "description": "These are the functions that the assistant can execute during the call.",
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/OpenAIFunction" }
+          }
+        },
+        "required": ["provider", "model"]
+      },
+      "PlayHTVoice": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`\n\nBasic Voices: `rimeai`, `beta`",
+            "enum": ["playht"]
+          },
+          "voiceId": {
+            "type": "string",
+            "description": "This is the provider-specific ID that will be used."
+          }
+        },
+        "required": ["provider", "voiceId"]
+      },
+      "RimeAIVoice": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`\n\nBasic Voices: `rimeai`, `beta`",
+            "enum": ["rimeai"]
+          },
+          "voiceId": {
+            "type": "string",
+            "description": "This is the provider-specific ID that will be used."
+          }
+        },
+        "required": ["provider", "voiceId"]
+      },
+      "CreateAssistantDTO": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "description": "These are the options for the assistant's LLM.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OpenAIModel",
+                "title": "OpenAIModel"
+              },
+              {
+                "$ref": "#/components/schemas/CustomModel",
+                "title": "CustomModel"
+              }
+            ],
+            "discriminator": {
+              "propertyName": "provider",
+              "mapping": {
+                "openai": "#/components/schemas/OpenAIModel",
+                "custom": "#/components/schemas/CustomModel"
+              }
+            }
+          },
+          "voice": {
+            "description": "These are the options for the assistant's voice.",
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "jennifer-playht",
+                  "melissa-playht",
+                  "will-playht",
+                  "chris-playht",
+                  "matt-playht",
+                  "jack-playht",
+                  "ruby-playht",
+                  "davis-playht",
+                  "donna-playht",
+                  "michael-playht",
+                  "burt-11labs",
+                  "andrea-11labs",
+                  "phillip-11labs",
+                  "steve-11labs",
+                  "joseph-11labs",
+                  "myra-11labs",
+                  "paula-11labs",
+                  "ryan-11labs",
+                  "drew-11labs",
+                  "paul-11labs",
+                  "mrb-11labs",
+                  "matilda-11labs",
+                  "kai-rimeai",
+                  "zion-rimeai",
+                  "xavier-rimeai",
+                  "marty-rimeai",
+                  "hudson-rimeai",
+                  "savannah-rimeai",
+                  "colette-rimeai",
+                  "daphne-rimeai",
+                  "aurora-rimeai",
+                  "nova-rimeai",
+                  "apollo-beta",
+                  "orion-beta",
+                  "aurora-beta",
+                  "asteria-beta",
+                  "stella-beta",
+                  "artemis-beta",
+                  "andromeda-beta",
+                  "atlas-beta"
+                ],
+                "title": "PresetVoice"
+              },
+              {
+                "$ref": "#/components/schemas/ElevenLabsVoice",
+                "title": "ElevenLabsVoice"
+              },
+              {
+                "$ref": "#/components/schemas/PlayHTVoice",
+                "title": "PlayHTVoice"
+              },
+              {
+                "$ref": "#/components/schemas/RimeAIVoice",
+                "title": "RimeAIVoice"
+              },
+              { "$ref": "#/components/schemas/BetaVoice", "title": "BetaVoice" }
             ]
           },
           "language": {
             "type": "string",
-            "description": "This sets the spoken language of the user. The assistant will do its best to respond in the same language.\nWhen using a language other than `en-*`, only `*-11labs` voices will pronounce the words correctly. There will also be ~1sec of additional latency.",
+            "description": "This sets the spoken language of the user. The assistant will do its best to respond in the same language.\nWhen using a language other than `en-*`, only `11labs` voices will pronounce the words correctly. There will also be ~1sec of additional latency.",
             "enum": [
               "en",
               "en-US",
@@ -525,27 +705,41 @@
               "es-419"
             ]
           },
-          "name": {
-            "type": "string",
-            "description": "This is the name of the assistant. This is just for your own reference.",
-            "maxLength": 100
-          },
           "context": {
             "type": "string",
-            "description": "This sets the objective and understanding for the assistant."
+            "description": "Use `model.systemPrompt` instead.",
+            "deprecated": true
           },
           "functions": {
-            "description": "These are the functions that the assistant can execute during the call.",
+            "description": "Use `model.functions` instead.",
+            "deprecated": true,
             "type": "array",
             "items": { "$ref": "#/components/schemas/OpenAIFunction" }
           },
           "callbackUrl": {
             "type": "string",
-            "description": "This is the URL Vapi will send GET / POST requests for retrieving context, function calling, and end-of-call reports.\n\nAll requests will be sent with the `call` object among other things relevant to that callback. You can find more details in the Function Calling documentation."
+            "description": "Add a Server URL to your Org on the Account page in the dashboard instead.",
+            "deprecated": true
           },
           "customLlmUrl": {
             "type": "string",
-            "description": "If you are using a custom LLM, this is the URL Vapi will use instead of hitting OpenAI.\n\nA POST request will be sent with an array of messages, and the response should be like so:\n\n```\n{ message: \"Oh hey! How are...\" }\n```"
+            "description": "Use `model.url` instead.",
+            "deprecated": true
+          },
+          "keywords": {
+            "description": "Use `transcriber.keywords` instead.",
+            "deprecated": true,
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "name": {
+            "type": "string",
+            "description": "This is the name of the assistant. This is just for your own reference.",
+            "maxLength": 100
+          },
+          "transcriber": {
+            "description": "These are the options for the assistant's transcriber.",
+            "allOf": [{ "$ref": "#/components/schemas/DeepgramTranscriber" }]
           },
           "forwardingPhoneNumber": {
             "type": "string",
@@ -554,12 +748,193 @@
           "firstMessage": {
             "type": "string",
             "description": "This is the first message that the assistant will say.\n\nIf unspecified, it will wait for the user to speak.",
-            "maxLength": 400
+            "maxLength": 1000
           },
           "voicemailMessage": {
             "type": "string",
             "description": "This is the message that the assistant will say if the call is forwarded to voicemail.\n\nIf unspecified, it will hang up.",
+            "maxLength": 1000
+          },
+          "endCallMessage": {
+            "type": "string",
+            "description": "This is the message that the assistant will say if it ends the call.\n\nIf unspecified, it will hang up without saying anything.",
             "maxLength": 400
+          },
+          "interruptionsEnabled": {
+            "type": "boolean",
+            "description": "This sets whether the user can interrupt the assistant while it's speaking. Defaults to true."
+          },
+          "recordingEnabled": {
+            "type": "boolean",
+            "description": "This sets whether the assistant's calls are recorded. Defaults to true."
+          },
+          "endCallFunctionEnabled": {
+            "type": "boolean",
+            "description": "This sets whether the assistant will be able to hang up the call. Defaults to false."
+          },
+          "fillersEnabled": {
+            "type": "boolean",
+            "description": "This sets whether the assistant will use fillers like Well..., Okay cool..., etc. Defaults to true when using gpt-4. Else, defaults to false."
+          }
+        }
+      },
+      "Assistant": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "description": "These are the options for the assistant's LLM.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OpenAIModel",
+                "title": "OpenAIModel"
+              },
+              {
+                "$ref": "#/components/schemas/CustomModel",
+                "title": "CustomModel"
+              }
+            ],
+            "discriminator": {
+              "propertyName": "provider",
+              "mapping": {
+                "openai": "#/components/schemas/OpenAIModel",
+                "custom": "#/components/schemas/CustomModel"
+              }
+            }
+          },
+          "voice": {
+            "description": "These are the options for the assistant's voice.",
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "jennifer-playht",
+                  "melissa-playht",
+                  "will-playht",
+                  "chris-playht",
+                  "matt-playht",
+                  "jack-playht",
+                  "ruby-playht",
+                  "davis-playht",
+                  "donna-playht",
+                  "michael-playht",
+                  "burt-11labs",
+                  "andrea-11labs",
+                  "phillip-11labs",
+                  "steve-11labs",
+                  "joseph-11labs",
+                  "myra-11labs",
+                  "paula-11labs",
+                  "ryan-11labs",
+                  "drew-11labs",
+                  "paul-11labs",
+                  "mrb-11labs",
+                  "matilda-11labs",
+                  "kai-rimeai",
+                  "zion-rimeai",
+                  "xavier-rimeai",
+                  "marty-rimeai",
+                  "hudson-rimeai",
+                  "savannah-rimeai",
+                  "colette-rimeai",
+                  "daphne-rimeai",
+                  "aurora-rimeai",
+                  "nova-rimeai",
+                  "apollo-beta",
+                  "orion-beta",
+                  "aurora-beta",
+                  "asteria-beta",
+                  "stella-beta",
+                  "artemis-beta",
+                  "andromeda-beta",
+                  "atlas-beta"
+                ],
+                "title": "PresetVoice"
+              },
+              {
+                "$ref": "#/components/schemas/ElevenLabsVoice",
+                "title": "ElevenLabsVoice"
+              },
+              {
+                "$ref": "#/components/schemas/PlayHTVoice",
+                "title": "PlayHTVoice"
+              },
+              {
+                "$ref": "#/components/schemas/RimeAIVoice",
+                "title": "RimeAIVoice"
+              },
+              { "$ref": "#/components/schemas/BetaVoice", "title": "BetaVoice" }
+            ]
+          },
+          "language": {
+            "type": "string",
+            "description": "This sets the spoken language of the user. The assistant will do its best to respond in the same language.\nWhen using a language other than `en-*`, only `11labs` voices will pronounce the words correctly. There will also be ~1sec of additional latency.",
+            "enum": [
+              "en",
+              "en-US",
+              "en-AU",
+              "en-GB",
+              "en-NZ",
+              "en-IN",
+              "fr",
+              "fr-CA",
+              "de",
+              "hi",
+              "hi-Latn",
+              "pt",
+              "pt-BR",
+              "es",
+              "es-419"
+            ]
+          },
+          "context": {
+            "type": "string",
+            "description": "Use `model.systemPrompt` instead.",
+            "deprecated": true
+          },
+          "functions": {
+            "description": "Use `model.functions` instead.",
+            "deprecated": true,
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/OpenAIFunction" }
+          },
+          "callbackUrl": {
+            "type": "string",
+            "description": "Add a Server URL to your Org on the Account page in the dashboard instead.",
+            "deprecated": true
+          },
+          "customLlmUrl": {
+            "type": "string",
+            "description": "Use `model.url` instead.",
+            "deprecated": true
+          },
+          "keywords": {
+            "description": "Use `transcriber.keywords` instead.",
+            "deprecated": true,
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "name": {
+            "type": "string",
+            "description": "This is the name of the assistant. This is just for your own reference.",
+            "maxLength": 100
+          },
+          "transcriber": {
+            "description": "These are the options for the assistant's transcriber.",
+            "allOf": [{ "$ref": "#/components/schemas/DeepgramTranscriber" }]
+          },
+          "forwardingPhoneNumber": {
+            "type": "string",
+            "description": "This is the number to forward to if assistant runs into issues."
+          },
+          "firstMessage": {
+            "type": "string",
+            "description": "This is the first message that the assistant will say.\n\nIf unspecified, it will wait for the user to speak.",
+            "maxLength": 1000
+          },
+          "voicemailMessage": {
+            "type": "string",
+            "description": "This is the message that the assistant will say if the call is forwarded to voicemail.\n\nIf unspecified, it will hang up.",
+            "maxLength": 1000
           },
           "endCallMessage": {
             "type": "string",
@@ -582,10 +957,205 @@
             "type": "boolean",
             "description": "This sets whether the assistant will use fillers like Well..., Okay cool..., etc. Defaults to true when using gpt-4. Else, defaults to false."
           },
+          "id": {
+            "type": "string",
+            "description": "This is the unique identifier for the assistant."
+          },
+          "orgId": {
+            "type": "string",
+            "description": "This is the unique identifier for the org that this assistant belongs to."
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "This is the ISO 8601 date-time string of when the assistant was created."
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "This is the ISO 8601 date-time string of when the assistant was last updated."
+          }
+        },
+        "required": ["id", "orgId", "createdAt", "updatedAt"]
+      },
+      "UpdateAssistantDTO": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "description": "These are the options for the assistant's LLM.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OpenAIModel",
+                "title": "OpenAIModel"
+              },
+              {
+                "$ref": "#/components/schemas/CustomModel",
+                "title": "CustomModel"
+              }
+            ],
+            "discriminator": {
+              "propertyName": "provider",
+              "mapping": {
+                "openai": "#/components/schemas/OpenAIModel",
+                "custom": "#/components/schemas/CustomModel"
+              }
+            }
+          },
+          "voice": {
+            "description": "These are the options for the assistant's voice.",
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "jennifer-playht",
+                  "melissa-playht",
+                  "will-playht",
+                  "chris-playht",
+                  "matt-playht",
+                  "jack-playht",
+                  "ruby-playht",
+                  "davis-playht",
+                  "donna-playht",
+                  "michael-playht",
+                  "burt-11labs",
+                  "andrea-11labs",
+                  "phillip-11labs",
+                  "steve-11labs",
+                  "joseph-11labs",
+                  "myra-11labs",
+                  "paula-11labs",
+                  "ryan-11labs",
+                  "drew-11labs",
+                  "paul-11labs",
+                  "mrb-11labs",
+                  "matilda-11labs",
+                  "kai-rimeai",
+                  "zion-rimeai",
+                  "xavier-rimeai",
+                  "marty-rimeai",
+                  "hudson-rimeai",
+                  "savannah-rimeai",
+                  "colette-rimeai",
+                  "daphne-rimeai",
+                  "aurora-rimeai",
+                  "nova-rimeai",
+                  "apollo-beta",
+                  "orion-beta",
+                  "aurora-beta",
+                  "asteria-beta",
+                  "stella-beta",
+                  "artemis-beta",
+                  "andromeda-beta",
+                  "atlas-beta"
+                ],
+                "title": "PresetVoice"
+              },
+              {
+                "$ref": "#/components/schemas/ElevenLabsVoice",
+                "title": "ElevenLabsVoice"
+              },
+              {
+                "$ref": "#/components/schemas/PlayHTVoice",
+                "title": "PlayHTVoice"
+              },
+              {
+                "$ref": "#/components/schemas/RimeAIVoice",
+                "title": "RimeAIVoice"
+              },
+              { "$ref": "#/components/schemas/BetaVoice", "title": "BetaVoice" }
+            ]
+          },
+          "language": {
+            "type": "string",
+            "description": "This sets the spoken language of the user. The assistant will do its best to respond in the same language.\nWhen using a language other than `en-*`, only `11labs` voices will pronounce the words correctly. There will also be ~1sec of additional latency.",
+            "enum": [
+              "en",
+              "en-US",
+              "en-AU",
+              "en-GB",
+              "en-NZ",
+              "en-IN",
+              "fr",
+              "fr-CA",
+              "de",
+              "hi",
+              "hi-Latn",
+              "pt",
+              "pt-BR",
+              "es",
+              "es-419"
+            ]
+          },
+          "context": {
+            "type": "string",
+            "description": "Use `model.systemPrompt` instead.",
+            "deprecated": true
+          },
+          "functions": {
+            "description": "Use `model.functions` instead.",
+            "deprecated": true,
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/OpenAIFunction" }
+          },
+          "callbackUrl": {
+            "type": "string",
+            "description": "Add a Server URL to your Org on the Account page in the dashboard instead.",
+            "deprecated": true
+          },
+          "customLlmUrl": {
+            "type": "string",
+            "description": "Use `model.url` instead.",
+            "deprecated": true
+          },
           "keywords": {
-            "description": "These keywords are passed to the transcription model to help it pick up use-case specific words. Anything that may not be a common word, like your company name, should be added here.",
+            "description": "Use `transcriber.keywords` instead.",
+            "deprecated": true,
             "type": "array",
             "items": { "type": "string" }
+          },
+          "name": {
+            "type": "string",
+            "description": "This is the name of the assistant. This is just for your own reference.",
+            "maxLength": 100
+          },
+          "transcriber": {
+            "description": "These are the options for the assistant's transcriber.",
+            "allOf": [{ "$ref": "#/components/schemas/DeepgramTranscriber" }]
+          },
+          "forwardingPhoneNumber": {
+            "type": "string",
+            "description": "This is the number to forward to if assistant runs into issues."
+          },
+          "firstMessage": {
+            "type": "string",
+            "description": "This is the first message that the assistant will say.\n\nIf unspecified, it will wait for the user to speak.",
+            "maxLength": 1000
+          },
+          "voicemailMessage": {
+            "type": "string",
+            "description": "This is the message that the assistant will say if the call is forwarded to voicemail.\n\nIf unspecified, it will hang up.",
+            "maxLength": 1000
+          },
+          "endCallMessage": {
+            "type": "string",
+            "description": "This is the message that the assistant will say if it ends the call.\n\nIf unspecified, it will hang up without saying anything.",
+            "maxLength": 400
+          },
+          "interruptionsEnabled": {
+            "type": "boolean",
+            "description": "This sets whether the user can interrupt the assistant while it's speaking. Defaults to true."
+          },
+          "recordingEnabled": {
+            "type": "boolean",
+            "description": "This sets whether the assistant's calls are recorded. Defaults to true."
+          },
+          "endCallFunctionEnabled": {
+            "type": "boolean",
+            "description": "This sets whether the assistant will be able to hang up the call. Defaults to false."
+          },
+          "fillersEnabled": {
+            "type": "boolean",
+            "description": "This sets whether the assistant will use fillers like Well..., Okay cool..., etc. Defaults to true when using gpt-4. Else, defaults to false."
           }
         }
       },
@@ -635,7 +1205,41 @@
         "properties": {
           "type": {
             "type": "string",
+            "description": "This is the type of call.",
             "enum": ["inboundPhoneCall", "outboundPhoneCall", "webCall"]
+          },
+          "twilioCallStatus": {
+            "type": "string",
+            "description": "Use `status` instead.",
+            "deprecated": true
+          },
+          "status": {
+            "type": "string",
+            "description": "This is the status of the call.",
+            "enum": ["queued", "ringing", "in-progress", "forwarding", "ended"]
+          },
+          "endedReason": {
+            "type": "string",
+            "description": "This is the explanation for how the call ended.",
+            "enum": [
+              "assistant-ended",
+              "assistant-error",
+              "assistant-join-timeout",
+              "busy",
+              "canceled",
+              "customer-ended",
+              "forwarded",
+              "max-duration-timeout",
+              "no-answer",
+              "no-server-available",
+              "server-shutdown",
+              "silence-timeout",
+              "twilio-call-error",
+              "twilio-websocket-close",
+              "twilio-websocket-error",
+              "unknown-error",
+              "voicemail"
+            ]
           },
           "id": {
             "type": "string",
@@ -685,17 +1289,9 @@
             "type": "string",
             "description": "This is the callSid of the phone call.\n\nOnly relevant for `outboundPhoneCall` and `inboundPhoneCall` type."
           },
-          "twilioCallStatus": {
-            "type": "string",
-            "description": "This is the current status of the call.\n\nOnly relevant for `outboundPhoneCall` and `inboundPhoneCall` type."
-          },
           "webCallUrl": {
             "type": "string",
             "description": "This is the URL of the call that the assistant will join.\n\nOnly relevant for `webCall` type."
-          },
-          "error": {
-            "type": "string",
-            "description": "This is set if the call experienced an error."
           },
           "assistantId": {
             "type": "string",
@@ -772,303 +1368,6 @@
           "assistant": {
             "description": "This is the assistant that will be used for the call. To use an existing assistant, use `assistantId` instead.",
             "allOf": [{ "$ref": "#/components/schemas/CreateAssistantDTO" }]
-          }
-        }
-      },
-      "Assistant": {
-        "type": "object",
-        "properties": {
-          "model": {
-            "type": "string",
-            "description": "This is the OpenAI model that will be used.",
-            "enum": ["gpt-4", "gpt-3.5-turbo"]
-          },
-          "voice": {
-            "type": "string",
-            "description": "This is the voice that will be used.\n\nPro Voices: `*-11labs`, `*-playht`\n\nBasic Voices: `*-rimeai`",
-            "enum": [
-              "jennifer-playht",
-              "melissa-playht",
-              "will-playht",
-              "chris-playht",
-              "matt-playht",
-              "jack-playht",
-              "ruby-playht",
-              "davis-playht",
-              "donna-playht",
-              "michael-playht",
-              "burt-11labs",
-              "andrea-11labs",
-              "phillip-11labs",
-              "steve-11labs",
-              "joseph-11labs",
-              "myra-11labs",
-              "paula-11labs",
-              "ryan-11labs",
-              "drew-11labs",
-              "paul-11labs",
-              "mrb-11labs",
-              "matilda-11labs",
-              "kai-rimeai",
-              "zion-rimeai",
-              "xavier-rimeai",
-              "marty-rimeai",
-              "hudson-rimeai",
-              "savannah-rimeai",
-              "colette-rimeai",
-              "daphne-rimeai",
-              "aurora-rimeai",
-              "nova-rimeai",
-              "apollo-beta",
-              "orion-beta",
-              "aurora-beta",
-              "asteria-beta",
-              "stella-beta",
-              "artemis-beta",
-              "andromeda-beta",
-              "atlas-beta"
-            ]
-          },
-          "language": {
-            "type": "string",
-            "description": "This sets the spoken language of the user. The assistant will do its best to respond in the same language.\nWhen using a language other than `en-*`, only `*-11labs` voices will pronounce the words correctly. There will also be ~1sec of additional latency.",
-            "enum": [
-              "en",
-              "en-US",
-              "en-AU",
-              "en-GB",
-              "en-NZ",
-              "en-IN",
-              "fr",
-              "fr-CA",
-              "de",
-              "hi",
-              "hi-Latn",
-              "pt",
-              "pt-BR",
-              "es",
-              "es-419"
-            ]
-          },
-          "name": {
-            "type": "string",
-            "description": "This is the name of the assistant. This is just for your own reference.",
-            "maxLength": 100
-          },
-          "context": {
-            "type": "string",
-            "description": "This sets the objective and understanding for the assistant."
-          },
-          "functions": {
-            "description": "These are the functions that the assistant can execute during the call.",
-            "type": "array",
-            "items": { "$ref": "#/components/schemas/OpenAIFunction" }
-          },
-          "callbackUrl": {
-            "type": "string",
-            "description": "This is the URL Vapi will send GET / POST requests for retrieving context, function calling, and end-of-call reports.\n\nAll requests will be sent with the `call` object among other things relevant to that callback. You can find more details in the Function Calling documentation."
-          },
-          "customLlmUrl": {
-            "type": "string",
-            "description": "If you are using a custom LLM, this is the URL Vapi will use instead of hitting OpenAI.\n\nA POST request will be sent with an array of messages, and the response should be like so:\n\n```\n{ message: \"Oh hey! How are...\" }\n```"
-          },
-          "forwardingPhoneNumber": {
-            "type": "string",
-            "description": "This is the number to forward to if assistant runs into issues."
-          },
-          "firstMessage": {
-            "type": "string",
-            "description": "This is the first message that the assistant will say.\n\nIf unspecified, it will wait for the user to speak.",
-            "maxLength": 400
-          },
-          "voicemailMessage": {
-            "type": "string",
-            "description": "This is the message that the assistant will say if the call is forwarded to voicemail.\n\nIf unspecified, it will hang up.",
-            "maxLength": 400
-          },
-          "endCallMessage": {
-            "type": "string",
-            "description": "This is the message that the assistant will say if it ends the call.\n\nIf unspecified, it will hang up without saying anything.",
-            "maxLength": 400
-          },
-          "interruptionsEnabled": {
-            "type": "boolean",
-            "description": "This sets whether the user can interrupt the assistant while it's speaking. Defaults to true."
-          },
-          "recordingEnabled": {
-            "type": "boolean",
-            "description": "This sets whether the assistant's calls are recorded. Defaults to true."
-          },
-          "endCallFunctionEnabled": {
-            "type": "boolean",
-            "description": "This sets whether the assistant will be able to hang up the call. Defaults to false."
-          },
-          "fillersEnabled": {
-            "type": "boolean",
-            "description": "This sets whether the assistant will use fillers like Well..., Okay cool..., etc. Defaults to true when using gpt-4. Else, defaults to false."
-          },
-          "keywords": {
-            "description": "These keywords are passed to the transcription model to help it pick up use-case specific words. Anything that may not be a common word, like your company name, should be added here.",
-            "type": "array",
-            "items": { "type": "string" }
-          },
-          "id": {
-            "type": "string",
-            "description": "This is the unique identifier for the assistant."
-          },
-          "orgId": {
-            "type": "string",
-            "description": "This is the unique identifier for the org that this assistant belongs to."
-          },
-          "createdAt": {
-            "format": "date-time",
-            "type": "string",
-            "description": "This is the ISO 8601 date-time string of when the assistant was created."
-          },
-          "updatedAt": {
-            "format": "date-time",
-            "type": "string",
-            "description": "This is the ISO 8601 date-time string of when the assistant was last updated."
-          }
-        },
-        "required": ["id", "orgId", "createdAt", "updatedAt"]
-      },
-      "UpdateAssistantDTO": {
-        "type": "object",
-        "properties": {
-          "model": {
-            "type": "string",
-            "description": "This is the OpenAI model that will be used.",
-            "enum": ["gpt-4", "gpt-3.5-turbo"]
-          },
-          "voice": {
-            "type": "string",
-            "description": "This is the voice that will be used.\n\nPro Voices: `*-11labs`, `*-playht`\n\nBasic Voices: `*-rimeai`",
-            "enum": [
-              "jennifer-playht",
-              "melissa-playht",
-              "will-playht",
-              "chris-playht",
-              "matt-playht",
-              "jack-playht",
-              "ruby-playht",
-              "davis-playht",
-              "donna-playht",
-              "michael-playht",
-              "burt-11labs",
-              "andrea-11labs",
-              "phillip-11labs",
-              "steve-11labs",
-              "joseph-11labs",
-              "myra-11labs",
-              "paula-11labs",
-              "ryan-11labs",
-              "drew-11labs",
-              "paul-11labs",
-              "mrb-11labs",
-              "matilda-11labs",
-              "kai-rimeai",
-              "zion-rimeai",
-              "xavier-rimeai",
-              "marty-rimeai",
-              "hudson-rimeai",
-              "savannah-rimeai",
-              "colette-rimeai",
-              "daphne-rimeai",
-              "aurora-rimeai",
-              "nova-rimeai",
-              "apollo-beta",
-              "orion-beta",
-              "aurora-beta",
-              "asteria-beta",
-              "stella-beta",
-              "artemis-beta",
-              "andromeda-beta",
-              "atlas-beta"
-            ]
-          },
-          "language": {
-            "type": "string",
-            "description": "This sets the spoken language of the user. The assistant will do its best to respond in the same language.\nWhen using a language other than `en-*`, only `*-11labs` voices will pronounce the words correctly. There will also be ~1sec of additional latency.",
-            "enum": [
-              "en",
-              "en-US",
-              "en-AU",
-              "en-GB",
-              "en-NZ",
-              "en-IN",
-              "fr",
-              "fr-CA",
-              "de",
-              "hi",
-              "hi-Latn",
-              "pt",
-              "pt-BR",
-              "es",
-              "es-419"
-            ]
-          },
-          "name": {
-            "type": "string",
-            "description": "This is the name of the assistant. This is just for your own reference.",
-            "maxLength": 100
-          },
-          "context": {
-            "type": "string",
-            "description": "This sets the objective and understanding for the assistant."
-          },
-          "functions": {
-            "description": "These are the functions that the assistant can execute during the call.",
-            "type": "array",
-            "items": { "$ref": "#/components/schemas/OpenAIFunction" }
-          },
-          "callbackUrl": {
-            "type": "string",
-            "description": "This is the URL Vapi will send GET / POST requests for retrieving context, function calling, and end-of-call reports.\n\nAll requests will be sent with the `call` object among other things relevant to that callback. You can find more details in the Function Calling documentation."
-          },
-          "customLlmUrl": {
-            "type": "string",
-            "description": "If you are using a custom LLM, this is the URL Vapi will use instead of hitting OpenAI.\n\nA POST request will be sent with an array of messages, and the response should be like so:\n\n```\n{ message: \"Oh hey! How are...\" }\n```"
-          },
-          "forwardingPhoneNumber": {
-            "type": "string",
-            "description": "This is the number to forward to if assistant runs into issues."
-          },
-          "firstMessage": {
-            "type": "string",
-            "description": "This is the first message that the assistant will say.\n\nIf unspecified, it will wait for the user to speak.",
-            "maxLength": 400
-          },
-          "voicemailMessage": {
-            "type": "string",
-            "description": "This is the message that the assistant will say if the call is forwarded to voicemail.\n\nIf unspecified, it will hang up.",
-            "maxLength": 400
-          },
-          "endCallMessage": {
-            "type": "string",
-            "description": "This is the message that the assistant will say if it ends the call.\n\nIf unspecified, it will hang up without saying anything.",
-            "maxLength": 400
-          },
-          "interruptionsEnabled": {
-            "type": "boolean",
-            "description": "This sets whether the user can interrupt the assistant while it's speaking. Defaults to true."
-          },
-          "recordingEnabled": {
-            "type": "boolean",
-            "description": "This sets whether the assistant's calls are recorded. Defaults to true."
-          },
-          "endCallFunctionEnabled": {
-            "type": "boolean",
-            "description": "This sets whether the assistant will be able to hang up the call. Defaults to false."
-          },
-          "fillersEnabled": {
-            "type": "boolean",
-            "description": "This sets whether the assistant will use fillers like Well..., Okay cool..., etc. Defaults to true when using gpt-4. Else, defaults to false."
-          },
-          "keywords": {
-            "description": "These keywords are passed to the transcription model to help it pick up use-case specific words. Anything that may not be a common word, like your company name, should be added here.",
-            "type": "array",
-            "items": { "type": "string" }
           }
         }
       },
