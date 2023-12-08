@@ -6,7 +6,7 @@ description: "Learn how to transfer and hang up calls with Vapi assistants."
 
 Under the hood, Vapi assistants are given two additional functions: `transferCall` and `endCall`. These functions can be used to transfer and hang up calls, respectively.
 
-You **do not** need to add these functions to your assistant's `functions` array.
+You **do not** need to add these functions to your model's `functions` array.
 
 ## Transfer Call
 
@@ -14,10 +14,12 @@ When a `forwardingPhoneNumber` is present on an assistant, the assistant will be
 
 ```json
 {
-  "context": "You are an assistant at a law firm. When the user asks"
-           + "to be transferred, use the transferCall function.",
-  "voice": "steve-11labs",
-  ...
+  "model": {
+    "provider": "openai",
+    "model": "gpt-3.5-turbo",
+    "systemPrompt": "You are an assistant at a law firm. When the user asks to be transferred, use the transferCall function."
+  },
+  "forwardingPhoneNumber": "+16054440129"
 }
 ```
 
@@ -27,9 +29,11 @@ This function is provided when `endCallFunctionEnabled` is enabled on the assist
 
 ```json
 {
-  "context": "You are an assistant at a law firm. If the user isn't"
-           + "taking the call seriously, use the endCall function.",
-  "voice": "steve-11labs",
-  ...
+  "model": {
+    "provider": "openai",
+    "model": "gpt-3.5-turbo",
+    "systemPrompt": "You are an assistant at a law firm. If the user is being mean, use the endCall function."
+  },
+  "endCallFunctionEnabled": true
 }
 ```

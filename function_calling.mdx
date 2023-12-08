@@ -1,14 +1,14 @@
 ---
-title: "Callback URL 🧠"
-sidebarTitle: "Callback URL"
+title: "Server URL 🧠"
+sidebarTitle: "Server URL"
 description: "Learn how to set up your server to receive and respond to messages from Vapi."
 ---
 
-As part of the `Assistant`, you can optionally specify a `callbackUrl`. This is your server's URL that the assistant will use when retreiving context, performing function calls, and more.
+In the Account dashboard page, you can optionally specify a `Server URL`. This is your server's URL that the assistant will use when sending status updates, performing function calls, and more.
 
-## Callback Messages
+## Server Messages
 
-All messages sent to your `callbackUrl` will be `POST` requests with the following body:
+All messages sent to your Server URL will be `POST` requests with the following body:
 
 ```json
 {
@@ -20,7 +20,7 @@ All messages sent to your `callbackUrl` will be `POST` requests with the followi
 }
 ```
 
-They include the type of message, the call object, and any other properties that are relevant to the message type. Below are the different types of messages that can be sent to your `callbackUrl`.
+They include the type of message, the call object, and any other properties that are relevant to the message type. Below are the different types of messages that can be sent to your Server URL.
 
 ### Function Calling
 
@@ -30,25 +30,27 @@ With each response, the assistant will automatically determine what functions to
 
 ```json
 {
-  "context": "You are an assistant at a law firm."
-           + "When the user gives their email address,"
-           + "send them an email with the sendEmail function.",
-  "functions": [
-    {
-      "name": "sendEmail",
-      "description": "Used to send an email to a client.",
-      "parameters": {
-        "type": "object",
-        "properties": {
-          "color": { "type": "string" }
+  "name": "Ryan's Assistant",
+  "model": {
+    "provider": "openai",
+    "model": "gpt-3.5-turbo",
+    "functions": [
+      {
+        "name": "sendEmail",
+        "description": "Used to send an email to a client.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "color": { "type": "string" }
+          }
         }
       }
-    }
-  ]
+    ]
+  }
 }
 ```
 
-Once a function is triggered, the assistant will send a message to your `callbackUrl` with the following body:
+Once a function is triggered, the assistant will send a message to your Server URL with the following body:
 
 ```json
 {
@@ -73,30 +75,37 @@ The result will be appended to the conversation, and the assistant will decide w
 
 If you don't need to return a response, you can use the `async: true` parameter in your assitant's function configuration. This will prevent the assistant from waiting for a response from your server.
 
-### Retrieving Context
+### Retrieving Assistants
 
-Sometimes you may want to dynamically set the assistant's context at the start of the call. This is how you'd set up an inbound phone number to have a different context depending on the caller's phone number.
-
-If `callbackUrl` is specified and `context` is not, the assistant will make a `POST` request, like so:
+For inbound phone calls, you may want to specify the assistant based on the caller's phone number. If a PhoneNumber doesn't have an `assistantId`, Vapi will attempt to retrieve the assistant from your server.
 
 ```json
 {
   "message": {
-    "type": "context-request",
+    "type": "assistant-request",
     "call": { Call Object },
   }
 }
 ```
 
-Your server should respond with a JSON object containing the context, like so:
+Your server should respond with a JSON object containing the assistant, like so:
 
 ```json
-{ "context": "You are an assistant at a law firm. You are calling to..." }
+{
+  "assistant": {
+    "firstMessage": "Hey Ryan, how are you?",
+    "model": {
+      "provider": "openai",
+      "model": "gpt-3.5-turbo",
+      "systemPrompt": "You're Ryan's assistant..."
+    }
+  }
+}
 ```
 
 ### Call Status Updates
 
-During the call, the assistant will make multiple `POST` requests to the `callbackUrl` with the following body:
+During the call, the assistant will make multiple `POST` requests to the Server URL with the following body:
 
 ```json
 {
@@ -116,7 +125,7 @@ The status events are:
 
 ### End of Call Report
 
-When a call ends, the assistant will make a `POST` request to the `callbackUrl` with the following body:
+When a call ends, the assistant will make a `POST` request to the Server URL with the following body:
 
 ```json
 {
