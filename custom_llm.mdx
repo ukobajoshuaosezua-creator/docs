@@ -1,10 +1,10 @@
 ---
-title: "Custom LLM URL"
-sidebarTitle: "Custom LLM URL"
+title: "Custom LLMs"
+sidebarTitle: "Custom LLMs"
 description: "Learn how to set up your server to act as the LLM."
 ---
 
-If you want more control over the LLM, you can give an assistant a `customLlmUrl` instead of a `model`. Instead of hitting OpenAI's API, the assistant will make requests to your server, and your server will be responsible for making requests to an LLM.
+If you want more control over the LLM, you can use the `custom` model provider. Instead of hitting OpenAI's API, the assistant will make requests to your server, and your server will be responsible for making requests to an LLM.
 
 You might want to set this up to:
 
@@ -12,7 +12,19 @@ You might want to set this up to:
 - Update the context during the conversation
 - Customize the messages before they're sent to an LLM
 
-When `customLlmUrl` is definied, the assistant will make a `POST` request to your server with the following body:
+To set up a use a custom LLM, you can specify the URL in the assistant body:
+
+```json
+{
+  "name": "My Assistant",
+  "model": {
+    "provider": "custom",
+    "url": "https://my-server.com/llm"
+  }
+}
+```
+
+After each of the user's statements, the assistant will make a `POST` request to your server with the following body:
 
 ```json
 {

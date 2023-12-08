@@ -55,7 +55,7 @@
         "introduction",
         "getting_started",
         "function_calling",
-        "custom_llm_url",
+        "custom_llm",
         "call_functions",
         "pricing"
       ]
