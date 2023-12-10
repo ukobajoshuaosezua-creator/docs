@@ -232,6 +232,211 @@
         "security": [{ "bearer": [] }]
       }
     },
+    "/credential": {
+      "post": {
+        "operationId": "CredentialController_create",
+        "summary": "Create Credential",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/CreateTwilioCredentialDTO",
+                    "title": "TwilioCredential"
+                  },
+                  {
+                    "$ref": "#/components/schemas/CreateDeepgramCredentialDTO",
+                    "title": "DeepgramCredential"
+                  },
+                  {
+                    "$ref": "#/components/schemas/CreateAzureCredentialDTO",
+                    "title": "AzureCredential"
+                  },
+                  {
+                    "$ref": "#/components/schemas/CreateElevenLabsCredentialDTO",
+                    "title": "ElevenLabsCredential"
+                  },
+                  {
+                    "$ref": "#/components/schemas/CreatePlayHTCredentialDTO",
+                    "title": "PlayHTCredential"
+                  },
+                  {
+                    "$ref": "#/components/schemas/CreateRimeAICredentialDTO",
+                    "title": "RimeAICredential"
+                  }
+                ],
+                "discriminator": {
+                  "propertyName": "provider",
+                  "mapping": {
+                    "twilio": "#/components/schemas/CreateTwilioCredentialDTO",
+                    "deepgram": "#/components/schemas/CreateDeepgramCredentialDTO",
+                    "azure-openai": "#/components/schemas/CreateAzureCredentialDTO",
+                    "11labs": "#/components/schemas/CreateElevenLabsCredentialDTO",
+                    "playht": "#/components/schemas/CreatePlayHTCredentialDTO",
+                    "rimeai": "#/components/schemas/CreateRimeAICredentialDTO"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Credential" }
+              }
+            }
+          }
+        },
+        "tags": ["Credentials"],
+        "security": [{ "bearer": [] }]
+      },
+      "get": {
+        "operationId": "CredentialController_findAll",
+        "summary": "List Credentials",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/Credential" }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Credentials"],
+        "security": [{ "bearer": [] }]
+      }
+    },
+    "/credential/{id}": {
+      "get": {
+        "operationId": "CredentialController_findOne",
+        "summary": "Get Credential",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Credential" }
+              }
+            }
+          }
+        },
+        "tags": ["Credentials"],
+        "security": [{ "bearer": [] }]
+      },
+      "put": {
+        "operationId": "CredentialController_update",
+        "summary": "Update Credential",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/UpdateTwilioCredentialDTO",
+                    "title": "TwilioCredential"
+                  },
+                  {
+                    "$ref": "#/components/schemas/UpdateDeepgramCredentialDTO",
+                    "title": "DeepgramCredential"
+                  },
+                  {
+                    "$ref": "#/components/schemas/UpdateAzureCredentialDTO",
+                    "title": "AzureCredential"
+                  },
+                  {
+                    "$ref": "#/components/schemas/UpdateElevenLabsCredentialDTO",
+                    "title": "ElevenLabsCredential"
+                  },
+                  {
+                    "$ref": "#/components/schemas/UpdatePlayHTCredentialDTO",
+                    "title": "PlayHTCredential"
+                  },
+                  {
+                    "$ref": "#/components/schemas/UpdateRimeAICredentialDTO",
+                    "title": "RimeAICredential"
+                  }
+                ],
+                "discriminator": {
+                  "propertyName": "provider",
+                  "mapping": {
+                    "twilio": "#/components/schemas/UpdateTwilioCredentialDTO",
+                    "deepgram": "#/components/schemas/UpdateDeepgramCredentialDTO",
+                    "azure-openai": "#/components/schemas/UpdateAzureCredentialDTO",
+                    "11labs": "#/components/schemas/UpdateElevenLabsCredentialDTO",
+                    "playht": "#/components/schemas/UpdatePlayHTCredentialDTO",
+                    "rimeai": "#/components/schemas/UpdateRimeAICredentialDTO"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Credential" }
+              }
+            }
+          }
+        },
+        "tags": ["Credentials"],
+        "security": [{ "bearer": [] }]
+      },
+      "delete": {
+        "operationId": "CredentialController_remove",
+        "summary": "Delete Credential",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Credential" }
+              }
+            }
+          }
+        },
+        "tags": ["Credentials"],
+        "security": [{ "bearer": [] }]
+      }
+    },
     "/phone-number/buy": {
       "post": {
         "operationId": "PhoneNumberController_buy",
@@ -378,7 +583,16 @@
             "schema": { "type": "string" }
           }
         ],
-        "responses": { "200": { "description": "" } },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/PhoneNumber" }
+              }
+            }
+          }
+        },
         "tags": ["Phone Numbers"],
         "security": [{ "bearer": [] }]
       }
@@ -398,17 +612,17 @@
         "scheme": "bearer",
         "bearerFormat": "Bearer",
         "type": "http",
-        "description": "Retrieve your key from the [dashboard](https://dashboard.vapi.ai)."
+        "description": "Retrieve your key from [Dashboard](dashboard.vapi.ai)."
       }
     },
     "schemas": {
-      "BetaVoice": {
+      "DeepgramVoice": {
         "type": "object",
         "properties": {
           "provider": {
             "type": "string",
-            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`\n\nBasic Voices: `rimeai`, `beta`",
-            "enum": ["beta"]
+            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`\n\nBasic Voices: `rimeai`, `deepgram`",
+            "enum": ["deepgram"]
           },
           "voiceId": {
             "type": "string",
@@ -427,7 +641,7 @@
           },
           "url": {
             "type": "string",
-            "description": "These are the options that will be passed to the provider."
+            "description": "These is the URL we'll POST during the conversation."
           },
           "systemPrompt": {
             "type": "string",
@@ -480,8 +694,24 @@
         "properties": {
           "provider": {
             "type": "string",
-            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`\n\nBasic Voices: `rimeai`, `beta`",
+            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`\n\nBasic Voices: `rimeai`, `deepgram`",
             "enum": ["11labs"]
+          },
+          "stability": {
+            "type": "number",
+            "description": "Defines the stability for voice settings."
+          },
+          "similarityBoost": {
+            "type": "number",
+            "description": "Defines the similarity boost for voice settings."
+          },
+          "style": {
+            "type": "boolean",
+            "description": "Defines the style for voice settings."
+          },
+          "useSpeakerBoost": {
+            "type": "boolean",
+            "description": "Defines the use speaker boost for voice settings."
           },
           "voiceId": {
             "type": "string",
@@ -557,7 +787,9 @@
           },
           "temperature": {
             "type": "number",
-            "description": "This is the temperature that will be used for OpenAI calls."
+            "description": "This is the temperature that will be used for OpenAI calls.",
+            "minimum": 0,
+            "maximum": 2
           },
           "functions": {
             "description": "These are the functions that the assistant can execute during the call.",
@@ -572,8 +804,50 @@
         "properties": {
           "provider": {
             "type": "string",
-            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`\n\nBasic Voices: `rimeai`, `beta`",
+            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`\n\nBasic Voices: `rimeai`, `deepgram`",
             "enum": ["playht"]
+          },
+          "speed": {
+            "type": "number",
+            "description": "This is the speed multiplier that will be used.",
+            "minimum": 0,
+            "maximum": 5
+          },
+          "temperature": {
+            "type": "number",
+            "description": "A floating point number between 0, inclusive, and 2, inclusive. If equal to null or not provided, the model's default temperature will be used. The temperature parameter controls variance. Lower temperatures result in more predictable results, higher temperatures allow each run to vary more, so the voice may sound less like the baseline voice.",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "emotion": {
+            "type": "string",
+            "description": "An emotion to be applied to the speech.",
+            "enum": [
+              "female_happy",
+              "female_sad",
+              "female_angry",
+              "female_fearful",
+              "female_disgust",
+              "female_surprised"
+            ]
+          },
+          "voiceGuidance": {
+            "type": "number",
+            "description": "A number between 1 and 6. Use lower numbers to reduce how unique your chosen voice will be compared to other voices.",
+            "minimum": 1,
+            "maximum": 6
+          },
+          "styleGuidance": {
+            "type": "number",
+            "description": "A number between 1 and 30. Use lower numbers to to reduce how strong your chosen emotion will be. Higher numbers will create a very emotional performance.",
+            "minimum": 1,
+            "maximum": 30
+          },
+          "textGuidance": {
+            "type": "number",
+            "description": "A number between 1 and 2. This number influences how closely the generated speech adheres to the input text. Use lower values to create more fluid speech, but with a higher chance of deviating from the input text. Higher numbers will make the generated speech more accurate to the input text, ensuring that the words spoken align closely with the provided text.",
+            "minimum": 1,
+            "maximum": 2
           },
           "voiceId": {
             "type": "string",
@@ -587,8 +861,34 @@
         "properties": {
           "provider": {
             "type": "string",
-            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`\n\nBasic Voices: `rimeai`, `beta`",
+            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`\n\nBasic Voices: `rimeai`, `deepgram`",
             "enum": ["rimeai"]
+          },
+          "speed": {
+            "type": "number",
+            "description": "This is the speed multiplier that will be used.",
+            "minimum": 0
+          },
+          "voiceId": {
+            "type": "string",
+            "description": "This is the provider-specific ID that will be used."
+          }
+        },
+        "required": ["provider", "voiceId"]
+      },
+      "OpenAIVoice": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`, `openai`\n\nBasic Voices: `rimeai`, `deepgram`",
+            "enum": ["openai"]
+          },
+          "speed": {
+            "type": "number",
+            "description": "This is the speed multiplier that will be used.",
+            "minimum": 0.25,
+            "maximum": 4
           },
           "voiceId": {
             "type": "string",
@@ -613,6 +913,12 @@
             "description": "These are the options for the assistant's LLM.",
             "oneOf": [
               {
+                "type": "string",
+                "enum": ["0", "1", "2"],
+                "title": "Preset Model Options",
+                "description": "If you use `custom`, we'll POST your `org.serverUrl` during the conversation."
+              },
+              {
                 "$ref": "#/components/schemas/OpenAIModel",
                 "title": "OpenAIModel"
               },
@@ -620,14 +926,7 @@
                 "$ref": "#/components/schemas/CustomModel",
                 "title": "CustomModel"
               }
-            ],
-            "discriminator": {
-              "propertyName": "provider",
-              "mapping": {
-                "openai": "#/components/schemas/OpenAIModel",
-                "custom": "#/components/schemas/CustomModel"
-              }
-            }
+            ]
           },
           "voice": {
             "description": "These are the options for the assistant's voice.",
@@ -667,16 +966,21 @@
                   "daphne-rimeai",
                   "aurora-rimeai",
                   "nova-rimeai",
-                  "apollo-beta",
-                  "orion-beta",
-                  "aurora-beta",
-                  "asteria-beta",
-                  "stella-beta",
-                  "artemis-beta",
-                  "andromeda-beta",
-                  "atlas-beta"
+                  "aurora-deepgram",
+                  "asteria-deepgram",
+                  "artemis-deepgram",
+                  "andromeda-deepgram",
+                  "stella-deepgram",
+                  "orion-deepgram",
+                  "atlas-deepgram",
+                  "alloy-openai",
+                  "echo-openai",
+                  "fable-openai",
+                  "onyx-openai",
+                  "nova-openai",
+                  "shimmer-openai"
                 ],
-                "title": "PresetVoice"
+                "title": "Preset Voice Options"
               },
               {
                 "$ref": "#/components/schemas/ElevenLabsVoice",
@@ -690,7 +994,10 @@
                 "$ref": "#/components/schemas/RimeAIVoice",
                 "title": "RimeAIVoice"
               },
-              { "$ref": "#/components/schemas/BetaVoice", "title": "BetaVoice" }
+              {
+                "$ref": "#/components/schemas/DeepgramVoice",
+                "title": "DeepgramVoice"
+              }
             ],
             "default": "jennifer-playht"
           },
@@ -769,6 +1076,12 @@
             "description": "These are the options for the assistant's LLM.",
             "oneOf": [
               {
+                "type": "string",
+                "enum": ["0", "1", "2"],
+                "title": "Preset Model Options",
+                "description": "If you use `custom`, we'll POST your `org.serverUrl` during the conversation."
+              },
+              {
                 "$ref": "#/components/schemas/OpenAIModel",
                 "title": "OpenAIModel"
               },
@@ -776,14 +1089,7 @@
                 "$ref": "#/components/schemas/CustomModel",
                 "title": "CustomModel"
               }
-            ],
-            "discriminator": {
-              "propertyName": "provider",
-              "mapping": {
-                "openai": "#/components/schemas/OpenAIModel",
-                "custom": "#/components/schemas/CustomModel"
-              }
-            }
+            ]
           },
           "voice": {
             "description": "These are the options for the assistant's voice.",
@@ -823,16 +1129,21 @@
                   "daphne-rimeai",
                   "aurora-rimeai",
                   "nova-rimeai",
-                  "apollo-beta",
-                  "orion-beta",
-                  "aurora-beta",
-                  "asteria-beta",
-                  "stella-beta",
-                  "artemis-beta",
-                  "andromeda-beta",
-                  "atlas-beta"
+                  "aurora-deepgram",
+                  "asteria-deepgram",
+                  "artemis-deepgram",
+                  "andromeda-deepgram",
+                  "stella-deepgram",
+                  "orion-deepgram",
+                  "atlas-deepgram",
+                  "alloy-openai",
+                  "echo-openai",
+                  "fable-openai",
+                  "onyx-openai",
+                  "nova-openai",
+                  "shimmer-openai"
                 ],
-                "title": "PresetVoice"
+                "title": "Preset Voice Options"
               },
               {
                 "$ref": "#/components/schemas/ElevenLabsVoice",
@@ -846,7 +1157,10 @@
                 "$ref": "#/components/schemas/RimeAIVoice",
                 "title": "RimeAIVoice"
               },
-              { "$ref": "#/components/schemas/BetaVoice", "title": "BetaVoice" }
+              {
+                "$ref": "#/components/schemas/DeepgramVoice",
+                "title": "DeepgramVoice"
+              }
             ],
             "default": "jennifer-playht"
           },
@@ -944,6 +1258,12 @@
             "description": "These are the options for the assistant's LLM.",
             "oneOf": [
               {
+                "type": "string",
+                "enum": ["0", "1", "2"],
+                "title": "Preset Model Options",
+                "description": "If you use `custom`, we'll POST your `org.serverUrl` during the conversation."
+              },
+              {
                 "$ref": "#/components/schemas/OpenAIModel",
                 "title": "OpenAIModel"
               },
@@ -951,14 +1271,7 @@
                 "$ref": "#/components/schemas/CustomModel",
                 "title": "CustomModel"
               }
-            ],
-            "discriminator": {
-              "propertyName": "provider",
-              "mapping": {
-                "openai": "#/components/schemas/OpenAIModel",
-                "custom": "#/components/schemas/CustomModel"
-              }
-            }
+            ]
           },
           "voice": {
             "description": "These are the options for the assistant's voice.",
@@ -998,16 +1311,21 @@
                   "daphne-rimeai",
                   "aurora-rimeai",
                   "nova-rimeai",
-                  "apollo-beta",
-                  "orion-beta",
-                  "aurora-beta",
-                  "asteria-beta",
-                  "stella-beta",
-                  "artemis-beta",
-                  "andromeda-beta",
-                  "atlas-beta"
+                  "aurora-deepgram",
+                  "asteria-deepgram",
+                  "artemis-deepgram",
+                  "andromeda-deepgram",
+                  "stella-deepgram",
+                  "orion-deepgram",
+                  "atlas-deepgram",
+                  "alloy-openai",
+                  "echo-openai",
+                  "fable-openai",
+                  "onyx-openai",
+                  "nova-openai",
+                  "shimmer-openai"
                 ],
-                "title": "PresetVoice"
+                "title": "Preset Voice Options"
               },
               {
                 "$ref": "#/components/schemas/ElevenLabsVoice",
@@ -1021,7 +1339,10 @@
                 "$ref": "#/components/schemas/RimeAIVoice",
                 "title": "RimeAIVoice"
               },
-              { "$ref": "#/components/schemas/BetaVoice", "title": "BetaVoice" }
+              {
+                "$ref": "#/components/schemas/DeepgramVoice",
+                "title": "DeepgramVoice"
+              }
             ],
             "default": "jennifer-playht"
           },
@@ -1133,11 +1454,6 @@
             "description": "This is the type of call.",
             "enum": ["inboundPhoneCall", "outboundPhoneCall", "webCall"]
           },
-          "twilioCallStatus": {
-            "type": "string",
-            "description": "Use `status` instead.",
-            "deprecated": true
-          },
           "status": {
             "type": "string",
             "description": "This is the status of the call.",
@@ -1147,21 +1463,22 @@
             "type": "string",
             "description": "This is the explanation for how the call ended.",
             "enum": [
-              "assistant-ended",
+              "assistant-ended-call",
               "assistant-error",
-              "assistant-join-timeout",
-              "busy",
-              "canceled",
-              "customer-ended",
-              "forwarded",
-              "max-duration-timeout",
-              "no-answer",
+              "assistant-forwarded-call",
+              "assistant-join-timed-out",
+              "assistant-not-found",
+              "manually-canceled",
+              "customer-busy",
+              "customer-ended-call",
+              "customer-did-not-answer",
+              "db-error",
+              "exceeded-max-duration",
               "no-server-available",
               "server-shutdown",
-              "silence-timeout",
-              "twilio-call-error",
-              "twilio-websocket-close",
-              "twilio-websocket-error",
+              "silence-timed-out",
+              "twilio-failed-to-connect-call",
+              "twilio-closed-websocket",
               "unknown-error",
               "voicemail"
             ]
@@ -1250,11 +1567,6 @@
       "CreateOutboundCallDTO": {
         "type": "object",
         "properties": {
-          "customerPhoneNumber": {
-            "type": "string",
-            "deprecated": true,
-            "description": "Use `customer` instead."
-          },
           "assistantId": {
             "type": "string",
             "description": "This is the assistant that will be used for the call. To use a transient assistant, use `assistant` instead."
@@ -1295,6 +1607,258 @@
             "allOf": [{ "$ref": "#/components/schemas/CreateAssistantDTO" }]
           }
         }
+      },
+      "CreateTwilioCredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["twilio"] },
+          "authToken": {
+            "type": "string",
+            "description": "This is hidden in the API responses."
+          },
+          "accountSid": { "type": "string" }
+        },
+        "required": ["provider", "authToken", "accountSid"]
+      },
+      "CreateDeepgramCredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["deepgram"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is hidden in the API responses."
+          }
+        },
+        "required": ["provider", "apiKey"]
+      },
+      "CreateAzureCredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["azure-openai"] },
+          "openAIKey": {
+            "type": "string",
+            "description": "This is hidden in the API responses."
+          },
+          "openAIEndpoint": { "type": "string" }
+        },
+        "required": ["provider", "openAIKey", "openAIEndpoint"]
+      },
+      "CreateElevenLabsCredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["11labs"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is hidden in the API responses."
+          }
+        },
+        "required": ["provider", "apiKey"]
+      },
+      "CreatePlayHTCredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["playht"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is hidden in the API responses."
+          },
+          "userId": { "type": "string" }
+        },
+        "required": ["provider", "apiKey", "userId"]
+      },
+      "CreateRimeAICredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["rimeai"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is hidden in the API responses."
+          }
+        },
+        "required": ["provider", "apiKey"]
+      },
+      "UpdateTwilioCredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["twilio"] },
+          "authToken": {
+            "type": "string",
+            "description": "This is hidden in the API responses."
+          },
+          "accountSid": { "type": "string" }
+        },
+        "required": ["provider", "authToken", "accountSid"]
+      },
+      "UpdateDeepgramCredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["deepgram"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is hidden in the API responses."
+          }
+        },
+        "required": ["provider", "apiKey"]
+      },
+      "UpdateAzureCredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["azure-openai"] },
+          "openAIKey": {
+            "type": "string",
+            "description": "This is hidden in the API responses."
+          },
+          "openAIEndpoint": { "type": "string" }
+        },
+        "required": ["provider", "openAIKey", "openAIEndpoint"]
+      },
+      "UpdateElevenLabsCredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["11labs"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is hidden in the API responses."
+          }
+        },
+        "required": ["provider", "apiKey"]
+      },
+      "UpdatePlayHTCredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["playht"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is hidden in the API responses."
+          },
+          "userId": { "type": "string" }
+        },
+        "required": ["provider", "apiKey", "userId"]
+      },
+      "UpdateRimeAICredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["rimeai"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is hidden in the API responses."
+          }
+        },
+        "required": ["provider", "apiKey"]
+      },
+      "CreateCredentialDTO": {
+        "type": "object",
+        "properties": {
+          "authToken": {
+            "type": "string",
+            "description": "This is hidden in the API responses."
+          },
+          "apiKey": {
+            "type": "string",
+            "description": "This is hidden in the API responses."
+          },
+          "openAIKey": {
+            "type": "string",
+            "description": "This is hidden in the API responses."
+          },
+          "provider": {
+            "type": "string",
+            "enum": [
+              "twilio",
+              "deepgram",
+              "azure-openai",
+              "11labs",
+              "playht",
+              "rimeai"
+            ]
+          },
+          "accountSid": { "type": "string" },
+          "openAIEndpoint": { "type": "string" },
+          "userId": { "type": "string" }
+        },
+        "required": ["provider"]
+      },
+      "UpdateCredentialDTO": {
+        "type": "object",
+        "properties": {
+          "authToken": {
+            "type": "string",
+            "description": "This is hidden in the API responses."
+          },
+          "apiKey": {
+            "type": "string",
+            "description": "This is hidden in the API responses."
+          },
+          "openAIKey": {
+            "type": "string",
+            "description": "This is hidden in the API responses."
+          },
+          "provider": {
+            "type": "string",
+            "enum": [
+              "twilio",
+              "deepgram",
+              "azure-openai",
+              "11labs",
+              "playht",
+              "rimeai"
+            ]
+          },
+          "accountSid": { "type": "string" },
+          "openAIEndpoint": { "type": "string" },
+          "userId": { "type": "string" }
+        },
+        "required": ["provider"]
+      },
+      "Credential": {
+        "type": "object",
+        "properties": {
+          "authToken": {
+            "type": "string",
+            "description": "This is hidden in the API responses."
+          },
+          "apiKey": {
+            "type": "string",
+            "description": "This is hidden in the API responses."
+          },
+          "openAIKey": {
+            "type": "string",
+            "description": "This is hidden in the API responses."
+          },
+          "provider": {
+            "type": "string",
+            "enum": [
+              "twilio",
+              "deepgram",
+              "azure-openai",
+              "11labs",
+              "playht",
+              "rimeai"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "description": "This is the unique identifier for the credential."
+          },
+          "orgId": {
+            "type": "string",
+            "description": "This is the unique identifier for the org that this credential belongs to."
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "This is the ISO 8601 date-time string of when the credential was created."
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "This is the ISO 8601 date-time string of when the assistant was last updated."
+          },
+          "accountSid": { "type": "string" },
+          "openAIEndpoint": { "type": "string" },
+          "userId": { "type": "string" }
+        },
+        "required": ["provider", "id", "orgId", "createdAt", "updatedAt"]
       },
       "BuyPhoneNumberDTO": {
         "type": "object",
