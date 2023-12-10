@@ -50,15 +50,22 @@
   ],
   "navigation": [
     {
-      "group": "Welcome",
+      "group": "Overview",
+      "pages": ["introduction", "how_it_works", "faq", "pricing"]
+    },
+    {
+      "group": "Getting Started",
       "pages": [
-        "introduction",
-        "getting_started",
-        "function_calling",
-        "custom_llm",
+        "assistants",
+        "server_url",
         "call_functions",
-        "pricing"
+        "phone_calling",
+        "clients"
       ]
+    },
+    {
+      "group": "Customization",
+      "pages": ["provider_keys", "custom_llm"]
     },
     {
       "group": "Links",

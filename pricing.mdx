@@ -1,15 +1,25 @@
 ---
-title: "Pricing 💰"
+title: "Pricing"
 sidebarTitle: "Pricing"
-description: "Get to know your pricing per minute based on the tiers you choose."
+description: "Get to know your pricing per minute based on the providers you choose."
 ---
 
-Based on the `model` and `voice` you choose in the API, you will be automatically billed per minute. You can see the pricing for each tier below:
+The vast majority of the cost of using VAPI is the cost of the underlying providers. We charge a base fee on top of the provider cost to cover our costs and to be a sustainable business.
 
-| Tier                          | Cost / Minute | Cost / Hour |
-| ----------------------------- | ------------- | ----------- |
-| Basic (GPT-3.5 + Basic Voice) | $0.10         | $6.00       |
-| Pro Voice Addon               | +$0.10        | +$6.00      |
-| Pro Model Addon (GPT-4)       | +$0.20        | +$12.00     |
+When using [Provider Keys](/provider_keys), you'll be billed directly by the provider, not us. When using providers through VAPI, you'll be billed at what we've estimated to be our average cost / min. It'll sometimes be cheaper through us too, since we get volume pricing.
 
-You can find your usage and billing information in the [dashboard](https://dashboard.vapi.ai).
+Based on the providers you select and the keys you provide, you will be automatically billed per minute. You can see the pricing for each provider below:
+
+| Provide             | Cost / Minute | Cost / Hour |
+| ------------------- | ------------- | ----------- |
+| Vapi Services       | $0.05         | $3.00       |
+| STT - Deepgram      | +$0.01        | +$0.60      |
+| LLM - gpt-4-turbo   | +$0.20        | +$12.00     |
+| LLM - gpt-3.5-turbo | +$0.02        | +$1.20      |
+| TTS - ElevenLabs    | +$0.10        | +$6.00      |
+| TTS - PlayHT        | +$0.10        | +$6.00      |
+| TTS - OpenAI        | +$0.10        | +$6.00      |
+| TTS - Deepgram      | +$0.05        | +$3.00      |
+| TTS - RimeAI        | +$0.02        | +$1.20      |
+
+These costs are subject to change as we get more data, but they will always reflect our best estimate of our average costs. You can find your usage and billing information in the [dashboard](https://dashboard.vapi.ai).
