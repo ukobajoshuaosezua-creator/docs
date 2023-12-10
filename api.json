@@ -816,7 +816,7 @@
           "temperature": {
             "type": "number",
             "description": "A floating point number between 0, inclusive, and 2, inclusive. If equal to null or not provided, the model's default temperature will be used. The temperature parameter controls variance. Lower temperatures result in more predictable results, higher temperatures allow each run to vary more, so the voice may sound less like the baseline voice.",
-            "minimum": 0,
+            "minimum": 0.1,
             "maximum": 2
           },
           "emotion": {
@@ -914,7 +914,7 @@
             "oneOf": [
               {
                 "type": "string",
-                "enum": ["0", "1", "2"],
+                "enum": ["gpt-4", "gpt-3.5-turbo", "custom"],
                 "title": "Preset Model Options",
                 "description": "If you use `custom`, we'll POST your `org.serverUrl` during the conversation."
               },
@@ -1077,7 +1077,7 @@
             "oneOf": [
               {
                 "type": "string",
-                "enum": ["0", "1", "2"],
+                "enum": ["gpt-4", "gpt-3.5-turbo", "custom"],
                 "title": "Preset Model Options",
                 "description": "If you use `custom`, we'll POST your `org.serverUrl` during the conversation."
               },
@@ -1259,7 +1259,7 @@
             "oneOf": [
               {
                 "type": "string",
-                "enum": ["0", "1", "2"],
+                "enum": ["gpt-4", "gpt-3.5-turbo", "custom"],
                 "title": "Preset Model Options",
                 "description": "If you use `custom`, we'll POST your `org.serverUrl` during the conversation."
               },
