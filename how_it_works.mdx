@@ -6,7 +6,7 @@ description: "Let's get into it."
 
 Stitching together text-to-speech, speech-to-text, and natural language understanding isn't that complicated. But it's not trivial either. And it's not something you want to do yourself. It's a lot of work to get it right.
 
-We're going to walk through the part we play to make real-time conversation possible. Let's start with a diagram:
+You might be wondering what Vapi does. Let's start with a diagram:
 
 <Frame>
   <img src="/images/diagram.png" />
@@ -14,6 +14,6 @@ We're going to walk through the part we play to make real-time conversation poss
 
 Vapi abstracts away the speech-to-speech pipeline, and connects to the providers on your behalf. We have various latency optimizations like end-to-end streaming, colocating servers, etc. to squeeze out every millisecond of latency we can. We also manage the coordination of interruptions, turn-taking, and other conversational dynamics.
 
-You also don't have to hook up Twilio websockets or build bidirectional audio streaming, you can just connect to the WebRTC stream through our [Web](https://github.com/VapiAI/web), [iOS](https://github.com/VapiAI/ios), or [Python](https://github.com/VapiAI/python) clients and get on with your life.
+You also don't have to hook up Twilio websockets or build bidirectional audio streaming. You can just connect to the WebRTC stream through our [Web](https://github.com/VapiAI/web), [iOS](https://github.com/VapiAI/ios), or [Python](https://github.com/VapiAI/python) clients and get on with your life.
 
 Oh yeah, scaling too. We do that.
