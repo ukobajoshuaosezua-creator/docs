@@ -3,3 +3,21 @@ title: "Assistants"
 sidebarTitle: "Assistants"
 description: "Vapi is an API for building voice assistants."
 ---
+
+**Assistant** is a fancy word for an AI configuration that can be used across phone calls and Vapi clients.
+
+There are three core components: **Transcriber**, **Model**, and **Voice**. These can be configured, mixed, and matched for your use case. They also have a bunch of other configurable properties you can find [here](/api-reference/assistants/create-assistant).
+
+### Persistant vs. Temporary Assistants
+
+You might be wondering... should I create an assistant using the `/assistant` endpoint and use its `assistantId`? Or can I just specify the assistant configuration when starting a call?
+
+**You might want to use temporary assistants when:**
+
+- Your server is going to have its own properties on top of our assistants, and it's going to be a lot of work to keep them up to sync with ours.
+- You want to frequently change the assistant properties across calls.
+
+**You might want to use persistant assistants when:**
+
+- You won't be building your own assistant properties on top of ours.
+- You want to use the same assistant across multiple calls.
