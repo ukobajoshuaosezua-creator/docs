@@ -8,13 +8,23 @@ description: "Vapi is an API for building voice assistants."
 
 There are three core components: **Transcriber**, **Model**, and **Voice**. These can be configured, mixed, and matched for your use case. They also have a bunch of other configurable properties you can find [here](/api-reference/assistants/create-assistant).
 
-### Persistant vs. Temporary Assistants
+## Advanced Concepts
 
-You might be wondering... should I create an assistant using the `/assistant` endpoint and use its `assistantId`? Or can I just specify the assistant configuration when starting a call?
-
-The `/assistant` endpoint is there for convenience, to save you creating your own assistants table. You'd want to use it when:
-
-- You won't be adding more assistant properties on top of ours.
-- You want to use the same assistant across multiple calls.
-
-Otherwise, you can just specify the assistant configuration when starting a call.
+<CardGroup cols={2}>
+  <Card title="Provider Keys" icon="key" href="/provider_keys">
+    Add your API keys for other providers
+  </Card>
+  <Card title="Custom LLM URL" icon="brain" href="/custom_llm">
+    Plug in your own LLM
+  </Card>
+  <Card title="Call Functions" icon="square-phone" href="/call_functions">
+    Forward and hang up with function calls
+  </Card>
+  <Card
+    title="Persistent / Temporary Assistants"
+    href="/persistent_assistants"
+    icon="database"
+  >
+    Which setup is best for you?
+  </Card>
+</CardGroup>

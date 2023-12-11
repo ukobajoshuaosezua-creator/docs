@@ -1,0 +1,37 @@
+---
+title: "Getting Started"
+sidebarTitle: "Getting started"
+description: "Let's get you ready to use the API."
+---
+
+<Steps>
+  <Step title="Sign Up">
+    You can sign up [here](https://dashboard.vapi.ai) using the traditional method of email plus password or sign up using Google OAuth. Once you sign up, you will be redirected to the dashboard.
+
+From the dashboard, you can create assistants, set up phone numbers, view your call history, and more.
+
+  </Step>
+  <Step title="Add a Payment Method">
+    Once you hit $10 in usage, your API calls will start throwing "Billing Limit Reached" errors. So, it's best to add a payment method before you hit that limit. This can be done in the **Billing** page in the [Dashboard](https://dashboard.vapi.ai).
+
+    Once saved, you can increase your billing limit by increasing an amount in the **Billing Limit** field.
+
+  </Step>
+   <Step title="Use your API key">
+    Your API key can be found in the **Account** page. When making requests to the API, make sure to include your key in the `Authorization` header.
+    
+    ```typescript
+    const axios = require('axios');
+    const API_KEY = 'your_api_key';
+
+    const res = await axios.get('https://api.vapi.ai/assistant', {
+      headers: {
+        Authorization: `Bearer ${API_KEY}`
+      }
+    });
+
+    console.log(res.data);
+    ```
+
+  </Step>
+</Steps>

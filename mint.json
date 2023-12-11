@@ -51,21 +51,35 @@
   "navigation": [
     {
       "group": "Overview",
-      "pages": ["introduction", "how_it_works", "faq", "pricing"]
-    },
-    {
-      "group": "Getting Started",
       "pages": [
-        "assistants",
-        "server_url",
-        "call_functions",
-        "phone_calling",
-        "clients"
+        "introduction",
+        "how_it_works",
+        "getting_started",
+        "faq",
+        "pricing"
       ]
     },
     {
-      "group": "Customization",
-      "pages": ["provider_keys", "custom_llm"]
+      "group": "Examples",
+      "pages": ["outbound_sales", "technical_support", "pizza_website"]
+    },
+    {
+      "group": "Concepts",
+      "pages": [
+        "assistants",
+        "phone_calling",
+        "clients",
+        "server_url",
+        {
+          "group": "Advanced",
+          "pages": [
+            "provider_keys",
+            "custom_llm",
+            "call_functions",
+            "persistent_assistants"
+          ]
+        }
+      ]
     },
     {
       "group": "Links",

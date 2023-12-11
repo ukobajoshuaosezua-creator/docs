@@ -1,5 +1,5 @@
 ---
-title: "Server URL"
+title: "Set up your Server URL"
 sidebarTitle: "Server URL"
 description: "Learn how to set up your server to receive and respond to messages from Vapi."
 ---
@@ -26,7 +26,7 @@ They include the type of message, the call object, and any other properties that
 
 Vapi fully supports [OpenAI's function calling API](https://platform.openai.com/docs/guides/gpt/function-calling), so you can have assistants ping your server to perform actions like sending emails, retrieve information, and more.
 
-With each response, the assistant will automatically determine what functions to call based on the directions provided in the `context`. Here's an example of what the assistant might look like:
+With each response, the assistant will automatically determine what functions to call based on the directions provided in the `systemPrompt`. Here's an example of what the assistant might look like:
 
 ```json
 {
@@ -71,7 +71,7 @@ Your server should respond with a JSON object containing the function's response
 { "result": "Your email has been sent." }
 ```
 
-The result will be appended to the conversation, and the assistant will decide what to do with the response based on its context.
+The result will be appended to the conversation, and the assistant will decide what to do with the response based on its `systemPrompt`.
 
 If you don't need to return a response, you can use the `async: true` parameter in your assitant's function configuration. This will prevent the assistant from waiting for a response from your server.
 
@@ -153,22 +153,4 @@ When a call ends, the assistant will make a `POST` request to the Server URL wit
 }
 ```
 
-`endedReason` can be one of the following:
-
-- `assistant-ended`
-- `assistant-error`
-- `assistant-join-timeout`
-- `busy`
-- `canceled`
-- `customer-ended`
-- `forwarded`
-- `max-duration-timeout`
-- `no-answer`
-- `no-server-available`
-- `server-shutdown`
-- `silence-timeout`
-- `twilio-call-error`
-- `twilio-websocket-close`
-- `twilio-websocket-error`
-- `unknown-error`
-- `voicemail`
+`endedReason` can be any of the options defined on the [Call Object](/api-reference/calls/get-call).

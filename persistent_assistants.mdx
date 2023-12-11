@@ -1,0 +1,14 @@
+---
+title: "Persistent Assistants"
+sidebarTitle: "Persistent Assistants"
+description: "Should I use persistent assistants?"
+---
+
+You might be wondering... should I create an assistant using the `/assistant` endpoint and use its `assistantId`? Or can I just specify the assistant configuration when starting a call?
+
+The `/assistant` endpoint is there for convenience, to save you creating your own assistants table. You'd want to use it when:
+
+- You won't be adding more assistant properties on top of ours.
+- You want to use the same assistant across multiple calls.
+
+Otherwise, you can just specify the assistant configuration when starting a call.
