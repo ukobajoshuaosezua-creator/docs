@@ -103,14 +103,14 @@ We want to add a button to the page to start a call, update our UI with the call
 
 <Step title="Handle speaking events">
   ```js
-    vapi.on('speech-start', () => {
-      // Update UI to show that the assistant is speaking
-    });
+  vapi.on('speech-start', () => {
+    // Update UI to show that the assistant is speaking
+  });
 
-    vapi.on('speech-end', () => {
-      // Update UI to show that the assistant is done speaking
-    });
-    ```
+  vapi.on('speech-end', () => {
+    // Update UI to show that the assistant is done speaking
+  });
+  ```
 
 </Step>
 
@@ -135,19 +135,18 @@ vapi.on("message", (msg) => {
 
 <Step title="Handle function call events">
  ```js
- vapi.on('message', (msg) => {
-   if(msg.type !== "function-call") return;
+vapi.on('message', (msg) => {
+  if(msg.type !== "function-call") return;
 
-if(msg.functionCall.name === "addTopping"){
-const topping = JSON.parse(msg.functionCall.arguments).topping;
-// Add the topping to the pizza
-}
+  if(msg.functionCall.name === "addTopping"){
+    const topping = JSON.parse(msg.functionCall.arguments).topping;
+    // Add the topping to the pizza
+  }
 
-if(msg.functionCall.name === "goToCheckout"){
-// Redirect the user to checkout
-}
+  if(msg.functionCall.name === "goToCheckout"){
+    // Redirect the user to checkout
+  }
 });
-
 ```
 </Step>
 <Step title="Order your pizza!">
