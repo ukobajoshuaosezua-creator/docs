@@ -252,8 +252,8 @@
                     "title": "DeepgramCredential"
                   },
                   {
-                    "$ref": "#/components/schemas/CreateAzureCredentialDTO",
-                    "title": "AzureCredential"
+                    "$ref": "#/components/schemas/CreateAzureOpenAICredentialDTO",
+                    "title": "AzureOpenAICredential"
                   },
                   {
                     "$ref": "#/components/schemas/CreateElevenLabsCredentialDTO",
@@ -273,7 +273,7 @@
                   "mapping": {
                     "twilio": "#/components/schemas/CreateTwilioCredentialDTO",
                     "deepgram": "#/components/schemas/CreateDeepgramCredentialDTO",
-                    "azure-openai": "#/components/schemas/CreateAzureCredentialDTO",
+                    "azure-openai": "#/components/schemas/CreateAzureOpenAICredentialDTO",
                     "11labs": "#/components/schemas/CreateElevenLabsCredentialDTO",
                     "playht": "#/components/schemas/CreatePlayHTCredentialDTO",
                     "rimeai": "#/components/schemas/CreateRimeAICredentialDTO"
@@ -288,7 +288,45 @@
             "description": "",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/Credential" }
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/TwilioCredential",
+                      "title": "TwilioCredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/DeepgramCredential",
+                      "title": "DeepgramCredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/AzureOpenAICredential",
+                      "title": "AzureOpenAICredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ElevenLabsCredential",
+                      "title": "ElevenLabsCredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PlayHTCredential",
+                      "title": "PlayHTCredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/RimeAICredential",
+                      "title": "RimeAICredential"
+                    }
+                  ],
+                  "discriminator": {
+                    "propertyName": "provider",
+                    "mapping": {
+                      "twilio": "#/components/schemas/TwilioCredential",
+                      "deepgram": "#/components/schemas/DeepgramCredential",
+                      "azure-openai": "#/components/schemas/AzureOpenAICredential",
+                      "11labs": "#/components/schemas/ElevenLabsCredential",
+                      "playht": "#/components/schemas/PlayHTCredential",
+                      "rimeai": "#/components/schemas/RimeAICredential"
+                    }
+                  }
+                }
               }
             }
           }
@@ -307,7 +345,45 @@
               "application/json": {
                 "schema": {
                   "type": "array",
-                  "items": { "$ref": "#/components/schemas/Credential" }
+                  "items": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/TwilioCredential",
+                        "title": "TwilioCredential"
+                      },
+                      {
+                        "$ref": "#/components/schemas/DeepgramCredential",
+                        "title": "DeepgramCredential"
+                      },
+                      {
+                        "$ref": "#/components/schemas/AzureOpenAICredential",
+                        "title": "AzureOpenAICredential"
+                      },
+                      {
+                        "$ref": "#/components/schemas/ElevenLabsCredential",
+                        "title": "ElevenLabsCredential"
+                      },
+                      {
+                        "$ref": "#/components/schemas/PlayHTCredential",
+                        "title": "PlayHTCredential"
+                      },
+                      {
+                        "$ref": "#/components/schemas/RimeAICredential",
+                        "title": "RimeAICredential"
+                      }
+                    ],
+                    "discriminator": {
+                      "propertyName": "provider",
+                      "mapping": {
+                        "twilio": "#/components/schemas/TwilioCredential",
+                        "deepgram": "#/components/schemas/DeepgramCredential",
+                        "azure-openai": "#/components/schemas/AzureOpenAICredential",
+                        "11labs": "#/components/schemas/ElevenLabsCredential",
+                        "playht": "#/components/schemas/PlayHTCredential",
+                        "rimeai": "#/components/schemas/RimeAICredential"
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -334,7 +410,45 @@
             "description": "",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/Credential" }
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/TwilioCredential",
+                      "title": "TwilioCredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/DeepgramCredential",
+                      "title": "DeepgramCredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/AzureOpenAICredential",
+                      "title": "AzureOpenAICredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ElevenLabsCredential",
+                      "title": "ElevenLabsCredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PlayHTCredential",
+                      "title": "PlayHTCredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/RimeAICredential",
+                      "title": "RimeAICredential"
+                    }
+                  ],
+                  "discriminator": {
+                    "propertyName": "provider",
+                    "mapping": {
+                      "twilio": "#/components/schemas/TwilioCredential",
+                      "deepgram": "#/components/schemas/DeepgramCredential",
+                      "azure-openai": "#/components/schemas/AzureOpenAICredential",
+                      "11labs": "#/components/schemas/ElevenLabsCredential",
+                      "playht": "#/components/schemas/PlayHTCredential",
+                      "rimeai": "#/components/schemas/RimeAICredential"
+                    }
+                  }
+                }
               }
             }
           }
@@ -368,8 +482,8 @@
                     "title": "DeepgramCredential"
                   },
                   {
-                    "$ref": "#/components/schemas/UpdateAzureCredentialDTO",
-                    "title": "AzureCredential"
+                    "$ref": "#/components/schemas/UpdateAzureOpenAICredentialDTO",
+                    "title": "AzureOpenAICredential"
                   },
                   {
                     "$ref": "#/components/schemas/UpdateElevenLabsCredentialDTO",
@@ -389,7 +503,7 @@
                   "mapping": {
                     "twilio": "#/components/schemas/UpdateTwilioCredentialDTO",
                     "deepgram": "#/components/schemas/UpdateDeepgramCredentialDTO",
-                    "azure-openai": "#/components/schemas/UpdateAzureCredentialDTO",
+                    "azure-openai": "#/components/schemas/UpdateAzureOpenAICredentialDTO",
                     "11labs": "#/components/schemas/UpdateElevenLabsCredentialDTO",
                     "playht": "#/components/schemas/UpdatePlayHTCredentialDTO",
                     "rimeai": "#/components/schemas/UpdateRimeAICredentialDTO"
@@ -404,7 +518,45 @@
             "description": "",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/Credential" }
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/TwilioCredential",
+                      "title": "TwilioCredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/DeepgramCredential",
+                      "title": "DeepgramCredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/AzureOpenAICredential",
+                      "title": "AzureOpenAICredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ElevenLabsCredential",
+                      "title": "ElevenLabsCredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PlayHTCredential",
+                      "title": "PlayHTCredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/RimeAICredential",
+                      "title": "RimeAICredential"
+                    }
+                  ],
+                  "discriminator": {
+                    "propertyName": "provider",
+                    "mapping": {
+                      "twilio": "#/components/schemas/TwilioCredential",
+                      "deepgram": "#/components/schemas/DeepgramCredential",
+                      "azure-openai": "#/components/schemas/AzureOpenAICredential",
+                      "11labs": "#/components/schemas/ElevenLabsCredential",
+                      "playht": "#/components/schemas/PlayHTCredential",
+                      "rimeai": "#/components/schemas/RimeAICredential"
+                    }
+                  }
+                }
               }
             }
           }
@@ -428,7 +580,45 @@
             "description": "",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/Credential" }
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/TwilioCredential",
+                      "title": "TwilioCredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/DeepgramCredential",
+                      "title": "DeepgramCredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/AzureOpenAICredential",
+                      "title": "AzureOpenAICredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ElevenLabsCredential",
+                      "title": "ElevenLabsCredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PlayHTCredential",
+                      "title": "PlayHTCredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/RimeAICredential",
+                      "title": "RimeAICredential"
+                    }
+                  ],
+                  "discriminator": {
+                    "propertyName": "provider",
+                    "mapping": {
+                      "twilio": "#/components/schemas/TwilioCredential",
+                      "deepgram": "#/components/schemas/DeepgramCredential",
+                      "azure-openai": "#/components/schemas/AzureOpenAICredential",
+                      "11labs": "#/components/schemas/ElevenLabsCredential",
+                      "playht": "#/components/schemas/PlayHTCredential",
+                      "rimeai": "#/components/schemas/RimeAICredential"
+                    }
+                  }
+                }
               }
             }
           }
@@ -621,7 +811,7 @@
         "properties": {
           "provider": {
             "type": "string",
-            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`\n\nBasic Voices: `rimeai`, `deepgram`",
+            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`, `openai`\n\nBasic Voices: `rimeai`, `deepgram`",
             "enum": ["deepgram"]
           },
           "voiceId": {
@@ -804,7 +994,7 @@
         "properties": {
           "provider": {
             "type": "string",
-            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`\n\nBasic Voices: `rimeai`, `deepgram`",
+            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`, `openai`\n\nBasic Voices: `rimeai`, `deepgram`",
             "enum": ["playht"]
           },
           "speed": {
@@ -861,7 +1051,7 @@
         "properties": {
           "provider": {
             "type": "string",
-            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`\n\nBasic Voices: `rimeai`, `deepgram`",
+            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`, `openai`\n\nBasic Voices: `rimeai`, `deepgram`",
             "enum": ["rimeai"]
           },
           "speed": {
@@ -997,6 +1187,10 @@
               {
                 "$ref": "#/components/schemas/DeepgramVoice",
                 "title": "DeepgramVoice"
+              },
+              {
+                "$ref": "#/components/schemas/OpenAIVoice",
+                "title": "OpenAIVoice"
               }
             ],
             "default": "jennifer-playht"
@@ -1057,6 +1251,10 @@
           "fillersEnabled": {
             "type": "boolean",
             "description": "This sets whether the assistant will use fillers like Well..., Okay cool..., etc. Defaults to true when using gpt-4. Else, defaults to false."
+          },
+          "liveTranscriptsEnabled": {
+            "type": "boolean",
+            "description": "This sets whether the assistant will send live transcriptions to the Server URL and/or Vapi clients."
           }
         }
       },
@@ -1160,6 +1358,10 @@
               {
                 "$ref": "#/components/schemas/DeepgramVoice",
                 "title": "DeepgramVoice"
+              },
+              {
+                "$ref": "#/components/schemas/OpenAIVoice",
+                "title": "OpenAIVoice"
               }
             ],
             "default": "jennifer-playht"
@@ -1220,6 +1422,10 @@
           "fillersEnabled": {
             "type": "boolean",
             "description": "This sets whether the assistant will use fillers like Well..., Okay cool..., etc. Defaults to true when using gpt-4. Else, defaults to false."
+          },
+          "liveTranscriptsEnabled": {
+            "type": "boolean",
+            "description": "This sets whether the assistant will send live transcriptions to the Server URL and/or Vapi clients."
           },
           "id": {
             "type": "string",
@@ -1342,6 +1548,10 @@
               {
                 "$ref": "#/components/schemas/DeepgramVoice",
                 "title": "DeepgramVoice"
+              },
+              {
+                "$ref": "#/components/schemas/OpenAIVoice",
+                "title": "OpenAIVoice"
               }
             ],
             "default": "jennifer-playht"
@@ -1402,6 +1612,10 @@
           "fillersEnabled": {
             "type": "boolean",
             "description": "This sets whether the assistant will use fillers like Well..., Okay cool..., etc. Defaults to true when using gpt-4. Else, defaults to false."
+          },
+          "liveTranscriptsEnabled": {
+            "type": "boolean",
+            "description": "This sets whether the assistant will send live transcriptions to the Server URL and/or Vapi clients."
           }
         }
       },
@@ -1527,6 +1741,11 @@
             "type": "string",
             "description": "This is the summary of the call."
           },
+          "messages": {
+            "description": "These are the messages that were spoken during the call.",
+            "type": "array",
+            "items": { "type": "object" }
+          },
           "twilioCallSid": {
             "type": "string",
             "description": "This is the callSid of the phone call.\n\nOnly relevant for `outboundPhoneCall` and `inboundPhoneCall` type."
@@ -1608,233 +1827,13 @@
           }
         }
       },
-      "CreateTwilioCredentialDTO": {
+      "TwilioCredential": {
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["twilio"] },
           "authToken": {
             "type": "string",
-            "description": "This is hidden in the API responses."
-          },
-          "accountSid": { "type": "string" }
-        },
-        "required": ["provider", "authToken", "accountSid"]
-      },
-      "CreateDeepgramCredentialDTO": {
-        "type": "object",
-        "properties": {
-          "provider": { "type": "string", "enum": ["deepgram"] },
-          "apiKey": {
-            "type": "string",
-            "description": "This is hidden in the API responses."
-          }
-        },
-        "required": ["provider", "apiKey"]
-      },
-      "CreateAzureCredentialDTO": {
-        "type": "object",
-        "properties": {
-          "provider": { "type": "string", "enum": ["azure-openai"] },
-          "openAIKey": {
-            "type": "string",
-            "description": "This is hidden in the API responses."
-          },
-          "openAIEndpoint": { "type": "string" }
-        },
-        "required": ["provider", "openAIKey", "openAIEndpoint"]
-      },
-      "CreateElevenLabsCredentialDTO": {
-        "type": "object",
-        "properties": {
-          "provider": { "type": "string", "enum": ["11labs"] },
-          "apiKey": {
-            "type": "string",
-            "description": "This is hidden in the API responses."
-          }
-        },
-        "required": ["provider", "apiKey"]
-      },
-      "CreatePlayHTCredentialDTO": {
-        "type": "object",
-        "properties": {
-          "provider": { "type": "string", "enum": ["playht"] },
-          "apiKey": {
-            "type": "string",
-            "description": "This is hidden in the API responses."
-          },
-          "userId": { "type": "string" }
-        },
-        "required": ["provider", "apiKey", "userId"]
-      },
-      "CreateRimeAICredentialDTO": {
-        "type": "object",
-        "properties": {
-          "provider": { "type": "string", "enum": ["rimeai"] },
-          "apiKey": {
-            "type": "string",
-            "description": "This is hidden in the API responses."
-          }
-        },
-        "required": ["provider", "apiKey"]
-      },
-      "UpdateTwilioCredentialDTO": {
-        "type": "object",
-        "properties": {
-          "provider": { "type": "string", "enum": ["twilio"] },
-          "authToken": {
-            "type": "string",
-            "description": "This is hidden in the API responses."
-          },
-          "accountSid": { "type": "string" }
-        },
-        "required": ["provider", "authToken", "accountSid"]
-      },
-      "UpdateDeepgramCredentialDTO": {
-        "type": "object",
-        "properties": {
-          "provider": { "type": "string", "enum": ["deepgram"] },
-          "apiKey": {
-            "type": "string",
-            "description": "This is hidden in the API responses."
-          }
-        },
-        "required": ["provider", "apiKey"]
-      },
-      "UpdateAzureCredentialDTO": {
-        "type": "object",
-        "properties": {
-          "provider": { "type": "string", "enum": ["azure-openai"] },
-          "openAIKey": {
-            "type": "string",
-            "description": "This is hidden in the API responses."
-          },
-          "openAIEndpoint": { "type": "string" }
-        },
-        "required": ["provider", "openAIKey", "openAIEndpoint"]
-      },
-      "UpdateElevenLabsCredentialDTO": {
-        "type": "object",
-        "properties": {
-          "provider": { "type": "string", "enum": ["11labs"] },
-          "apiKey": {
-            "type": "string",
-            "description": "This is hidden in the API responses."
-          }
-        },
-        "required": ["provider", "apiKey"]
-      },
-      "UpdatePlayHTCredentialDTO": {
-        "type": "object",
-        "properties": {
-          "provider": { "type": "string", "enum": ["playht"] },
-          "apiKey": {
-            "type": "string",
-            "description": "This is hidden in the API responses."
-          },
-          "userId": { "type": "string" }
-        },
-        "required": ["provider", "apiKey", "userId"]
-      },
-      "UpdateRimeAICredentialDTO": {
-        "type": "object",
-        "properties": {
-          "provider": { "type": "string", "enum": ["rimeai"] },
-          "apiKey": {
-            "type": "string",
-            "description": "This is hidden in the API responses."
-          }
-        },
-        "required": ["provider", "apiKey"]
-      },
-      "CreateCredentialDTO": {
-        "type": "object",
-        "properties": {
-          "authToken": {
-            "type": "string",
-            "description": "This is hidden in the API responses."
-          },
-          "apiKey": {
-            "type": "string",
-            "description": "This is hidden in the API responses."
-          },
-          "openAIKey": {
-            "type": "string",
-            "description": "This is hidden in the API responses."
-          },
-          "provider": {
-            "type": "string",
-            "enum": [
-              "twilio",
-              "deepgram",
-              "azure-openai",
-              "11labs",
-              "playht",
-              "rimeai"
-            ]
-          },
-          "accountSid": { "type": "string" },
-          "openAIEndpoint": { "type": "string" },
-          "userId": { "type": "string" }
-        },
-        "required": ["provider"]
-      },
-      "UpdateCredentialDTO": {
-        "type": "object",
-        "properties": {
-          "authToken": {
-            "type": "string",
-            "description": "This is hidden in the API responses."
-          },
-          "apiKey": {
-            "type": "string",
-            "description": "This is hidden in the API responses."
-          },
-          "openAIKey": {
-            "type": "string",
-            "description": "This is hidden in the API responses."
-          },
-          "provider": {
-            "type": "string",
-            "enum": [
-              "twilio",
-              "deepgram",
-              "azure-openai",
-              "11labs",
-              "playht",
-              "rimeai"
-            ]
-          },
-          "accountSid": { "type": "string" },
-          "openAIEndpoint": { "type": "string" },
-          "userId": { "type": "string" }
-        },
-        "required": ["provider"]
-      },
-      "Credential": {
-        "type": "object",
-        "properties": {
-          "authToken": {
-            "type": "string",
-            "description": "This is hidden in the API responses."
-          },
-          "apiKey": {
-            "type": "string",
-            "description": "This is hidden in the API responses."
-          },
-          "openAIKey": {
-            "type": "string",
-            "description": "This is hidden in the API responses."
-          },
-          "provider": {
-            "type": "string",
-            "enum": [
-              "twilio",
-              "deepgram",
-              "azure-openai",
-              "11labs",
-              "playht",
-              "rimeai"
-            ]
+            "description": "This is not returned in the API."
           },
           "id": {
             "type": "string",
@@ -1854,11 +1853,339 @@
             "type": "string",
             "description": "This is the ISO 8601 date-time string of when the assistant was last updated."
           },
-          "accountSid": { "type": "string" },
-          "openAIEndpoint": { "type": "string" },
+          "accountSid": { "type": "string" }
+        },
+        "required": [
+          "provider",
+          "authToken",
+          "id",
+          "orgId",
+          "createdAt",
+          "updatedAt",
+          "accountSid"
+        ]
+      },
+      "DeepgramCredential": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["deepgram"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
+          "id": {
+            "type": "string",
+            "description": "This is the unique identifier for the credential."
+          },
+          "orgId": {
+            "type": "string",
+            "description": "This is the unique identifier for the org that this credential belongs to."
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "This is the ISO 8601 date-time string of when the credential was created."
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "This is the ISO 8601 date-time string of when the assistant was last updated."
+          }
+        },
+        "required": [
+          "provider",
+          "apiKey",
+          "id",
+          "orgId",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "AzureOpenAICredential": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["azure-openai"] },
+          "openAIKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
+          "id": {
+            "type": "string",
+            "description": "This is the unique identifier for the credential."
+          },
+          "orgId": {
+            "type": "string",
+            "description": "This is the unique identifier for the org that this credential belongs to."
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "This is the ISO 8601 date-time string of when the credential was created."
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "This is the ISO 8601 date-time string of when the assistant was last updated."
+          },
+          "openAIEndpoint": { "type": "string" }
+        },
+        "required": [
+          "provider",
+          "openAIKey",
+          "id",
+          "orgId",
+          "createdAt",
+          "updatedAt",
+          "openAIEndpoint"
+        ]
+      },
+      "ElevenLabsCredential": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["11labs"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
+          "id": {
+            "type": "string",
+            "description": "This is the unique identifier for the credential."
+          },
+          "orgId": {
+            "type": "string",
+            "description": "This is the unique identifier for the org that this credential belongs to."
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "This is the ISO 8601 date-time string of when the credential was created."
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "This is the ISO 8601 date-time string of when the assistant was last updated."
+          }
+        },
+        "required": [
+          "provider",
+          "apiKey",
+          "id",
+          "orgId",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "PlayHTCredential": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["playht"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
+          "id": {
+            "type": "string",
+            "description": "This is the unique identifier for the credential."
+          },
+          "orgId": {
+            "type": "string",
+            "description": "This is the unique identifier for the org that this credential belongs to."
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "This is the ISO 8601 date-time string of when the credential was created."
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "This is the ISO 8601 date-time string of when the assistant was last updated."
+          },
           "userId": { "type": "string" }
         },
-        "required": ["provider", "id", "orgId", "createdAt", "updatedAt"]
+        "required": [
+          "provider",
+          "apiKey",
+          "id",
+          "orgId",
+          "createdAt",
+          "updatedAt",
+          "userId"
+        ]
+      },
+      "RimeAICredential": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["rimeai"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
+          "id": {
+            "type": "string",
+            "description": "This is the unique identifier for the credential."
+          },
+          "orgId": {
+            "type": "string",
+            "description": "This is the unique identifier for the org that this credential belongs to."
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "This is the ISO 8601 date-time string of when the credential was created."
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "This is the ISO 8601 date-time string of when the assistant was last updated."
+          }
+        },
+        "required": [
+          "provider",
+          "apiKey",
+          "id",
+          "orgId",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "CreateTwilioCredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["twilio"] },
+          "authToken": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
+          "accountSid": { "type": "string" }
+        },
+        "required": ["provider", "authToken", "accountSid"]
+      },
+      "CreateDeepgramCredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["deepgram"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
+        },
+        "required": ["provider", "apiKey"]
+      },
+      "CreateAzureOpenAICredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["azure-openai"] },
+          "openAIKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
+          "openAIEndpoint": { "type": "string" }
+        },
+        "required": ["provider", "openAIKey", "openAIEndpoint"]
+      },
+      "CreateElevenLabsCredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["11labs"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
+        },
+        "required": ["provider", "apiKey"]
+      },
+      "CreatePlayHTCredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["playht"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
+          "userId": { "type": "string" }
+        },
+        "required": ["provider", "apiKey", "userId"]
+      },
+      "CreateRimeAICredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["rimeai"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
+        },
+        "required": ["provider", "apiKey"]
+      },
+      "UpdateTwilioCredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["twilio"] },
+          "authToken": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
+          "accountSid": { "type": "string" }
+        },
+        "required": ["provider", "authToken", "accountSid"]
+      },
+      "UpdateDeepgramCredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["deepgram"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
+        },
+        "required": ["provider", "apiKey"]
+      },
+      "UpdateAzureOpenAICredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["azure-openai"] },
+          "openAIKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
+          "openAIEndpoint": { "type": "string" }
+        },
+        "required": ["provider", "openAIKey", "openAIEndpoint"]
+      },
+      "UpdateElevenLabsCredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["11labs"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
+        },
+        "required": ["provider", "apiKey"]
+      },
+      "UpdatePlayHTCredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["playht"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
+          "userId": { "type": "string" }
+        },
+        "required": ["provider", "apiKey", "userId"]
+      },
+      "UpdateRimeAICredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["rimeai"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
+        },
+        "required": ["provider", "apiKey"]
       },
       "BuyPhoneNumberDTO": {
         "type": "object",
