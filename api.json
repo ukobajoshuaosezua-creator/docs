@@ -815,8 +815,23 @@
             "enum": ["deepgram"]
           },
           "voiceId": {
-            "type": "string",
-            "description": "This is the provider-specific ID that will be used."
+            "description": "This is the provider-specific ID that will be used.",
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "aurora",
+                  "asteria",
+                  "artemis",
+                  "andromeda",
+                  "stella",
+                  "orion",
+                  "atlas"
+                ],
+                "title": "Preset Voice Options"
+              },
+              { "type": "string", "title": "Deepgram Voice ID" }
+            ]
           }
         },
         "required": ["provider", "voiceId"]
@@ -887,6 +902,31 @@
             "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`\n\nBasic Voices: `rimeai`, `deepgram`",
             "enum": ["11labs"]
           },
+          "voiceId": {
+            "description": "This is the provider-specific ID that will be used. Ensure the Voice is present in your 11Labs Voice Library.",
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "burt",
+                  "andrea",
+                  "phillip",
+                  "steve",
+                  "joseph",
+                  "myra",
+                  "paula",
+                  "ryan",
+                  "drew",
+                  "paul",
+                  "mrb",
+                  "matilda",
+                  "mark"
+                ],
+                "title": "Preset Voice Options"
+              },
+              { "type": "string", "title": "11Labs Voice ID" }
+            ]
+          },
           "stability": {
             "type": "number",
             "description": "Defines the stability for voice settings.",
@@ -906,36 +946,9 @@
             "type": "boolean",
             "description": "Defines the use speaker boost for voice settings.",
             "default": null
-          },
-          "voiceId": {
-            "type": "string",
-            "description": "This is the provider-specific ID that will be used."
           }
         },
         "required": ["provider", "voiceId"]
-      },
-      "OpenAIFunctionParameterProperty": {
-        "type": "object",
-        "properties": {
-          "type": { "type": "string", "enum": ["string", "number", "boolean"] },
-          "enum": { "type": "array", "items": { "type": "string" } },
-          "description": { "type": "string" }
-        },
-        "required": ["type"]
-      },
-      "OpenAIFunctionParameters": {
-        "type": "object",
-        "properties": {
-          "type": { "type": "string", "enum": ["object"] },
-          "properties": {
-            "type": "object",
-            "additionalProperties": {
-              "$ref": "#/components/schemas/OpenAIFunctionParameterProperty"
-            }
-          },
-          "required": { "type": "array", "items": { "type": "string" } }
-        },
-        "required": ["type", "properties"]
       },
       "OpenAIFunction": {
         "type": "object",
@@ -954,10 +967,8 @@
             "description": "This is the description of what the function does, used by the AI to choose when and how to call the function."
           },
           "parameters": {
-            "description": "These are the parameters the functions accepts, described as a JSON Schema object.\n\nSee the [OpenAI guide](https://platform.openai.com/docs/guides/gpt/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema) for documentation about the format.\n\nTo describe a function that accepts no parameters, provide the value {\"type\": \"object\", \"properties\": {}}.",
-            "allOf": [
-              { "$ref": "#/components/schemas/OpenAIFunctionParameters" }
-            ]
+            "type": "object",
+            "description": "These are the parameters the functions accepts, described as a JSON Schema object.\n\nSee the [OpenAI guide](https://platform.openai.com/docs/guides/gpt/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema) for documentation about the format.\n\nTo describe a function that accepts no parameters, provide the value {\"type\": \"object\", \"properties\": {}}."
           }
         },
         "required": ["name", "parameters"]
@@ -1000,6 +1011,28 @@
             "type": "string",
             "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`, `openai`\n\nBasic Voices: `rimeai`, `deepgram`",
             "enum": ["playht"]
+          },
+          "voiceId": {
+            "description": "This is the provider-specific ID that will be used.",
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "jennifer",
+                  "melissa",
+                  "will",
+                  "chris",
+                  "matt",
+                  "jack",
+                  "ruby",
+                  "davis",
+                  "donna",
+                  "michael"
+                ],
+                "title": "Preset Voice Options"
+              },
+              { "type": "string", "title": "PlayHT Voice ID" }
+            ]
           },
           "speed": {
             "type": "number",
@@ -1048,10 +1081,6 @@
             "minimum": 1,
             "maximum": 2,
             "default": null
-          },
-          "voiceId": {
-            "type": "string",
-            "description": "This is the provider-specific ID that will be used."
           }
         },
         "required": ["provider", "voiceId"]
@@ -1064,15 +1093,33 @@
             "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`, `openai`\n\nBasic Voices: `rimeai`, `deepgram`",
             "enum": ["rimeai"]
           },
+          "voiceId": {
+            "description": "This is the provider-specific ID that will be used.",
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "kai",
+                  "zion",
+                  "xavier",
+                  "marty",
+                  "hudson",
+                  "savannah",
+                  "colette",
+                  "daphne",
+                  "aurora",
+                  "nova"
+                ],
+                "title": "Preset Voice Options"
+              },
+              { "type": "string", "title": "RimeAI Voice ID" }
+            ]
+          },
           "speed": {
             "type": "number",
             "description": "This is the speed multiplier that will be used.",
             "minimum": 0,
             "default": null
-          },
-          "voiceId": {
-            "type": "string",
-            "description": "This is the provider-specific ID that will be used."
           }
         },
         "required": ["provider", "voiceId"]
@@ -1085,16 +1132,23 @@
             "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`, `openai`\n\nBasic Voices: `rimeai`, `deepgram`",
             "enum": ["openai"]
           },
+          "voiceId": {
+            "description": "This is the provider-specific ID that will be used.",
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": ["alloy", "echo", "fable", "onyx", "nova", "shimmer"],
+                "title": "Preset Voice Options"
+              },
+              { "type": "string", "title": "OpenAI Voice ID" }
+            ]
+          },
           "speed": {
             "type": "number",
             "description": "This is the speed multiplier that will be used.",
             "minimum": 0.25,
             "maximum": 4,
             "default": null
-          },
-          "voiceId": {
-            "type": "string",
-            "description": "This is the provider-specific ID that will be used."
           }
         },
         "required": ["provider", "voiceId"]
@@ -1136,58 +1190,6 @@
             "description": "These are the options for the assistant's voice.",
             "oneOf": [
               {
-                "type": "string",
-                "enum": [
-                  "jennifer-playht",
-                  "melissa-playht",
-                  "will-playht",
-                  "chris-playht",
-                  "matt-playht",
-                  "jack-playht",
-                  "ruby-playht",
-                  "davis-playht",
-                  "donna-playht",
-                  "michael-playht",
-                  "burt-11labs",
-                  "andrea-11labs",
-                  "phillip-11labs",
-                  "steve-11labs",
-                  "joseph-11labs",
-                  "myra-11labs",
-                  "paula-11labs",
-                  "ryan-11labs",
-                  "drew-11labs",
-                  "paul-11labs",
-                  "mrb-11labs",
-                  "matilda-11labs",
-                  "mark-11labs",
-                  "kai-rimeai",
-                  "zion-rimeai",
-                  "xavier-rimeai",
-                  "marty-rimeai",
-                  "hudson-rimeai",
-                  "savannah-rimeai",
-                  "colette-rimeai",
-                  "daphne-rimeai",
-                  "aurora-rimeai",
-                  "nova-rimeai",
-                  "aurora-deepgram",
-                  "asteria-deepgram",
-                  "artemis-deepgram",
-                  "andromeda-deepgram",
-                  "stella-deepgram",
-                  "orion-deepgram",
-                  "atlas-deepgram",
-                  "alloy-openai",
-                  "echo-openai",
-                  "fable-openai",
-                  "onyx-openai",
-                  "nova-openai",
-                  "shimmer-openai"
-                ],
-                "title": "Preset Voice Options"
-              },
-              {
                 "$ref": "#/components/schemas/ElevenLabsVoice",
                 "title": "ElevenLabsVoice"
               },
@@ -1208,7 +1210,7 @@
                 "title": "OpenAIVoice"
               }
             ],
-            "default": "jennifer-playht"
+            "default": { "provider": "playht", "voiceId": "jennifer" }
           },
           "language": {
             "type": "string",
@@ -1320,58 +1322,6 @@
             "description": "These are the options for the assistant's voice.",
             "oneOf": [
               {
-                "type": "string",
-                "enum": [
-                  "jennifer-playht",
-                  "melissa-playht",
-                  "will-playht",
-                  "chris-playht",
-                  "matt-playht",
-                  "jack-playht",
-                  "ruby-playht",
-                  "davis-playht",
-                  "donna-playht",
-                  "michael-playht",
-                  "burt-11labs",
-                  "andrea-11labs",
-                  "phillip-11labs",
-                  "steve-11labs",
-                  "joseph-11labs",
-                  "myra-11labs",
-                  "paula-11labs",
-                  "ryan-11labs",
-                  "drew-11labs",
-                  "paul-11labs",
-                  "mrb-11labs",
-                  "matilda-11labs",
-                  "mark-11labs",
-                  "kai-rimeai",
-                  "zion-rimeai",
-                  "xavier-rimeai",
-                  "marty-rimeai",
-                  "hudson-rimeai",
-                  "savannah-rimeai",
-                  "colette-rimeai",
-                  "daphne-rimeai",
-                  "aurora-rimeai",
-                  "nova-rimeai",
-                  "aurora-deepgram",
-                  "asteria-deepgram",
-                  "artemis-deepgram",
-                  "andromeda-deepgram",
-                  "stella-deepgram",
-                  "orion-deepgram",
-                  "atlas-deepgram",
-                  "alloy-openai",
-                  "echo-openai",
-                  "fable-openai",
-                  "onyx-openai",
-                  "nova-openai",
-                  "shimmer-openai"
-                ],
-                "title": "Preset Voice Options"
-              },
-              {
                 "$ref": "#/components/schemas/ElevenLabsVoice",
                 "title": "ElevenLabsVoice"
               },
@@ -1392,7 +1342,7 @@
                 "title": "OpenAIVoice"
               }
             ],
-            "default": "jennifer-playht"
+            "default": { "provider": "playht", "voiceId": "jennifer" }
           },
           "language": {
             "type": "string",
@@ -1523,58 +1473,6 @@
             "description": "These are the options for the assistant's voice.",
             "oneOf": [
               {
-                "type": "string",
-                "enum": [
-                  "jennifer-playht",
-                  "melissa-playht",
-                  "will-playht",
-                  "chris-playht",
-                  "matt-playht",
-                  "jack-playht",
-                  "ruby-playht",
-                  "davis-playht",
-                  "donna-playht",
-                  "michael-playht",
-                  "burt-11labs",
-                  "andrea-11labs",
-                  "phillip-11labs",
-                  "steve-11labs",
-                  "joseph-11labs",
-                  "myra-11labs",
-                  "paula-11labs",
-                  "ryan-11labs",
-                  "drew-11labs",
-                  "paul-11labs",
-                  "mrb-11labs",
-                  "matilda-11labs",
-                  "mark-11labs",
-                  "kai-rimeai",
-                  "zion-rimeai",
-                  "xavier-rimeai",
-                  "marty-rimeai",
-                  "hudson-rimeai",
-                  "savannah-rimeai",
-                  "colette-rimeai",
-                  "daphne-rimeai",
-                  "aurora-rimeai",
-                  "nova-rimeai",
-                  "aurora-deepgram",
-                  "asteria-deepgram",
-                  "artemis-deepgram",
-                  "andromeda-deepgram",
-                  "stella-deepgram",
-                  "orion-deepgram",
-                  "atlas-deepgram",
-                  "alloy-openai",
-                  "echo-openai",
-                  "fable-openai",
-                  "onyx-openai",
-                  "nova-openai",
-                  "shimmer-openai"
-                ],
-                "title": "Preset Voice Options"
-              },
-              {
                 "$ref": "#/components/schemas/ElevenLabsVoice",
                 "title": "ElevenLabsVoice"
               },
@@ -1595,7 +1493,7 @@
                 "title": "OpenAIVoice"
               }
             ],
-            "default": "jennifer-playht"
+            "default": { "provider": "playht", "voiceId": "jennifer" }
           },
           "language": {
             "type": "string",
