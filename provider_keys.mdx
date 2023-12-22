@@ -14,14 +14,7 @@ Currently, the only available transcription provider is `deepgram`. To use a cus
 
 ## Model Providers
 
-If you have an Azure OpenAI account, you can set up Vapi to use those instances instead of Vapi's. To configure it, you'll want to set up four deployments with the following names:
-
-- `gpt-35-turbo`
-- `gpt-35-turbo-backup`
-- `gpt-4`
-- `gpt-4-backup`
-
-Ensure that you have appropriate limits set up on your Azure account to prevent outages. For best latency, try to get your region as close as possible to US-East. Then, anytime you set the provider to `openai` in the `assistant.model.provider` field, Vapi will use your Azure instances instead of Vapi's.
+We are currently working on support for custom OpenAI and custom Azure OpenAI provider keys.
 
 If more customization is needed, you can also set up your own [Custom LLM](/custom_llm) endpoint and use that instead.
 
