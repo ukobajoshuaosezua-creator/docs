@@ -1171,12 +1171,6 @@
             "description": "These are the options for the assistant's LLM.",
             "oneOf": [
               {
-                "type": "string",
-                "enum": ["gpt-4", "gpt-3.5-turbo", "custom"],
-                "title": "Preset Model Options",
-                "description": "If you use `custom`, we'll POST your `org.serverUrl` during the conversation."
-              },
-              {
                 "$ref": "#/components/schemas/OpenAIModel",
                 "title": "OpenAIModel"
               },
@@ -1302,12 +1296,6 @@
           "model": {
             "description": "These are the options for the assistant's LLM.",
             "oneOf": [
-              {
-                "type": "string",
-                "enum": ["gpt-4", "gpt-3.5-turbo", "custom"],
-                "title": "Preset Model Options",
-                "description": "If you use `custom`, we'll POST your `org.serverUrl` during the conversation."
-              },
               {
                 "$ref": "#/components/schemas/OpenAIModel",
                 "title": "OpenAIModel"
@@ -1453,12 +1441,6 @@
           "model": {
             "description": "These are the options for the assistant's LLM.",
             "oneOf": [
-              {
-                "type": "string",
-                "enum": ["gpt-4", "gpt-3.5-turbo", "custom"],
-                "title": "Preset Model Options",
-                "description": "If you use `custom`, we'll POST your `org.serverUrl` during the conversation."
-              },
               {
                 "$ref": "#/components/schemas/OpenAIModel",
                 "title": "OpenAIModel"
