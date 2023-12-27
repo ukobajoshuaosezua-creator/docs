@@ -252,8 +252,36 @@
                     "title": "DeepgramCredential"
                   },
                   {
+                    "$ref": "#/components/schemas/CreateOpenAICredentialDTO",
+                    "title": "OpenAICredential"
+                  },
+                  {
+                    "$ref": "#/components/schemas/CreateTogetherAICredentialDTO",
+                    "title": "TogetherAICredential"
+                  },
+                  {
+                    "$ref": "#/components/schemas/CreateAnyscaleCredentialDTO",
+                    "title": "AnyscaleCredential"
+                  },
+                  {
+                    "$ref": "#/components/schemas/CreateOpenRouterCredentialDTO",
+                    "title": "OpenRouterCredential"
+                  },
+                  {
+                    "$ref": "#/components/schemas/CreatePerplexityAICredentialDTO",
+                    "title": "PerplexityAICredential"
+                  },
+                  {
+                    "$ref": "#/components/schemas/CreateDeepInfraCredentialDTO",
+                    "title": "DeepInfraCredential"
+                  },
+                  {
                     "$ref": "#/components/schemas/CreateAzureOpenAICredentialDTO",
                     "title": "AzureOpenAICredential"
+                  },
+                  {
+                    "$ref": "#/components/schemas/CreateCustomLLMCredentialDTO",
+                    "title": "CustomLLMCredential"
                   },
                   {
                     "$ref": "#/components/schemas/CreateElevenLabsCredentialDTO",
@@ -273,7 +301,14 @@
                   "mapping": {
                     "twilio": "#/components/schemas/CreateTwilioCredentialDTO",
                     "deepgram": "#/components/schemas/CreateDeepgramCredentialDTO",
+                    "openai": "#/components/schemas/CreateOpenAICredentialDTO",
                     "azure-openai": "#/components/schemas/CreateAzureOpenAICredentialDTO",
+                    "together-ai": "#/components/schemas/CreateTogetherAICredentialDTO",
+                    "anyscale": "#/components/schemas/CreateAnyscaleCredentialDTO",
+                    "openrouter": "#/components/schemas/CreateOpenRouterCredentialDTO",
+                    "perplexity-ai": "#/components/schemas/CreatePerplexityAICredentialDTO",
+                    "deepinfra": "#/components/schemas/CreateDeepInfraCredentialDTO",
+                    "custom-llm": "#/components/schemas/CreateCustomLLMCredentialDTO",
                     "11labs": "#/components/schemas/CreateElevenLabsCredentialDTO",
                     "playht": "#/components/schemas/CreatePlayHTCredentialDTO",
                     "rimeai": "#/components/schemas/CreateRimeAICredentialDTO"
@@ -299,8 +334,36 @@
                       "title": "DeepgramCredential"
                     },
                     {
+                      "$ref": "#/components/schemas/OpenAICredential",
+                      "title": "OpenAICredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/TogetherAICredential",
+                      "title": "TogetherAICredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/AnyscaleCredential",
+                      "title": "AnyscaleCredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/OpenRouterCredential",
+                      "title": "OpenRouterCredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PerplexityAICredential",
+                      "title": "PerplexityAICredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/DeepInfraCredential",
+                      "title": "DeepInfraCredential"
+                    },
+                    {
                       "$ref": "#/components/schemas/AzureOpenAICredential",
                       "title": "AzureOpenAICredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/CustomLLMCredential",
+                      "title": "CustomLLMCredential"
                     },
                     {
                       "$ref": "#/components/schemas/ElevenLabsCredential",
@@ -320,7 +383,14 @@
                     "mapping": {
                       "twilio": "#/components/schemas/TwilioCredential",
                       "deepgram": "#/components/schemas/DeepgramCredential",
+                      "openai": "#/components/schemas/OpenAICredential",
                       "azure-openai": "#/components/schemas/AzureOpenAICredential",
+                      "together-ai": "#/components/schemas/TogetherAICredential",
+                      "anyscale": "#/components/schemas/AnyscaleCredential",
+                      "openrouter": "#/components/schemas/OpenRouterCredential",
+                      "perplexity-ai": "#/components/schemas/PerplexityAICredential",
+                      "deepinfra": "#/components/schemas/DeepInfraCredential",
+                      "custom-llm": "#/components/schemas/CustomLLMCredential",
                       "11labs": "#/components/schemas/ElevenLabsCredential",
                       "playht": "#/components/schemas/PlayHTCredential",
                       "rimeai": "#/components/schemas/RimeAICredential"
@@ -356,8 +426,36 @@
                         "title": "DeepgramCredential"
                       },
                       {
+                        "$ref": "#/components/schemas/OpenAICredential",
+                        "title": "OpenAICredential"
+                      },
+                      {
+                        "$ref": "#/components/schemas/TogetherAICredential",
+                        "title": "TogetherAICredential"
+                      },
+                      {
+                        "$ref": "#/components/schemas/AnyscaleCredential",
+                        "title": "AnyscaleCredential"
+                      },
+                      {
+                        "$ref": "#/components/schemas/OpenRouterCredential",
+                        "title": "OpenRouterCredential"
+                      },
+                      {
+                        "$ref": "#/components/schemas/PerplexityAICredential",
+                        "title": "PerplexityAICredential"
+                      },
+                      {
+                        "$ref": "#/components/schemas/DeepInfraCredential",
+                        "title": "DeepInfraCredential"
+                      },
+                      {
                         "$ref": "#/components/schemas/AzureOpenAICredential",
                         "title": "AzureOpenAICredential"
+                      },
+                      {
+                        "$ref": "#/components/schemas/CustomLLMCredential",
+                        "title": "CustomLLMCredential"
                       },
                       {
                         "$ref": "#/components/schemas/ElevenLabsCredential",
@@ -377,7 +475,14 @@
                       "mapping": {
                         "twilio": "#/components/schemas/TwilioCredential",
                         "deepgram": "#/components/schemas/DeepgramCredential",
+                        "openai": "#/components/schemas/OpenAICredential",
                         "azure-openai": "#/components/schemas/AzureOpenAICredential",
+                        "together-ai": "#/components/schemas/TogetherAICredential",
+                        "anyscale": "#/components/schemas/AnyscaleCredential",
+                        "openrouter": "#/components/schemas/OpenRouterCredential",
+                        "perplexity-ai": "#/components/schemas/PerplexityAICredential",
+                        "deepinfra": "#/components/schemas/DeepInfraCredential",
+                        "custom-llm": "#/components/schemas/CustomLLMCredential",
                         "11labs": "#/components/schemas/ElevenLabsCredential",
                         "playht": "#/components/schemas/PlayHTCredential",
                         "rimeai": "#/components/schemas/RimeAICredential"
@@ -421,8 +526,36 @@
                       "title": "DeepgramCredential"
                     },
                     {
+                      "$ref": "#/components/schemas/OpenAICredential",
+                      "title": "OpenAICredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/TogetherAICredential",
+                      "title": "TogetherAICredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/AnyscaleCredential",
+                      "title": "AnyscaleCredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/OpenRouterCredential",
+                      "title": "OpenRouterCredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PerplexityAICredential",
+                      "title": "PerplexityAICredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/DeepInfraCredential",
+                      "title": "DeepInfraCredential"
+                    },
+                    {
                       "$ref": "#/components/schemas/AzureOpenAICredential",
                       "title": "AzureOpenAICredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/CustomLLMCredential",
+                      "title": "CustomLLMCredential"
                     },
                     {
                       "$ref": "#/components/schemas/ElevenLabsCredential",
@@ -442,7 +575,14 @@
                     "mapping": {
                       "twilio": "#/components/schemas/TwilioCredential",
                       "deepgram": "#/components/schemas/DeepgramCredential",
+                      "openai": "#/components/schemas/OpenAICredential",
                       "azure-openai": "#/components/schemas/AzureOpenAICredential",
+                      "together-ai": "#/components/schemas/TogetherAICredential",
+                      "anyscale": "#/components/schemas/AnyscaleCredential",
+                      "openrouter": "#/components/schemas/OpenRouterCredential",
+                      "perplexity-ai": "#/components/schemas/PerplexityAICredential",
+                      "deepinfra": "#/components/schemas/DeepInfraCredential",
+                      "custom-llm": "#/components/schemas/CustomLLMCredential",
                       "11labs": "#/components/schemas/ElevenLabsCredential",
                       "playht": "#/components/schemas/PlayHTCredential",
                       "rimeai": "#/components/schemas/RimeAICredential"
@@ -482,8 +622,36 @@
                     "title": "DeepgramCredential"
                   },
                   {
+                    "$ref": "#/components/schemas/UpdateOpenAICredentialDTO",
+                    "title": "OpenAICredential"
+                  },
+                  {
                     "$ref": "#/components/schemas/UpdateAzureOpenAICredentialDTO",
                     "title": "AzureOpenAICredential"
+                  },
+                  {
+                    "$ref": "#/components/schemas/UpdateTogetherAICredentialDTO",
+                    "title": "TogetherAICredential"
+                  },
+                  {
+                    "$ref": "#/components/schemas/UpdateAnyscaleCredentialDTO",
+                    "title": "AnyscaleCredential"
+                  },
+                  {
+                    "$ref": "#/components/schemas/UpdateOpenRouterCredentialDTO",
+                    "title": "OpenRouterCredential"
+                  },
+                  {
+                    "$ref": "#/components/schemas/UpdatePerplexityAICredentialDTO",
+                    "title": "PerplexityAICredential"
+                  },
+                  {
+                    "$ref": "#/components/schemas/UpdateDeepInfraCredentialDTO",
+                    "title": "DeepInfraCredential"
+                  },
+                  {
+                    "$ref": "#/components/schemas/UpdateCustomLLMCredentialDTO",
+                    "title": "CustomLLMCredential"
                   },
                   {
                     "$ref": "#/components/schemas/UpdateElevenLabsCredentialDTO",
@@ -503,7 +671,14 @@
                   "mapping": {
                     "twilio": "#/components/schemas/UpdateTwilioCredentialDTO",
                     "deepgram": "#/components/schemas/UpdateDeepgramCredentialDTO",
+                    "openai": "#/components/schemas/UpdateOpenAICredentialDTO",
+                    "together-ai": "#/components/schemas/UpdateTogetherAICredentialDTO",
+                    "anyscale": "#/components/schemas/UpdateAnyscaleCredentialDTO",
+                    "openrouter": "#/components/schemas/UpdateOpenRouterCredentialDTO",
+                    "perplexity-ai": "#/components/schemas/UpdatePerplexityAICredentialDTO",
+                    "deepinfra": "#/components/schemas/UpdateDeepInfraCredentialDTO",
                     "azure-openai": "#/components/schemas/UpdateAzureOpenAICredentialDTO",
+                    "custom-llm": "#/components/schemas/UpdateCustomLLMCredentialDTO",
                     "11labs": "#/components/schemas/UpdateElevenLabsCredentialDTO",
                     "playht": "#/components/schemas/UpdatePlayHTCredentialDTO",
                     "rimeai": "#/components/schemas/UpdateRimeAICredentialDTO"
@@ -529,8 +704,36 @@
                       "title": "DeepgramCredential"
                     },
                     {
+                      "$ref": "#/components/schemas/OpenAICredential",
+                      "title": "OpenAICredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/TogetherAICredential",
+                      "title": "TogetherAICredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/AnyscaleCredential",
+                      "title": "AnyscaleCredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/OpenRouterCredential",
+                      "title": "OpenRouterCredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PerplexityAICredential",
+                      "title": "PerplexityAICredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/DeepInfraCredential",
+                      "title": "DeepInfraCredential"
+                    },
+                    {
                       "$ref": "#/components/schemas/AzureOpenAICredential",
                       "title": "AzureOpenAICredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/CustomLLMCredential",
+                      "title": "CustomLLMCredential"
                     },
                     {
                       "$ref": "#/components/schemas/ElevenLabsCredential",
@@ -550,7 +753,14 @@
                     "mapping": {
                       "twilio": "#/components/schemas/TwilioCredential",
                       "deepgram": "#/components/schemas/DeepgramCredential",
+                      "openai": "#/components/schemas/OpenAICredential",
                       "azure-openai": "#/components/schemas/AzureOpenAICredential",
+                      "together-ai": "#/components/schemas/TogetherAICredential",
+                      "anyscale": "#/components/schemas/AnyscaleCredential",
+                      "openrouter": "#/components/schemas/OpenRouterCredential",
+                      "perplexity-ai": "#/components/schemas/PerplexityAICredential",
+                      "deepinfra": "#/components/schemas/DeepInfraCredential",
+                      "custom-llm": "#/components/schemas/CustomLLMCredential",
                       "11labs": "#/components/schemas/ElevenLabsCredential",
                       "playht": "#/components/schemas/PlayHTCredential",
                       "rimeai": "#/components/schemas/RimeAICredential"
@@ -591,8 +801,36 @@
                       "title": "DeepgramCredential"
                     },
                     {
+                      "$ref": "#/components/schemas/OpenAICredential",
+                      "title": "OpenAICredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/TogetherAICredential",
+                      "title": "TogetherAICredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/AnyscaleCredential",
+                      "title": "AnyscaleCredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/OpenRouterCredential",
+                      "title": "OpenRouterCredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PerplexityAICredential",
+                      "title": "PerplexityAICredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/DeepInfraCredential",
+                      "title": "DeepInfraCredential"
+                    },
+                    {
                       "$ref": "#/components/schemas/AzureOpenAICredential",
                       "title": "AzureOpenAICredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/CustomLLMCredential",
+                      "title": "CustomLLMCredential"
                     },
                     {
                       "$ref": "#/components/schemas/ElevenLabsCredential",
@@ -612,7 +850,14 @@
                     "mapping": {
                       "twilio": "#/components/schemas/TwilioCredential",
                       "deepgram": "#/components/schemas/DeepgramCredential",
+                      "openai": "#/components/schemas/OpenAICredential",
                       "azure-openai": "#/components/schemas/AzureOpenAICredential",
+                      "together-ai": "#/components/schemas/TogetherAICredential",
+                      "anyscale": "#/components/schemas/AnyscaleCredential",
+                      "openrouter": "#/components/schemas/OpenRouterCredential",
+                      "perplexity-ai": "#/components/schemas/PerplexityAICredential",
+                      "deepinfra": "#/components/schemas/DeepInfraCredential",
+                      "custom-llm": "#/components/schemas/CustomLLMCredential",
                       "11labs": "#/components/schemas/ElevenLabsCredential",
                       "playht": "#/components/schemas/PlayHTCredential",
                       "rimeai": "#/components/schemas/RimeAICredential"
@@ -795,7 +1040,7 @@
     "contact": {}
   },
   "tags": [],
-  "servers": [{ "url": "https://api.vapi.ai" }],
+  "servers": [{ "url": "https://hugely-stirred-krill.ngrok-free.app" }],
   "components": {
     "securitySchemes": {
       "bearer": {
@@ -836,24 +1081,62 @@
         },
         "required": ["provider", "voiceId"]
       },
-      "CustomModel": {
+      "OpenAIFunction": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "This is the the name of the function to be called.\n\nMust be a-z, A-Z, 0-9, or contain underscores and dashes, with a maximum length of 64.",
+            "maxLength": 64
+          },
+          "async": {
+            "type": "boolean",
+            "description": "Setting async: true will cause the function to be called asynchronously, meaning that the Assistant will not wait for the function to return before continuing."
+          },
+          "description": {
+            "type": "string",
+            "description": "This is the description of what the function does, used by the AI to choose when and how to call the function."
+          },
+          "parameters": {
+            "type": "object",
+            "description": "These are the parameters the functions accepts, described as a JSON Schema object.\n\nSee the [OpenAI guide](https://platform.openai.com/docs/guides/gpt/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema) for documentation about the format.\n\nTo describe a function that accepts no parameters, provide the value {\"type\": \"object\", \"properties\": {}}."
+          }
+        },
+        "required": ["name", "parameters"]
+      },
+      "CustomLLMModel": {
         "type": "object",
         "properties": {
           "provider": {
             "type": "string",
-            "description": "This is the provider that will be used for the model. Currently, only OpenAI and Custom LLM URLs are supported.\n\nIf you have your own LLM, you can use the URL of your LLM endpoint here.",
-            "enum": ["custom"]
+            "description": "This is the provider that will be used for the model. Any service, including your own server, that is compatible with the OpenAI API can be used.",
+            "enum": ["custom-llm"]
           },
           "url": {
             "type": "string",
-            "description": "These is the URL we'll POST during the conversation."
+            "description": "These is the URL we'll use for the OpenAI client's `baseURL`. Ex. https://openrouter.ai/api/v1"
+          },
+          "model": {
+            "type": "string",
+            "description": "The key of the model from the custom provider. Ex. cognitivecomputations/dolphin-mixtral-8x7b"
           },
           "systemPrompt": {
             "type": "string",
             "description": "This sets the objective and understanding for the assistant."
+          },
+          "temperature": {
+            "type": "number",
+            "description": "This is the temperature that will be used for calls. Default is 1.",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "functions": {
+            "description": "These are the functions that the assistant can execute during the call.",
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/OpenAIFunction" }
           }
         },
-        "required": ["provider", "url"]
+        "required": ["provider", "url", "model"]
       },
       "DeepgramTranscriber": {
         "type": "object",
@@ -950,29 +1233,6 @@
         },
         "required": ["provider", "voiceId"]
       },
-      "OpenAIFunction": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "This is the the name of the function to be called.\n\nMust be a-z, A-Z, 0-9, or contain underscores and dashes, with a maximum length of 64.",
-            "maxLength": 64
-          },
-          "async": {
-            "type": "boolean",
-            "description": "Setting async: true will cause the function to be called asynchronously, meaning that the Assistant will not wait for the function to return before continuing."
-          },
-          "description": {
-            "type": "string",
-            "description": "This is the description of what the function does, used by the AI to choose when and how to call the function."
-          },
-          "parameters": {
-            "type": "object",
-            "description": "These are the parameters the functions accepts, described as a JSON Schema object.\n\nSee the [OpenAI guide](https://platform.openai.com/docs/guides/gpt/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema) for documentation about the format.\n\nTo describe a function that accepts no parameters, provide the value {\"type\": \"object\", \"properties\": {}}."
-          }
-        },
-        "required": ["name", "parameters"]
-      },
       "OpenAIModel": {
         "type": "object",
         "properties": {
@@ -992,7 +1252,7 @@
           },
           "temperature": {
             "type": "number",
-            "description": "This is the temperature that will be used for OpenAI calls. Default is 1.",
+            "description": "This is the temperature that will be used for calls. Default is 1.",
             "minimum": 0,
             "maximum": 2
           },
@@ -1175,8 +1435,28 @@
                 "title": "OpenAIModel"
               },
               {
-                "$ref": "#/components/schemas/CustomModel",
-                "title": "CustomModel"
+                "$ref": "#/components/schemas/TogetherAIModel",
+                "title": "TogetherAIModel"
+              },
+              {
+                "$ref": "#/components/schemas/AnyscaleModel",
+                "title": "AnyscaleModel"
+              },
+              {
+                "$ref": "#/components/schemas/OpenRouterModel",
+                "title": "OpenRouterModel"
+              },
+              {
+                "$ref": "#/components/schemas/PerplexityAIModel",
+                "title": "PerplexityAIModel"
+              },
+              {
+                "$ref": "#/components/schemas/DeepInfraModel",
+                "title": "DeepInfraModel"
+              },
+              {
+                "$ref": "#/components/schemas/CustomLLMModel",
+                "title": "CustomLLMModel"
               }
             ]
           },
@@ -1308,8 +1588,28 @@
                 "title": "OpenAIModel"
               },
               {
-                "$ref": "#/components/schemas/CustomModel",
-                "title": "CustomModel"
+                "$ref": "#/components/schemas/TogetherAIModel",
+                "title": "TogetherAIModel"
+              },
+              {
+                "$ref": "#/components/schemas/AnyscaleModel",
+                "title": "AnyscaleModel"
+              },
+              {
+                "$ref": "#/components/schemas/OpenRouterModel",
+                "title": "OpenRouterModel"
+              },
+              {
+                "$ref": "#/components/schemas/PerplexityAIModel",
+                "title": "PerplexityAIModel"
+              },
+              {
+                "$ref": "#/components/schemas/DeepInfraModel",
+                "title": "DeepInfraModel"
+              },
+              {
+                "$ref": "#/components/schemas/CustomLLMModel",
+                "title": "CustomLLMModel"
               }
             ]
           },
@@ -1460,8 +1760,28 @@
                 "title": "OpenAIModel"
               },
               {
-                "$ref": "#/components/schemas/CustomModel",
-                "title": "CustomModel"
+                "$ref": "#/components/schemas/TogetherAIModel",
+                "title": "TogetherAIModel"
+              },
+              {
+                "$ref": "#/components/schemas/AnyscaleModel",
+                "title": "AnyscaleModel"
+              },
+              {
+                "$ref": "#/components/schemas/OpenRouterModel",
+                "title": "OpenRouterModel"
+              },
+              {
+                "$ref": "#/components/schemas/PerplexityAIModel",
+                "title": "PerplexityAIModel"
+              },
+              {
+                "$ref": "#/components/schemas/DeepInfraModel",
+                "title": "DeepInfraModel"
+              },
+              {
+                "$ref": "#/components/schemas/CustomLLMModel",
+                "title": "CustomLLMModel"
               }
             ]
           },
@@ -1634,13 +1954,26 @@
               "assistant-forwarded-call",
               "assistant-join-timed-out",
               "assistant-not-found",
-              "manually-canceled",
               "customer-busy",
               "customer-ended-call",
               "customer-did-not-answer",
               "db-error",
               "exceeded-max-duration",
+              "manually-canceled",
               "no-server-available",
+              "pipeline-error-custom-llm-response-was-invalid",
+              "pipeline-error-custom-llm-request-failed",
+              "pipeline-error-extra-function-failed",
+              "pipeline-error-first-message-failed",
+              "pipeline-error-function-filler-failed",
+              "pipeline-error-function-failed",
+              "pipeline-error-openai-llm-failed",
+              "pipeline-error-openai-voice-failed",
+              "pipeline-error-deepgram-transcriber-failed",
+              "pipeline-error-deepgram-voice-failed",
+              "pipeline-error-eleven-labs-voice-failed",
+              "pipeline-error-playht-voice-failed",
+              "pipeline-error-rimeai-voice-failed",
               "server-shutdown",
               "silence-timed-out",
               "twilio-failed-to-connect-call",
@@ -2001,6 +2334,258 @@
           "updatedAt"
         ]
       },
+      "OpenAICredential": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["openai"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
+          "id": {
+            "type": "string",
+            "description": "This is the unique identifier for the credential."
+          },
+          "orgId": {
+            "type": "string",
+            "description": "This is the unique identifier for the org that this credential belongs to."
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "This is the ISO 8601 date-time string of when the credential was created."
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "This is the ISO 8601 date-time string of when the assistant was last updated."
+          }
+        },
+        "required": [
+          "provider",
+          "apiKey",
+          "id",
+          "orgId",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "TogetherAICredential": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["together-ai"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
+          "id": {
+            "type": "string",
+            "description": "This is the unique identifier for the credential."
+          },
+          "orgId": {
+            "type": "string",
+            "description": "This is the unique identifier for the org that this credential belongs to."
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "This is the ISO 8601 date-time string of when the credential was created."
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "This is the ISO 8601 date-time string of when the assistant was last updated."
+          }
+        },
+        "required": [
+          "provider",
+          "apiKey",
+          "id",
+          "orgId",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "AnyscaleCredential": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["anyscale"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
+          "id": {
+            "type": "string",
+            "description": "This is the unique identifier for the credential."
+          },
+          "orgId": {
+            "type": "string",
+            "description": "This is the unique identifier for the org that this credential belongs to."
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "This is the ISO 8601 date-time string of when the credential was created."
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "This is the ISO 8601 date-time string of when the assistant was last updated."
+          }
+        },
+        "required": [
+          "provider",
+          "apiKey",
+          "id",
+          "orgId",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "OpenRouterCredential": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["openrouter"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
+          "id": {
+            "type": "string",
+            "description": "This is the unique identifier for the credential."
+          },
+          "orgId": {
+            "type": "string",
+            "description": "This is the unique identifier for the org that this credential belongs to."
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "This is the ISO 8601 date-time string of when the credential was created."
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "This is the ISO 8601 date-time string of when the assistant was last updated."
+          }
+        },
+        "required": [
+          "provider",
+          "apiKey",
+          "id",
+          "orgId",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "PerplexityAICredential": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["perplexity-ai"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
+          "id": {
+            "type": "string",
+            "description": "This is the unique identifier for the credential."
+          },
+          "orgId": {
+            "type": "string",
+            "description": "This is the unique identifier for the org that this credential belongs to."
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "This is the ISO 8601 date-time string of when the credential was created."
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "This is the ISO 8601 date-time string of when the assistant was last updated."
+          }
+        },
+        "required": [
+          "provider",
+          "apiKey",
+          "id",
+          "orgId",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "DeepInfraCredential": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["deepinfra"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
+          "id": {
+            "type": "string",
+            "description": "This is the unique identifier for the credential."
+          },
+          "orgId": {
+            "type": "string",
+            "description": "This is the unique identifier for the org that this credential belongs to."
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "This is the ISO 8601 date-time string of when the credential was created."
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "This is the ISO 8601 date-time string of when the assistant was last updated."
+          }
+        },
+        "required": [
+          "provider",
+          "apiKey",
+          "id",
+          "orgId",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "CustomLLMCredential": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["custom-llm"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
+          "id": {
+            "type": "string",
+            "description": "This is the unique identifier for the credential."
+          },
+          "orgId": {
+            "type": "string",
+            "description": "This is the unique identifier for the org that this credential belongs to."
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "This is the ISO 8601 date-time string of when the credential was created."
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "This is the ISO 8601 date-time string of when the assistant was last updated."
+          }
+        },
+        "required": [
+          "provider",
+          "apiKey",
+          "id",
+          "orgId",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
       "CreateTwilioCredentialDTO": {
         "type": "object",
         "properties": {
@@ -2035,6 +2620,83 @@
           "openAIEndpoint": { "type": "string" }
         },
         "required": ["provider", "openAIKey", "openAIEndpoint"]
+      },
+      "CreateOpenAICredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["openai"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
+        },
+        "required": ["provider", "apiKey"]
+      },
+      "CreateTogetherAICredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["together-ai"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
+        },
+        "required": ["provider", "apiKey"]
+      },
+      "CreateAnyscaleCredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["anyscale"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
+        },
+        "required": ["provider", "apiKey"]
+      },
+      "CreateOpenRouterCredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["openrouter"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
+        },
+        "required": ["provider", "apiKey"]
+      },
+      "CreatePerplexityAICredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["perplexity-ai"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
+        },
+        "required": ["provider", "apiKey"]
+      },
+      "CreateDeepInfraCredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["deepinfra"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
+        },
+        "required": ["provider", "apiKey"]
+      },
+      "CreateCustomLLMCredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["custom-llm"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
+        },
+        "required": ["provider", "apiKey"]
       },
       "CreateElevenLabsCredentialDTO": {
         "type": "object",
@@ -2104,6 +2766,83 @@
           "openAIEndpoint": { "type": "string" }
         },
         "required": ["provider", "openAIKey", "openAIEndpoint"]
+      },
+      "UpdateOpenAICredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["openai"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
+        },
+        "required": ["provider", "apiKey"]
+      },
+      "UpdateTogetherAICredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["together-ai"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
+        },
+        "required": ["provider", "apiKey"]
+      },
+      "UpdateAnyscaleCredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["anyscale"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
+        },
+        "required": ["provider", "apiKey"]
+      },
+      "UpdateOpenRouterCredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["openrouter"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
+        },
+        "required": ["provider", "apiKey"]
+      },
+      "UpdatePerplexityAICredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["perplexity-ai"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
+        },
+        "required": ["provider", "apiKey"]
+      },
+      "UpdateDeepInfraCredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["deepinfra"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
+        },
+        "required": ["provider", "apiKey"]
+      },
+      "UpdateCustomLLMCredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["custom-llm"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
+        },
+        "required": ["provider", "apiKey"]
       },
       "UpdateElevenLabsCredentialDTO": {
         "type": "object",

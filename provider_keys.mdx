@@ -14,9 +14,11 @@ Currently, the only available transcription provider is `deepgram`. To use a cus
 
 ## Model Providers
 
-We are currently working on support for custom OpenAI and custom Azure OpenAI provider keys.
+We are currently have support for any OpenAI-compatible endpoint. This includes services like [OpenRouter](https://openrouter.ai/), [AnyScale](https://www.anyscale.com/), [Together AI](https://www.together.ai/), or your own server.
 
-If more customization is needed, you can also set up your own [Custom LLM](/custom_llm) endpoint and use that instead.
+To use one of these providers, you can specify the `provider` and `model` in the `model` parameter of the [Assistant](/api-reference/assistants/create-assistant).
+
+You can find more details in the [Custom LLMs](/custom_llm) section of the documentation.
 
 ## Voice Providers
 
