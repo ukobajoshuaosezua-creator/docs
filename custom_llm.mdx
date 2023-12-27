@@ -18,22 +18,18 @@ You'll first want to POST your API key via the `/credentials` endpoint:
 
 ```json
 {
-  "provider": "custom-llm",
-  "openAIEndpoint": "https://openrouter.ai/api/v1",
-  "openAIKey": "<YOUR OPENROUTER KEY>"
+  "provider": "openRouter",
+  "apiKey": "<YOUR OPENROUTER KEY>"
 }
 ```
 
-`openAIEndpoint` is the URL that will be passed to the `baseURL` parameter of the OpenAI client.
-
-Then, you can create an assistant with the `custom-llm` model provider:
+Then, you can create an assistant with the model provider:
 
 ```json
 {
   "name": "My Assistant",
   "model": {
-    "provider": "custom-llm",
-    "url": "https://openrouter.ai/api/v1",
+    "provider": "openrouter",
     "model": "cognitivecomputations/dolphin-mixtral-8x7b",
     "systemPrompt": "How can I help?",
     "temperature": 0.7
@@ -52,8 +48,7 @@ If you'd like your OpenAI-compatible endpoint to be authenticated, you can POST 
 ```json
 {
   "provider": "custom-llm",
-  "openAIEndpoint": "<YOUR OPENAI COMPATIBLE ENDPOINT BASE URL>",
-  "openAIKey": "<YOUR OPENAI COMPATIBLE ENDPOINT KEY>"
+  "apiKey": "<YOUR OPENAI COMPATIBLE ENDPOINT KEY>"
 }
 ```
 
