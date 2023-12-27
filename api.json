@@ -1040,7 +1040,7 @@
     "contact": {}
   },
   "tags": [],
-  "servers": [{ "url": "https://hugely-stirred-krill.ngrok-free.app" }],
+  "servers": [{ "url": "https://api.vapi.ai" }],
   "components": {
     "securitySchemes": {
       "bearer": {
@@ -1103,6 +1103,136 @@
           }
         },
         "required": ["name", "parameters"]
+      },
+      "TogetherAIModel": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["together-ai"] },
+          "model": {
+            "type": "string",
+            "description": "The key of the model from the custom provider. Ex. cognitivecomputations/dolphin-mixtral-8x7b"
+          },
+          "systemPrompt": {
+            "type": "string",
+            "description": "This sets the objective and understanding for the assistant."
+          },
+          "temperature": {
+            "type": "number",
+            "description": "This is the temperature that will be used for calls. Default is 1.",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "functions": {
+            "description": "These are the functions that the assistant can execute during the call.",
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/OpenAIFunction" }
+          }
+        },
+        "required": ["provider", "model"]
+      },
+      "AnyscaleModel": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["anyscale"] },
+          "model": {
+            "type": "string",
+            "description": "The key of the model from the custom provider. Ex. cognitivecomputations/dolphin-mixtral-8x7b"
+          },
+          "systemPrompt": {
+            "type": "string",
+            "description": "This sets the objective and understanding for the assistant."
+          },
+          "temperature": {
+            "type": "number",
+            "description": "This is the temperature that will be used for calls. Default is 1.",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "functions": {
+            "description": "These are the functions that the assistant can execute during the call.",
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/OpenAIFunction" }
+          }
+        },
+        "required": ["provider", "model"]
+      },
+      "OpenRouterModel": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["openrouter"] },
+          "model": {
+            "type": "string",
+            "description": "The key of the model from the custom provider. Ex. cognitivecomputations/dolphin-mixtral-8x7b"
+          },
+          "systemPrompt": {
+            "type": "string",
+            "description": "This sets the objective and understanding for the assistant."
+          },
+          "temperature": {
+            "type": "number",
+            "description": "This is the temperature that will be used for calls. Default is 1.",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "functions": {
+            "description": "These are the functions that the assistant can execute during the call.",
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/OpenAIFunction" }
+          }
+        },
+        "required": ["provider", "model"]
+      },
+      "PerplexityAIModel": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["perplexity-ai"] },
+          "model": {
+            "type": "string",
+            "description": "The key of the model from the custom provider. Ex. cognitivecomputations/dolphin-mixtral-8x7b"
+          },
+          "systemPrompt": {
+            "type": "string",
+            "description": "This sets the objective and understanding for the assistant."
+          },
+          "temperature": {
+            "type": "number",
+            "description": "This is the temperature that will be used for calls. Default is 1.",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "functions": {
+            "description": "These are the functions that the assistant can execute during the call.",
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/OpenAIFunction" }
+          }
+        },
+        "required": ["provider", "model"]
+      },
+      "DeepInfraModel": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["deepinfra"] },
+          "model": {
+            "type": "string",
+            "description": "The key of the model from the custom provider. Ex. cognitivecomputations/dolphin-mixtral-8x7b"
+          },
+          "systemPrompt": {
+            "type": "string",
+            "description": "This sets the objective and understanding for the assistant."
+          },
+          "temperature": {
+            "type": "number",
+            "description": "This is the temperature that will be used for calls. Default is 1.",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "functions": {
+            "description": "These are the functions that the assistant can execute during the call.",
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/OpenAIFunction" }
+          }
+        },
+        "required": ["provider", "model"]
       },
       "CustomLLMModel": {
         "type": "object",
@@ -1238,7 +1368,7 @@
         "properties": {
           "provider": {
             "type": "string",
-            "description": "This is the provider that will be used for the model. Currently, only OpenAI and Custom LLM URLs are supported.\n\nIf you have your own LLM, you can use the URL of your LLM endpoint here.",
+            "description": "This is the provider that will be used for the model.",
             "enum": ["openai"]
           },
           "model": {
