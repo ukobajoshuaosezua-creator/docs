@@ -276,10 +276,6 @@
                     "title": "DeepInfraCredential"
                   },
                   {
-                    "$ref": "#/components/schemas/CreateAzureOpenAICredentialDTO",
-                    "title": "AzureOpenAICredential"
-                  },
-                  {
                     "$ref": "#/components/schemas/CreateCustomLLMCredentialDTO",
                     "title": "CustomLLMCredential"
                   },
@@ -302,7 +298,6 @@
                     "twilio": "#/components/schemas/CreateTwilioCredentialDTO",
                     "deepgram": "#/components/schemas/CreateDeepgramCredentialDTO",
                     "openai": "#/components/schemas/CreateOpenAICredentialDTO",
-                    "azure-openai": "#/components/schemas/CreateAzureOpenAICredentialDTO",
                     "together-ai": "#/components/schemas/CreateTogetherAICredentialDTO",
                     "anyscale": "#/components/schemas/CreateAnyscaleCredentialDTO",
                     "openrouter": "#/components/schemas/CreateOpenRouterCredentialDTO",
@@ -311,7 +306,7 @@
                     "custom-llm": "#/components/schemas/CreateCustomLLMCredentialDTO",
                     "11labs": "#/components/schemas/CreateElevenLabsCredentialDTO",
                     "playht": "#/components/schemas/CreatePlayHTCredentialDTO",
-                    "rimeai": "#/components/schemas/CreateRimeAICredentialDTO"
+                    "rime-ai": "#/components/schemas/CreateRimeAICredentialDTO"
                   }
                 }
               }
@@ -358,10 +353,6 @@
                       "title": "DeepInfraCredential"
                     },
                     {
-                      "$ref": "#/components/schemas/AzureOpenAICredential",
-                      "title": "AzureOpenAICredential"
-                    },
-                    {
                       "$ref": "#/components/schemas/CustomLLMCredential",
                       "title": "CustomLLMCredential"
                     },
@@ -384,7 +375,6 @@
                       "twilio": "#/components/schemas/TwilioCredential",
                       "deepgram": "#/components/schemas/DeepgramCredential",
                       "openai": "#/components/schemas/OpenAICredential",
-                      "azure-openai": "#/components/schemas/AzureOpenAICredential",
                       "together-ai": "#/components/schemas/TogetherAICredential",
                       "anyscale": "#/components/schemas/AnyscaleCredential",
                       "openrouter": "#/components/schemas/OpenRouterCredential",
@@ -393,7 +383,7 @@
                       "custom-llm": "#/components/schemas/CustomLLMCredential",
                       "11labs": "#/components/schemas/ElevenLabsCredential",
                       "playht": "#/components/schemas/PlayHTCredential",
-                      "rimeai": "#/components/schemas/RimeAICredential"
+                      "rime-ai": "#/components/schemas/RimeAICredential"
                     }
                   }
                 }
@@ -450,10 +440,6 @@
                         "title": "DeepInfraCredential"
                       },
                       {
-                        "$ref": "#/components/schemas/AzureOpenAICredential",
-                        "title": "AzureOpenAICredential"
-                      },
-                      {
                         "$ref": "#/components/schemas/CustomLLMCredential",
                         "title": "CustomLLMCredential"
                       },
@@ -476,7 +462,6 @@
                         "twilio": "#/components/schemas/TwilioCredential",
                         "deepgram": "#/components/schemas/DeepgramCredential",
                         "openai": "#/components/schemas/OpenAICredential",
-                        "azure-openai": "#/components/schemas/AzureOpenAICredential",
                         "together-ai": "#/components/schemas/TogetherAICredential",
                         "anyscale": "#/components/schemas/AnyscaleCredential",
                         "openrouter": "#/components/schemas/OpenRouterCredential",
@@ -485,7 +470,7 @@
                         "custom-llm": "#/components/schemas/CustomLLMCredential",
                         "11labs": "#/components/schemas/ElevenLabsCredential",
                         "playht": "#/components/schemas/PlayHTCredential",
-                        "rimeai": "#/components/schemas/RimeAICredential"
+                        "rime-ai": "#/components/schemas/RimeAICredential"
                       }
                     }
                   }
@@ -550,10 +535,6 @@
                       "title": "DeepInfraCredential"
                     },
                     {
-                      "$ref": "#/components/schemas/AzureOpenAICredential",
-                      "title": "AzureOpenAICredential"
-                    },
-                    {
                       "$ref": "#/components/schemas/CustomLLMCredential",
                       "title": "CustomLLMCredential"
                     },
@@ -576,7 +557,6 @@
                       "twilio": "#/components/schemas/TwilioCredential",
                       "deepgram": "#/components/schemas/DeepgramCredential",
                       "openai": "#/components/schemas/OpenAICredential",
-                      "azure-openai": "#/components/schemas/AzureOpenAICredential",
                       "together-ai": "#/components/schemas/TogetherAICredential",
                       "anyscale": "#/components/schemas/AnyscaleCredential",
                       "openrouter": "#/components/schemas/OpenRouterCredential",
@@ -585,7 +565,7 @@
                       "custom-llm": "#/components/schemas/CustomLLMCredential",
                       "11labs": "#/components/schemas/ElevenLabsCredential",
                       "playht": "#/components/schemas/PlayHTCredential",
-                      "rimeai": "#/components/schemas/RimeAICredential"
+                      "rime-ai": "#/components/schemas/RimeAICredential"
                     }
                   }
                 }
@@ -624,10 +604,6 @@
                   {
                     "$ref": "#/components/schemas/UpdateOpenAICredentialDTO",
                     "title": "OpenAICredential"
-                  },
-                  {
-                    "$ref": "#/components/schemas/UpdateAzureOpenAICredentialDTO",
-                    "title": "AzureOpenAICredential"
                   },
                   {
                     "$ref": "#/components/schemas/UpdateTogetherAICredentialDTO",
@@ -677,11 +653,10 @@
                     "openrouter": "#/components/schemas/UpdateOpenRouterCredentialDTO",
                     "perplexity-ai": "#/components/schemas/UpdatePerplexityAICredentialDTO",
                     "deepinfra": "#/components/schemas/UpdateDeepInfraCredentialDTO",
-                    "azure-openai": "#/components/schemas/UpdateAzureOpenAICredentialDTO",
                     "custom-llm": "#/components/schemas/UpdateCustomLLMCredentialDTO",
                     "11labs": "#/components/schemas/UpdateElevenLabsCredentialDTO",
                     "playht": "#/components/schemas/UpdatePlayHTCredentialDTO",
-                    "rimeai": "#/components/schemas/UpdateRimeAICredentialDTO"
+                    "rime-ai": "#/components/schemas/UpdateRimeAICredentialDTO"
                   }
                 }
               }
@@ -728,10 +703,6 @@
                       "title": "DeepInfraCredential"
                     },
                     {
-                      "$ref": "#/components/schemas/AzureOpenAICredential",
-                      "title": "AzureOpenAICredential"
-                    },
-                    {
                       "$ref": "#/components/schemas/CustomLLMCredential",
                       "title": "CustomLLMCredential"
                     },
@@ -754,7 +725,6 @@
                       "twilio": "#/components/schemas/TwilioCredential",
                       "deepgram": "#/components/schemas/DeepgramCredential",
                       "openai": "#/components/schemas/OpenAICredential",
-                      "azure-openai": "#/components/schemas/AzureOpenAICredential",
                       "together-ai": "#/components/schemas/TogetherAICredential",
                       "anyscale": "#/components/schemas/AnyscaleCredential",
                       "openrouter": "#/components/schemas/OpenRouterCredential",
@@ -763,7 +733,7 @@
                       "custom-llm": "#/components/schemas/CustomLLMCredential",
                       "11labs": "#/components/schemas/ElevenLabsCredential",
                       "playht": "#/components/schemas/PlayHTCredential",
-                      "rimeai": "#/components/schemas/RimeAICredential"
+                      "rime-ai": "#/components/schemas/RimeAICredential"
                     }
                   }
                 }
@@ -825,10 +795,6 @@
                       "title": "DeepInfraCredential"
                     },
                     {
-                      "$ref": "#/components/schemas/AzureOpenAICredential",
-                      "title": "AzureOpenAICredential"
-                    },
-                    {
                       "$ref": "#/components/schemas/CustomLLMCredential",
                       "title": "CustomLLMCredential"
                     },
@@ -851,7 +817,6 @@
                       "twilio": "#/components/schemas/TwilioCredential",
                       "deepgram": "#/components/schemas/DeepgramCredential",
                       "openai": "#/components/schemas/OpenAICredential",
-                      "azure-openai": "#/components/schemas/AzureOpenAICredential",
                       "together-ai": "#/components/schemas/TogetherAICredential",
                       "anyscale": "#/components/schemas/AnyscaleCredential",
                       "openrouter": "#/components/schemas/OpenRouterCredential",
@@ -860,7 +825,7 @@
                       "custom-llm": "#/components/schemas/CustomLLMCredential",
                       "11labs": "#/components/schemas/ElevenLabsCredential",
                       "playht": "#/components/schemas/PlayHTCredential",
-                      "rimeai": "#/components/schemas/RimeAICredential"
+                      "rime-ai": "#/components/schemas/RimeAICredential"
                     }
                   }
                 }
@@ -1056,7 +1021,7 @@
         "properties": {
           "provider": {
             "type": "string",
-            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`, `openai`\n\nBasic Voices: `rimeai`, `deepgram`",
+            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`, `openai`\n\nBasic Voices: `rime-ai`, `deepgram`",
             "enum": ["deepgram"]
           },
           "voiceId": {
@@ -1312,7 +1277,7 @@
         "properties": {
           "provider": {
             "type": "string",
-            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`\n\nBasic Voices: `rimeai`, `deepgram`",
+            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`\n\nBasic Voices: `rime-ai`, `deepgram`",
             "enum": ["11labs"]
           },
           "voiceId": {
@@ -1343,11 +1308,15 @@
           "stability": {
             "type": "number",
             "description": "Defines the stability for voice settings.",
+            "minimum": 0,
+            "maximum": 1,
             "default": null
           },
           "similarityBoost": {
             "type": "number",
             "description": "Defines the similarity boost for voice settings.",
+            "minimum": 0,
+            "maximum": 1,
             "default": null
           },
           "style": {
@@ -1399,7 +1368,7 @@
         "properties": {
           "provider": {
             "type": "string",
-            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`, `openai`\n\nBasic Voices: `rimeai`, `deepgram`",
+            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`, `openai`\n\nBasic Voices: `rime-ai`, `deepgram`",
             "enum": ["playht"]
           },
           "voiceId": {
@@ -1480,8 +1449,8 @@
         "properties": {
           "provider": {
             "type": "string",
-            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`, `openai`\n\nBasic Voices: `rimeai`, `deepgram`",
-            "enum": ["rimeai"]
+            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`, `openai`\n\nBasic Voices: `rime-ai`, `deepgram`",
+            "enum": ["rime-ai"]
           },
           "voiceId": {
             "description": "This is the provider-specific ID that will be used.",
@@ -1519,7 +1488,7 @@
         "properties": {
           "provider": {
             "type": "string",
-            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`, `openai`\n\nBasic Voices: `rimeai`, `deepgram`",
+            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`, `openai`\n\nBasic Voices: `rime-ai`, `deepgram`",
             "enum": ["openai"]
           },
           "voiceId": {
@@ -1640,13 +1609,11 @@
           },
           "forwardingPhoneNumber": {
             "type": "string",
-            "description": "This is the number to forward to if assistant runs into issues.",
-            "default": null,
-            "example": null
+            "description": "This is the number to forward to if assistant runs into issues."
           },
           "firstMessage": {
             "type": "string",
-            "description": "This is the first message that the assistant will say.\n\nIf unspecified, it will wait for the user to speak.",
+            "description": "This is the first message that the assistant will say. This can also be a URL to a containerized audio file (mp3, wav, etc.).\n\nIf unspecified, it will wait for the user to speak.",
             "maxLength": 1000,
             "default": "Hey there!"
           },
@@ -1793,13 +1760,11 @@
           },
           "forwardingPhoneNumber": {
             "type": "string",
-            "description": "This is the number to forward to if assistant runs into issues.",
-            "default": null,
-            "example": null
+            "description": "This is the number to forward to if assistant runs into issues."
           },
           "firstMessage": {
             "type": "string",
-            "description": "This is the first message that the assistant will say.\n\nIf unspecified, it will wait for the user to speak.",
+            "description": "This is the first message that the assistant will say. This can also be a URL to a containerized audio file (mp3, wav, etc.).\n\nIf unspecified, it will wait for the user to speak.",
             "maxLength": 1000,
             "default": "Hey there!"
           },
@@ -1965,13 +1930,11 @@
           },
           "forwardingPhoneNumber": {
             "type": "string",
-            "description": "This is the number to forward to if assistant runs into issues.",
-            "default": null,
-            "example": null
+            "description": "This is the number to forward to if assistant runs into issues."
           },
           "firstMessage": {
             "type": "string",
-            "description": "This is the first message that the assistant will say.\n\nIf unspecified, it will wait for the user to speak.",
+            "description": "This is the first message that the assistant will say. This can also be a URL to a containerized audio file (mp3, wav, etc.).\n\nIf unspecified, it will wait for the user to speak.",
             "maxLength": 1000,
             "default": "Hey there!"
           },
@@ -2097,13 +2060,14 @@
               "pipeline-error-first-message-failed",
               "pipeline-error-function-filler-failed",
               "pipeline-error-function-failed",
-              "pipeline-error-openai-llm-failed",
+              "pipeline-error-llm-failed",
               "pipeline-error-openai-voice-failed",
               "pipeline-error-deepgram-transcriber-failed",
               "pipeline-error-deepgram-voice-failed",
               "pipeline-error-eleven-labs-voice-failed",
+              "pipeline-error-eleven-labs-voice-not-found",
               "pipeline-error-playht-voice-failed",
-              "pipeline-error-rimeai-voice-failed",
+              "pipeline-error-rime-ai-voice-failed",
               "server-shutdown",
               "silence-timed-out",
               "twilio-failed-to-connect-call",
@@ -2316,44 +2280,6 @@
           "updatedAt"
         ]
       },
-      "AzureOpenAICredential": {
-        "type": "object",
-        "properties": {
-          "provider": { "type": "string", "enum": ["azure-openai"] },
-          "openAIKey": {
-            "type": "string",
-            "description": "This is not returned in the API."
-          },
-          "id": {
-            "type": "string",
-            "description": "This is the unique identifier for the credential."
-          },
-          "orgId": {
-            "type": "string",
-            "description": "This is the unique identifier for the org that this credential belongs to."
-          },
-          "createdAt": {
-            "format": "date-time",
-            "type": "string",
-            "description": "This is the ISO 8601 date-time string of when the credential was created."
-          },
-          "updatedAt": {
-            "format": "date-time",
-            "type": "string",
-            "description": "This is the ISO 8601 date-time string of when the assistant was last updated."
-          },
-          "openAIEndpoint": { "type": "string" }
-        },
-        "required": [
-          "provider",
-          "openAIKey",
-          "id",
-          "orgId",
-          "createdAt",
-          "updatedAt",
-          "openAIEndpoint"
-        ]
-      },
       "ElevenLabsCredential": {
         "type": "object",
         "properties": {
@@ -2431,7 +2357,7 @@
       "RimeAICredential": {
         "type": "object",
         "properties": {
-          "provider": { "type": "string", "enum": ["rimeai"] },
+          "provider": { "type": "string", "enum": ["rime-ai"] },
           "apiKey": {
             "type": "string",
             "description": "This is not returned in the API."
@@ -2739,18 +2665,6 @@
         },
         "required": ["provider", "apiKey"]
       },
-      "CreateAzureOpenAICredentialDTO": {
-        "type": "object",
-        "properties": {
-          "provider": { "type": "string", "enum": ["azure-openai"] },
-          "openAIKey": {
-            "type": "string",
-            "description": "This is not returned in the API."
-          },
-          "openAIEndpoint": { "type": "string" }
-        },
-        "required": ["provider", "openAIKey", "openAIEndpoint"]
-      },
       "CreateOpenAICredentialDTO": {
         "type": "object",
         "properties": {
@@ -2854,7 +2768,7 @@
       "CreateRimeAICredentialDTO": {
         "type": "object",
         "properties": {
-          "provider": { "type": "string", "enum": ["rimeai"] },
+          "provider": { "type": "string", "enum": ["rime-ai"] },
           "apiKey": {
             "type": "string",
             "description": "This is not returned in the API."
@@ -2884,18 +2798,6 @@
           }
         },
         "required": ["provider", "apiKey"]
-      },
-      "UpdateAzureOpenAICredentialDTO": {
-        "type": "object",
-        "properties": {
-          "provider": { "type": "string", "enum": ["azure-openai"] },
-          "openAIKey": {
-            "type": "string",
-            "description": "This is not returned in the API."
-          },
-          "openAIEndpoint": { "type": "string" }
-        },
-        "required": ["provider", "openAIKey", "openAIEndpoint"]
       },
       "UpdateOpenAICredentialDTO": {
         "type": "object",
@@ -3000,7 +2902,7 @@
       "UpdateRimeAICredentialDTO": {
         "type": "object",
         "properties": {
-          "provider": { "type": "string", "enum": ["rimeai"] },
+          "provider": { "type": "string", "enum": ["rime-ai"] },
           "apiKey": {
             "type": "string",
             "description": "This is not returned in the API."
