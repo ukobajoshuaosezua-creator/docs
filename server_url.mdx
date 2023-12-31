@@ -74,7 +74,9 @@ Your server should respond with a JSON object containing the function's response
 Or if it's an object:
 
 ```json
-  { "result": "{ \"message\": \"Your email has been sent.\", \"email\": \"test@email.com\" }" }
+{
+  "result": "{ \"message\": \"Your email has been sent.\", \"email\": \"test@email.com\" }"
+}
 ```
 
 The result will be appended to the conversation, and the assistant will decide what to do with the response based on its `systemPrompt`.
@@ -158,3 +160,18 @@ When a call ends, the assistant will make a `POST` request to the Server URL wit
 ```
 
 `endedReason` can be any of the options defined on the [Call Object](/api-reference/calls/get-call).
+
+### Hang Notifications
+
+Whenever the assistant fails to respond for 5+ seconds, the assistant will make a `POST` requests to the Server URL with the following body:
+
+```json
+{
+  "message": {
+    "type": "hang",
+    "call": { Call Object },
+  }
+}
+```
+
+You can use this to display an error message to the user, or to send a notification to your team.

@@ -1649,10 +1649,28 @@
             "description": "This sets whether the assistant will use fillers like Well..., Okay cool..., etc. This will modify your prompt slightly, which could result in differing completions. Defaults to false.",
             "default": null
           },
-          "liveTranscriptsEnabled": {
-            "type": "boolean",
-            "description": "This sets whether the assistant will send live transcriptions to the Server URL and/or Vapi clients.",
-            "default": null
+          "clientMessages": {
+            "type": "array",
+            "description": "These are the messages that will be sent to the Client SDKs. Default is ['transcript', 'hang', 'function-call']",
+            "items": {
+              "type": "string",
+              "enum": ["function-call", "transcript", "hang"]
+            }
+          },
+          "serverMessages": {
+            "type": "array",
+            "description": "These are the messages that will be sent to your Server URL. Default is ['assistant-request', 'end-of-call-report', 'status-update', 'hang', 'function-call']",
+            "items": {
+              "type": "string",
+              "enum": [
+                "assistant-request",
+                "end-of-call-report",
+                "function-call",
+                "status-update",
+                "transcript",
+                "hang"
+              ]
+            }
           },
           "silenceTimeoutSeconds": {
             "type": "number",
@@ -1800,10 +1818,28 @@
             "description": "This sets whether the assistant will use fillers like Well..., Okay cool..., etc. This will modify your prompt slightly, which could result in differing completions. Defaults to false.",
             "default": null
           },
-          "liveTranscriptsEnabled": {
-            "type": "boolean",
-            "description": "This sets whether the assistant will send live transcriptions to the Server URL and/or Vapi clients.",
-            "default": null
+          "clientMessages": {
+            "type": "array",
+            "description": "These are the messages that will be sent to the Client SDKs. Default is ['transcript', 'hang', 'function-call']",
+            "items": {
+              "type": "string",
+              "enum": ["function-call", "transcript", "hang"]
+            }
+          },
+          "serverMessages": {
+            "type": "array",
+            "description": "These are the messages that will be sent to your Server URL. Default is ['assistant-request', 'end-of-call-report', 'status-update', 'hang', 'function-call']",
+            "items": {
+              "type": "string",
+              "enum": [
+                "assistant-request",
+                "end-of-call-report",
+                "function-call",
+                "status-update",
+                "transcript",
+                "hang"
+              ]
+            }
           },
           "silenceTimeoutSeconds": {
             "type": "number",
@@ -1970,10 +2006,28 @@
             "description": "This sets whether the assistant will use fillers like Well..., Okay cool..., etc. This will modify your prompt slightly, which could result in differing completions. Defaults to false.",
             "default": null
           },
-          "liveTranscriptsEnabled": {
-            "type": "boolean",
-            "description": "This sets whether the assistant will send live transcriptions to the Server URL and/or Vapi clients.",
-            "default": null
+          "clientMessages": {
+            "type": "array",
+            "description": "These are the messages that will be sent to the Client SDKs. Default is ['transcript', 'hang', 'function-call']",
+            "items": {
+              "type": "string",
+              "enum": ["function-call", "transcript", "hang"]
+            }
+          },
+          "serverMessages": {
+            "type": "array",
+            "description": "These are the messages that will be sent to your Server URL. Default is ['assistant-request', 'end-of-call-report', 'status-update', 'hang', 'function-call']",
+            "items": {
+              "type": "string",
+              "enum": [
+                "assistant-request",
+                "end-of-call-report",
+                "function-call",
+                "status-update",
+                "transcript",
+                "hang"
+              ]
+            }
           },
           "silenceTimeoutSeconds": {
             "type": "number",
