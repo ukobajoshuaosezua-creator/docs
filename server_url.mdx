@@ -111,6 +111,12 @@ Your server should respond with a JSON object containing the assistant, like so:
 }
 ```
 
+If you'd like to play an error message instead, you can respond with:
+
+```json
+{ "error": "Sorry, not enough credits on your account, please refill." }
+```
+
 ### Call Status Updates
 
 During the call, the assistant will make multiple `POST` requests to the Server URL with the following body:
