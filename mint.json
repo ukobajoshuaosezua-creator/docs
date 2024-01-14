@@ -26,7 +26,7 @@
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://vapi.ai"
+    "url": "https://dashboard.vapi.ai"
   },
   "primaryTab": {
     "name": "Documentation"
@@ -120,7 +120,7 @@
       ]
     }
   ],
-  "openapi": "https://api.vapi.ai/api-json",
+  "openapi": "api.json",
   "feedback": {
     "thumbsRating": true,
     "suggestEdit": true,
