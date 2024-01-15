@@ -2397,6 +2397,10 @@
             "type": "number",
             "description": "This is the cost of the call in USD."
           },
+          "costBreakdown": {
+            "type": "object",
+            "description": "This is the cost of the call in USD."
+          },
           "transcript": {
             "type": "string",
             "description": "This is the transcript of the call."
