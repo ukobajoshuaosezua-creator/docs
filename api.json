@@ -30,7 +30,71 @@
       "get": {
         "operationId": "AssistantController_findAll",
         "summary": "List Assistants",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "description": "This is the maximum number of items to return. Defaults to 100.",
+            "schema": { "minimum": 0, "maximum": 1000, "type": "number" }
+          },
+          {
+            "name": "createdAtGt",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the createdAt is greater than the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "createdAtLt",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the createdAt is less than the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "createdAtGe",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the createdAt is greater than or equal to the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "createdAtLe",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the createdAt is less than or equal to the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "updatedAtGt",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the updatedAt is greater than the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "updatedAtLt",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the updatedAt is less than the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "updatedAtGe",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the updatedAt is greater than or equal to the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "updatedAtLe",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the updatedAt is less than or equal to the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -166,7 +230,71 @@
       "get": {
         "operationId": "CallController_findAll",
         "summary": "List Calls",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "description": "This is the maximum number of items to return. Defaults to 100.",
+            "schema": { "minimum": 0, "maximum": 1000, "type": "number" }
+          },
+          {
+            "name": "createdAtGt",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the createdAt is greater than the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "createdAtLt",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the createdAt is less than the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "createdAtGe",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the createdAt is greater than or equal to the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "createdAtLe",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the createdAt is less than or equal to the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "updatedAtGt",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the updatedAt is greater than the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "updatedAtLt",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the updatedAt is less than the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "updatedAtGe",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the updatedAt is greater than or equal to the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "updatedAtLe",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the updatedAt is less than or equal to the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -439,7 +567,71 @@
       "get": {
         "operationId": "CredentialController_findAll",
         "summary": "List Credentials",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "description": "This is the maximum number of items to return. Defaults to 100.",
+            "schema": { "minimum": 0, "maximum": 1000, "type": "number" }
+          },
+          {
+            "name": "createdAtGt",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the createdAt is greater than the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "createdAtLt",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the createdAt is less than the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "createdAtGe",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the createdAt is greater than or equal to the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "createdAtLe",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the createdAt is less than or equal to the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "updatedAtGt",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the updatedAt is greater than the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "updatedAtLt",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the updatedAt is less than the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "updatedAtGe",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the updatedAt is greater than or equal to the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "updatedAtLe",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the updatedAt is less than or equal to the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -964,7 +1156,71 @@
       "get": {
         "operationId": "PhoneNumberController_findAll",
         "summary": "List Phone Numbers",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "description": "This is the maximum number of items to return. Defaults to 100.",
+            "schema": { "minimum": 0, "maximum": 1000, "type": "number" }
+          },
+          {
+            "name": "createdAtGt",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the createdAt is greater than the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "createdAtLt",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the createdAt is less than the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "createdAtGe",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the createdAt is greater than or equal to the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "createdAtLe",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the createdAt is less than or equal to the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "updatedAtGt",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the updatedAt is greater than the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "updatedAtLt",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the updatedAt is less than the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "updatedAtGe",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the updatedAt is greater than or equal to the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "updatedAtLe",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the updatedAt is less than or equal to the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1088,7 +1344,7 @@
         "properties": {
           "provider": {
             "type": "string",
-            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`, `openai`\n\nBasic Voices: `rime-ai`, `deepgram`",
+            "description": "This is the voice provider that will be used.",
             "enum": ["deepgram"]
           },
           "voiceId": {
@@ -1127,52 +1383,74 @@
               "object"
             ]
           },
-          "items": { "$ref": "#/components/schemas/JsonSchema" },
-          "prefixItems": {
-            "type": "array",
-            "items": { "$ref": "#/components/schemas/JsonSchema" }
+          "items": {
+            "type": "object",
+            "description": "This is of type JsonSchema. However, Swagger doesn't support circular references."
           },
-          "contains": { "$ref": "#/components/schemas/JsonSchema" },
+          "prefixItems": {
+            "type": "object",
+            "description": "This is an array of type JsonSchema. However, Swagger doesn't support circular references."
+          },
+          "contains": {
+            "type": "object",
+            "description": "This is of type JsonSchema. However, Swagger doesn't support circular references."
+          },
           "properties": {
             "type": "object",
-            "additionalProperties": {
-              "$ref": "#/components/schemas/JsonSchema"
-            }
+            "description": "This is a map of string to JsonSchema. However, Swagger doesn't support circular references."
           },
           "patternProperties": {
             "type": "object",
-            "additionalProperties": {
-              "$ref": "#/components/schemas/JsonSchema"
-            }
+            "description": "This is a map of string to JsonSchema objects. However, Swagger doesn't support circular references."
           },
-          "additionalProperties": { "$ref": "#/components/schemas/JsonSchema" },
+          "additionalProperties": {
+            "type": "object",
+            "description": "This is of type JsonSchema. However, Swagger doesn't support circular references."
+          },
           "dependentSchemas": {
             "type": "object",
-            "additionalProperties": {
-              "$ref": "#/components/schemas/JsonSchema"
-            }
+            "description": "This is a map of string to JsonSchema objects. However, Swagger doesn't support circular references."
           },
-          "propertyNames": { "$ref": "#/components/schemas/JsonSchema" },
+          "propertyNames": {
+            "type": "object",
+            "description": "This is of type JsonSchema. However, Swagger doesn't support circular references."
+          },
           "unevaluatedProperties": {
-            "$ref": "#/components/schemas/JsonSchema"
+            "type": "object",
+            "description": "This is of type JsonSchema. However, Swagger doesn't support circular references."
           },
-          "const": { "$ref": "#/components/schemas/JsonSchema" },
-          "not": { "$ref": "#/components/schemas/JsonSchema" },
+          "const": {
+            "type": "object",
+            "description": "This is of type JsonSchema. However, Swagger doesn't support circular references."
+          },
+          "not": {
+            "type": "object",
+            "description": "This is of type JsonSchema. However, Swagger doesn't support circular references."
+          },
           "oneOf": {
-            "type": "array",
-            "items": { "$ref": "#/components/schemas/JsonSchema" }
+            "type": "object",
+            "description": "This is an array of type JsonSchema. However, Swagger doesn't support circular references."
           },
           "anyOf": {
-            "type": "array",
-            "items": { "$ref": "#/components/schemas/JsonSchema" }
+            "type": "object",
+            "description": "This is an array of type JsonSchema. However, Swagger doesn't support circular references."
           },
           "allOf": {
-            "type": "array",
-            "items": { "$ref": "#/components/schemas/JsonSchema" }
+            "type": "object",
+            "description": "This is an array of type JsonSchema. However, Swagger doesn't support circular references."
           },
-          "if": { "$ref": "#/components/schemas/JsonSchema" },
-          "then": { "$ref": "#/components/schemas/JsonSchema" },
-          "else": { "$ref": "#/components/schemas/JsonSchema" },
+          "if": {
+            "type": "object",
+            "description": "This is of type JsonSchema. However, Swagger doesn't support circular references."
+          },
+          "then": {
+            "type": "object",
+            "description": "This is of type JsonSchema. However, Swagger doesn't support circular references."
+          },
+          "else": {
+            "type": "object",
+            "description": "This is of type JsonSchema. However, Swagger doesn't support circular references."
+          },
           "title": { "type": "string" },
           "description": { "type": "string" },
           "multipleOf": { "type": "number" },
@@ -1181,15 +1459,15 @@
           "minimum": { "type": "number" },
           "exclusiveMinimum": { "type": "number" },
           "maxLength": { "type": "number" },
-          "minLength": { "type": "number" },
+          "minLength": { "type": "number", "minimum": 0 },
           "pattern": { "type": "string" },
           "format": { "type": "string" },
           "maxItems": { "type": "number" },
-          "minItems": { "type": "number" },
+          "minItems": { "type": "number", "minimum": 0 },
           "minContains": { "type": "number" },
           "maxContains": { "type": "number" },
           "maxProperties": { "type": "number" },
-          "minProperties": { "type": "number" },
+          "minProperties": { "type": "number", "minimum": 0 },
           "required": { "type": "array", "items": { "type": "object" } },
           "dependentRequired": { "type": "object" },
           "enum": { "type": "array", "items": { "type": "object" } },
@@ -1452,7 +1730,10 @@
           "keywords": {
             "description": "These keywords are passed to the transcription model to help it pick up use-case specific words. Anything that may not be a common word, like your company name, should be added here.",
             "type": "array",
-            "items": { "type": "string" }
+            "items": {
+              "type": "string",
+              "pattern": "/^[a-zA-Z]+:[+-]?(\\d+(\\.\\d+)?|\\.\\d+)$/"
+            }
           }
         },
         "required": ["provider"]
@@ -1462,7 +1743,7 @@
         "properties": {
           "provider": {
             "type": "string",
-            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`\n\nBasic Voices: `rime-ai`, `deepgram`",
+            "description": "This is the voice provider that will be used.",
             "enum": ["11labs"]
           },
           "voiceId": {
@@ -1553,7 +1834,7 @@
         "properties": {
           "provider": {
             "type": "string",
-            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`, `openai`\n\nBasic Voices: `rime-ai`, `deepgram`",
+            "description": "This is the voice provider that will be used.",
             "enum": ["playht"]
           },
           "voiceId": {
@@ -1587,7 +1868,7 @@
           },
           "temperature": {
             "type": "number",
-            "description": "A floating point number between 0, inclusive, and 2, inclusive. If equal to null or not provided, the model's default temperature will be used. The temperature parameter controls variance. Lower temperatures result in more predictable results, higher temperatures allow each run to vary more, so the voice may sound less like the baseline voice.",
+            "description": "A floating point number between 0, exclusive, and 2, inclusive. If equal to null or not provided, the model's default temperature will be used. The temperature parameter controls variance. Lower temperatures result in more predictable results, higher temperatures allow each run to vary more, so the voice may sound less like the baseline voice.",
             "minimum": 0.1,
             "maximum": 2,
             "default": null
@@ -1634,7 +1915,7 @@
         "properties": {
           "provider": {
             "type": "string",
-            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`, `openai`\n\nBasic Voices: `rime-ai`, `deepgram`",
+            "description": "This is the voice provider that will be used.",
             "enum": ["rime-ai"]
           },
           "voiceId": {
@@ -1673,7 +1954,7 @@
         "properties": {
           "provider": {
             "type": "string",
-            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`, `openai`\n\nBasic Voices: `rime-ai`, `deepgram`",
+            "description": "This is the voice provider that will be used.",
             "enum": ["openai"]
           },
           "voiceId": {
@@ -1693,6 +1974,28 @@
             "minimum": 0.25,
             "maximum": 4,
             "default": null
+          }
+        },
+        "required": ["provider", "voiceId"]
+      },
+      "AzureVoice": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "description": "This is the voice provider that will be used.",
+            "enum": ["azure"]
+          },
+          "voiceId": {
+            "description": "This is the provider-specific ID that will be used.",
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": ["andrew", "brian", "emma"],
+                "title": "Preset Voice Options"
+              },
+              { "type": "string", "title": "Azure Voice ID" }
+            ]
           }
         },
         "required": ["provider", "voiceId"]
@@ -1766,6 +2069,10 @@
               {
                 "$ref": "#/components/schemas/OpenAIVoice",
                 "title": "OpenAIVoice"
+              },
+              {
+                "$ref": "#/components/schemas/AzureVoice",
+                "title": "AzureVoice"
               }
             ],
             "default": { "provider": "playht", "voiceId": "jennifer" }
@@ -1877,6 +2184,14 @@
             "minimum": 0,
             "maximum": 10,
             "default": null
+          },
+          "serverUrl": {
+            "type": "string",
+            "description": "This is the URL Vapi will communicate with via HTTP GET and POST Requests. This is used for retrieving context, function calling, and end-of-call reports.\n\nAll requests will be sent with the call object among other things relevant to that message. You can find more details in the Server URL documentation.\n\nThis overrides the serverUrl set on the org."
+          },
+          "serverUrlSecret": {
+            "type": "string",
+            "description": "This is the secret you can set that Vapi will send with every request to your server. Will be sent as a header called x-vapi-secret.\n\nThis overrides the serverUrlSecret set on the org."
           }
         }
       },
@@ -1949,6 +2264,10 @@
               {
                 "$ref": "#/components/schemas/OpenAIVoice",
                 "title": "OpenAIVoice"
+              },
+              {
+                "$ref": "#/components/schemas/AzureVoice",
+                "title": "AzureVoice"
               }
             ],
             "default": { "provider": "playht", "voiceId": "jennifer" }
@@ -2060,6 +2379,14 @@
             "minimum": 0,
             "maximum": 10,
             "default": null
+          },
+          "serverUrl": {
+            "type": "string",
+            "description": "This is the URL Vapi will communicate with via HTTP GET and POST Requests. This is used for retrieving context, function calling, and end-of-call reports.\n\nAll requests will be sent with the call object among other things relevant to that message. You can find more details in the Server URL documentation.\n\nThis overrides the serverUrl set on the org."
+          },
+          "serverUrlSecret": {
+            "type": "string",
+            "description": "This is the secret you can set that Vapi will send with every request to your server. Will be sent as a header called x-vapi-secret.\n\nThis overrides the serverUrlSecret set on the org."
           },
           "id": {
             "type": "string",
@@ -2151,6 +2478,10 @@
               {
                 "$ref": "#/components/schemas/OpenAIVoice",
                 "title": "OpenAIVoice"
+              },
+              {
+                "$ref": "#/components/schemas/AzureVoice",
+                "title": "AzureVoice"
               }
             ],
             "default": { "provider": "playht", "voiceId": "jennifer" }
@@ -2262,6 +2593,14 @@
             "minimum": 0,
             "maximum": 10,
             "default": null
+          },
+          "serverUrl": {
+            "type": "string",
+            "description": "This is the URL Vapi will communicate with via HTTP GET and POST Requests. This is used for retrieving context, function calling, and end-of-call reports.\n\nAll requests will be sent with the call object among other things relevant to that message. You can find more details in the Server URL documentation.\n\nThis overrides the serverUrl set on the org."
+          },
+          "serverUrlSecret": {
+            "type": "string",
+            "description": "This is the secret you can set that Vapi will send with every request to your server. Will be sent as a header called x-vapi-secret.\n\nThis overrides the serverUrlSecret set on the org."
           }
         }
       },
@@ -2349,6 +2688,7 @@
               "pipeline-error-eleven-labs-voice-not-found",
               "pipeline-error-eleven-labs-quota-exceeded",
               "pipeline-error-playht-voice-failed",
+              "pipeline-error-azure-voice-failed",
               "pipeline-error-rime-ai-voice-failed",
               "server-shutdown",
               "silence-timed-out",
