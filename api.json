@@ -36,7 +36,7 @@
             "required": false,
             "in": "query",
             "description": "This is the maximum number of items to return. Defaults to 100.",
-            "schema": { "minimum": 0, "maximum": 1000, "type": "number" }
+            "schema": { "minimum": 0, "maximum": 10000, "type": "number" }
           },
           {
             "name": "createdAtGt",
@@ -236,7 +236,7 @@
             "required": false,
             "in": "query",
             "description": "This is the maximum number of items to return. Defaults to 100.",
-            "schema": { "minimum": 0, "maximum": 1000, "type": "number" }
+            "schema": { "minimum": 0, "maximum": 10000, "type": "number" }
           },
           {
             "name": "createdAtGt",
@@ -573,7 +573,7 @@
             "required": false,
             "in": "query",
             "description": "This is the maximum number of items to return. Defaults to 100.",
-            "schema": { "minimum": 0, "maximum": 1000, "type": "number" }
+            "schema": { "minimum": 0, "maximum": 10000, "type": "number" }
           },
           {
             "name": "createdAtGt",
@@ -1162,7 +1162,7 @@
             "required": false,
             "in": "query",
             "description": "This is the maximum number of items to return. Defaults to 100.",
-            "schema": { "minimum": 0, "maximum": 1000, "type": "number" }
+            "schema": { "minimum": 0, "maximum": 10000, "type": "number" }
           },
           {
             "name": "createdAtGt",
@@ -1732,7 +1732,7 @@
             "type": "array",
             "items": {
               "type": "string",
-              "pattern": "/^[a-zA-Z]+:[+-]?(\\d+(\\.\\d+)?|\\.\\d+)$/"
+              "pattern": "/^[a-zA-Z]+[a-zA-Z0-9]*:[+-]?(\\d+(\\.\\d+)?|\\.\\d+)$/"
             }
           }
         },
@@ -1776,24 +1776,26 @@
             "description": "Defines the stability for voice settings.",
             "minimum": 0,
             "maximum": 1,
-            "default": null
+            "example": 0.5
           },
           "similarityBoost": {
             "type": "number",
             "description": "Defines the similarity boost for voice settings.",
             "minimum": 0,
             "maximum": 1,
-            "default": null
+            "example": 0.75
           },
           "style": {
-            "type": "boolean",
+            "type": "number",
             "description": "Defines the style for voice settings.",
-            "default": null
+            "minimum": 0,
+            "maximum": 1,
+            "example": 0
           },
           "useSpeakerBoost": {
             "type": "boolean",
             "description": "Defines the use speaker boost for voice settings.",
-            "default": null
+            "example": false
           }
         },
         "required": ["provider", "voiceId"]
@@ -1864,14 +1866,14 @@
             "description": "This is the speed multiplier that will be used.",
             "minimum": 0,
             "maximum": 5,
-            "default": null
+            "example": null
           },
           "temperature": {
             "type": "number",
             "description": "A floating point number between 0, exclusive, and 2, inclusive. If equal to null or not provided, the model's default temperature will be used. The temperature parameter controls variance. Lower temperatures result in more predictable results, higher temperatures allow each run to vary more, so the voice may sound less like the baseline voice.",
             "minimum": 0.1,
             "maximum": 2,
-            "default": null
+            "example": null
           },
           "emotion": {
             "type": "string",
@@ -1884,28 +1886,28 @@
               "female_disgust",
               "female_surprised"
             ],
-            "default": null
+            "example": null
           },
           "voiceGuidance": {
             "type": "number",
             "description": "A number between 1 and 6. Use lower numbers to reduce how unique your chosen voice will be compared to other voices.",
             "minimum": 1,
             "maximum": 6,
-            "default": null
+            "example": null
           },
           "styleGuidance": {
             "type": "number",
             "description": "A number between 1 and 30. Use lower numbers to to reduce how strong your chosen emotion will be. Higher numbers will create a very emotional performance.",
             "minimum": 1,
             "maximum": 30,
-            "default": null
+            "example": null
           },
           "textGuidance": {
             "type": "number",
             "description": "A number between 1 and 2. This number influences how closely the generated speech adheres to the input text. Use lower values to create more fluid speech, but with a higher chance of deviating from the input text. Higher numbers will make the generated speech more accurate to the input text, ensuring that the words spoken align closely with the provided text.",
             "minimum": 1,
             "maximum": 2,
-            "default": null
+            "example": null
           }
         },
         "required": ["provider", "voiceId"]
@@ -1944,7 +1946,7 @@
             "type": "number",
             "description": "This is the speed multiplier that will be used.",
             "minimum": 0,
-            "default": null
+            "example": null
           }
         },
         "required": ["provider", "voiceId"]
@@ -1973,7 +1975,7 @@
             "description": "This is the speed multiplier that will be used.",
             "minimum": 0.25,
             "maximum": 4,
-            "default": null
+            "example": null
           }
         },
         "required": ["provider", "voiceId"]
@@ -2003,17 +2005,6 @@
       "CreateAssistantDTO": {
         "type": "object",
         "properties": {
-          "name": {
-            "type": "string",
-            "description": "This is the name of the assistant. This is just for your own reference.",
-            "maxLength": 100,
-            "default": null
-          },
-          "transcriber": {
-            "description": "These are the options for the assistant's transcriber.",
-            "default": null,
-            "allOf": [{ "$ref": "#/components/schemas/DeepgramTranscriber" }]
-          },
           "model": {
             "description": "These are the options for the assistant's LLM.",
             "oneOf": [
@@ -2096,8 +2087,7 @@
               "pt-BR",
               "es",
               "es-419"
-            ],
-            "default": null
+            ]
           },
           "forwardingPhoneNumber": {
             "type": "string",
@@ -2109,37 +2099,25 @@
             "maxLength": 1000,
             "default": "Hey there!"
           },
-          "voicemailMessage": {
-            "type": "string",
-            "description": "This is the message that the assistant will say if the call is forwarded to voicemail.\n\nIf unspecified, it will hang up.",
-            "maxLength": 1000,
-            "default": null
-          },
-          "endCallMessage": {
-            "type": "string",
-            "description": "This is the message that the assistant will say if it ends the call.\n\nIf unspecified, it will hang up without saying anything.",
-            "maxLength": 400,
-            "default": null
-          },
           "interruptionsEnabled": {
             "type": "boolean",
             "description": "This sets whether the user can interrupt the assistant while it's speaking. Defaults to true.",
-            "default": null
+            "example": true
           },
           "recordingEnabled": {
             "type": "boolean",
             "description": "This sets whether the assistant's calls are recorded. Defaults to true.",
-            "default": null
+            "example": true
           },
           "endCallFunctionEnabled": {
             "type": "boolean",
             "description": "This sets whether the assistant will be able to hang up the call. Defaults to false.",
-            "default": null
+            "example": false
           },
           "fillersEnabled": {
             "type": "boolean",
             "description": "This sets whether the assistant will use fillers like Well..., Okay cool..., etc. This will modify your prompt slightly, which could result in differing completions. Defaults to false.",
-            "default": null
+            "example": false
           },
           "clientMessages": {
             "type": "array",
@@ -2176,14 +2154,33 @@
             "description": "How many seconds of silence to wait before ending the call. Defaults to 30.",
             "minimum": 10,
             "maximum": 600,
-            "default": null
+            "example": 30
           },
           "responseDelaySeconds": {
             "type": "number",
             "description": "The minimum number of seconds after user speech to wait before the assistant starts speaking. Defaults to 0.4.",
             "minimum": 0,
-            "maximum": 10,
-            "default": null
+            "maximum": 1,
+            "example": 0.4
+          },
+          "name": {
+            "type": "string",
+            "description": "This is the name of the assistant. This is just for your own reference.",
+            "maxLength": 100
+          },
+          "transcriber": {
+            "description": "These are the options for the assistant's transcriber.",
+            "allOf": [{ "$ref": "#/components/schemas/DeepgramTranscriber" }]
+          },
+          "voicemailMessage": {
+            "type": "string",
+            "description": "This is the message that the assistant will say if the call is forwarded to voicemail.\n\nIf unspecified, it will hang up.",
+            "maxLength": 1000
+          },
+          "endCallMessage": {
+            "type": "string",
+            "description": "This is the message that the assistant will say if it ends the call.\n\nIf unspecified, it will hang up without saying anything.",
+            "maxLength": 400
           },
           "serverUrl": {
             "type": "string",
@@ -2198,17 +2195,6 @@
       "Assistant": {
         "type": "object",
         "properties": {
-          "name": {
-            "type": "string",
-            "description": "This is the name of the assistant. This is just for your own reference.",
-            "maxLength": 100,
-            "default": null
-          },
-          "transcriber": {
-            "description": "These are the options for the assistant's transcriber.",
-            "default": null,
-            "allOf": [{ "$ref": "#/components/schemas/DeepgramTranscriber" }]
-          },
           "model": {
             "description": "These are the options for the assistant's LLM.",
             "oneOf": [
@@ -2291,8 +2277,7 @@
               "pt-BR",
               "es",
               "es-419"
-            ],
-            "default": null
+            ]
           },
           "forwardingPhoneNumber": {
             "type": "string",
@@ -2304,37 +2289,25 @@
             "maxLength": 1000,
             "default": "Hey there!"
           },
-          "voicemailMessage": {
-            "type": "string",
-            "description": "This is the message that the assistant will say if the call is forwarded to voicemail.\n\nIf unspecified, it will hang up.",
-            "maxLength": 1000,
-            "default": null
-          },
-          "endCallMessage": {
-            "type": "string",
-            "description": "This is the message that the assistant will say if it ends the call.\n\nIf unspecified, it will hang up without saying anything.",
-            "maxLength": 400,
-            "default": null
-          },
           "interruptionsEnabled": {
             "type": "boolean",
             "description": "This sets whether the user can interrupt the assistant while it's speaking. Defaults to true.",
-            "default": null
+            "example": true
           },
           "recordingEnabled": {
             "type": "boolean",
             "description": "This sets whether the assistant's calls are recorded. Defaults to true.",
-            "default": null
+            "example": true
           },
           "endCallFunctionEnabled": {
             "type": "boolean",
             "description": "This sets whether the assistant will be able to hang up the call. Defaults to false.",
-            "default": null
+            "example": false
           },
           "fillersEnabled": {
             "type": "boolean",
             "description": "This sets whether the assistant will use fillers like Well..., Okay cool..., etc. This will modify your prompt slightly, which could result in differing completions. Defaults to false.",
-            "default": null
+            "example": false
           },
           "clientMessages": {
             "type": "array",
@@ -2371,14 +2344,33 @@
             "description": "How many seconds of silence to wait before ending the call. Defaults to 30.",
             "minimum": 10,
             "maximum": 600,
-            "default": null
+            "example": 30
           },
           "responseDelaySeconds": {
             "type": "number",
             "description": "The minimum number of seconds after user speech to wait before the assistant starts speaking. Defaults to 0.4.",
             "minimum": 0,
-            "maximum": 10,
-            "default": null
+            "maximum": 1,
+            "example": 0.4
+          },
+          "name": {
+            "type": "string",
+            "description": "This is the name of the assistant. This is just for your own reference.",
+            "maxLength": 100
+          },
+          "transcriber": {
+            "description": "These are the options for the assistant's transcriber.",
+            "allOf": [{ "$ref": "#/components/schemas/DeepgramTranscriber" }]
+          },
+          "voicemailMessage": {
+            "type": "string",
+            "description": "This is the message that the assistant will say if the call is forwarded to voicemail.\n\nIf unspecified, it will hang up.",
+            "maxLength": 1000
+          },
+          "endCallMessage": {
+            "type": "string",
+            "description": "This is the message that the assistant will say if it ends the call.\n\nIf unspecified, it will hang up without saying anything.",
+            "maxLength": 400
           },
           "serverUrl": {
             "type": "string",
@@ -2412,17 +2404,6 @@
       "UpdateAssistantDTO": {
         "type": "object",
         "properties": {
-          "name": {
-            "type": "string",
-            "description": "This is the name of the assistant. This is just for your own reference.",
-            "maxLength": 100,
-            "default": null
-          },
-          "transcriber": {
-            "description": "These are the options for the assistant's transcriber.",
-            "default": null,
-            "allOf": [{ "$ref": "#/components/schemas/DeepgramTranscriber" }]
-          },
           "model": {
             "description": "These are the options for the assistant's LLM.",
             "oneOf": [
@@ -2505,8 +2486,7 @@
               "pt-BR",
               "es",
               "es-419"
-            ],
-            "default": null
+            ]
           },
           "forwardingPhoneNumber": {
             "type": "string",
@@ -2518,37 +2498,25 @@
             "maxLength": 1000,
             "default": "Hey there!"
           },
-          "voicemailMessage": {
-            "type": "string",
-            "description": "This is the message that the assistant will say if the call is forwarded to voicemail.\n\nIf unspecified, it will hang up.",
-            "maxLength": 1000,
-            "default": null
-          },
-          "endCallMessage": {
-            "type": "string",
-            "description": "This is the message that the assistant will say if it ends the call.\n\nIf unspecified, it will hang up without saying anything.",
-            "maxLength": 400,
-            "default": null
-          },
           "interruptionsEnabled": {
             "type": "boolean",
             "description": "This sets whether the user can interrupt the assistant while it's speaking. Defaults to true.",
-            "default": null
+            "example": true
           },
           "recordingEnabled": {
             "type": "boolean",
             "description": "This sets whether the assistant's calls are recorded. Defaults to true.",
-            "default": null
+            "example": true
           },
           "endCallFunctionEnabled": {
             "type": "boolean",
             "description": "This sets whether the assistant will be able to hang up the call. Defaults to false.",
-            "default": null
+            "example": false
           },
           "fillersEnabled": {
             "type": "boolean",
             "description": "This sets whether the assistant will use fillers like Well..., Okay cool..., etc. This will modify your prompt slightly, which could result in differing completions. Defaults to false.",
-            "default": null
+            "example": false
           },
           "clientMessages": {
             "type": "array",
@@ -2585,14 +2553,33 @@
             "description": "How many seconds of silence to wait before ending the call. Defaults to 30.",
             "minimum": 10,
             "maximum": 600,
-            "default": null
+            "example": 30
           },
           "responseDelaySeconds": {
             "type": "number",
             "description": "The minimum number of seconds after user speech to wait before the assistant starts speaking. Defaults to 0.4.",
             "minimum": 0,
-            "maximum": 10,
-            "default": null
+            "maximum": 1,
+            "example": 0.4
+          },
+          "name": {
+            "type": "string",
+            "description": "This is the name of the assistant. This is just for your own reference.",
+            "maxLength": 100
+          },
+          "transcriber": {
+            "description": "These are the options for the assistant's transcriber.",
+            "allOf": [{ "$ref": "#/components/schemas/DeepgramTranscriber" }]
+          },
+          "voicemailMessage": {
+            "type": "string",
+            "description": "This is the message that the assistant will say if the call is forwarded to voicemail.\n\nIf unspecified, it will hang up.",
+            "maxLength": 1000
+          },
+          "endCallMessage": {
+            "type": "string",
+            "description": "This is the message that the assistant will say if it ends the call.\n\nIf unspecified, it will hang up without saying anything.",
+            "maxLength": 400
           },
           "serverUrl": {
             "type": "string",
@@ -2670,6 +2657,7 @@
               "customer-busy",
               "customer-ended-call",
               "customer-did-not-answer",
+              "customer-did-not-give-microphone-permission",
               "db-error",
               "exceeded-max-duration",
               "manually-canceled",
@@ -2680,7 +2668,15 @@
               "pipeline-error-first-message-failed",
               "pipeline-error-function-filler-failed",
               "pipeline-error-function-failed",
-              "pipeline-error-llm-failed",
+              "pipeline-error-openai-llm-failed",
+              "pipeline-error-azure-openai-llm-failed",
+              "pipeline-error-together-ai-llm-failed",
+              "pipeline-error-anyscale-llm-failed",
+              "pipeline-error-openrouter-llm-failed",
+              "pipeline-error-perplexity-ai-llm-failed",
+              "pipeline-error-deepinfra-llm-failed",
+              "pipeline-error-custom-llm-llm-failed",
+              "pipeline-error-runpod-llm-failed",
               "pipeline-error-openai-voice-failed",
               "pipeline-error-deepgram-transcriber-failed",
               "pipeline-error-deepgram-voice-failed",
@@ -2703,7 +2699,7 @@
             "description": "This is the maximum number of seconds that the call will last. When the call reaches this duration, it will be ended.",
             "minimum": 10,
             "maximum": 3600,
-            "default": null
+            "example": 1800
           },
           "id": {
             "type": "string",
@@ -2807,7 +2803,7 @@
             "description": "This is the maximum number of seconds that the call will last. When the call reaches this duration, it will be ended.",
             "minimum": 10,
             "maximum": 3600,
-            "default": null
+            "example": 1800
           },
           "assistantId": {
             "type": "string",
