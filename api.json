@@ -2042,6 +2042,10 @@
             "description": "These are the options for the assistant's voice.",
             "oneOf": [
               {
+                "$ref": "#/components/schemas/AzureVoice",
+                "title": "AzureVoice"
+              },
+              {
                 "$ref": "#/components/schemas/ElevenLabsVoice",
                 "title": "ElevenLabsVoice"
               },
@@ -2060,10 +2064,6 @@
               {
                 "$ref": "#/components/schemas/OpenAIVoice",
                 "title": "OpenAIVoice"
-              },
-              {
-                "$ref": "#/components/schemas/AzureVoice",
-                "title": "AzureVoice"
               }
             ],
             "default": { "provider": "playht", "voiceId": "jennifer" }
@@ -2091,13 +2091,8 @@
           },
           "forwardingPhoneNumber": {
             "type": "string",
-            "description": "This is the number to forward to if assistant runs into issues."
-          },
-          "firstMessage": {
-            "type": "string",
-            "description": "This is the first message that the assistant will say. This can also be a URL to a containerized audio file (mp3, wav, etc.).\n\nIf unspecified, it will wait for the user to speak.",
-            "maxLength": 1000,
-            "default": "Hey there!"
+            "description": "This is the number to forward to if assistant runs into issues.",
+            "example": null
           },
           "interruptionsEnabled": {
             "type": "boolean",
@@ -2123,6 +2118,7 @@
             "type": "array",
             "description": "These are the messages that will be sent to the Client SDKs. Default is ['transcript', 'hang', 'function-call']",
             "enum": ["function-call", "transcript", "hang"],
+            "example": ["transcript", "hang", "function-call"],
             "items": {
               "type": "string",
               "enum": ["function-call", "transcript", "hang"]
@@ -2137,6 +2133,12 @@
               "status-update",
               "transcript",
               "hang"
+            ],
+            "example": [
+              "end-of-call-report",
+              "status-update",
+              "hang",
+              "function-call"
             ],
             "items": {
               "type": "string",
@@ -2160,7 +2162,7 @@
             "type": "number",
             "description": "The minimum number of seconds after user speech to wait before the assistant starts speaking. Defaults to 0.4.",
             "minimum": 0,
-            "maximum": 1,
+            "maximum": 2,
             "example": 0.4
           },
           "name": {
@@ -2171,6 +2173,11 @@
           "transcriber": {
             "description": "These are the options for the assistant's transcriber.",
             "allOf": [{ "$ref": "#/components/schemas/DeepgramTranscriber" }]
+          },
+          "firstMessage": {
+            "type": "string",
+            "description": "This is the first message that the assistant will say. This can also be a URL to a containerized audio file (mp3, wav, etc.).\n\nIf unspecified, it will wait for the user to speak.",
+            "maxLength": 1000
           },
           "voicemailMessage": {
             "type": "string",
@@ -2232,6 +2239,10 @@
             "description": "These are the options for the assistant's voice.",
             "oneOf": [
               {
+                "$ref": "#/components/schemas/AzureVoice",
+                "title": "AzureVoice"
+              },
+              {
                 "$ref": "#/components/schemas/ElevenLabsVoice",
                 "title": "ElevenLabsVoice"
               },
@@ -2250,10 +2261,6 @@
               {
                 "$ref": "#/components/schemas/OpenAIVoice",
                 "title": "OpenAIVoice"
-              },
-              {
-                "$ref": "#/components/schemas/AzureVoice",
-                "title": "AzureVoice"
               }
             ],
             "default": { "provider": "playht", "voiceId": "jennifer" }
@@ -2281,13 +2288,8 @@
           },
           "forwardingPhoneNumber": {
             "type": "string",
-            "description": "This is the number to forward to if assistant runs into issues."
-          },
-          "firstMessage": {
-            "type": "string",
-            "description": "This is the first message that the assistant will say. This can also be a URL to a containerized audio file (mp3, wav, etc.).\n\nIf unspecified, it will wait for the user to speak.",
-            "maxLength": 1000,
-            "default": "Hey there!"
+            "description": "This is the number to forward to if assistant runs into issues.",
+            "example": null
           },
           "interruptionsEnabled": {
             "type": "boolean",
@@ -2313,6 +2315,7 @@
             "type": "array",
             "description": "These are the messages that will be sent to the Client SDKs. Default is ['transcript', 'hang', 'function-call']",
             "enum": ["function-call", "transcript", "hang"],
+            "example": ["transcript", "hang", "function-call"],
             "items": {
               "type": "string",
               "enum": ["function-call", "transcript", "hang"]
@@ -2327,6 +2330,12 @@
               "status-update",
               "transcript",
               "hang"
+            ],
+            "example": [
+              "end-of-call-report",
+              "status-update",
+              "hang",
+              "function-call"
             ],
             "items": {
               "type": "string",
@@ -2350,7 +2359,7 @@
             "type": "number",
             "description": "The minimum number of seconds after user speech to wait before the assistant starts speaking. Defaults to 0.4.",
             "minimum": 0,
-            "maximum": 1,
+            "maximum": 2,
             "example": 0.4
           },
           "name": {
@@ -2361,6 +2370,11 @@
           "transcriber": {
             "description": "These are the options for the assistant's transcriber.",
             "allOf": [{ "$ref": "#/components/schemas/DeepgramTranscriber" }]
+          },
+          "firstMessage": {
+            "type": "string",
+            "description": "This is the first message that the assistant will say. This can also be a URL to a containerized audio file (mp3, wav, etc.).\n\nIf unspecified, it will wait for the user to speak.",
+            "maxLength": 1000
           },
           "voicemailMessage": {
             "type": "string",
@@ -2441,6 +2455,10 @@
             "description": "These are the options for the assistant's voice.",
             "oneOf": [
               {
+                "$ref": "#/components/schemas/AzureVoice",
+                "title": "AzureVoice"
+              },
+              {
                 "$ref": "#/components/schemas/ElevenLabsVoice",
                 "title": "ElevenLabsVoice"
               },
@@ -2459,10 +2477,6 @@
               {
                 "$ref": "#/components/schemas/OpenAIVoice",
                 "title": "OpenAIVoice"
-              },
-              {
-                "$ref": "#/components/schemas/AzureVoice",
-                "title": "AzureVoice"
               }
             ],
             "default": { "provider": "playht", "voiceId": "jennifer" }
@@ -2490,13 +2504,8 @@
           },
           "forwardingPhoneNumber": {
             "type": "string",
-            "description": "This is the number to forward to if assistant runs into issues."
-          },
-          "firstMessage": {
-            "type": "string",
-            "description": "This is the first message that the assistant will say. This can also be a URL to a containerized audio file (mp3, wav, etc.).\n\nIf unspecified, it will wait for the user to speak.",
-            "maxLength": 1000,
-            "default": "Hey there!"
+            "description": "This is the number to forward to if assistant runs into issues.",
+            "example": null
           },
           "interruptionsEnabled": {
             "type": "boolean",
@@ -2522,6 +2531,7 @@
             "type": "array",
             "description": "These are the messages that will be sent to the Client SDKs. Default is ['transcript', 'hang', 'function-call']",
             "enum": ["function-call", "transcript", "hang"],
+            "example": ["transcript", "hang", "function-call"],
             "items": {
               "type": "string",
               "enum": ["function-call", "transcript", "hang"]
@@ -2536,6 +2546,12 @@
               "status-update",
               "transcript",
               "hang"
+            ],
+            "example": [
+              "end-of-call-report",
+              "status-update",
+              "hang",
+              "function-call"
             ],
             "items": {
               "type": "string",
@@ -2559,7 +2575,7 @@
             "type": "number",
             "description": "The minimum number of seconds after user speech to wait before the assistant starts speaking. Defaults to 0.4.",
             "minimum": 0,
-            "maximum": 1,
+            "maximum": 2,
             "example": 0.4
           },
           "name": {
@@ -2570,6 +2586,11 @@
           "transcriber": {
             "description": "These are the options for the assistant's transcriber.",
             "allOf": [{ "$ref": "#/components/schemas/DeepgramTranscriber" }]
+          },
+          "firstMessage": {
+            "type": "string",
+            "description": "This is the first message that the assistant will say. This can also be a URL to a containerized audio file (mp3, wav, etc.).\n\nIf unspecified, it will wait for the user to speak.",
+            "maxLength": 1000
           },
           "voicemailMessage": {
             "type": "string",
@@ -2649,21 +2670,10 @@
             "type": "string",
             "description": "This is the explanation for how the call ended.",
             "enum": [
-              "assistant-ended-call",
               "assistant-error",
-              "assistant-forwarded-call",
-              "assistant-join-timed-out",
               "assistant-not-found",
-              "customer-busy",
-              "customer-ended-call",
-              "customer-did-not-answer",
-              "customer-did-not-give-microphone-permission",
               "db-error",
-              "exceeded-max-duration",
-              "manually-canceled",
               "no-server-available",
-              "pipeline-error-custom-llm-response-was-invalid",
-              "pipeline-error-custom-llm-request-failed",
               "pipeline-error-extra-function-failed",
               "pipeline-error-first-message-failed",
               "pipeline-error-function-filler-failed",
@@ -2675,8 +2685,8 @@
               "pipeline-error-openrouter-llm-failed",
               "pipeline-error-perplexity-ai-llm-failed",
               "pipeline-error-deepinfra-llm-failed",
-              "pipeline-error-custom-llm-llm-failed",
               "pipeline-error-runpod-llm-failed",
+              "pipeline-error-custom-llm-llm-failed",
               "pipeline-error-openai-voice-failed",
               "pipeline-error-deepgram-transcriber-failed",
               "pipeline-error-deepgram-voice-failed",
@@ -2687,10 +2697,19 @@
               "pipeline-error-azure-voice-failed",
               "pipeline-error-rime-ai-voice-failed",
               "server-shutdown",
-              "silence-timed-out",
-              "twilio-failed-to-connect-call",
               "twilio-closed-websocket",
+              "twilio-failed-to-connect-call",
               "unknown-error",
+              "assistant-ended-call",
+              "assistant-forwarded-call",
+              "assistant-join-timed-out",
+              "customer-busy",
+              "customer-ended-call",
+              "customer-did-not-answer",
+              "customer-did-not-give-microphone-permission",
+              "exceeded-max-duration",
+              "manually-canceled",
+              "silence-timed-out",
               "voicemail"
             ]
           },
