@@ -30,7 +30,71 @@
       "get": {
         "operationId": "AssistantController_findAll",
         "summary": "List Assistants",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "description": "This is the maximum number of items to return. Defaults to 100.",
+            "schema": { "minimum": 0, "maximum": 10000, "type": "number" }
+          },
+          {
+            "name": "createdAtGt",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the createdAt is greater than the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "createdAtLt",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the createdAt is less than the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "createdAtGe",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the createdAt is greater than or equal to the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "createdAtLe",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the createdAt is less than or equal to the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "updatedAtGt",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the updatedAt is greater than the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "updatedAtLt",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the updatedAt is less than the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "updatedAtGe",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the updatedAt is greater than or equal to the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "updatedAtLe",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the updatedAt is less than or equal to the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -166,7 +230,71 @@
       "get": {
         "operationId": "CallController_findAll",
         "summary": "List Calls",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "description": "This is the maximum number of items to return. Defaults to 100.",
+            "schema": { "minimum": 0, "maximum": 10000, "type": "number" }
+          },
+          {
+            "name": "createdAtGt",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the createdAt is greater than the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "createdAtLt",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the createdAt is less than the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "createdAtGe",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the createdAt is greater than or equal to the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "createdAtLe",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the createdAt is less than or equal to the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "updatedAtGt",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the updatedAt is greater than the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "updatedAtLt",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the updatedAt is less than the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "updatedAtGe",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the updatedAt is greater than or equal to the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "updatedAtLe",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the updatedAt is less than or equal to the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -439,7 +567,71 @@
       "get": {
         "operationId": "CredentialController_findAll",
         "summary": "List Credentials",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "description": "This is the maximum number of items to return. Defaults to 100.",
+            "schema": { "minimum": 0, "maximum": 10000, "type": "number" }
+          },
+          {
+            "name": "createdAtGt",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the createdAt is greater than the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "createdAtLt",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the createdAt is less than the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "createdAtGe",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the createdAt is greater than or equal to the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "createdAtLe",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the createdAt is less than or equal to the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "updatedAtGt",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the updatedAt is greater than the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "updatedAtLt",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the updatedAt is less than the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "updatedAtGe",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the updatedAt is greater than or equal to the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "updatedAtLe",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the updatedAt is less than or equal to the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -964,7 +1156,71 @@
       "get": {
         "operationId": "PhoneNumberController_findAll",
         "summary": "List Phone Numbers",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "description": "This is the maximum number of items to return. Defaults to 100.",
+            "schema": { "minimum": 0, "maximum": 10000, "type": "number" }
+          },
+          {
+            "name": "createdAtGt",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the createdAt is greater than the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "createdAtLt",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the createdAt is less than the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "createdAtGe",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the createdAt is greater than or equal to the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "createdAtLe",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the createdAt is less than or equal to the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "updatedAtGt",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the updatedAt is greater than the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "updatedAtLt",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the updatedAt is less than the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "updatedAtGe",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the updatedAt is greater than or equal to the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "updatedAtLe",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the updatedAt is less than or equal to the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -1088,7 +1344,7 @@
         "properties": {
           "provider": {
             "type": "string",
-            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`, `openai`\n\nBasic Voices: `rime-ai`, `deepgram`",
+            "description": "This is the voice provider that will be used.",
             "enum": ["deepgram"]
           },
           "voiceId": {
@@ -1127,52 +1383,74 @@
               "object"
             ]
           },
-          "items": { "$ref": "#/components/schemas/JsonSchema" },
-          "prefixItems": {
-            "type": "array",
-            "items": { "$ref": "#/components/schemas/JsonSchema" }
+          "items": {
+            "type": "object",
+            "description": "This is of type JsonSchema. However, Swagger doesn't support circular references."
           },
-          "contains": { "$ref": "#/components/schemas/JsonSchema" },
+          "prefixItems": {
+            "type": "object",
+            "description": "This is an array of type JsonSchema. However, Swagger doesn't support circular references."
+          },
+          "contains": {
+            "type": "object",
+            "description": "This is of type JsonSchema. However, Swagger doesn't support circular references."
+          },
           "properties": {
             "type": "object",
-            "additionalProperties": {
-              "$ref": "#/components/schemas/JsonSchema"
-            }
+            "description": "This is a map of string to JsonSchema. However, Swagger doesn't support circular references."
           },
           "patternProperties": {
             "type": "object",
-            "additionalProperties": {
-              "$ref": "#/components/schemas/JsonSchema"
-            }
+            "description": "This is a map of string to JsonSchema objects. However, Swagger doesn't support circular references."
           },
-          "additionalProperties": { "$ref": "#/components/schemas/JsonSchema" },
+          "additionalProperties": {
+            "type": "object",
+            "description": "This is of type JsonSchema. However, Swagger doesn't support circular references."
+          },
           "dependentSchemas": {
             "type": "object",
-            "additionalProperties": {
-              "$ref": "#/components/schemas/JsonSchema"
-            }
+            "description": "This is a map of string to JsonSchema objects. However, Swagger doesn't support circular references."
           },
-          "propertyNames": { "$ref": "#/components/schemas/JsonSchema" },
+          "propertyNames": {
+            "type": "object",
+            "description": "This is of type JsonSchema. However, Swagger doesn't support circular references."
+          },
           "unevaluatedProperties": {
-            "$ref": "#/components/schemas/JsonSchema"
+            "type": "object",
+            "description": "This is of type JsonSchema. However, Swagger doesn't support circular references."
           },
-          "const": { "$ref": "#/components/schemas/JsonSchema" },
-          "not": { "$ref": "#/components/schemas/JsonSchema" },
+          "const": {
+            "type": "object",
+            "description": "This is of type JsonSchema. However, Swagger doesn't support circular references."
+          },
+          "not": {
+            "type": "object",
+            "description": "This is of type JsonSchema. However, Swagger doesn't support circular references."
+          },
           "oneOf": {
-            "type": "array",
-            "items": { "$ref": "#/components/schemas/JsonSchema" }
+            "type": "object",
+            "description": "This is an array of type JsonSchema. However, Swagger doesn't support circular references."
           },
           "anyOf": {
-            "type": "array",
-            "items": { "$ref": "#/components/schemas/JsonSchema" }
+            "type": "object",
+            "description": "This is an array of type JsonSchema. However, Swagger doesn't support circular references."
           },
           "allOf": {
-            "type": "array",
-            "items": { "$ref": "#/components/schemas/JsonSchema" }
+            "type": "object",
+            "description": "This is an array of type JsonSchema. However, Swagger doesn't support circular references."
           },
-          "if": { "$ref": "#/components/schemas/JsonSchema" },
-          "then": { "$ref": "#/components/schemas/JsonSchema" },
-          "else": { "$ref": "#/components/schemas/JsonSchema" },
+          "if": {
+            "type": "object",
+            "description": "This is of type JsonSchema. However, Swagger doesn't support circular references."
+          },
+          "then": {
+            "type": "object",
+            "description": "This is of type JsonSchema. However, Swagger doesn't support circular references."
+          },
+          "else": {
+            "type": "object",
+            "description": "This is of type JsonSchema. However, Swagger doesn't support circular references."
+          },
           "title": { "type": "string" },
           "description": { "type": "string" },
           "multipleOf": { "type": "number" },
@@ -1181,15 +1459,15 @@
           "minimum": { "type": "number" },
           "exclusiveMinimum": { "type": "number" },
           "maxLength": { "type": "number" },
-          "minLength": { "type": "number" },
+          "minLength": { "type": "number", "minimum": 0 },
           "pattern": { "type": "string" },
           "format": { "type": "string" },
           "maxItems": { "type": "number" },
-          "minItems": { "type": "number" },
+          "minItems": { "type": "number", "minimum": 0 },
           "minContains": { "type": "number" },
           "maxContains": { "type": "number" },
           "maxProperties": { "type": "number" },
-          "minProperties": { "type": "number" },
+          "minProperties": { "type": "number", "minimum": 0 },
           "required": { "type": "array", "items": { "type": "object" } },
           "dependentRequired": { "type": "object" },
           "enum": { "type": "array", "items": { "type": "object" } },
@@ -1452,7 +1730,10 @@
           "keywords": {
             "description": "These keywords are passed to the transcription model to help it pick up use-case specific words. Anything that may not be a common word, like your company name, should be added here.",
             "type": "array",
-            "items": { "type": "string" }
+            "items": {
+              "type": "string",
+              "pattern": "/^[a-zA-Z]+[a-zA-Z0-9]*:[+-]?(\\d+(\\.\\d+)?|\\.\\d+)$/"
+            }
           }
         },
         "required": ["provider"]
@@ -1462,7 +1743,7 @@
         "properties": {
           "provider": {
             "type": "string",
-            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`\n\nBasic Voices: `rime-ai`, `deepgram`",
+            "description": "This is the voice provider that will be used.",
             "enum": ["11labs"]
           },
           "voiceId": {
@@ -1495,24 +1776,26 @@
             "description": "Defines the stability for voice settings.",
             "minimum": 0,
             "maximum": 1,
-            "default": null
+            "example": 0.5
           },
           "similarityBoost": {
             "type": "number",
             "description": "Defines the similarity boost for voice settings.",
             "minimum": 0,
             "maximum": 1,
-            "default": null
+            "example": 0.75
           },
           "style": {
-            "type": "boolean",
+            "type": "number",
             "description": "Defines the style for voice settings.",
-            "default": null
+            "minimum": 0,
+            "maximum": 1,
+            "example": 0
           },
           "useSpeakerBoost": {
             "type": "boolean",
             "description": "Defines the use speaker boost for voice settings.",
-            "default": null
+            "example": false
           }
         },
         "required": ["provider", "voiceId"]
@@ -1553,7 +1836,7 @@
         "properties": {
           "provider": {
             "type": "string",
-            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`, `openai`\n\nBasic Voices: `rime-ai`, `deepgram`",
+            "description": "This is the voice provider that will be used.",
             "enum": ["playht"]
           },
           "voiceId": {
@@ -1583,14 +1866,14 @@
             "description": "This is the speed multiplier that will be used.",
             "minimum": 0,
             "maximum": 5,
-            "default": null
+            "example": null
           },
           "temperature": {
             "type": "number",
-            "description": "A floating point number between 0, inclusive, and 2, inclusive. If equal to null or not provided, the model's default temperature will be used. The temperature parameter controls variance. Lower temperatures result in more predictable results, higher temperatures allow each run to vary more, so the voice may sound less like the baseline voice.",
+            "description": "A floating point number between 0, exclusive, and 2, inclusive. If equal to null or not provided, the model's default temperature will be used. The temperature parameter controls variance. Lower temperatures result in more predictable results, higher temperatures allow each run to vary more, so the voice may sound less like the baseline voice.",
             "minimum": 0.1,
             "maximum": 2,
-            "default": null
+            "example": null
           },
           "emotion": {
             "type": "string",
@@ -1603,28 +1886,28 @@
               "female_disgust",
               "female_surprised"
             ],
-            "default": null
+            "example": null
           },
           "voiceGuidance": {
             "type": "number",
             "description": "A number between 1 and 6. Use lower numbers to reduce how unique your chosen voice will be compared to other voices.",
             "minimum": 1,
             "maximum": 6,
-            "default": null
+            "example": null
           },
           "styleGuidance": {
             "type": "number",
             "description": "A number between 1 and 30. Use lower numbers to to reduce how strong your chosen emotion will be. Higher numbers will create a very emotional performance.",
             "minimum": 1,
             "maximum": 30,
-            "default": null
+            "example": null
           },
           "textGuidance": {
             "type": "number",
             "description": "A number between 1 and 2. This number influences how closely the generated speech adheres to the input text. Use lower values to create more fluid speech, but with a higher chance of deviating from the input text. Higher numbers will make the generated speech more accurate to the input text, ensuring that the words spoken align closely with the provided text.",
             "minimum": 1,
             "maximum": 2,
-            "default": null
+            "example": null
           }
         },
         "required": ["provider", "voiceId"]
@@ -1634,7 +1917,7 @@
         "properties": {
           "provider": {
             "type": "string",
-            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`, `openai`\n\nBasic Voices: `rime-ai`, `deepgram`",
+            "description": "This is the voice provider that will be used.",
             "enum": ["rime-ai"]
           },
           "voiceId": {
@@ -1663,7 +1946,7 @@
             "type": "number",
             "description": "This is the speed multiplier that will be used.",
             "minimum": 0,
-            "default": null
+            "example": null
           }
         },
         "required": ["provider", "voiceId"]
@@ -1673,7 +1956,7 @@
         "properties": {
           "provider": {
             "type": "string",
-            "description": "This is the voice provider that will be used.\n\nPro Voices: `11labs`, `playht`, `openai`\n\nBasic Voices: `rime-ai`, `deepgram`",
+            "description": "This is the voice provider that will be used.",
             "enum": ["openai"]
           },
           "voiceId": {
@@ -1692,7 +1975,29 @@
             "description": "This is the speed multiplier that will be used.",
             "minimum": 0.25,
             "maximum": 4,
-            "default": null
+            "example": null
+          }
+        },
+        "required": ["provider", "voiceId"]
+      },
+      "AzureVoice": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "description": "This is the voice provider that will be used.",
+            "enum": ["azure"]
+          },
+          "voiceId": {
+            "description": "This is the provider-specific ID that will be used.",
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": ["andrew", "brian", "emma"],
+                "title": "Preset Voice Options"
+              },
+              { "type": "string", "title": "Azure Voice ID" }
+            ]
           }
         },
         "required": ["provider", "voiceId"]
@@ -1700,17 +2005,6 @@
       "CreateAssistantDTO": {
         "type": "object",
         "properties": {
-          "name": {
-            "type": "string",
-            "description": "This is the name of the assistant. This is just for your own reference.",
-            "maxLength": 100,
-            "default": null
-          },
-          "transcriber": {
-            "description": "These are the options for the assistant's transcriber.",
-            "default": null,
-            "allOf": [{ "$ref": "#/components/schemas/DeepgramTranscriber" }]
-          },
           "model": {
             "description": "These are the options for the assistant's LLM.",
             "oneOf": [
@@ -1747,6 +2041,10 @@
           "voice": {
             "description": "These are the options for the assistant's voice.",
             "oneOf": [
+              {
+                "$ref": "#/components/schemas/AzureVoice",
+                "title": "AzureVoice"
+              },
               {
                 "$ref": "#/components/schemas/ElevenLabsVoice",
                 "title": "ElevenLabsVoice"
@@ -1789,55 +2087,38 @@
               "pt-BR",
               "es",
               "es-419"
-            ],
-            "default": null
+            ]
           },
           "forwardingPhoneNumber": {
             "type": "string",
-            "description": "This is the number to forward to if assistant runs into issues."
-          },
-          "firstMessage": {
-            "type": "string",
-            "description": "This is the first message that the assistant will say. This can also be a URL to a containerized audio file (mp3, wav, etc.).\n\nIf unspecified, it will wait for the user to speak.",
-            "maxLength": 1000,
-            "default": "Hey there!"
-          },
-          "voicemailMessage": {
-            "type": "string",
-            "description": "This is the message that the assistant will say if the call is forwarded to voicemail.\n\nIf unspecified, it will hang up.",
-            "maxLength": 1000,
-            "default": null
-          },
-          "endCallMessage": {
-            "type": "string",
-            "description": "This is the message that the assistant will say if it ends the call.\n\nIf unspecified, it will hang up without saying anything.",
-            "maxLength": 400,
-            "default": null
+            "description": "This is the number to forward to if assistant runs into issues.",
+            "example": null
           },
           "interruptionsEnabled": {
             "type": "boolean",
             "description": "This sets whether the user can interrupt the assistant while it's speaking. Defaults to true.",
-            "default": null
+            "example": true
           },
           "recordingEnabled": {
             "type": "boolean",
             "description": "This sets whether the assistant's calls are recorded. Defaults to true.",
-            "default": null
+            "example": true
           },
           "endCallFunctionEnabled": {
             "type": "boolean",
             "description": "This sets whether the assistant will be able to hang up the call. Defaults to false.",
-            "default": null
+            "example": false
           },
           "fillersEnabled": {
             "type": "boolean",
             "description": "This sets whether the assistant will use fillers like Well..., Okay cool..., etc. This will modify your prompt slightly, which could result in differing completions. Defaults to false.",
-            "default": null
+            "example": false
           },
           "clientMessages": {
             "type": "array",
             "description": "These are the messages that will be sent to the Client SDKs. Default is ['transcript', 'hang', 'function-call']",
             "enum": ["function-call", "transcript", "hang"],
+            "example": ["transcript", "hang", "function-call"],
             "items": {
               "type": "string",
               "enum": ["function-call", "transcript", "hang"]
@@ -1852,6 +2133,12 @@
               "status-update",
               "transcript",
               "hang"
+            ],
+            "example": [
+              "end-of-call-report",
+              "status-update",
+              "hang",
+              "function-call"
             ],
             "items": {
               "type": "string",
@@ -1869,31 +2156,52 @@
             "description": "How many seconds of silence to wait before ending the call. Defaults to 30.",
             "minimum": 10,
             "maximum": 600,
-            "default": null
+            "example": 30
           },
           "responseDelaySeconds": {
             "type": "number",
             "description": "The minimum number of seconds after user speech to wait before the assistant starts speaking. Defaults to 0.4.",
             "minimum": 0,
-            "maximum": 10,
-            "default": null
+            "maximum": 2,
+            "example": 0.4
+          },
+          "name": {
+            "type": "string",
+            "description": "This is the name of the assistant. This is just for your own reference.",
+            "maxLength": 100
+          },
+          "transcriber": {
+            "description": "These are the options for the assistant's transcriber.",
+            "allOf": [{ "$ref": "#/components/schemas/DeepgramTranscriber" }]
+          },
+          "firstMessage": {
+            "type": "string",
+            "description": "This is the first message that the assistant will say. This can also be a URL to a containerized audio file (mp3, wav, etc.).\n\nIf unspecified, it will wait for the user to speak.",
+            "maxLength": 1000
+          },
+          "voicemailMessage": {
+            "type": "string",
+            "description": "This is the message that the assistant will say if the call is forwarded to voicemail.\n\nIf unspecified, it will hang up.",
+            "maxLength": 1000
+          },
+          "endCallMessage": {
+            "type": "string",
+            "description": "This is the message that the assistant will say if it ends the call.\n\nIf unspecified, it will hang up without saying anything.",
+            "maxLength": 400
+          },
+          "serverUrl": {
+            "type": "string",
+            "description": "This is the URL Vapi will communicate with via HTTP GET and POST Requests. This is used for retrieving context, function calling, and end-of-call reports.\n\nAll requests will be sent with the call object among other things relevant to that message. You can find more details in the Server URL documentation.\n\nThis overrides the serverUrl set on the org."
+          },
+          "serverUrlSecret": {
+            "type": "string",
+            "description": "This is the secret you can set that Vapi will send with every request to your server. Will be sent as a header called x-vapi-secret.\n\nThis overrides the serverUrlSecret set on the org."
           }
         }
       },
       "Assistant": {
         "type": "object",
         "properties": {
-          "name": {
-            "type": "string",
-            "description": "This is the name of the assistant. This is just for your own reference.",
-            "maxLength": 100,
-            "default": null
-          },
-          "transcriber": {
-            "description": "These are the options for the assistant's transcriber.",
-            "default": null,
-            "allOf": [{ "$ref": "#/components/schemas/DeepgramTranscriber" }]
-          },
           "model": {
             "description": "These are the options for the assistant's LLM.",
             "oneOf": [
@@ -1930,6 +2238,10 @@
           "voice": {
             "description": "These are the options for the assistant's voice.",
             "oneOf": [
+              {
+                "$ref": "#/components/schemas/AzureVoice",
+                "title": "AzureVoice"
+              },
               {
                 "$ref": "#/components/schemas/ElevenLabsVoice",
                 "title": "ElevenLabsVoice"
@@ -1972,55 +2284,38 @@
               "pt-BR",
               "es",
               "es-419"
-            ],
-            "default": null
+            ]
           },
           "forwardingPhoneNumber": {
             "type": "string",
-            "description": "This is the number to forward to if assistant runs into issues."
-          },
-          "firstMessage": {
-            "type": "string",
-            "description": "This is the first message that the assistant will say. This can also be a URL to a containerized audio file (mp3, wav, etc.).\n\nIf unspecified, it will wait for the user to speak.",
-            "maxLength": 1000,
-            "default": "Hey there!"
-          },
-          "voicemailMessage": {
-            "type": "string",
-            "description": "This is the message that the assistant will say if the call is forwarded to voicemail.\n\nIf unspecified, it will hang up.",
-            "maxLength": 1000,
-            "default": null
-          },
-          "endCallMessage": {
-            "type": "string",
-            "description": "This is the message that the assistant will say if it ends the call.\n\nIf unspecified, it will hang up without saying anything.",
-            "maxLength": 400,
-            "default": null
+            "description": "This is the number to forward to if assistant runs into issues.",
+            "example": null
           },
           "interruptionsEnabled": {
             "type": "boolean",
             "description": "This sets whether the user can interrupt the assistant while it's speaking. Defaults to true.",
-            "default": null
+            "example": true
           },
           "recordingEnabled": {
             "type": "boolean",
             "description": "This sets whether the assistant's calls are recorded. Defaults to true.",
-            "default": null
+            "example": true
           },
           "endCallFunctionEnabled": {
             "type": "boolean",
             "description": "This sets whether the assistant will be able to hang up the call. Defaults to false.",
-            "default": null
+            "example": false
           },
           "fillersEnabled": {
             "type": "boolean",
             "description": "This sets whether the assistant will use fillers like Well..., Okay cool..., etc. This will modify your prompt slightly, which could result in differing completions. Defaults to false.",
-            "default": null
+            "example": false
           },
           "clientMessages": {
             "type": "array",
             "description": "These are the messages that will be sent to the Client SDKs. Default is ['transcript', 'hang', 'function-call']",
             "enum": ["function-call", "transcript", "hang"],
+            "example": ["transcript", "hang", "function-call"],
             "items": {
               "type": "string",
               "enum": ["function-call", "transcript", "hang"]
@@ -2035,6 +2330,12 @@
               "status-update",
               "transcript",
               "hang"
+            ],
+            "example": [
+              "end-of-call-report",
+              "status-update",
+              "hang",
+              "function-call"
             ],
             "items": {
               "type": "string",
@@ -2052,14 +2353,46 @@
             "description": "How many seconds of silence to wait before ending the call. Defaults to 30.",
             "minimum": 10,
             "maximum": 600,
-            "default": null
+            "example": 30
           },
           "responseDelaySeconds": {
             "type": "number",
             "description": "The minimum number of seconds after user speech to wait before the assistant starts speaking. Defaults to 0.4.",
             "minimum": 0,
-            "maximum": 10,
-            "default": null
+            "maximum": 2,
+            "example": 0.4
+          },
+          "name": {
+            "type": "string",
+            "description": "This is the name of the assistant. This is just for your own reference.",
+            "maxLength": 100
+          },
+          "transcriber": {
+            "description": "These are the options for the assistant's transcriber.",
+            "allOf": [{ "$ref": "#/components/schemas/DeepgramTranscriber" }]
+          },
+          "firstMessage": {
+            "type": "string",
+            "description": "This is the first message that the assistant will say. This can also be a URL to a containerized audio file (mp3, wav, etc.).\n\nIf unspecified, it will wait for the user to speak.",
+            "maxLength": 1000
+          },
+          "voicemailMessage": {
+            "type": "string",
+            "description": "This is the message that the assistant will say if the call is forwarded to voicemail.\n\nIf unspecified, it will hang up.",
+            "maxLength": 1000
+          },
+          "endCallMessage": {
+            "type": "string",
+            "description": "This is the message that the assistant will say if it ends the call.\n\nIf unspecified, it will hang up without saying anything.",
+            "maxLength": 400
+          },
+          "serverUrl": {
+            "type": "string",
+            "description": "This is the URL Vapi will communicate with via HTTP GET and POST Requests. This is used for retrieving context, function calling, and end-of-call reports.\n\nAll requests will be sent with the call object among other things relevant to that message. You can find more details in the Server URL documentation.\n\nThis overrides the serverUrl set on the org."
+          },
+          "serverUrlSecret": {
+            "type": "string",
+            "description": "This is the secret you can set that Vapi will send with every request to your server. Will be sent as a header called x-vapi-secret.\n\nThis overrides the serverUrlSecret set on the org."
           },
           "id": {
             "type": "string",
@@ -2085,17 +2418,6 @@
       "UpdateAssistantDTO": {
         "type": "object",
         "properties": {
-          "name": {
-            "type": "string",
-            "description": "This is the name of the assistant. This is just for your own reference.",
-            "maxLength": 100,
-            "default": null
-          },
-          "transcriber": {
-            "description": "These are the options for the assistant's transcriber.",
-            "default": null,
-            "allOf": [{ "$ref": "#/components/schemas/DeepgramTranscriber" }]
-          },
           "model": {
             "description": "These are the options for the assistant's LLM.",
             "oneOf": [
@@ -2132,6 +2454,10 @@
           "voice": {
             "description": "These are the options for the assistant's voice.",
             "oneOf": [
+              {
+                "$ref": "#/components/schemas/AzureVoice",
+                "title": "AzureVoice"
+              },
               {
                 "$ref": "#/components/schemas/ElevenLabsVoice",
                 "title": "ElevenLabsVoice"
@@ -2174,55 +2500,38 @@
               "pt-BR",
               "es",
               "es-419"
-            ],
-            "default": null
+            ]
           },
           "forwardingPhoneNumber": {
             "type": "string",
-            "description": "This is the number to forward to if assistant runs into issues."
-          },
-          "firstMessage": {
-            "type": "string",
-            "description": "This is the first message that the assistant will say. This can also be a URL to a containerized audio file (mp3, wav, etc.).\n\nIf unspecified, it will wait for the user to speak.",
-            "maxLength": 1000,
-            "default": "Hey there!"
-          },
-          "voicemailMessage": {
-            "type": "string",
-            "description": "This is the message that the assistant will say if the call is forwarded to voicemail.\n\nIf unspecified, it will hang up.",
-            "maxLength": 1000,
-            "default": null
-          },
-          "endCallMessage": {
-            "type": "string",
-            "description": "This is the message that the assistant will say if it ends the call.\n\nIf unspecified, it will hang up without saying anything.",
-            "maxLength": 400,
-            "default": null
+            "description": "This is the number to forward to if assistant runs into issues.",
+            "example": null
           },
           "interruptionsEnabled": {
             "type": "boolean",
             "description": "This sets whether the user can interrupt the assistant while it's speaking. Defaults to true.",
-            "default": null
+            "example": true
           },
           "recordingEnabled": {
             "type": "boolean",
             "description": "This sets whether the assistant's calls are recorded. Defaults to true.",
-            "default": null
+            "example": true
           },
           "endCallFunctionEnabled": {
             "type": "boolean",
             "description": "This sets whether the assistant will be able to hang up the call. Defaults to false.",
-            "default": null
+            "example": false
           },
           "fillersEnabled": {
             "type": "boolean",
             "description": "This sets whether the assistant will use fillers like Well..., Okay cool..., etc. This will modify your prompt slightly, which could result in differing completions. Defaults to false.",
-            "default": null
+            "example": false
           },
           "clientMessages": {
             "type": "array",
             "description": "These are the messages that will be sent to the Client SDKs. Default is ['transcript', 'hang', 'function-call']",
             "enum": ["function-call", "transcript", "hang"],
+            "example": ["transcript", "hang", "function-call"],
             "items": {
               "type": "string",
               "enum": ["function-call", "transcript", "hang"]
@@ -2237,6 +2546,12 @@
               "status-update",
               "transcript",
               "hang"
+            ],
+            "example": [
+              "end-of-call-report",
+              "status-update",
+              "hang",
+              "function-call"
             ],
             "items": {
               "type": "string",
@@ -2254,14 +2569,46 @@
             "description": "How many seconds of silence to wait before ending the call. Defaults to 30.",
             "minimum": 10,
             "maximum": 600,
-            "default": null
+            "example": 30
           },
           "responseDelaySeconds": {
             "type": "number",
             "description": "The minimum number of seconds after user speech to wait before the assistant starts speaking. Defaults to 0.4.",
             "minimum": 0,
-            "maximum": 10,
-            "default": null
+            "maximum": 2,
+            "example": 0.4
+          },
+          "name": {
+            "type": "string",
+            "description": "This is the name of the assistant. This is just for your own reference.",
+            "maxLength": 100
+          },
+          "transcriber": {
+            "description": "These are the options for the assistant's transcriber.",
+            "allOf": [{ "$ref": "#/components/schemas/DeepgramTranscriber" }]
+          },
+          "firstMessage": {
+            "type": "string",
+            "description": "This is the first message that the assistant will say. This can also be a URL to a containerized audio file (mp3, wav, etc.).\n\nIf unspecified, it will wait for the user to speak.",
+            "maxLength": 1000
+          },
+          "voicemailMessage": {
+            "type": "string",
+            "description": "This is the message that the assistant will say if the call is forwarded to voicemail.\n\nIf unspecified, it will hang up.",
+            "maxLength": 1000
+          },
+          "endCallMessage": {
+            "type": "string",
+            "description": "This is the message that the assistant will say if it ends the call.\n\nIf unspecified, it will hang up without saying anything.",
+            "maxLength": 400
+          },
+          "serverUrl": {
+            "type": "string",
+            "description": "This is the URL Vapi will communicate with via HTTP GET and POST Requests. This is used for retrieving context, function calling, and end-of-call reports.\n\nAll requests will be sent with the call object among other things relevant to that message. You can find more details in the Server URL documentation.\n\nThis overrides the serverUrl set on the org."
+          },
+          "serverUrlSecret": {
+            "type": "string",
+            "description": "This is the secret you can set that Vapi will send with every request to your server. Will be sent as a header called x-vapi-secret.\n\nThis overrides the serverUrlSecret set on the org."
           }
         }
       },
@@ -2323,25 +2670,23 @@
             "type": "string",
             "description": "This is the explanation for how the call ended.",
             "enum": [
-              "assistant-ended-call",
               "assistant-error",
-              "assistant-forwarded-call",
-              "assistant-join-timed-out",
               "assistant-not-found",
-              "customer-busy",
-              "customer-ended-call",
-              "customer-did-not-answer",
               "db-error",
-              "exceeded-max-duration",
-              "manually-canceled",
               "no-server-available",
-              "pipeline-error-custom-llm-response-was-invalid",
-              "pipeline-error-custom-llm-request-failed",
               "pipeline-error-extra-function-failed",
               "pipeline-error-first-message-failed",
               "pipeline-error-function-filler-failed",
               "pipeline-error-function-failed",
-              "pipeline-error-llm-failed",
+              "pipeline-error-openai-llm-failed",
+              "pipeline-error-azure-openai-llm-failed",
+              "pipeline-error-together-ai-llm-failed",
+              "pipeline-error-anyscale-llm-failed",
+              "pipeline-error-openrouter-llm-failed",
+              "pipeline-error-perplexity-ai-llm-failed",
+              "pipeline-error-deepinfra-llm-failed",
+              "pipeline-error-runpod-llm-failed",
+              "pipeline-error-custom-llm-llm-failed",
               "pipeline-error-openai-voice-failed",
               "pipeline-error-deepgram-transcriber-failed",
               "pipeline-error-deepgram-voice-failed",
@@ -2349,12 +2694,22 @@
               "pipeline-error-eleven-labs-voice-not-found",
               "pipeline-error-eleven-labs-quota-exceeded",
               "pipeline-error-playht-voice-failed",
+              "pipeline-error-azure-voice-failed",
               "pipeline-error-rime-ai-voice-failed",
               "server-shutdown",
-              "silence-timed-out",
-              "twilio-failed-to-connect-call",
               "twilio-closed-websocket",
+              "twilio-failed-to-connect-call",
               "unknown-error",
+              "assistant-ended-call",
+              "assistant-forwarded-call",
+              "assistant-join-timed-out",
+              "customer-busy",
+              "customer-ended-call",
+              "customer-did-not-answer",
+              "customer-did-not-give-microphone-permission",
+              "exceeded-max-duration",
+              "manually-canceled",
+              "silence-timed-out",
               "voicemail"
             ]
           },
@@ -2363,7 +2718,7 @@
             "description": "This is the maximum number of seconds that the call will last. When the call reaches this duration, it will be ended.",
             "minimum": 10,
             "maximum": 3600,
-            "default": null
+            "example": 1800
           },
           "id": {
             "type": "string",
@@ -2467,7 +2822,7 @@
             "description": "This is the maximum number of seconds that the call will last. When the call reaches this duration, it will be ended.",
             "minimum": 10,
             "maximum": 3600,
-            "default": null
+            "example": 1800
           },
           "assistantId": {
             "type": "string",
