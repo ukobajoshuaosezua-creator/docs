@@ -37,3 +37,18 @@ This function is provided when `endCallFunctionEnabled` is enabled on the assist
   "endCallFunctionEnabled": true
 }
 ```
+
+#### Dial Keypad
+
+This function is provided when `dialKeypadFunctionEnabled` is enabled on the assistant. The assistant will be able to enter digits on the keypad.
+
+```json
+{
+  "model": {
+    "provider": "openai",
+    "model": "gpt-3.5-turbo",
+    "systemPrompt": "You are an assistant at a law firm. When you hit a menu, use the dialKeypad function to enter the digits."
+  },
+  "dialKeypadFunctionEnabled": true
+}
+```

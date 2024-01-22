@@ -2109,6 +2109,11 @@
             "description": "This sets whether the assistant will be able to hang up the call. Defaults to false.",
             "example": false
           },
+          "dialKeypadFunctionEnabled": {
+            "type": "boolean",
+            "description": "This sets whether the assistant can dial digits on the keypad. Defaults to false.",
+            "default": null
+          },
           "fillersEnabled": {
             "type": "boolean",
             "description": "This sets whether the assistant will use fillers like Well..., Okay cool..., etc. This will modify your prompt slightly, which could result in differing completions. Defaults to false.",
@@ -2305,6 +2310,11 @@
             "type": "boolean",
             "description": "This sets whether the assistant will be able to hang up the call. Defaults to false.",
             "example": false
+          },
+          "dialKeypadFunctionEnabled": {
+            "type": "boolean",
+            "description": "This sets whether the assistant can dial digits on the keypad. Defaults to false.",
+            "default": null
           },
           "fillersEnabled": {
             "type": "boolean",
@@ -2521,6 +2531,11 @@
             "type": "boolean",
             "description": "This sets whether the assistant will be able to hang up the call. Defaults to false.",
             "example": false
+          },
+          "dialKeypadFunctionEnabled": {
+            "type": "boolean",
+            "description": "This sets whether the assistant can dial digits on the keypad. Defaults to false.",
+            "default": null
           },
           "fillersEnabled": {
             "type": "boolean",
