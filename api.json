@@ -2638,6 +2638,11 @@
             "type": "string",
             "description": "This is the name of the customer. This is just for your own reference.",
             "maxLength": 40
+          },
+          "extension": {
+            "type": "string",
+            "description": "This is the extension that will be dialed after the call is answered.",
+            "maxLength": 10
           }
         }
       },
