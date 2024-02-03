@@ -61,7 +61,13 @@
     },
     {
       "group": "Examples",
-      "pages": ["outbound_sales", "technical_support", "pizza_website", "text_message"]
+      "pages": [
+        "outbound_sales",
+        "technical_support",
+        "pizza_website",
+        "text_message",
+        "outbound_call_python"
+      ]
     },
     {
       "group": "Concepts",
