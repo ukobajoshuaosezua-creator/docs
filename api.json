@@ -36,7 +36,7 @@
             "required": false,
             "in": "query",
             "description": "This is the maximum number of items to return. Defaults to 100.",
-            "schema": { "minimum": 0, "maximum": 10000, "type": "number" }
+            "schema": { "minimum": 0, "maximum": 1000, "type": "number" }
           },
           {
             "name": "createdAtGt",
@@ -236,7 +236,7 @@
             "required": false,
             "in": "query",
             "description": "This is the maximum number of items to return. Defaults to 100.",
-            "schema": { "minimum": 0, "maximum": 10000, "type": "number" }
+            "schema": { "minimum": 0, "maximum": 1000, "type": "number" }
           },
           {
             "name": "createdAtGt",
@@ -573,7 +573,7 @@
             "required": false,
             "in": "query",
             "description": "This is the maximum number of items to return. Defaults to 100.",
-            "schema": { "minimum": 0, "maximum": 10000, "type": "number" }
+            "schema": { "minimum": 0, "maximum": 1000, "type": "number" }
           },
           {
             "name": "createdAtGt",
@@ -1162,7 +1162,7 @@
             "required": false,
             "in": "query",
             "description": "This is the maximum number of items to return. Defaults to 100.",
-            "schema": { "minimum": 0, "maximum": 10000, "type": "number" }
+            "schema": { "minimum": 0, "maximum": 1000, "type": "number" }
           },
           {
             "name": "createdAtGt",
@@ -1353,13 +1353,15 @@
               {
                 "type": "string",
                 "enum": [
-                  "aurora",
                   "asteria",
-                  "artemis",
-                  "andromeda",
-                  "stella",
-                  "orion",
-                  "atlas"
+                  "luna",
+                  "hera",
+                  "athena",
+                  "varun",
+                  "leo",
+                  "perseus",
+                  "helios",
+                  "angus"
                 ],
                 "title": "Preset Voice Options"
               },
@@ -1513,7 +1515,8 @@
           "name": {
             "type": "string",
             "description": "This is the the name of the function to be called.\n\nMust be a-z, A-Z, 0-9, or contain underscores and dashes, with a maximum length of 64.",
-            "maxLength": 64
+            "maxLength": 64,
+            "pattern": "/^[a-zA-Z0-9_-]{1,64}$/"
           },
           "async": {
             "type": "boolean",
@@ -1540,23 +1543,30 @@
             "type": "string",
             "description": "The key of the model from the custom provider. Ex. cognitivecomputations/dolphin-mixtral-8x7b"
           },
-          "systemPrompt": {
-            "type": "string",
-            "description": "This sets the objective and understanding for the assistant."
-          },
           "temperature": {
             "type": "number",
             "description": "This is the temperature that will be used for calls. Default is 1.",
             "minimum": 0,
             "maximum": 2
           },
+          "messages": {
+            "description": "This is the starting state for the conversation.",
+            "type": "array",
+            "items": { "type": "object" }
+          },
           "functions": {
             "description": "These are the functions that the assistant can execute during the call.",
             "type": "array",
             "items": { "$ref": "#/components/schemas/OpenAIFunction" }
+          },
+          "maxTokens": {
+            "type": "number",
+            "description": "This is the max number of tokens that the assistant will be allowed to generate in each turn of the conversation. Default is 250.",
+            "minimum": 50,
+            "maximum": 1000
           }
         },
-        "required": ["provider", "model"]
+        "required": ["provider", "model", "messages"]
       },
       "AnyscaleModel": {
         "type": "object",
@@ -1566,23 +1576,30 @@
             "type": "string",
             "description": "The key of the model from the custom provider. Ex. cognitivecomputations/dolphin-mixtral-8x7b"
           },
-          "systemPrompt": {
-            "type": "string",
-            "description": "This sets the objective and understanding for the assistant."
-          },
           "temperature": {
             "type": "number",
             "description": "This is the temperature that will be used for calls. Default is 1.",
             "minimum": 0,
             "maximum": 2
           },
+          "messages": {
+            "description": "This is the starting state for the conversation.",
+            "type": "array",
+            "items": { "type": "object" }
+          },
           "functions": {
             "description": "These are the functions that the assistant can execute during the call.",
             "type": "array",
             "items": { "$ref": "#/components/schemas/OpenAIFunction" }
+          },
+          "maxTokens": {
+            "type": "number",
+            "description": "This is the max number of tokens that the assistant will be allowed to generate in each turn of the conversation. Default is 250.",
+            "minimum": 50,
+            "maximum": 1000
           }
         },
-        "required": ["provider", "model"]
+        "required": ["provider", "model", "messages"]
       },
       "OpenRouterModel": {
         "type": "object",
@@ -1592,23 +1609,30 @@
             "type": "string",
             "description": "The key of the model from the custom provider. Ex. cognitivecomputations/dolphin-mixtral-8x7b"
           },
-          "systemPrompt": {
-            "type": "string",
-            "description": "This sets the objective and understanding for the assistant."
-          },
           "temperature": {
             "type": "number",
             "description": "This is the temperature that will be used for calls. Default is 1.",
             "minimum": 0,
             "maximum": 2
           },
+          "messages": {
+            "description": "This is the starting state for the conversation.",
+            "type": "array",
+            "items": { "type": "object" }
+          },
           "functions": {
             "description": "These are the functions that the assistant can execute during the call.",
             "type": "array",
             "items": { "$ref": "#/components/schemas/OpenAIFunction" }
+          },
+          "maxTokens": {
+            "type": "number",
+            "description": "This is the max number of tokens that the assistant will be allowed to generate in each turn of the conversation. Default is 250.",
+            "minimum": 50,
+            "maximum": 1000
           }
         },
-        "required": ["provider", "model"]
+        "required": ["provider", "model", "messages"]
       },
       "PerplexityAIModel": {
         "type": "object",
@@ -1618,23 +1642,30 @@
             "type": "string",
             "description": "The key of the model from the custom provider. Ex. cognitivecomputations/dolphin-mixtral-8x7b"
           },
-          "systemPrompt": {
-            "type": "string",
-            "description": "This sets the objective and understanding for the assistant."
-          },
           "temperature": {
             "type": "number",
             "description": "This is the temperature that will be used for calls. Default is 1.",
             "minimum": 0,
             "maximum": 2
           },
+          "messages": {
+            "description": "This is the starting state for the conversation.",
+            "type": "array",
+            "items": { "type": "object" }
+          },
           "functions": {
             "description": "These are the functions that the assistant can execute during the call.",
             "type": "array",
             "items": { "$ref": "#/components/schemas/OpenAIFunction" }
+          },
+          "maxTokens": {
+            "type": "number",
+            "description": "This is the max number of tokens that the assistant will be allowed to generate in each turn of the conversation. Default is 250.",
+            "minimum": 50,
+            "maximum": 1000
           }
         },
-        "required": ["provider", "model"]
+        "required": ["provider", "model", "messages"]
       },
       "DeepInfraModel": {
         "type": "object",
@@ -1644,23 +1675,30 @@
             "type": "string",
             "description": "The key of the model from the custom provider. Ex. cognitivecomputations/dolphin-mixtral-8x7b"
           },
-          "systemPrompt": {
-            "type": "string",
-            "description": "This sets the objective and understanding for the assistant."
-          },
           "temperature": {
             "type": "number",
             "description": "This is the temperature that will be used for calls. Default is 1.",
             "minimum": 0,
             "maximum": 2
           },
+          "messages": {
+            "description": "This is the starting state for the conversation.",
+            "type": "array",
+            "items": { "type": "object" }
+          },
           "functions": {
             "description": "These are the functions that the assistant can execute during the call.",
             "type": "array",
             "items": { "$ref": "#/components/schemas/OpenAIFunction" }
+          },
+          "maxTokens": {
+            "type": "number",
+            "description": "This is the max number of tokens that the assistant will be allowed to generate in each turn of the conversation. Default is 250.",
+            "minimum": 50,
+            "maximum": 1000
           }
         },
-        "required": ["provider", "model"]
+        "required": ["provider", "model", "messages"]
       },
       "CustomLLMModel": {
         "type": "object",
@@ -1678,23 +1716,64 @@
             "type": "string",
             "description": "The key of the model from the custom provider. Ex. cognitivecomputations/dolphin-mixtral-8x7b"
           },
-          "systemPrompt": {
-            "type": "string",
-            "description": "This sets the objective and understanding for the assistant."
-          },
           "temperature": {
             "type": "number",
             "description": "This is the temperature that will be used for calls. Default is 1.",
             "minimum": 0,
             "maximum": 2
           },
+          "messages": {
+            "description": "This is the starting state for the conversation.",
+            "type": "array",
+            "items": { "type": "object" }
+          },
           "functions": {
             "description": "These are the functions that the assistant can execute during the call.",
             "type": "array",
             "items": { "$ref": "#/components/schemas/OpenAIFunction" }
+          },
+          "maxTokens": {
+            "type": "number",
+            "description": "This is the max number of tokens that the assistant will be allowed to generate in each turn of the conversation. Default is 250.",
+            "minimum": 50,
+            "maximum": 1000
           }
         },
-        "required": ["provider", "url", "model"]
+        "required": ["provider", "url", "model", "messages"]
+      },
+      "GroqModel": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "type": "string",
+            "description": "The key of the model from the custom provider. Ex. cognitivecomputations/dolphin-mixtral-8x7b",
+            "enum": ["mixtral-8x7b-32768"]
+          },
+          "provider": { "type": "string", "enum": ["groq"] },
+          "temperature": {
+            "type": "number",
+            "description": "This is the temperature that will be used for calls. Default is 1.",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "messages": {
+            "description": "This is the starting state for the conversation.",
+            "type": "array",
+            "items": { "type": "object" }
+          },
+          "functions": {
+            "description": "These are the functions that the assistant can execute during the call.",
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/OpenAIFunction" }
+          },
+          "maxTokens": {
+            "type": "number",
+            "description": "This is the max number of tokens that the assistant will be allowed to generate in each turn of the conversation. Default is 250.",
+            "minimum": 50,
+            "maximum": 1000
+          }
+        },
+        "required": ["model", "provider", "messages"]
       },
       "DeepgramTranscriber": {
         "type": "object",
@@ -1753,6 +1832,7 @@
                 "type": "string",
                 "enum": [
                   "burt",
+                  "marissa",
                   "andrea",
                   "phillip",
                   "steve",
@@ -1813,23 +1893,30 @@
             "description": "This is the OpenAI model that will be used.",
             "enum": ["gpt-4", "gpt-3.5-turbo"]
           },
-          "systemPrompt": {
-            "type": "string",
-            "description": "This sets the objective and understanding for the assistant."
-          },
           "temperature": {
             "type": "number",
             "description": "This is the temperature that will be used for calls. Default is 1.",
             "minimum": 0,
             "maximum": 2
           },
+          "messages": {
+            "description": "This is the starting state for the conversation.",
+            "type": "array",
+            "items": { "type": "object" }
+          },
           "functions": {
             "description": "These are the functions that the assistant can execute during the call.",
             "type": "array",
             "items": { "$ref": "#/components/schemas/OpenAIFunction" }
+          },
+          "maxTokens": {
+            "type": "number",
+            "description": "This is the max number of tokens that the assistant will be allowed to generate in each turn of the conversation. Default is 250.",
+            "minimum": 50,
+            "maximum": 1000
           }
         },
-        "required": ["provider", "model"]
+        "required": ["provider", "model", "messages"]
       },
       "PlayHTVoice": {
         "type": "object",
@@ -2033,6 +2120,10 @@
                 "title": "DeepInfraModel"
               },
               {
+                "$ref": "#/components/schemas/GroqModel",
+                "title": "GroqModel"
+              },
+              {
                 "$ref": "#/components/schemas/CustomLLMModel",
                 "title": "CustomLLMModel"
               }
@@ -2114,30 +2205,49 @@
             "description": "This sets whether the assistant can dial digits on the keypad. Defaults to false.",
             "default": null
           },
-          "fillersEnabled": {
-            "type": "boolean",
-            "description": "This sets whether the assistant will use fillers like Well..., Okay cool..., etc. This will modify your prompt slightly, which could result in differing completions. Defaults to false.",
-            "example": false
-          },
           "clientMessages": {
             "type": "array",
-            "description": "These are the messages that will be sent to the Client SDKs. Default is ['transcript', 'hang', 'function-call']",
-            "enum": ["function-call", "transcript", "hang"],
-            "example": ["transcript", "hang", "function-call"],
+            "description": "These are the messages that will be sent to the Client SDKs. Default is ['transcript', 'hang', 'function-call', 'speech-update', 'metadata', 'conversation-update']",
+            "enum": [
+              "status-update",
+              "speech-update",
+              "transcript",
+              "hang",
+              "function-call",
+              "metadata",
+              "conversation-update"
+            ],
+            "example": [
+              "transcript",
+              "hang",
+              "function-call",
+              "speech-update",
+              "metadata",
+              "conversation-update"
+            ],
             "items": {
               "type": "string",
-              "enum": ["function-call", "transcript", "hang"]
+              "enum": [
+                "status-update",
+                "speech-update",
+                "transcript",
+                "hang",
+                "function-call",
+                "metadata",
+                "conversation-update"
+              ]
             }
           },
           "serverMessages": {
             "type": "array",
             "description": "These are the messages that will be sent to your Server URL. Default is ['end-of-call-report', 'status-update', 'hang', 'function-call']",
             "enum": [
-              "end-of-call-report",
-              "function-call",
               "status-update",
               "transcript",
-              "hang"
+              "hang",
+              "function-call",
+              "end-of-call-report",
+              "conversation-update"
             ],
             "example": [
               "end-of-call-report",
@@ -2148,11 +2258,12 @@
             "items": {
               "type": "string",
               "enum": [
-                "end-of-call-report",
-                "function-call",
                 "status-update",
                 "transcript",
-                "hang"
+                "hang",
+                "function-call",
+                "end-of-call-report",
+                "conversation-update"
               ]
             }
           },
@@ -2193,6 +2304,11 @@
             "type": "string",
             "description": "This is the message that the assistant will say if it ends the call.\n\nIf unspecified, it will hang up without saying anything.",
             "maxLength": 400
+          },
+          "endCallPhrases": {
+            "description": "This list contains phrases that, if spoken by the assistant, will trigger the call to be hung up. Case insensitive.",
+            "type": "array",
+            "items": { "type": "string", "maxLength": 25, "minLength": 3 }
           },
           "serverUrl": {
             "type": "string",
@@ -2235,6 +2351,10 @@
                 "title": "DeepInfraModel"
               },
               {
+                "$ref": "#/components/schemas/GroqModel",
+                "title": "GroqModel"
+              },
+              {
                 "$ref": "#/components/schemas/CustomLLMModel",
                 "title": "CustomLLMModel"
               }
@@ -2316,30 +2436,49 @@
             "description": "This sets whether the assistant can dial digits on the keypad. Defaults to false.",
             "default": null
           },
-          "fillersEnabled": {
-            "type": "boolean",
-            "description": "This sets whether the assistant will use fillers like Well..., Okay cool..., etc. This will modify your prompt slightly, which could result in differing completions. Defaults to false.",
-            "example": false
-          },
           "clientMessages": {
             "type": "array",
-            "description": "These are the messages that will be sent to the Client SDKs. Default is ['transcript', 'hang', 'function-call']",
-            "enum": ["function-call", "transcript", "hang"],
-            "example": ["transcript", "hang", "function-call"],
+            "description": "These are the messages that will be sent to the Client SDKs. Default is ['transcript', 'hang', 'function-call', 'speech-update', 'metadata', 'conversation-update']",
+            "enum": [
+              "status-update",
+              "speech-update",
+              "transcript",
+              "hang",
+              "function-call",
+              "metadata",
+              "conversation-update"
+            ],
+            "example": [
+              "transcript",
+              "hang",
+              "function-call",
+              "speech-update",
+              "metadata",
+              "conversation-update"
+            ],
             "items": {
               "type": "string",
-              "enum": ["function-call", "transcript", "hang"]
+              "enum": [
+                "status-update",
+                "speech-update",
+                "transcript",
+                "hang",
+                "function-call",
+                "metadata",
+                "conversation-update"
+              ]
             }
           },
           "serverMessages": {
             "type": "array",
             "description": "These are the messages that will be sent to your Server URL. Default is ['end-of-call-report', 'status-update', 'hang', 'function-call']",
             "enum": [
-              "end-of-call-report",
-              "function-call",
               "status-update",
               "transcript",
-              "hang"
+              "hang",
+              "function-call",
+              "end-of-call-report",
+              "conversation-update"
             ],
             "example": [
               "end-of-call-report",
@@ -2350,11 +2489,12 @@
             "items": {
               "type": "string",
               "enum": [
-                "end-of-call-report",
-                "function-call",
                 "status-update",
                 "transcript",
-                "hang"
+                "hang",
+                "function-call",
+                "end-of-call-report",
+                "conversation-update"
               ]
             }
           },
@@ -2395,6 +2535,11 @@
             "type": "string",
             "description": "This is the message that the assistant will say if it ends the call.\n\nIf unspecified, it will hang up without saying anything.",
             "maxLength": 400
+          },
+          "endCallPhrases": {
+            "description": "This list contains phrases that, if spoken by the assistant, will trigger the call to be hung up. Case insensitive.",
+            "type": "array",
+            "items": { "type": "string", "maxLength": 25, "minLength": 3 }
           },
           "serverUrl": {
             "type": "string",
@@ -2456,6 +2601,10 @@
                 "title": "DeepInfraModel"
               },
               {
+                "$ref": "#/components/schemas/GroqModel",
+                "title": "GroqModel"
+              },
+              {
                 "$ref": "#/components/schemas/CustomLLMModel",
                 "title": "CustomLLMModel"
               }
@@ -2537,30 +2686,49 @@
             "description": "This sets whether the assistant can dial digits on the keypad. Defaults to false.",
             "default": null
           },
-          "fillersEnabled": {
-            "type": "boolean",
-            "description": "This sets whether the assistant will use fillers like Well..., Okay cool..., etc. This will modify your prompt slightly, which could result in differing completions. Defaults to false.",
-            "example": false
-          },
           "clientMessages": {
             "type": "array",
-            "description": "These are the messages that will be sent to the Client SDKs. Default is ['transcript', 'hang', 'function-call']",
-            "enum": ["function-call", "transcript", "hang"],
-            "example": ["transcript", "hang", "function-call"],
+            "description": "These are the messages that will be sent to the Client SDKs. Default is ['transcript', 'hang', 'function-call', 'speech-update', 'metadata', 'conversation-update']",
+            "enum": [
+              "status-update",
+              "speech-update",
+              "transcript",
+              "hang",
+              "function-call",
+              "metadata",
+              "conversation-update"
+            ],
+            "example": [
+              "transcript",
+              "hang",
+              "function-call",
+              "speech-update",
+              "metadata",
+              "conversation-update"
+            ],
             "items": {
               "type": "string",
-              "enum": ["function-call", "transcript", "hang"]
+              "enum": [
+                "status-update",
+                "speech-update",
+                "transcript",
+                "hang",
+                "function-call",
+                "metadata",
+                "conversation-update"
+              ]
             }
           },
           "serverMessages": {
             "type": "array",
             "description": "These are the messages that will be sent to your Server URL. Default is ['end-of-call-report', 'status-update', 'hang', 'function-call']",
             "enum": [
-              "end-of-call-report",
-              "function-call",
               "status-update",
               "transcript",
-              "hang"
+              "hang",
+              "function-call",
+              "end-of-call-report",
+              "conversation-update"
             ],
             "example": [
               "end-of-call-report",
@@ -2571,11 +2739,12 @@
             "items": {
               "type": "string",
               "enum": [
-                "end-of-call-report",
-                "function-call",
                 "status-update",
                 "transcript",
-                "hang"
+                "hang",
+                "function-call",
+                "end-of-call-report",
+                "conversation-update"
               ]
             }
           },
@@ -2617,6 +2786,11 @@
             "description": "This is the message that the assistant will say if it ends the call.\n\nIf unspecified, it will hang up without saying anything.",
             "maxLength": 400
           },
+          "endCallPhrases": {
+            "description": "This list contains phrases that, if spoken by the assistant, will trigger the call to be hung up. Case insensitive.",
+            "type": "array",
+            "items": { "type": "string", "maxLength": 25, "minLength": 3 }
+          },
           "serverUrl": {
             "type": "string",
             "description": "This is the URL Vapi will communicate with via HTTP GET and POST Requests. This is used for retrieving context, function calling, and end-of-call reports.\n\nAll requests will be sent with the call object among other things relevant to that message. You can find more details in the Server URL documentation.\n\nThis overrides the serverUrl set on the org."
@@ -2642,7 +2816,7 @@
           "extension": {
             "type": "string",
             "description": "This is the extension that will be dialed after the call is answered.",
-            "maxLength": 10
+            "maxLength": 30
           }
         }
       },
@@ -2706,7 +2880,7 @@
               "pipeline-error-perplexity-ai-llm-failed",
               "pipeline-error-deepinfra-llm-failed",
               "pipeline-error-runpod-llm-failed",
-              "pipeline-error-custom-llm-llm-failed",
+              "pipeline-error-groq-llm-failed",
               "pipeline-error-openai-voice-failed",
               "pipeline-error-deepgram-transcriber-failed",
               "pipeline-error-deepgram-voice-failed",
@@ -2721,6 +2895,7 @@
               "twilio-failed-to-connect-call",
               "unknown-error",
               "assistant-ended-call",
+              "assistant-said-end-call-phrase",
               "assistant-forwarded-call",
               "assistant-join-timed-out",
               "customer-busy",
@@ -2729,6 +2904,7 @@
               "customer-did-not-give-microphone-permission",
               "exceeded-max-duration",
               "manually-canceled",
+              "pipeline-error-custom-llm-llm-failed",
               "silence-timed-out",
               "voicemail"
             ]
@@ -2830,6 +3006,10 @@
             "allOf": [
               { "$ref": "#/components/schemas/ImportTwilioPhoneNumberDTO" }
             ]
+          },
+          "metadata": {
+            "type": "object",
+            "description": "This is the metadata associated with the call."
           }
         },
         "required": ["id", "orgId", "createdAt", "updatedAt"]
@@ -2869,6 +3049,10 @@
             "allOf": [
               { "$ref": "#/components/schemas/ImportTwilioPhoneNumberDTO" }
             ]
+          },
+          "metadata": {
+            "type": "object",
+            "description": "This is the metadata associated with the call."
           }
         }
       },
@@ -2882,6 +3066,10 @@
           "assistant": {
             "description": "This is the assistant that will be used for the call. To use an existing assistant, use `assistantId` instead.",
             "allOf": [{ "$ref": "#/components/schemas/CreateAssistantDTO" }]
+          },
+          "metadata": {
+            "type": "object",
+            "description": "This is the metadata associated with the call."
           }
         }
       },
