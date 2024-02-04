@@ -26,7 +26,7 @@ They include the type of message, the call object, and any other properties that
 
 Vapi fully supports [OpenAI's function calling API](https://platform.openai.com/docs/guides/gpt/function-calling), so you can have assistants ping your server to perform actions like sending emails, retrieve information, and more.
 
-With each response, the assistant will automatically determine what functions to call based on the directions provided in the `systemPrompt`. Here's an example of what the assistant might look like:
+With each response, the assistant will automatically determine what functions to call based on the directions provided in the system message in `messages`. Here's an example of what the assistant might look like:
 
 ```json
 {
@@ -79,7 +79,7 @@ Or if it's an object:
 }
 ```
 
-The result will be appended to the conversation, and the assistant will decide what to do with the response based on its `systemPrompt`.
+The result will be appended to the conversation, and the assistant will decide what to do with the response based on its system prompt.
 
 If you don't need to return a response, you can use the `async: true` parameter in your assitant's function configuration. This will prevent the assistant from waiting for a response from your server.
 
@@ -105,7 +105,12 @@ Your server should respond with a JSON object containing the assistant, like so:
     "model": {
       "provider": "openai",
       "model": "gpt-3.5-turbo",
-      "systemPrompt": "You're Ryan's assistant..."
+      "messages": [
+        {
+          "role": "system",
+          "content": "You're Ryan's assistant..."
+        }
+      ]
     }
   }
 }

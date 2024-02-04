@@ -31,7 +31,12 @@ Then, you can create an assistant with the model provider:
   "model": {
     "provider": "openrouter",
     "model": "cognitivecomputations/dolphin-mixtral-8x7b",
-    "systemPrompt": "How can I help?",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are an assistant."
+      }
+    ],
     "temperature": 0.7
   }
 }
@@ -63,7 +68,12 @@ Then, you can create an assistant with the `custom-llm` model provider:
     "provider": "custom-llm",
     "url": "<YOUR OPENAI COMPATIBLE ENDPOINT BASE URL>",
     "model": "my-cool-model",
-    "systemPrompt": "How can I help?",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are an assistant."
+      }
+    ],
     "temperature": 0.7
   }
 }

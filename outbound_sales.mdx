@@ -21,7 +21,12 @@ We want this agent to be able to call a list of leads and schedule appointments.
       "model": {
         "provider": "openai",
         "model": "gpt-4",
-        "systemPrompt": "You're a sales agent for a Bicky Realty. You're calling a list of leads to schedule appointments to show them houses...",
+        "messages": [
+          {
+              "role": "system",
+              "content": "You're a sales agent for a Bicky Realty. You're calling a list of leads to schedule appointments to show them houses..."
+          }
+        ],
         "functions": [
           {
             "name": "bookAppointment",
@@ -53,7 +58,7 @@ We want this agent to be able to call a list of leads and schedule appointments.
     Let's break this down:
     - `transcriber` - We're defining this to make sure the transcriber picks up the custom word "Bicky"
     - `model` - We're using the OpenAI GPT-4 model, which is better at function calling.
-    - `systemPrompt` - We're defining the assistant's instructions for how to run the call.
+    - `messages` - We're defining the assistant's instructions for how to run the call.
     - `functions` - We're providing a bookAppointment function with a datetime parameter. The assistant can call this during the conversation to book the appointment.
     - `voice` - We're using the Onyx voice from OpenAI.
     - `forwardingPhoneNumber` - Since we've added this, the assistant will be provided the [transferCall](/assistants#transfer-call) function to use.

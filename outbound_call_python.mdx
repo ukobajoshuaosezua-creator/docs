@@ -26,7 +26,12 @@ data = {
         "model": {
             "provider": "openai",
             "model": "gpt-3.5-turbo",
-            "systemPrompt": "You're a good friend."
+            "messages": [
+                {
+                    "role": "system",
+                    "content": "You are an assistant."
+                }
+            ]
         },
         "voice": "jennifer-playht"
     },

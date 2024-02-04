@@ -17,7 +17,12 @@ When a `forwardingPhoneNumber` is present on an assistant, the assistant will be
   "model": {
     "provider": "openai",
     "model": "gpt-3.5-turbo",
-    "systemPrompt": "You are an assistant at a law firm. When the user asks to be transferred, use the transferCall function."
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are an assistant at a law firm. When the user asks to be transferred, use the transferCall function."
+      }
+    ]
   },
   "forwardingPhoneNumber": "+16054440129"
 }
@@ -32,7 +37,12 @@ This function is provided when `endCallFunctionEnabled` is enabled on the assist
   "model": {
     "provider": "openai",
     "model": "gpt-3.5-turbo",
-    "systemPrompt": "You are an assistant at a law firm. If the user is being mean, use the endCall function."
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are an assistant at a law firm. If the user is being mean, use the endCall function."
+      }
+    ]
   },
   "endCallFunctionEnabled": true
 }
@@ -47,7 +57,12 @@ This function is provided when `dialKeypadFunctionEnabled` is enabled on the ass
   "model": {
     "provider": "openai",
     "model": "gpt-3.5-turbo",
-    "systemPrompt": "You are an assistant at a law firm. When you hit a menu, use the dialKeypad function to enter the digits."
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are an assistant at a law firm. When you hit a menu, use the dialKeypad function to enter the digits."
+      }
+    ]
   },
   "dialKeypadFunctionEnabled": true
 }
