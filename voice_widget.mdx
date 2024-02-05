@@ -1,0 +1,109 @@
+---
+title: "Voice Widget Example 🎧"
+sidebarTitle: "Voice Widget"
+description: "Easily integrate the Vapi Voice Widget into your website for enhanced user interaction."
+---
+
+Enhance your website's user experience with the Vapi Voice Widget. This powerful tool allows your visitors to interact with a voice assistant for support and engagement, providing a seamless and modern way to connect with your services.
+
+## Installation Steps
+
+<Steps>
+  <Step title="Add the Widget Snippet">
+    Copy the following snippet and paste it into the HTML of your website, preferably before the closing `</body>` tag.
+
+    ```html
+    <script>
+      const assistant = "<assistant_id>"; // Replace with your assistant ID
+      const apiKey = "<your_api_key>"; // Replace with your API key
+      const buttonConfig = {}; // Customize this as needed
+
+      (function (d, t) {
+        var g = document.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+        g.src =
+          "https://cdn.jsdelivr.net/gh/VapiAI/vapi-support-sdk/dist/assets/index.js";
+        g.defer = true;
+        g.async = true;
+        s.parentNode.insertBefore(g, s);
+
+        g.onload = function () {
+          window.vapiSDK.run({
+            apiKey: "", // required
+            assistant: assistant, // required
+            config: buttonConfig, // optional
+          });
+        };
+      })(document, "script");
+    </script>
+    ```
+
+  </Step>
+  <Step title="Create Your Assistant">
+    From your Vapi dashboard, create an assistant to obtain the assistant ID. Alternatively, define an assistant configuration directly in your website's code as shown in the example below.
+    ```javascript
+    const assistant = {
+      model: {
+        provider: "openai",
+        model: "gpt-3.5-turbo",
+        systemPrompt:
+          "You're a versatile AI assistant named Vapi who is fun to talk with.",
+      },
+      voice: {
+        provider: "11labs",
+        voiceId: "paula",
+      },
+      firstMessage: "Hi, I am Vapi how can I assist you today?",
+    };
+    ```
+
+  </Step>
+  <Step title="Customize the Button">
+    Adjust the `buttonConfig` object to match your website's style and branding. Choose between a pill or round button and set colors, positions, and icons.
+    ```javascript
+    const buttonConfig = {
+      position: "bottom-right", // "bottom" | "top" | "left" | "right" | "top-right" | "top-left" | "bottom-left" | "bottom-right"
+      offset: "40px", // decide how far the button should be from the edge
+      width: "50px", // min-width of the button
+      height: "50px", // height of the button
+      idle: { // button state when the call is not active.
+        color: `rgb(93, 254, 202)`, 
+        type: "pill", // or "round"
+        title: "Have a quick question?", // only required in case of Pill
+        subtitle: "Talk with our AI assistant", // only required in case of pill
+        icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone.svg`,
+      },
+      loading: { // button state when the call is connecting
+        color: `rgb(93, 124, 202)`,
+        type: "pill", // or "round"
+        title: "Connecting...", // only required in case of Pill
+        subtitle: "Please wait", // only required in case of pill
+        icon: `https://unpkg.com/lucide-static@0.321.0/icons/loader-2.svg`,
+      },
+      active: { // button state when the call is in progress or active.
+        color: `rgb(255, 0, 0)`,
+        type: "pill", // or "round"
+        title: "Call is in progress...", // only required in case of Pill
+        subtitle: "End the call.", // only required in case of pill
+        icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone-off.svg`,
+      },
+    };
+    ```
+  </Step>
+</Steps>
+
+## Customization
+
+Customize your assistant's behavior and the first message users will see. Refer to the provided examples to tailor the assistant's model, voice, and initial greeting.
+
+## UI Customization
+
+For advanced styling, target the exposed CSS classes, and others to ensure the widget's appearance is in line with your website's design.Here is a list of the classes you can customize:
+
+- `.vapi-btn`: The main class for the Vapi button.
+- `.vapi-btn-is-idle`: The class for the Vapi button when the call is disconnected.
+- `.vapi-btn-is-active`: The class for the Vapi button when the call is active.
+- `.vapi-btn-is-loading`: The class for the Vapi button when the call is connecting.
+- `.vapi-btn-is-speaking`: The class for the Vapi button when the bot is speaking.
+- `.vapi-btn-pill`: The class for Vapi button to set pill variant.
+- `.vapi-btn-round`: The class for Vapi button to set round variant.

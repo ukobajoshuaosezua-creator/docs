@@ -51,13 +51,7 @@
   "navigation": [
     {
       "group": "Overview",
-      "pages": [
-        "introduction",
-        "how_it_works",
-        "getting_started",
-        "faq",
-        "pricing"
-      ]
+      "pages": ["introduction", "getting_started", "faq", "pricing"]
     },
     {
       "group": "Examples",
@@ -66,7 +60,8 @@
         "technical_support",
         "pizza_website",
         "text_message",
-        "outbound_call_python"
+        "outbound_call_python",
+        "voice_widget"
       ]
     },
     {

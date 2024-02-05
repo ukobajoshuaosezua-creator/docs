@@ -144,14 +144,14 @@ if (msg.transcriptType === "final") {
 vapi.on('message', (msg) => {
   if(msg.type !== "function-call") return;
 
-if(msg.functionCall.name === "addTopping"){
-const topping = JSON.parse(msg.functionCall.arguments).topping;
-// Add the topping to the pizza
-}
+  if(msg.functionCall.name === "addTopping"){
+  const topping = JSON.parse(msg.functionCall.parameters).topping;
+  // Add the topping to the pizza
+  }
 
-if(msg.functionCall.name === "goToCheckout"){
-// Redirect the user to checkout
-}
+  if(msg.functionCall.name === "goToCheckout"){
+  // Redirect the user to checkout
+  }
 });
 
 ```

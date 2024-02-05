@@ -1,12 +1,36 @@
 ---
 title: "Introduction"
 sidebarTitle: "Introduction"
-description: "Vapi is an API for building voice assistants."
+description: "Vapi is the platform to build, test and deploy voicebots in minutes rather than months."
 ---
 
 This guide will help you get started with Vapi. We will cover everything, starting with creating an account, creating an assistant, then we'll show you how to talk to it over the phone, on your website, in an iOS app, or a Python Script.
 
 We'll also cover how to set up your assistant to perform custom tasks like fetching data, appointment booking, and more with Function Calling.
+
+## How it Works
+
+Stitching together text-to-speech, speech-to-text, and natural language understanding isn't that complicated. But it's not trivial either. And it's not something you want to do yourself. It's a lot of work to get it right.
+
+You might be wondering what Vapi does. Let's start with a diagram:
+
+<Frame>
+  <img src="/images/diagram.png" />
+</Frame>
+
+Vapi abstracts away the speech-to-speech pipeline, and connects to the providers on your behalf. We have various latency optimizations like end-to-end streaming, colocating servers, etc. to squeeze out every millisecond of latency we can. We also manage the coordination of interruptions, turn-taking, and other conversational dynamics.
+
+You also don't have to hook up Twilio websockets or build bidirectional audio streaming. You can just connect to the WebRTC stream through our [Web](https://github.com/VapiAI/web), [iOS](https://github.com/VapiAI/ios), or [Python](https://github.com/VapiAI/python) clients and get on with your life.
+
+Oh yeah, scaling too. We handle that.
+
+## Use Cases
+
+- **Receive and make phone calls** - You can use Vapi to make and receive phone calls. You can use it to build a call center, automate your customer outreach, etc. Examples: [Outbound Sales](/outbound_sales), [Inbound Support](/technical_support)
+- **Add a voicebot to your website** - You can use Vapi to add a voicebot to your website. You can use it to answer questions, book appointments, or take orders.
+- **Build RAG systems** - You can easily plug your RAG system with Vapi through function calling or using a custom LLM implementation.
+- **Extend using Function Calling** - You can use the function calling in OpenAI format to interact with APIs, database, or LLM based endpoints. [Function Calling](/call_functions)
+- **More Advanced LLM Systems** - You can create more advanced LLM systems and integrate it with Vapi using Custom LLMs. [Custom LLMs](/custom_llm)
 
 <CardGroup cols={2}>
   <Card title="Create an Account" icon="user" href="https://dashboard.vapi.ai">
