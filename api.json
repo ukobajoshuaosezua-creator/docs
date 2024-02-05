@@ -1371,6 +1371,16 @@
         },
         "required": ["provider", "voiceId"]
       },
+      "OpenAIMessage": {
+        "type": "object",
+        "properties": {
+          "content": { "type": "string", "nullable": true },
+          "role": { "type": "object" },
+          "function_call": { "type": "object" },
+          "tool_calls": { "type": "array", "items": { "type": "object" } }
+        },
+        "required": ["content", "role"]
+      },
       "JsonSchema": {
         "type": "object",
         "properties": {
@@ -1538,6 +1548,11 @@
       "TogetherAIModel": {
         "type": "object",
         "properties": {
+          "messages": {
+            "description": "This is the starting state for the conversation.",
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/OpenAIMessage" }
+          },
           "provider": { "type": "string", "enum": ["together-ai"] },
           "model": {
             "type": "string",
@@ -1549,11 +1564,6 @@
             "minimum": 0,
             "maximum": 2
           },
-          "messages": {
-            "description": "This is the starting state for the conversation.",
-            "type": "array",
-            "items": { "type": "object" }
-          },
           "functions": {
             "description": "These are the functions that the assistant can execute during the call.",
             "type": "array",
@@ -1566,11 +1576,16 @@
             "maximum": 1000
           }
         },
-        "required": ["provider", "model", "messages"]
+        "required": ["provider", "model"]
       },
       "AnyscaleModel": {
         "type": "object",
         "properties": {
+          "messages": {
+            "description": "This is the starting state for the conversation.",
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/OpenAIMessage" }
+          },
           "provider": { "type": "string", "enum": ["anyscale"] },
           "model": {
             "type": "string",
@@ -1582,11 +1597,6 @@
             "minimum": 0,
             "maximum": 2
           },
-          "messages": {
-            "description": "This is the starting state for the conversation.",
-            "type": "array",
-            "items": { "type": "object" }
-          },
           "functions": {
             "description": "These are the functions that the assistant can execute during the call.",
             "type": "array",
@@ -1599,11 +1609,16 @@
             "maximum": 1000
           }
         },
-        "required": ["provider", "model", "messages"]
+        "required": ["provider", "model"]
       },
       "OpenRouterModel": {
         "type": "object",
         "properties": {
+          "messages": {
+            "description": "This is the starting state for the conversation.",
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/OpenAIMessage" }
+          },
           "provider": { "type": "string", "enum": ["openrouter"] },
           "model": {
             "type": "string",
@@ -1615,11 +1630,6 @@
             "minimum": 0,
             "maximum": 2
           },
-          "messages": {
-            "description": "This is the starting state for the conversation.",
-            "type": "array",
-            "items": { "type": "object" }
-          },
           "functions": {
             "description": "These are the functions that the assistant can execute during the call.",
             "type": "array",
@@ -1632,11 +1642,16 @@
             "maximum": 1000
           }
         },
-        "required": ["provider", "model", "messages"]
+        "required": ["provider", "model"]
       },
       "PerplexityAIModel": {
         "type": "object",
         "properties": {
+          "messages": {
+            "description": "This is the starting state for the conversation.",
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/OpenAIMessage" }
+          },
           "provider": { "type": "string", "enum": ["perplexity-ai"] },
           "model": {
             "type": "string",
@@ -1648,11 +1663,6 @@
             "minimum": 0,
             "maximum": 2
           },
-          "messages": {
-            "description": "This is the starting state for the conversation.",
-            "type": "array",
-            "items": { "type": "object" }
-          },
           "functions": {
             "description": "These are the functions that the assistant can execute during the call.",
             "type": "array",
@@ -1665,11 +1675,16 @@
             "maximum": 1000
           }
         },
-        "required": ["provider", "model", "messages"]
+        "required": ["provider", "model"]
       },
       "DeepInfraModel": {
         "type": "object",
         "properties": {
+          "messages": {
+            "description": "This is the starting state for the conversation.",
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/OpenAIMessage" }
+          },
           "provider": { "type": "string", "enum": ["deepinfra"] },
           "model": {
             "type": "string",
@@ -1681,11 +1696,6 @@
             "minimum": 0,
             "maximum": 2
           },
-          "messages": {
-            "description": "This is the starting state for the conversation.",
-            "type": "array",
-            "items": { "type": "object" }
-          },
           "functions": {
             "description": "These are the functions that the assistant can execute during the call.",
             "type": "array",
@@ -1698,11 +1708,16 @@
             "maximum": 1000
           }
         },
-        "required": ["provider", "model", "messages"]
+        "required": ["provider", "model"]
       },
       "CustomLLMModel": {
         "type": "object",
         "properties": {
+          "messages": {
+            "description": "This is the starting state for the conversation.",
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/OpenAIMessage" }
+          },
           "provider": {
             "type": "string",
             "description": "This is the provider that will be used for the model. Any service, including your own server, that is compatible with the OpenAI API can be used.",
@@ -1722,11 +1737,6 @@
             "minimum": 0,
             "maximum": 2
           },
-          "messages": {
-            "description": "This is the starting state for the conversation.",
-            "type": "array",
-            "items": { "type": "object" }
-          },
           "functions": {
             "description": "These are the functions that the assistant can execute during the call.",
             "type": "array",
@@ -1739,11 +1749,16 @@
             "maximum": 1000
           }
         },
-        "required": ["provider", "url", "model", "messages"]
+        "required": ["provider", "url", "model"]
       },
       "GroqModel": {
         "type": "object",
         "properties": {
+          "messages": {
+            "description": "This is the starting state for the conversation.",
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/OpenAIMessage" }
+          },
           "model": {
             "type": "string",
             "description": "The key of the model from the custom provider. Ex. cognitivecomputations/dolphin-mixtral-8x7b",
@@ -1756,11 +1771,6 @@
             "minimum": 0,
             "maximum": 2
           },
-          "messages": {
-            "description": "This is the starting state for the conversation.",
-            "type": "array",
-            "items": { "type": "object" }
-          },
           "functions": {
             "description": "These are the functions that the assistant can execute during the call.",
             "type": "array",
@@ -1773,7 +1783,7 @@
             "maximum": 1000
           }
         },
-        "required": ["model", "provider", "messages"]
+        "required": ["model", "provider"]
       },
       "DeepgramTranscriber": {
         "type": "object",
@@ -1834,6 +1844,7 @@
                   "burt",
                   "marissa",
                   "andrea",
+                  "sarah",
                   "phillip",
                   "steve",
                   "joseph",
@@ -1876,6 +1887,13 @@
             "type": "boolean",
             "description": "Defines the use speaker boost for voice settings.",
             "example": false
+          },
+          "optimizeStreamingLatency": {
+            "type": "number",
+            "description": "Defines the optimize streaming latency for voice settings.",
+            "minimum": 1,
+            "maximum": 4,
+            "example": 4
           }
         },
         "required": ["provider", "voiceId"]
@@ -1883,6 +1901,11 @@
       "OpenAIModel": {
         "type": "object",
         "properties": {
+          "messages": {
+            "description": "This is the starting state for the conversation.",
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/OpenAIMessage" }
+          },
           "provider": {
             "type": "string",
             "description": "This is the provider that will be used for the model.",
@@ -1899,11 +1922,6 @@
             "minimum": 0,
             "maximum": 2
           },
-          "messages": {
-            "description": "This is the starting state for the conversation.",
-            "type": "array",
-            "items": { "type": "object" }
-          },
           "functions": {
             "description": "These are the functions that the assistant can execute during the call.",
             "type": "array",
@@ -1916,7 +1934,7 @@
             "maximum": 1000
           }
         },
-        "required": ["provider", "model", "messages"]
+        "required": ["provider", "model"]
       },
       "PlayHTVoice": {
         "type": "object",
