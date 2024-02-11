@@ -232,6 +232,13 @@
         "summary": "List Calls",
         "parameters": [
           {
+            "name": "assistantId",
+            "required": false,
+            "in": "query",
+            "description": "This will return calls with the specified assistantId.",
+            "schema": { "type": "string" }
+          },
+          {
             "name": "limit",
             "required": false,
             "in": "query",
@@ -1319,6 +1326,43 @@
         "tags": ["Phone Numbers"],
         "security": [{ "bearer": [] }]
       }
+    },
+    "/metrics": {
+      "get": {
+        "operationId": "MetricsController_findAll",
+        "summary": "List Metrics",
+        "parameters": [
+          {
+            "name": "rangeStart",
+            "required": false,
+            "in": "query",
+            "description": "This will include calls with a createdAt timestamp greater than or equal to the specified value.\n\nIf not provided, defaults to the org's current period start.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "rangeEnd",
+            "required": false,
+            "in": "query",
+            "description": "This will include calls with a createdAt timestamp less than the specified value.\n\nIf not provided, the default value will be the current timestamp.",
+            "schema": { "format": "date-time", "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/Metrics" }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Metrics"],
+        "security": [{ "bearer": [] }]
+      }
     }
   },
   "info": {
@@ -1328,7 +1372,7 @@
     "contact": {}
   },
   "tags": [],
-  "servers": [{ "url": "https://api.vapi.ai" }],
+  "servers": [{ "url": "https://west-api.vapi.ai" }],
   "components": {
     "securitySchemes": {
       "bearer": {
@@ -1560,7 +1604,7 @@
           },
           "temperature": {
             "type": "number",
-            "description": "This is the temperature that will be used for calls. Default is 1.",
+            "description": "This is the temperature that will be used for calls. Default is 0 to leverage caching for lower latency.",
             "minimum": 0,
             "maximum": 2
           },
@@ -1593,7 +1637,7 @@
           },
           "temperature": {
             "type": "number",
-            "description": "This is the temperature that will be used for calls. Default is 1.",
+            "description": "This is the temperature that will be used for calls. Default is 0 to leverage caching for lower latency.",
             "minimum": 0,
             "maximum": 2
           },
@@ -1626,7 +1670,7 @@
           },
           "temperature": {
             "type": "number",
-            "description": "This is the temperature that will be used for calls. Default is 1.",
+            "description": "This is the temperature that will be used for calls. Default is 0 to leverage caching for lower latency.",
             "minimum": 0,
             "maximum": 2
           },
@@ -1659,7 +1703,7 @@
           },
           "temperature": {
             "type": "number",
-            "description": "This is the temperature that will be used for calls. Default is 1.",
+            "description": "This is the temperature that will be used for calls. Default is 0 to leverage caching for lower latency.",
             "minimum": 0,
             "maximum": 2
           },
@@ -1692,7 +1736,7 @@
           },
           "temperature": {
             "type": "number",
-            "description": "This is the temperature that will be used for calls. Default is 1.",
+            "description": "This is the temperature that will be used for calls. Default is 0 to leverage caching for lower latency.",
             "minimum": 0,
             "maximum": 2
           },
@@ -1733,7 +1777,7 @@
           },
           "temperature": {
             "type": "number",
-            "description": "This is the temperature that will be used for calls. Default is 1.",
+            "description": "This is the temperature that will be used for calls. Default is 0 to leverage caching for lower latency.",
             "minimum": 0,
             "maximum": 2
           },
@@ -1767,7 +1811,7 @@
           "provider": { "type": "string", "enum": ["groq"] },
           "temperature": {
             "type": "number",
-            "description": "This is the temperature that will be used for calls. Default is 1.",
+            "description": "This is the temperature that will be used for calls. Default is 0 to leverage caching for lower latency.",
             "minimum": 0,
             "maximum": 2
           },
@@ -1918,7 +1962,7 @@
           },
           "temperature": {
             "type": "number",
-            "description": "This is the temperature that will be used for calls. Default is 1.",
+            "description": "This is the temperature that will be used for calls. Default is 0 to leverage caching for lower latency.",
             "minimum": 0,
             "maximum": 2
           },
@@ -2203,11 +2247,6 @@
             "description": "This is the number to forward to if assistant runs into issues.",
             "example": null
           },
-          "interruptionsEnabled": {
-            "type": "boolean",
-            "description": "This sets whether the user can interrupt the assistant while it's speaking. Defaults to true.",
-            "example": true
-          },
           "recordingEnabled": {
             "type": "boolean",
             "description": "This sets whether the assistant's calls are recorded. Defaults to true.",
@@ -2222,6 +2261,11 @@
             "type": "boolean",
             "description": "This sets whether the assistant can dial digits on the keypad. Defaults to false.",
             "default": null
+          },
+          "hipaaEnabled": {
+            "type": "boolean",
+            "description": "When using the `openai` provider, this makes all requests go to Azure OpenAI.",
+            "example": false
           },
           "clientMessages": {
             "type": "array",
@@ -2434,11 +2478,6 @@
             "description": "This is the number to forward to if assistant runs into issues.",
             "example": null
           },
-          "interruptionsEnabled": {
-            "type": "boolean",
-            "description": "This sets whether the user can interrupt the assistant while it's speaking. Defaults to true.",
-            "example": true
-          },
           "recordingEnabled": {
             "type": "boolean",
             "description": "This sets whether the assistant's calls are recorded. Defaults to true.",
@@ -2453,6 +2492,11 @@
             "type": "boolean",
             "description": "This sets whether the assistant can dial digits on the keypad. Defaults to false.",
             "default": null
+          },
+          "hipaaEnabled": {
+            "type": "boolean",
+            "description": "When using the `openai` provider, this makes all requests go to Azure OpenAI.",
+            "example": false
           },
           "clientMessages": {
             "type": "array",
@@ -2684,11 +2728,6 @@
             "description": "This is the number to forward to if assistant runs into issues.",
             "example": null
           },
-          "interruptionsEnabled": {
-            "type": "boolean",
-            "description": "This sets whether the user can interrupt the assistant while it's speaking. Defaults to true.",
-            "example": true
-          },
           "recordingEnabled": {
             "type": "boolean",
             "description": "This sets whether the assistant's calls are recorded. Defaults to true.",
@@ -2703,6 +2742,11 @@
             "type": "boolean",
             "description": "This sets whether the assistant can dial digits on the keypad. Defaults to false.",
             "default": null
+          },
+          "hipaaEnabled": {
+            "type": "boolean",
+            "description": "When using the `openai` provider, this makes all requests go to Azure OpenAI.",
+            "example": false
           },
           "clientMessages": {
             "type": "array",
@@ -3945,6 +3989,41 @@
             "description": "This is the assistant that will be used for incoming calls to this phone number.\n\nIf this is not set, then the phone number will not handle incoming calls."
           }
         }
+      },
+      "Metrics": {
+        "type": "object",
+        "properties": {
+          "orgId": { "type": "string" },
+          "rangeStart": { "type": "string" },
+          "rangeEnd": { "type": "string" },
+          "bill": { "type": "number" },
+          "billWithinBillingLimit": { "type": "boolean" },
+          "billDailyBreakdown": { "type": "object" },
+          "callActive": { "type": "string" },
+          "callActiveWithinConcurrencyLimit": { "type": "boolean" },
+          "callMinutes": { "type": "string" },
+          "callMinutesDailyBreakdown": { "type": "object" },
+          "callMinutesAverage": { "type": "string" },
+          "callMinutesAverageDailyBreakdown": { "type": "object" },
+          "callCount": { "type": "string" },
+          "callCountDailyBreakdown": { "type": "object" }
+        },
+        "required": [
+          "orgId",
+          "rangeStart",
+          "rangeEnd",
+          "bill",
+          "billWithinBillingLimit",
+          "billDailyBreakdown",
+          "callActive",
+          "callActiveWithinConcurrencyLimit",
+          "callMinutes",
+          "callMinutesDailyBreakdown",
+          "callMinutesAverage",
+          "callMinutesAverageDailyBreakdown",
+          "callCount",
+          "callCountDailyBreakdown"
+        ]
       }
     }
   }
