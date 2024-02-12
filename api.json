@@ -2343,9 +2343,9 @@
             "maximum": 2,
             "example": 0.4
           },
-          "punctuationDelaySeconds": {
+          "llmRequestDelaySeconds": {
             "type": "number",
-            "description": "The minimum number of seconds to wait punctuation after punctuation before sending a request to the LLM. Defaults to 0.1.",
+            "description": "The minimum number of seconds to wait after punctuation before sending a request to the LLM. Defaults to 0.1.",
             "minimum": 0,
             "maximum": 3,
             "example": 0.1
@@ -2592,9 +2592,9 @@
             "maximum": 2,
             "example": 0.4
           },
-          "punctuationDelaySeconds": {
+          "llmRequestDelaySeconds": {
             "type": "number",
-            "description": "The minimum number of seconds to wait punctuation after punctuation before sending a request to the LLM. Defaults to 0.1.",
+            "description": "The minimum number of seconds to wait after punctuation before sending a request to the LLM. Defaults to 0.1.",
             "minimum": 0,
             "maximum": 3,
             "example": 0.1
@@ -2860,9 +2860,9 @@
             "maximum": 2,
             "example": 0.4
           },
-          "punctuationDelaySeconds": {
+          "llmRequestDelaySeconds": {
             "type": "number",
-            "description": "The minimum number of seconds to wait punctuation after punctuation before sending a request to the LLM. Defaults to 0.1.",
+            "description": "The minimum number of seconds to wait after punctuation before sending a request to the LLM. Defaults to 0.1.",
             "minimum": 0,
             "maximum": 3,
             "example": 0.1
