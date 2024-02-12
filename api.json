@@ -2343,6 +2343,20 @@
             "maximum": 2,
             "example": 0.4
           },
+          "punctuationDelaySeconds": {
+            "type": "number",
+            "description": "The minimum number of seconds to wait punctuation after punctuation before sending a request to the LLM. Defaults to 0.1.",
+            "minimum": 0,
+            "maximum": 3,
+            "example": 0.1
+          },
+          "maxDurationSeconds": {
+            "type": "number",
+            "description": "This is the maximum number of seconds that the call will last. When the call reaches this duration, it will be ended.",
+            "minimum": 10,
+            "maximum": 3600,
+            "example": 1800
+          },
           "name": {
             "type": "string",
             "description": "This is the name of the assistant. This is just for your own reference.",
@@ -2371,6 +2385,10 @@
             "description": "This list contains phrases that, if spoken by the assistant, will trigger the call to be hung up. Case insensitive.",
             "type": "array",
             "items": { "type": "string", "maxLength": 25, "minLength": 3 }
+          },
+          "metadata": {
+            "type": "object",
+            "description": "This is the metadata associated with the call."
           },
           "serverUrl": {
             "type": "string",
@@ -2574,6 +2592,20 @@
             "maximum": 2,
             "example": 0.4
           },
+          "punctuationDelaySeconds": {
+            "type": "number",
+            "description": "The minimum number of seconds to wait punctuation after punctuation before sending a request to the LLM. Defaults to 0.1.",
+            "minimum": 0,
+            "maximum": 3,
+            "example": 0.1
+          },
+          "maxDurationSeconds": {
+            "type": "number",
+            "description": "This is the maximum number of seconds that the call will last. When the call reaches this duration, it will be ended.",
+            "minimum": 10,
+            "maximum": 3600,
+            "example": 1800
+          },
           "name": {
             "type": "string",
             "description": "This is the name of the assistant. This is just for your own reference.",
@@ -2602,6 +2634,10 @@
             "description": "This list contains phrases that, if spoken by the assistant, will trigger the call to be hung up. Case insensitive.",
             "type": "array",
             "items": { "type": "string", "maxLength": 25, "minLength": 3 }
+          },
+          "metadata": {
+            "type": "object",
+            "description": "This is the metadata associated with the call."
           },
           "serverUrl": {
             "type": "string",
@@ -2824,6 +2860,20 @@
             "maximum": 2,
             "example": 0.4
           },
+          "punctuationDelaySeconds": {
+            "type": "number",
+            "description": "The minimum number of seconds to wait punctuation after punctuation before sending a request to the LLM. Defaults to 0.1.",
+            "minimum": 0,
+            "maximum": 3,
+            "example": 0.1
+          },
+          "maxDurationSeconds": {
+            "type": "number",
+            "description": "This is the maximum number of seconds that the call will last. When the call reaches this duration, it will be ended.",
+            "minimum": 10,
+            "maximum": 3600,
+            "example": 1800
+          },
           "name": {
             "type": "string",
             "description": "This is the name of the assistant. This is just for your own reference.",
@@ -2852,6 +2902,10 @@
             "description": "This list contains phrases that, if spoken by the assistant, will trigger the call to be hung up. Case insensitive.",
             "type": "array",
             "items": { "type": "string", "maxLength": 25, "minLength": 3 }
+          },
+          "metadata": {
+            "type": "object",
+            "description": "This is the metadata associated with the call."
           },
           "serverUrl": {
             "type": "string",
