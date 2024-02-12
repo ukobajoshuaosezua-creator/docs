@@ -1,28 +1,48 @@
 ---
 title: "Pricing"
 sidebarTitle: "Pricing"
-description: "Get to know your pricing per minute based on the providers you choose."
+description: "Only Pay for What You Use: Pricing Per Minute Based on Providers of Your Choice"
 ---
 
-The vast majority of the cost of using Vapi is the cost of the underlying providers. We charge a base fee on top of the provider cost to cover our costs and to be a sustainable business.
+<Card title="Platform Pricing">
+Vapi integrates all of the services needed to build a voice assistant: transcription, model, and voice. Most of what you pay to use Vapi goes to these services. **You are only billed at cost for the service providers.** <br/> Your overall cost will vary depending on which model and voice provider you choose. On top of the provider costs, we charge a base fee of **$0.05 per minute.**
+</Card>
 
-When using [Provider Keys](/provider_keys), you'll be billed directly by the provider, not us. When not using Provider Keys, you'll be billed at at cost for those providers through us.
 
-Based on the providers you select and the keys you provide, you will be automatically billed accordingly. Below are the estimated costs per minute for each provider:
+<Accordion title="Transcription Provider Estimates">
+  <Card title="Transcription Provider">
+    Deepgram: **\$0.01/min** (=\$0.60/hr)
+  </Card> 
+</Accordion>
 
-<Card title="Base Cost">
-  Vapi: **\$0.05/min** (=\$3.00/hr)
-</Card>
-<Card title="Transcription Provider">
-  Deepgram: **\$0.01/min** (=\$0.60/hr)
-</Card>
-<Card title="Model Provider">
-  - OpenAI (gpt-4-turbo): **\$0.20/min** (=\$12.00/hr) <br /> OpenAI (gpt-3.5-turbo):
-  **\$0.02/min** (=\$1.20/hr)
-</Card>
-<Card title="Voice Provider">
-  - ElevenLabs: **\$0.10/min** (=\$6.00/hr) <br /> PlayHT: **\$0.10/min** (=\$6.00/hr)
-  <br /> Deepgram: **\$0.05/min** (=\$3.00/hr) <br /> OpenAI: **\$0.02/min** (=\$1.20/hr) <br /> RimeAI: **\$0.02/min** (=\$1.20/hr)
-</Card>
+<Accordion title="Model Provider Estimates">
+  <Card title="Model Provider">
+    - OpenAI (gpt-4-turbo): **\$0.20/min** (=\$12.00/hr) <br /> OpenAI (gpt-3.5-turbo):
+    **\$0.02/min** (=\$1.20/hr)
+  </Card>
+</Accordion>
+
+<Accordion title="Voice Provider Estimates">
+  <Card title="Voice Provider">
+    - ElevenLabs: **\$0.10/min** (=\$6.00/hr) <br /> PlayHT: **\$0.10/min** (=\$6.00/hr)
+    <br /> Deepgram: **\$0.05/min** (=\$3.00/hr) <br /> OpenAI: **\$0.02/min** (=\$1.20/hr) <br /> RimeAI: **\$0.02/min** (=\$1.20/hr)
+  </Card>
+</Accordion>
 
 These costs are subject to change as we get more data, but they will always reflect our best estimate of our per minute. You can find your usage and billing information in the [dashboard](https://dashboard.vapi.ai).
+
+<Accordion title="Billing">
+Billing occurs automatically based on the cost of the providers you choose. The only exception is for [Provider Keys](/provider_keys). When you use a Provider Key, you will be billed directly by the provider. 
+</Accordion>
+
+<Accordion title="Pricing Example 1">
+A lawn care business wants to automate some customer service tasks using a voice assistant, and chooses GPT-3.5-turbo for the model provider and RimeAI for the Voice Provider. The voice assistant is scheduling customer appointments, and the first week uses 50 minutes. Here’s what your cost breakdown will look like: <br /> (Vapi: \$0.05 x 50) + (Deepgram: \$0.01 x 50) + (GPT-3.5-turbo: \$0.02 x 50) + (RimeAI: \$0.02 x 50) <br /> Total cost = \$5
+</Accordion>
+
+<Accordion title="Pricing Example 2">
+A call center decides to implement voice assistants for technical support, and wants the added capabilities of GPT-4-turbo and the 120 voices of ElevenLabs. The first month they use 5000 minutes. Here’s what your cost breakdown will look: <br /> (Vapi: \$0.05 x 5000) + (Deepgram: \$0.01 x 5000) + (GPT-4-turbo: \$0.20 x 5000) + (ElevenLabs: \$0.10 x 5000) <br /> Total cost = \$1800
+</Accordion>
+
+To try Vapi for free, visit the [Dashboard](https://dashboard.vapi.ai) and get usage up to $10 on us. 
+
+
