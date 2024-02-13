@@ -6,7 +6,7 @@ description: "Let's build a technical support assistant that remembers where we 
 
 We want a phone number we can call to get technical support. We want the assistant to use a provided set of troubleshooting guides to help walk the caller through solving their issue.
 
-As a bonus, we also want the assistant to remember where we left off if we get disconnected, by the phone number of the caller.
+As a bonus, we also want the assistant to remember by the phone number of the caller where we left off if we get disconnected.
 
 <Steps>
   <Step title="Create an assistant">
@@ -35,16 +35,16 @@ As a bonus, we also want the assistant to remember where we left off if we get d
       "recordingEnabled": true,
     }
     ```
-    Let's break this down:
+    <Card title="Let's break this down">
     - `transcriber` - We're defining this to make sure the transcriber picks up the custom words related to our devices.
     - `model` - We're using the OpenAI GPT-3.5-turbo model. It's much faster and preferred if we don't need GPT-4.
     - `messages` - We're defining the assistant's instructions for how to run the call.
     - `forwardingPhoneNumber` - Since we've added this, the assistant will be provided the [transferCall](/assistants#transfer-call) function to use if the caller asks to be transferred to a person.
     - `firstMessage` - This is the first message the assistant will say when the user picks up.
-    - `recordingEnabled` - We're recording the call, so we can hear the conversation later.
+    - `recordingEnabled` - We're recording the call so we can hear the conversation later.
+</Card>
 
-
-    Since we want the assistant to remember where we left off, it's configuration is going to change based on the caller. So, we're not going to use [temporary assistants](/persistent_assistants).
+    Since we want the assistant to remember where we left off, its configuration is going to change based on the caller. So, we're not going to use [temporary assistants](/persistent_assistants).
 
     For this example, we're going to store the conversation on our server between calls and use the [Server URL's `assistant-request`](/server_url#retrieving-assistants) to fetch a new configuration based on the caller every time someone calls.
 
