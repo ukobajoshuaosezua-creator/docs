@@ -1,23 +1,22 @@
 ---
 title: "Getting Started"
 sidebarTitle: "Getting started"
-description: "Let's get you ready to use the API."
+description: "Let's get you set up on the API."
 ---
 
-<Steps>
-  <Step title="Sign Up">
-    You can sign up [here](https://dashboard.vapi.ai) using the traditional method of email plus password or sign up using Google OAuth. Once you sign up, you will be redirected to the dashboard.
+  <Accordion title="Sign Up">
+    You can sign up [here](https://dashboard.vapi.ai) by entering an email and password, or by using Google OAuth. Once sign up is complete, you will be redirected to the Dashboard.
 
-From the dashboard, you can create assistants, set up phone numbers, view your call history, and more.
+From the Dashboard, you can create voice assistants, set up phone numbers, view your call history, and more.
+</Accordion>
 
-  </Step>
-  <Step title="Add a Payment Method">
-    Once you hit $10 in usage, your API calls will start throwing "Over Billing Limit". So, it's best to add a payment method before you hit that limit. This can be done in the **Billing** page in the [Dashboard](https://dashboard.vapi.ai).
+  <Accordion title="Add a Payment Method">
+    Once you hit $10 in usage, your API calls will start throwing "Over Billing Limit". So, it's best to add a payment method before reaching that limit. This can be done in the **Billing** page in the [Dashboard](https://dashboard.vapi.ai).
 
-    Once saved, you can increase your billing limit by increasing an amount in the **Billing Limit** field.
+    Once your payment method is saved, you can increase your billing limit by increasing the  amount in the **Monthly Usage Limit** field.
+</Accordion>
 
-  </Step>
-   <Step title="Use your API key">
+   <Accordion title="Use your API key">
     Your API key can be found in the **Account** page > Vapi Keys > Private API Key. When making requests to the API, make sure to include your key in the `Authorization` header.
     
     ```typescript
@@ -32,6 +31,4 @@ From the dashboard, you can create assistants, set up phone numbers, view your c
 
     console.log(res.data);
     ```
-
-  </Step>
-</Steps>
+</Accordion>
