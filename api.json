@@ -461,6 +461,14 @@
                   {
                     "$ref": "#/components/schemas/CreateRunpodCredentialDTO",
                     "title": "RunpodCredential"
+                  },
+                  {
+                    "$ref": "#/components/schemas/CreateGroqCredentialDTO",
+                    "title": "GroqCredential"
+                  },
+                  {
+                    "$ref": "#/components/schemas/CreateVonageCredentialDTO",
+                    "title": "VonageCredential"
                   }
                 ],
                 "discriminator": {
@@ -478,7 +486,9 @@
                     "11labs": "#/components/schemas/CreateElevenLabsCredentialDTO",
                     "playht": "#/components/schemas/CreatePlayHTCredentialDTO",
                     "rime-ai": "#/components/schemas/CreateRimeAICredentialDTO",
-                    "runpod": "#/components/schemas/CreateRunpodCredentialDTO"
+                    "runpod": "#/components/schemas/CreateRunpodCredentialDTO",
+                    "groq": "#/components/schemas/CreateGroqCredentialDTO",
+                    "vonage": "#/components/schemas/CreateVonageCredentialDTO"
                   }
                 }
               }
@@ -541,8 +551,16 @@
                       "title": "RimeAICredential"
                     },
                     {
-                      "$ref": "#/components/schemas/RunpodCredential",
+                      "$ref": "#/components/schemas/UpdateRunpodCredentialDTO",
                       "title": "RunpodCredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/UpdateGroqCredentialDTO",
+                      "title": "GroqCredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/UpdateVonageCredentialDTO",
+                      "title": "VonageCredential"
                     }
                   ],
                   "discriminator": {
@@ -560,7 +578,9 @@
                       "11labs": "#/components/schemas/ElevenLabsCredential",
                       "playht": "#/components/schemas/PlayHTCredential",
                       "rime-ai": "#/components/schemas/RimeAICredential",
-                      "runpod": "#/components/schemas/RunpodCredential"
+                      "runpod": "#/components/schemas/RunpodCredential",
+                      "groq": "#/components/schemas/GroqCredential",
+                      "vonage": "#/components/schemas/VonageCredential"
                     }
                   }
                 }
@@ -697,8 +717,16 @@
                         "title": "RimeAICredential"
                       },
                       {
-                        "$ref": "#/components/schemas/RunpodCredential",
+                        "$ref": "#/components/schemas/UpdateRunpodCredentialDTO",
                         "title": "RunpodCredential"
+                      },
+                      {
+                        "$ref": "#/components/schemas/UpdateGroqCredentialDTO",
+                        "title": "GroqCredential"
+                      },
+                      {
+                        "$ref": "#/components/schemas/UpdateVonageCredentialDTO",
+                        "title": "VonageCredential"
                       }
                     ],
                     "discriminator": {
@@ -716,7 +744,9 @@
                         "11labs": "#/components/schemas/ElevenLabsCredential",
                         "playht": "#/components/schemas/PlayHTCredential",
                         "rime-ai": "#/components/schemas/RimeAICredential",
-                        "runpod": "#/components/schemas/RunpodCredential"
+                        "runpod": "#/components/schemas/RunpodCredential",
+                        "groq": "#/components/schemas/GroqCredential",
+                        "vonage": "#/components/schemas/VonageCredential"
                       }
                     }
                   }
@@ -797,8 +827,16 @@
                       "title": "RimeAICredential"
                     },
                     {
-                      "$ref": "#/components/schemas/RunpodCredential",
+                      "$ref": "#/components/schemas/UpdateRunpodCredentialDTO",
                       "title": "RunpodCredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/UpdateGroqCredentialDTO",
+                      "title": "GroqCredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/UpdateVonageCredentialDTO",
+                      "title": "VonageCredential"
                     }
                   ],
                   "discriminator": {
@@ -816,7 +854,9 @@
                       "11labs": "#/components/schemas/ElevenLabsCredential",
                       "playht": "#/components/schemas/PlayHTCredential",
                       "rime-ai": "#/components/schemas/RimeAICredential",
-                      "runpod": "#/components/schemas/RunpodCredential"
+                      "runpod": "#/components/schemas/RunpodCredential",
+                      "groq": "#/components/schemas/GroqCredential",
+                      "vonage": "#/components/schemas/VonageCredential"
                     }
                   }
                 }
@@ -895,6 +935,14 @@
                   {
                     "$ref": "#/components/schemas/UpdateRunpodCredentialDTO",
                     "title": "RunpodCredential"
+                  },
+                  {
+                    "$ref": "#/components/schemas/UpdateGroqCredentialDTO",
+                    "title": "GroqCredential"
+                  },
+                  {
+                    "$ref": "#/components/schemas/UpdateVonageCredentialDTO",
+                    "title": "VonageCredential"
                   }
                 ],
                 "discriminator": {
@@ -912,7 +960,9 @@
                     "11labs": "#/components/schemas/UpdateElevenLabsCredentialDTO",
                     "playht": "#/components/schemas/UpdatePlayHTCredentialDTO",
                     "rime-ai": "#/components/schemas/UpdateRimeAICredentialDTO",
-                    "runpod": "#/components/schemas/UpdateRunpodCredentialDTO"
+                    "runpod": "#/components/schemas/UpdateRunpodCredentialDTO",
+                    "groq": "#/components/schemas/UpdateGroqCredentialDTO",
+                    "vonage": "#/components/schemas/UpdateVonageCredentialDTO"
                   }
                 }
               }
@@ -975,8 +1025,16 @@
                       "title": "RimeAICredential"
                     },
                     {
-                      "$ref": "#/components/schemas/RunpodCredential",
+                      "$ref": "#/components/schemas/UpdateRunpodCredentialDTO",
                       "title": "RunpodCredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/UpdateGroqCredentialDTO",
+                      "title": "GroqCredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/UpdateVonageCredentialDTO",
+                      "title": "VonageCredential"
                     }
                   ],
                   "discriminator": {
@@ -994,7 +1052,9 @@
                       "11labs": "#/components/schemas/ElevenLabsCredential",
                       "playht": "#/components/schemas/PlayHTCredential",
                       "rime-ai": "#/components/schemas/RimeAICredential",
-                      "runpod": "#/components/schemas/RunpodCredential"
+                      "runpod": "#/components/schemas/RunpodCredential",
+                      "groq": "#/components/schemas/GroqCredential",
+                      "vonage": "#/components/schemas/VonageCredential"
                     }
                   }
                 }
@@ -1072,8 +1132,16 @@
                       "title": "RimeAICredential"
                     },
                     {
-                      "$ref": "#/components/schemas/RunpodCredential",
+                      "$ref": "#/components/schemas/UpdateRunpodCredentialDTO",
                       "title": "RunpodCredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/UpdateGroqCredentialDTO",
+                      "title": "GroqCredential"
+                    },
+                    {
+                      "$ref": "#/components/schemas/UpdateVonageCredentialDTO",
+                      "title": "VonageCredential"
                     }
                   ],
                   "discriminator": {
@@ -1091,7 +1159,9 @@
                       "11labs": "#/components/schemas/ElevenLabsCredential",
                       "playht": "#/components/schemas/PlayHTCredential",
                       "rime-ai": "#/components/schemas/RimeAICredential",
-                      "runpod": "#/components/schemas/RunpodCredential"
+                      "runpod": "#/components/schemas/RunpodCredential",
+                      "groq": "#/components/schemas/GroqCredential",
+                      "vonage": "#/components/schemas/VonageCredential"
                     }
                   }
                 }
@@ -1130,9 +1200,9 @@
         "security": [{ "bearer": [] }]
       }
     },
-    "/phone-number/import": {
+    "/phone-number/import/twilio": {
       "post": {
-        "operationId": "PhoneNumberController_import",
+        "operationId": "PhoneNumberController_importTwilio",
         "summary": "Import Twilio Number",
         "parameters": [],
         "requestBody": {
@@ -1141,6 +1211,35 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/ImportTwilioPhoneNumberDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/PhoneNumber" }
+              }
+            }
+          }
+        },
+        "tags": ["Phone Numbers"],
+        "security": [{ "bearer": [] }]
+      }
+    },
+    "/phone-number/import/vonage": {
+      "post": {
+        "operationId": "PhoneNumberController_importVonage",
+        "summary": "Import Vonage Number",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ImportVonagePhoneNumberDTO"
               }
             }
           }
@@ -1419,7 +1518,10 @@
         "type": "object",
         "properties": {
           "content": { "type": "string", "nullable": true },
-          "role": { "type": "object" },
+          "role": {
+            "type": "string",
+            "enum": ["assistant", "function", "user", "system"]
+          },
           "function_call": { "type": "object" },
           "tool_calls": { "type": "array", "items": { "type": "object" } }
         },
@@ -1578,7 +1680,8 @@
           },
           "description": {
             "type": "string",
-            "description": "This is the description of what the function does, used by the AI to choose when and how to call the function."
+            "description": "This is the description of what the function does, used by the AI to choose when and how to call the function.",
+            "maxLength": 1000
           },
           "parameters": {
             "description": "These are the parameters the functions accepts, described as a JSON Schema object.\n\nSee the [OpenAI guide](https://platform.openai.com/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema) for documentation about the format.\n\nOmitting parameters defines a function with an empty parameter list.",
@@ -1834,7 +1937,7 @@
         "properties": {
           "provider": {
             "type": "string",
-            "description": "This is the transcription provider that will be used. Currently, only Deepgram is supported.",
+            "description": "This is the transcription provider that will be used.",
             "enum": ["deepgram"]
           },
           "model": {
@@ -1853,11 +1956,49 @@
                   "nova-2-video",
                   "nova-2-medical",
                   "nova-2-drivethru",
-                  "nova-2-automotive",
-                  "nova-2-custom"
+                  "nova-2-automotive"
                 ]
               },
               { "type": "string" }
+            ]
+          },
+          "language": {
+            "type": "string",
+            "description": "This is the language that will be set for the transcription. The list of languages Deepgram supports can be found here: https://developers.deepgram.com/docs/models-languages-overview",
+            "enum": [
+              "cs",
+              "da",
+              "da-DK",
+              "nl",
+              "en",
+              "en-US",
+              "en-AU",
+              "en-GB",
+              "en-NZ",
+              "en-IN",
+              "nl-BE",
+              "fr",
+              "fr-CA",
+              "de",
+              "el",
+              "hi",
+              "hi-Latn",
+              "id",
+              "it",
+              "ja",
+              "ko",
+              "ko-KR",
+              "no",
+              "pl",
+              "pt",
+              "pt-BR",
+              "ru",
+              "es",
+              "es-419",
+              "sv",
+              "sv-SE",
+              "tr",
+              "uk"
             ]
           },
           "keywords": {
@@ -1867,6 +2008,133 @@
               "type": "string",
               "pattern": "/^[a-zA-Z]+[a-zA-Z0-9]*:[+-]?(\\d+(\\.\\d+)?|\\.\\d+)$/"
             }
+          }
+        },
+        "required": ["provider"]
+      },
+      "TalkscriberTranscriber": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "description": "This is the transcription provider that will be used.",
+            "enum": ["talkscriber"]
+          },
+          "model": {
+            "type": "string",
+            "description": "This is the model that will be used for the transcription.",
+            "enum": ["whisper"]
+          },
+          "language": {
+            "type": "string",
+            "description": "This is the language that will be set for the transcription. The list of languages Whisper supports can be found here: https://github.com/openai/whisper/blob/main/whisper/tokenizer.py",
+            "enum": [
+              "en",
+              "zh",
+              "de",
+              "es",
+              "ru",
+              "ko",
+              "fr",
+              "ja",
+              "pt",
+              "tr",
+              "pl",
+              "ca",
+              "nl",
+              "ar",
+              "sv",
+              "it",
+              "id",
+              "hi",
+              "fi",
+              "vi",
+              "he",
+              "uk",
+              "el",
+              "ms",
+              "cs",
+              "ro",
+              "da",
+              "hu",
+              "ta",
+              "no",
+              "th",
+              "ur",
+              "hr",
+              "bg",
+              "lt",
+              "la",
+              "mi",
+              "ml",
+              "cy",
+              "sk",
+              "te",
+              "fa",
+              "lv",
+              "bn",
+              "sr",
+              "az",
+              "sl",
+              "kn",
+              "et",
+              "mk",
+              "br",
+              "eu",
+              "is",
+              "hy",
+              "ne",
+              "mn",
+              "bs",
+              "kk",
+              "sq",
+              "sw",
+              "gl",
+              "mr",
+              "pa",
+              "si",
+              "km",
+              "sn",
+              "yo",
+              "so",
+              "af",
+              "oc",
+              "ka",
+              "be",
+              "tg",
+              "sd",
+              "gu",
+              "am",
+              "yi",
+              "lo",
+              "uz",
+              "fo",
+              "ht",
+              "ps",
+              "tk",
+              "nn",
+              "mt",
+              "sa",
+              "lb",
+              "my",
+              "bo",
+              "tl",
+              "mg",
+              "as",
+              "tt",
+              "haw",
+              "ln",
+              "ha",
+              "ba",
+              "jw",
+              "su",
+              "yue"
+            ]
+          },
+          "mode": {
+            "type": "string",
+            "description": "This is the mode that will be used for Whisper. If 'transcribe' is selected, the audio will be transcribed in the language selected in 'language' field. If 'translate' is selected, the audio will be translated from language selected in 'language' field to English. Default is 'translate'.",
+            "enum": ["transcribe", "translate"]
           }
         },
         "required": ["provider"]
@@ -1938,6 +2206,12 @@
             "minimum": 1,
             "maximum": 4,
             "example": 4
+          },
+          "model": {
+            "type": "string",
+            "description": "This is the model that will be used. Defaults to 'eleven_multilingual_v2' if transcriber.language is non-English, otherwise 'eleven_turbo_v2'.",
+            "enum": ["eleven_multilingual_v2", "eleven_turbo_v2"],
+            "example": "eleven_turbo_v2"
           }
         },
         "required": ["provider", "voiceId"]
@@ -2033,7 +2307,13 @@
               "female_angry",
               "female_fearful",
               "female_disgust",
-              "female_surprised"
+              "female_surprised",
+              "male_happy",
+              "male_sad",
+              "male_angry",
+              "male_fearful",
+              "male_disgust",
+              "male_surprised"
             ],
             "example": null
           },
@@ -2151,9 +2431,51 @@
         },
         "required": ["provider", "voiceId"]
       },
+      "LMNTVoice": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "description": "This is the voice provider that will be used.",
+            "enum": ["lmnt"]
+          },
+          "voiceId": {
+            "description": "This is the provider-specific ID that will be used.",
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": ["lily", "daniel"],
+                "title": "Preset Voice Options"
+              },
+              { "type": "string", "title": "LMNT Voice ID" }
+            ]
+          },
+          "speed": {
+            "type": "number",
+            "description": "This is the speed multiplier that will be used.",
+            "minimum": 0.25,
+            "maximum": 2,
+            "example": null
+          }
+        },
+        "required": ["provider", "voiceId"]
+      },
       "CreateAssistantDTO": {
         "type": "object",
         "properties": {
+          "transcriber": {
+            "description": "These are the options for the assistant's transcriber.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/DeepgramTranscriber",
+                "title": "DeepgramTranscriber"
+              },
+              {
+                "$ref": "#/components/schemas/TalkscriberTranscriber",
+                "title": "TalkscriberTranscriber"
+              }
+            ]
+          },
           "model": {
             "description": "These are the options for the assistant's LLM.",
             "oneOf": [
@@ -2217,30 +2539,10 @@
               {
                 "$ref": "#/components/schemas/OpenAIVoice",
                 "title": "OpenAIVoice"
-              }
+              },
+              { "$ref": "#/components/schemas/LMNTVoice", "title": "LMNTVoice" }
             ],
             "default": { "provider": "playht", "voiceId": "jennifer" }
-          },
-          "language": {
-            "type": "string",
-            "description": "This sets the spoken language of the user. The assistant will do its best to respond in the same language.\nWhen using a language other than `en-*`, only `11labs` voices will pronounce the words correctly. There will also be ~1sec of additional latency.",
-            "enum": [
-              "en",
-              "en-US",
-              "en-AU",
-              "en-GB",
-              "en-NZ",
-              "en-IN",
-              "fr",
-              "fr-CA",
-              "de",
-              "hi",
-              "hi-Latn",
-              "pt",
-              "pt-BR",
-              "es",
-              "es-419"
-            ]
           },
           "forwardingPhoneNumber": {
             "type": "string",
@@ -2362,9 +2664,10 @@
             "description": "This is the name of the assistant. This is just for your own reference.",
             "maxLength": 100
           },
-          "transcriber": {
-            "description": "These are the options for the assistant's transcriber.",
-            "allOf": [{ "$ref": "#/components/schemas/DeepgramTranscriber" }]
+          "forwardingPhoneNumbers": {
+            "description": "You can provide a set of phone numbers to forward to. You'll want to tell the assistant when to use each of these numbers in the system prompt.",
+            "type": "array",
+            "items": { "type": "string", "maxLength": 25, "minLength": 1 }
           },
           "firstMessage": {
             "type": "string",
@@ -2403,6 +2706,19 @@
       "Assistant": {
         "type": "object",
         "properties": {
+          "transcriber": {
+            "description": "These are the options for the assistant's transcriber.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/DeepgramTranscriber",
+                "title": "DeepgramTranscriber"
+              },
+              {
+                "$ref": "#/components/schemas/TalkscriberTranscriber",
+                "title": "TalkscriberTranscriber"
+              }
+            ]
+          },
           "model": {
             "description": "These are the options for the assistant's LLM.",
             "oneOf": [
@@ -2466,30 +2782,10 @@
               {
                 "$ref": "#/components/schemas/OpenAIVoice",
                 "title": "OpenAIVoice"
-              }
+              },
+              { "$ref": "#/components/schemas/LMNTVoice", "title": "LMNTVoice" }
             ],
             "default": { "provider": "playht", "voiceId": "jennifer" }
-          },
-          "language": {
-            "type": "string",
-            "description": "This sets the spoken language of the user. The assistant will do its best to respond in the same language.\nWhen using a language other than `en-*`, only `11labs` voices will pronounce the words correctly. There will also be ~1sec of additional latency.",
-            "enum": [
-              "en",
-              "en-US",
-              "en-AU",
-              "en-GB",
-              "en-NZ",
-              "en-IN",
-              "fr",
-              "fr-CA",
-              "de",
-              "hi",
-              "hi-Latn",
-              "pt",
-              "pt-BR",
-              "es",
-              "es-419"
-            ]
           },
           "forwardingPhoneNumber": {
             "type": "string",
@@ -2611,9 +2907,10 @@
             "description": "This is the name of the assistant. This is just for your own reference.",
             "maxLength": 100
           },
-          "transcriber": {
-            "description": "These are the options for the assistant's transcriber.",
-            "allOf": [{ "$ref": "#/components/schemas/DeepgramTranscriber" }]
+          "forwardingPhoneNumbers": {
+            "description": "You can provide a set of phone numbers to forward to. You'll want to tell the assistant when to use each of these numbers in the system prompt.",
+            "type": "array",
+            "items": { "type": "string", "maxLength": 25, "minLength": 1 }
           },
           "firstMessage": {
             "type": "string",
@@ -2671,6 +2968,19 @@
       "UpdateAssistantDTO": {
         "type": "object",
         "properties": {
+          "transcriber": {
+            "description": "These are the options for the assistant's transcriber.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/DeepgramTranscriber",
+                "title": "DeepgramTranscriber"
+              },
+              {
+                "$ref": "#/components/schemas/TalkscriberTranscriber",
+                "title": "TalkscriberTranscriber"
+              }
+            ]
+          },
           "model": {
             "description": "These are the options for the assistant's LLM.",
             "oneOf": [
@@ -2734,30 +3044,10 @@
               {
                 "$ref": "#/components/schemas/OpenAIVoice",
                 "title": "OpenAIVoice"
-              }
+              },
+              { "$ref": "#/components/schemas/LMNTVoice", "title": "LMNTVoice" }
             ],
             "default": { "provider": "playht", "voiceId": "jennifer" }
-          },
-          "language": {
-            "type": "string",
-            "description": "This sets the spoken language of the user. The assistant will do its best to respond in the same language.\nWhen using a language other than `en-*`, only `11labs` voices will pronounce the words correctly. There will also be ~1sec of additional latency.",
-            "enum": [
-              "en",
-              "en-US",
-              "en-AU",
-              "en-GB",
-              "en-NZ",
-              "en-IN",
-              "fr",
-              "fr-CA",
-              "de",
-              "hi",
-              "hi-Latn",
-              "pt",
-              "pt-BR",
-              "es",
-              "es-419"
-            ]
           },
           "forwardingPhoneNumber": {
             "type": "string",
@@ -2879,9 +3169,10 @@
             "description": "This is the name of the assistant. This is just for your own reference.",
             "maxLength": 100
           },
-          "transcriber": {
-            "description": "These are the options for the assistant's transcriber.",
-            "allOf": [{ "$ref": "#/components/schemas/DeepgramTranscriber" }]
+          "forwardingPhoneNumbers": {
+            "description": "You can provide a set of phone numbers to forward to. You'll want to tell the assistant when to use each of these numbers in the system prompt.",
+            "type": "array",
+            "items": { "type": "string", "maxLength": 25, "minLength": 1 }
           },
           "firstMessage": {
             "type": "string",
@@ -2971,6 +3262,11 @@
             "description": "This is the type of call.",
             "enum": ["inboundPhoneCall", "outboundPhoneCall", "webCall"]
           },
+          "phoneCallProvider": {
+            "type": "string",
+            "description": "This is the provider of the call.\n\nOnly relevant for `outboundPhoneCall` and `inboundPhoneCall` type.",
+            "enum": ["twilio", "vonage"]
+          },
           "status": {
             "type": "string",
             "description": "This is the status of the call.",
@@ -3004,12 +3300,15 @@
               "pipeline-error-eleven-labs-voice-not-found",
               "pipeline-error-eleven-labs-quota-exceeded",
               "pipeline-error-playht-voice-failed",
+              "pipeline-error-lmnt-voice-failed",
               "pipeline-error-azure-voice-failed",
               "pipeline-error-rime-ai-voice-failed",
+              "pipeline-error-neets-voice-failed",
               "server-shutdown",
-              "twilio-closed-websocket",
               "twilio-failed-to-connect-call",
               "unknown-error",
+              "vonage-disconnected",
+              "vonage-failed-to-connect-call",
               "assistant-ended-call",
               "assistant-said-end-call-phrase",
               "assistant-forwarded-call",
@@ -3020,9 +3319,11 @@
               "customer-did-not-give-microphone-permission",
               "exceeded-max-duration",
               "manually-canceled",
+              "phone-call-provider-closed-websocket",
               "pipeline-error-custom-llm-llm-failed",
               "silence-timed-out",
-              "voicemail"
+              "voicemail",
+              "vonage-rejected"
             ]
           },
           "maxDurationSeconds": {
@@ -3089,13 +3390,17 @@
             "type": "array",
             "items": { "type": "object" }
           },
-          "twilioCallSid": {
+          "phoneCallProviderId": {
             "type": "string",
-            "description": "This is the callSid of the phone call.\n\nOnly relevant for `outboundPhoneCall` and `inboundPhoneCall` type."
+            "description": "The ID of the call as provided by the phone number service. callSid in Twilio. conversationUuid in Vonage.\n\nOnly relevant for `outboundPhoneCall` and `inboundPhoneCall` type."
           },
           "webCallUrl": {
             "type": "string",
             "description": "This is the URL of the call that the assistant will join.\n\nOnly relevant for `webCall` type."
+          },
+          "webCallSipUri": {
+            "type": "string",
+            "description": "This is the SIP URI of the call that the assistant will join.\n\nOnly relevant for `webCall` type."
           },
           "assistantId": {
             "type": "string",
@@ -3182,6 +3487,10 @@
           "assistant": {
             "description": "This is the assistant that will be used for the call. To use an existing assistant, use `assistantId` instead.",
             "allOf": [{ "$ref": "#/components/schemas/CreateAssistantDTO" }]
+          },
+          "sipEnabled": {
+            "type": "boolean",
+            "description": "This will expose SIP URI you can use to connect to the call. Disabled by default."
           },
           "metadata": {
             "type": "object",
@@ -3661,6 +3970,90 @@
           "updatedAt"
         ]
       },
+      "GroqCredential": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["groq"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
+          "id": {
+            "type": "string",
+            "description": "This is the unique identifier for the credential."
+          },
+          "orgId": {
+            "type": "string",
+            "description": "This is the unique identifier for the org that this credential belongs to."
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "This is the ISO 8601 date-time string of when the credential was created."
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "This is the ISO 8601 date-time string of when the assistant was last updated."
+          }
+        },
+        "required": [
+          "provider",
+          "apiKey",
+          "id",
+          "orgId",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "VonageCredential": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["vonage"] },
+          "apiSecret": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
+          "id": {
+            "type": "string",
+            "description": "This is the unique identifier for the credential."
+          },
+          "orgId": {
+            "type": "string",
+            "description": "This is the unique identifier for the org that this credential belongs to."
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "This is the ISO 8601 date-time string of when the credential was created."
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "This is the ISO 8601 date-time string of when the assistant was last updated."
+          },
+          "vonageApplicationId": {
+            "type": "string",
+            "description": "This is the Vonage Application ID for the credential.\n\nOnly relevant for Vonage credentials."
+          },
+          "vonageApplicationPrivateKey": {
+            "type": "string",
+            "description": "This is the Vonage Application Private Key for the credential.\n\nOnly relevant for Vonage credentials."
+          },
+          "apiKey": { "type": "string" }
+        },
+        "required": [
+          "provider",
+          "apiSecret",
+          "id",
+          "orgId",
+          "createdAt",
+          "updatedAt",
+          "vonageApplicationId",
+          "vonageApplicationPrivateKey",
+          "apiKey"
+        ]
+      },
       "CreateTwilioCredentialDTO": {
         "type": "object",
         "properties": {
@@ -3805,6 +4198,29 @@
           }
         },
         "required": ["provider", "apiKey"]
+      },
+      "CreateGroqCredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["groq"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
+        },
+        "required": ["provider", "apiKey"]
+      },
+      "CreateVonageCredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["vonage"] },
+          "apiSecret": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
+          "apiKey": { "type": "string" }
+        },
+        "required": ["provider", "apiSecret", "apiKey"]
       },
       "UpdateTwilioCredentialDTO": {
         "type": "object",
@@ -3951,6 +4367,29 @@
         },
         "required": ["provider", "apiKey"]
       },
+      "UpdateGroqCredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["groq"] },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
+        },
+        "required": ["provider", "apiKey"]
+      },
+      "UpdateVonageCredentialDTO": {
+        "type": "object",
+        "properties": {
+          "provider": { "type": "string", "enum": ["vonage"] },
+          "apiSecret": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
+          "apiKey": { "type": "string" }
+        },
+        "required": ["provider", "apiSecret", "apiKey"]
+      },
       "BuyPhoneNumberDTO": {
         "type": "object",
         "properties": {
@@ -4018,6 +4457,10 @@
             "type": "string",
             "description": "This is the Twilio Auth Token for the phone number.\n\nThis is for numbers not bought on Vapi."
           },
+          "credentialId": {
+            "type": "string",
+            "description": "This is the credential that will be used to handle this phone number.\n\nThis is for numbers not bought on Vapi."
+          },
           "name": {
             "type": "string",
             "description": "This is the name of the phone number. This is just for your own reference.",
@@ -4029,6 +4472,29 @@
           }
         },
         "required": ["id", "orgId", "createdAt", "updatedAt", "number"]
+      },
+      "ImportVonagePhoneNumberDTO": {
+        "type": "object",
+        "properties": {
+          "vonagePhoneNumber": {
+            "type": "string",
+            "description": "These are the digits of the phone number you own on your Vonage."
+          },
+          "credentialId": {
+            "type": "string",
+            "description": "This is the credential that will be used to handle this phone number.\n\nYou can add the Vonage credentials in the Provider Keys page on the dashboard to get the credentialId."
+          },
+          "name": {
+            "type": "string",
+            "description": "This is the name of the phone number. This is just for your own reference.",
+            "maxLength": 40
+          },
+          "assistantId": {
+            "type": "string",
+            "description": "This is the assistant that will be used for incoming calls to this phone number.\n\nIf this is not set, then the phone number will not handle incoming calls."
+          }
+        },
+        "required": ["vonagePhoneNumber", "credentialId"]
       },
       "UpdatePhoneNumberDTO": {
         "type": "object",
