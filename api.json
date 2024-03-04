@@ -2666,7 +2666,7 @@
           },
           "numWordsToInterruptAssistant": {
             "type": "number",
-            "description": "The number of words to wait for before interrupting the assistant. Words like \"stop\", \"actually\", \"no\", etc. will always interrupt immediately regardless of this value. Words like \"okay\", \"yeah\", \"right\" will never interrupt. Defaults to 1.",
+            "description": "The number of words to wait for before interrupting the assistant. Words like \"stop\", \"actually\", \"no\", etc. will always interrupt immediately regardless of this value. Words like \"okay\", \"yeah\", \"right\" will never interrupt. Defaults to 2.",
             "minimum": 1,
             "maximum": 10,
             "example": 2
@@ -2916,7 +2916,7 @@
           },
           "numWordsToInterruptAssistant": {
             "type": "number",
-            "description": "The number of words to wait for before interrupting the assistant. Words like \"stop\", \"actually\", \"no\", etc. will always interrupt immediately regardless of this value. Words like \"okay\", \"yeah\", \"right\" will never interrupt. Defaults to 1.",
+            "description": "The number of words to wait for before interrupting the assistant. Words like \"stop\", \"actually\", \"no\", etc. will always interrupt immediately regardless of this value. Words like \"okay\", \"yeah\", \"right\" will never interrupt. Defaults to 2.",
             "minimum": 1,
             "maximum": 10,
             "example": 2
@@ -3185,7 +3185,7 @@
           },
           "numWordsToInterruptAssistant": {
             "type": "number",
-            "description": "The number of words to wait for before interrupting the assistant. Words like \"stop\", \"actually\", \"no\", etc. will always interrupt immediately regardless of this value. Words like \"okay\", \"yeah\", \"right\" will never interrupt. Defaults to 1.",
+            "description": "The number of words to wait for before interrupting the assistant. Words like \"stop\", \"actually\", \"no\", etc. will always interrupt immediately regardless of this value. Words like \"okay\", \"yeah\", \"right\" will never interrupt. Defaults to 2.",
             "minimum": 1,
             "maximum": 10,
             "example": 2
