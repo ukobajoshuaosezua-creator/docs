@@ -1874,6 +1874,10 @@
             "type": "string",
             "description": "These is the URL we'll use for the OpenAI client's `baseURL`. Ex. https://openrouter.ai/api/v1"
           },
+          "urlRequestMetadataEnabled": {
+            "type": "boolean",
+            "description": "This sets whether the call object is sent in requests to the custom provider. Default is true."
+          },
           "model": {
             "type": "string",
             "description": "The key of the model from the custom provider. Ex. cognitivecomputations/dolphin-mixtral-8x7b"
@@ -1896,7 +1900,7 @@
             "maximum": 1000
           }
         },
-        "required": ["provider", "url", "model"]
+        "required": ["provider", "url", "urlRequestMetadataEnabled", "model"]
       },
       "GroqModel": {
         "type": "object",
@@ -2460,6 +2464,14 @@
         },
         "required": ["provider", "voiceId"]
       },
+      "ForwardingPhoneNumber": {
+        "type": "object",
+        "properties": {
+          "number": { "type": "string" },
+          "message": { "type": "string" }
+        },
+        "required": ["number"]
+      },
       "CreateAssistantDTO": {
         "type": "object",
         "properties": {
@@ -2652,6 +2664,13 @@
             "maximum": 3,
             "example": 0.1
           },
+          "numWordsToInterruptAssistant": {
+            "type": "number",
+            "description": "The number of words to wait for before interrupting the assistant. Words like \"stop\", \"actually\", \"no\", etc. will always interrupt immediately regardless of this value. Words like \"okay\", \"yeah\", \"right\" will never interrupt. Defaults to 1.",
+            "minimum": 1,
+            "maximum": 10,
+            "example": 2
+          },
           "maxDurationSeconds": {
             "type": "number",
             "description": "This is the maximum number of seconds that the call will last. When the call reaches this duration, it will be ended.",
@@ -2667,7 +2686,7 @@
           "forwardingPhoneNumbers": {
             "description": "You can provide a set of phone numbers to forward to. You'll want to tell the assistant when to use each of these numbers in the system prompt.",
             "type": "array",
-            "items": { "type": "string", "maxLength": 25, "minLength": 1 }
+            "items": { "$ref": "#/components/schemas/ForwardingPhoneNumber" }
           },
           "firstMessage": {
             "type": "string",
@@ -2895,6 +2914,13 @@
             "maximum": 3,
             "example": 0.1
           },
+          "numWordsToInterruptAssistant": {
+            "type": "number",
+            "description": "The number of words to wait for before interrupting the assistant. Words like \"stop\", \"actually\", \"no\", etc. will always interrupt immediately regardless of this value. Words like \"okay\", \"yeah\", \"right\" will never interrupt. Defaults to 1.",
+            "minimum": 1,
+            "maximum": 10,
+            "example": 2
+          },
           "maxDurationSeconds": {
             "type": "number",
             "description": "This is the maximum number of seconds that the call will last. When the call reaches this duration, it will be ended.",
@@ -2910,7 +2936,7 @@
           "forwardingPhoneNumbers": {
             "description": "You can provide a set of phone numbers to forward to. You'll want to tell the assistant when to use each of these numbers in the system prompt.",
             "type": "array",
-            "items": { "type": "string", "maxLength": 25, "minLength": 1 }
+            "items": { "$ref": "#/components/schemas/ForwardingPhoneNumber" }
           },
           "firstMessage": {
             "type": "string",
@@ -3157,6 +3183,13 @@
             "maximum": 3,
             "example": 0.1
           },
+          "numWordsToInterruptAssistant": {
+            "type": "number",
+            "description": "The number of words to wait for before interrupting the assistant. Words like \"stop\", \"actually\", \"no\", etc. will always interrupt immediately regardless of this value. Words like \"okay\", \"yeah\", \"right\" will never interrupt. Defaults to 1.",
+            "minimum": 1,
+            "maximum": 10,
+            "example": 2
+          },
           "maxDurationSeconds": {
             "type": "number",
             "description": "This is the maximum number of seconds that the call will last. When the call reaches this duration, it will be ended.",
@@ -3172,7 +3205,7 @@
           "forwardingPhoneNumbers": {
             "description": "You can provide a set of phone numbers to forward to. You'll want to tell the assistant when to use each of these numbers in the system prompt.",
             "type": "array",
-            "items": { "type": "string", "maxLength": 25, "minLength": 1 }
+            "items": { "$ref": "#/components/schemas/ForwardingPhoneNumber" }
           },
           "firstMessage": {
             "type": "string",
@@ -3401,6 +3434,10 @@
           "webCallSipUri": {
             "type": "string",
             "description": "This is the SIP URI of the call that the assistant will join.\n\nOnly relevant for `webCall` type."
+          },
+          "forwardedPhoneNumber": {
+            "type": "string",
+            "description": "This is the phone number that the call was forwarded to."
           },
           "assistantId": {
             "type": "string",
