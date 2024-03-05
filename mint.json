@@ -133,12 +133,6 @@
     "suggestEdit": true,
     "raiseIssue": true
   },
-  "redirects": [
-    {
-      "source": "/",
-      "destination": "https://vapi.ai"
-    }
-  ],
   "footerSocials": {
     "github": "https://github.com/vapiai",
     "twitter": "https://twitter.com/vapi_ai",
