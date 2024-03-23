@@ -1467,6 +1467,14 @@
         "summary": "List Metrics",
         "parameters": [
           {
+            "name": "timezone",
+            "required": false,
+            "in": "query",
+            "example": "PST",
+            "description": "Convert date & and time to provided timezone. https://popsql.com/learn-sql/postgresql/how-to-convert-utc-to-local-time-zone-in-postgresql",
+            "schema": { "type": "string" }
+          },
+          {
             "name": "rangeStart",
             "required": false,
             "in": "query",
@@ -1495,6 +1503,99 @@
           }
         },
         "tags": ["Metrics"],
+        "security": [{ "bearer": [] }]
+      }
+    },
+    "/voice-library/{provider}": {
+      "get": {
+        "operationId": "VoiceLibraryController_voiceGetByProvider",
+        "summary": "Get voices in Voice Library by Providers",
+        "parameters": [
+          {
+            "name": "provider",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "enum": [
+                "11labs",
+                "playht",
+                "rime-ai",
+                "deepgram",
+                "openai",
+                "azure",
+                "lmnt",
+                "neets"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/VoiceLibrary" }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Voice Library"],
+        "security": [{ "bearer": [] }]
+      }
+    },
+    "/voice-library/sync/{provider}": {
+      "post": {
+        "operationId": "VoiceLibraryController_voiceLibrarySyncByProvider",
+        "summary": "List Preset Voices by Providers",
+        "parameters": [
+          {
+            "name": "provider",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "enum": [
+                "11labs",
+                "playht",
+                "rime-ai",
+                "deepgram",
+                "openai",
+                "azure",
+                "lmnt",
+                "neets"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/VoiceLibrary" }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/VoiceLibrary" }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Voice Library"],
         "security": [{ "bearer": [] }]
       }
     }
@@ -1726,6 +1827,14 @@
             "allOf": [
               { "$ref": "#/components/schemas/OpenAIFunctionParameters" }
             ]
+          },
+          "serverUrl": {
+            "type": "string",
+            "description": "This is the URL Vapi will communicate with via HTTP GET and POST Requests. This is used for retrieving context, function calling, and end-of-call reports.\n\nAll requests will be sent with the call object among other things relevant to that message. You can find more details in the Server URL documentation.\n\nThis overrides the serverUrl set on the org and the phoneNumber. Order of precedence: function.serverUrl > assistant.serverUrl > phoneNumber.serverUrl > org.serverUrl"
+          },
+          "serverUrlSecret": {
+            "type": "string",
+            "description": "This is the secret you can set that Vapi will send with every request to your server. Will be sent as a header called x-vapi-secret.\n\nSame precendence logic as serverUrl."
           }
         },
         "required": ["name"]
@@ -1985,7 +2094,11 @@
           "model": {
             "type": "string",
             "description": "This is the Anthropic/Claude models that will be used.",
-            "enum": ["claude-3-opus-20240229", "claude-3-sonnet-20240229"]
+            "enum": [
+              "claude-3-opus-20240229",
+              "claude-3-sonnet-20240229",
+              "claude-3-haiku-20240307"
+            ]
           },
           "provider": { "type": "string", "enum": ["anthropic"] },
           "temperature": {
@@ -2278,7 +2391,7 @@
           "optimizeStreamingLatency": {
             "type": "number",
             "description": "Defines the optimize streaming latency for voice settings.",
-            "minimum": 1,
+            "minimum": 0,
             "maximum": 4,
             "example": 4
           },
@@ -2402,7 +2515,7 @@
           "speed": {
             "type": "number",
             "description": "This is the speed multiplier that will be used.",
-            "minimum": 0,
+            "minimum": 0.1,
             "maximum": 5,
             "example": null
           },
@@ -2540,7 +2653,7 @@
           "speed": {
             "type": "number",
             "description": "This is the speed multiplier that will be used.",
-            "minimum": 0,
+            "minimum": 0.1,
             "example": null
           }
         },
@@ -2594,6 +2707,12 @@
               },
               { "type": "string", "title": "Azure Voice ID" }
             ]
+          },
+          "speed": {
+            "type": "number",
+            "description": "This is the speed multiplier that will be used.",
+            "minimum": 0.5,
+            "maximum": 2
           }
         },
         "required": ["provider", "voiceId"]
@@ -2932,7 +3051,7 @@
           },
           "serverUrl": {
             "type": "string",
-            "description": "This is the URL Vapi will communicate with via HTTP GET and POST Requests. This is used for retrieving context, function calling, and end-of-call reports.\n\nAll requests will be sent with the call object among other things relevant to that message. You can find more details in the Server URL documentation.\n\nThis overrides the serverUrl set on the org and the phoneNumber. Order of precedence: assistant.serverUrl > phoneNumber.serverUrl > org.serverUrl"
+            "description": "This is the URL Vapi will communicate with via HTTP GET and POST Requests. This is used for retrieving context, function calling, and end-of-call reports.\n\nAll requests will be sent with the call object among other things relevant to that message. You can find more details in the Server URL documentation.\n\nThis overrides the serverUrl set on the org and the phoneNumber. Order of precedence: function.serverUrl > assistant.serverUrl > phoneNumber.serverUrl > org.serverUrl"
           },
           "serverUrlSecret": {
             "type": "string",
@@ -3205,7 +3324,7 @@
           },
           "serverUrl": {
             "type": "string",
-            "description": "This is the URL Vapi will communicate with via HTTP GET and POST Requests. This is used for retrieving context, function calling, and end-of-call reports.\n\nAll requests will be sent with the call object among other things relevant to that message. You can find more details in the Server URL documentation.\n\nThis overrides the serverUrl set on the org and the phoneNumber. Order of precedence: assistant.serverUrl > phoneNumber.serverUrl > org.serverUrl"
+            "description": "This is the URL Vapi will communicate with via HTTP GET and POST Requests. This is used for retrieving context, function calling, and end-of-call reports.\n\nAll requests will be sent with the call object among other things relevant to that message. You can find more details in the Server URL documentation.\n\nThis overrides the serverUrl set on the org and the phoneNumber. Order of precedence: function.serverUrl > assistant.serverUrl > phoneNumber.serverUrl > org.serverUrl"
           },
           "serverUrlSecret": {
             "type": "string",
@@ -3497,7 +3616,7 @@
           },
           "serverUrl": {
             "type": "string",
-            "description": "This is the URL Vapi will communicate with via HTTP GET and POST Requests. This is used for retrieving context, function calling, and end-of-call reports.\n\nAll requests will be sent with the call object among other things relevant to that message. You can find more details in the Server URL documentation.\n\nThis overrides the serverUrl set on the org and the phoneNumber. Order of precedence: assistant.serverUrl > phoneNumber.serverUrl > org.serverUrl"
+            "description": "This is the URL Vapi will communicate with via HTTP GET and POST Requests. This is used for retrieving context, function calling, and end-of-call reports.\n\nAll requests will be sent with the call object among other things relevant to that message. You can find more details in the Server URL documentation.\n\nThis overrides the serverUrl set on the org and the phoneNumber. Order of precedence: function.serverUrl > assistant.serverUrl > phoneNumber.serverUrl > org.serverUrl"
           },
           "serverUrlSecret": {
             "type": "string",
@@ -3636,7 +3755,7 @@
           },
           "serverUrl": {
             "type": "string",
-            "description": "This is the server URL that will be used to handle this phone number.\n\nAll requests will be sent with the call object among other things relevant to that message. You can find more details in the Server URL documentation.\n\nThis overrides the serverUrl set on the org. Order of precedence: assistant.serverUrl > phoneNumber.serverUrl > org.serverUrl."
+            "description": "This is the server URL that will be used to handle this phone number.\n\nAll requests will be sent with the call object among other things relevant to that message. You can find more details in the Server URL documentation.\n\nThis overrides the serverUrl set on the org. Order of precedence: function.serverUrl > assistant.serverUrl > phoneNumber.serverUrl > org.serverUrl."
           },
           "serverUrlSecret": {
             "type": "string",
@@ -3701,6 +3820,7 @@
               "pipeline-error-azure-voice-failed",
               "pipeline-error-rime-ai-voice-failed",
               "pipeline-error-neets-voice-failed",
+              "pipeline-no-available-llm-model",
               "server-shutdown",
               "twilio-failed-to-connect-call",
               "unknown-error",
@@ -4895,7 +5015,7 @@
           },
           "serverUrl": {
             "type": "string",
-            "description": "This is the server URL that will be used to handle this phone number.\n\nAll requests will be sent with the call object among other things relevant to that message. You can find more details in the Server URL documentation.\n\nThis overrides the serverUrl set on the org. Order of precedence: assistant.serverUrl > phoneNumber.serverUrl > org.serverUrl."
+            "description": "This is the server URL that will be used to handle this phone number.\n\nAll requests will be sent with the call object among other things relevant to that message. You can find more details in the Server URL documentation.\n\nThis overrides the serverUrl set on the org. Order of precedence: function.serverUrl > assistant.serverUrl > phoneNumber.serverUrl > org.serverUrl."
           },
           "serverUrlSecret": {
             "type": "string",
@@ -4966,7 +5086,7 @@
           },
           "serverUrl": {
             "type": "string",
-            "description": "This is the server URL that will be used to handle this phone number.\n\nAll requests will be sent with the call object among other things relevant to that message. You can find more details in the Server URL documentation.\n\nThis overrides the serverUrl set on the org. Order of precedence: assistant.serverUrl > phoneNumber.serverUrl > org.serverUrl."
+            "description": "This is the server URL that will be used to handle this phone number.\n\nAll requests will be sent with the call object among other things relevant to that message. You can find more details in the Server URL documentation.\n\nThis overrides the serverUrl set on the org. Order of precedence: function.serverUrl > assistant.serverUrl > phoneNumber.serverUrl > org.serverUrl."
           },
           "serverUrlSecret": {
             "type": "string",
@@ -4998,7 +5118,7 @@
           },
           "serverUrl": {
             "type": "string",
-            "description": "This is the server URL that will be used to handle this phone number.\n\nAll requests will be sent with the call object among other things relevant to that message. You can find more details in the Server URL documentation.\n\nThis overrides the serverUrl set on the org. Order of precedence: assistant.serverUrl > phoneNumber.serverUrl > org.serverUrl."
+            "description": "This is the server URL that will be used to handle this phone number.\n\nAll requests will be sent with the call object among other things relevant to that message. You can find more details in the Server URL documentation.\n\nThis overrides the serverUrl set on the org. Order of precedence: function.serverUrl > assistant.serverUrl > phoneNumber.serverUrl > org.serverUrl."
           },
           "serverUrlSecret": {
             "type": "string",
@@ -5022,7 +5142,7 @@
           },
           "serverUrl": {
             "type": "string",
-            "description": "This is the server URL that will be used to handle this phone number.\n\nAll requests will be sent with the call object among other things relevant to that message. You can find more details in the Server URL documentation.\n\nThis overrides the serverUrl set on the org. Order of precedence: assistant.serverUrl > phoneNumber.serverUrl > org.serverUrl."
+            "description": "This is the server URL that will be used to handle this phone number.\n\nAll requests will be sent with the call object among other things relevant to that message. You can find more details in the Server URL documentation.\n\nThis overrides the serverUrl set on the org. Order of precedence: function.serverUrl > assistant.serverUrl > phoneNumber.serverUrl > org.serverUrl."
           },
           "serverUrlSecret": {
             "type": "string",
@@ -5063,6 +5183,101 @@
           "callMinutesAverageDailyBreakdown",
           "callCount",
           "callCountDailyBreakdown"
+        ]
+      },
+      "VoiceLibrary": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "object",
+            "description": "This is the voice provider that will be used.",
+            "enum": [
+              "11labs",
+              "playht",
+              "rime-ai",
+              "deepgram",
+              "openai",
+              "azure",
+              "lmnt",
+              "neets"
+            ]
+          },
+          "providerId": {
+            "type": "string",
+            "description": "The ID of the voice provided by the provider."
+          },
+          "slug": {
+            "type": "string",
+            "description": "The unique slug of the voice."
+          },
+          "name": { "type": "string", "description": "The name of the voice." },
+          "language": {
+            "type": "string",
+            "description": "The language of the voice."
+          },
+          "languageCode": {
+            "type": "string",
+            "description": "The language code of the voice."
+          },
+          "model": {
+            "type": "string",
+            "description": "The model of the voice."
+          },
+          "supportedModels": {
+            "type": "string",
+            "description": "The supported models of the voice."
+          },
+          "gender": {
+            "type": "string",
+            "description": "The gender of the voice.",
+            "enum": ["male", "female"]
+          },
+          "accent": {
+            "type": "string",
+            "description": "The accent of the voice."
+          },
+          "previewUrl": {
+            "type": "string",
+            "description": "The preview URL of the voice."
+          },
+          "credentialId": {
+            "type": "string",
+            "description": "The credential ID of the voice."
+          },
+          "isDeleted": {
+            "type": "boolean",
+            "description": "The deletion status of the voice."
+          },
+          "id": {
+            "type": "string",
+            "description": "The unique identifier for the voice library."
+          },
+          "orgId": {
+            "type": "string",
+            "description": "The unique identifier for the organization that this voice library belongs to."
+          },
+          "isPublic": {
+            "type": "boolean",
+            "description": "The Public voice is shared accross all the organizations."
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "The ISO 8601 date-time string of when the voice library was created."
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "The ISO 8601 date-time string of when the voice library was last updated."
+          }
+        },
+        "required": [
+          "isDeleted",
+          "id",
+          "orgId",
+          "isPublic",
+          "createdAt",
+          "updatedAt"
         ]
       }
     }
