@@ -372,33 +372,6 @@
         "security": [{ "bearer": [] }]
       }
     },
-    "/call/web": {
-      "post": {
-        "operationId": "CallController_createWebCall",
-        "summary": "Create Web Call",
-        "parameters": [],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": { "$ref": "#/components/schemas/CreateWebCallDTO" }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": { "$ref": "#/components/schemas/Call" }
-              }
-            }
-          }
-        },
-        "tags": ["Calls"],
-        "security": [{ "bearer": [] }]
-      }
-    },
     "/credential": {
       "post": {
         "operationId": "CredentialController_create",
@@ -4016,27 +3989,6 @@
             "allOf": [
               { "$ref": "#/components/schemas/ImportTwilioPhoneNumberDTO" }
             ]
-          },
-          "metadata": {
-            "type": "object",
-            "description": "This is the metadata associated with the call."
-          }
-        }
-      },
-      "CreateWebCallDTO": {
-        "type": "object",
-        "properties": {
-          "assistantId": {
-            "type": "string",
-            "description": "This is the assistant that will be used for the call. To use a transient assistant, use `assistant` instead."
-          },
-          "assistant": {
-            "description": "This is the assistant that will be used for the call. To use an existing assistant, use `assistantId` instead.",
-            "allOf": [{ "$ref": "#/components/schemas/CreateAssistantDTO" }]
-          },
-          "sipEnabled": {
-            "type": "boolean",
-            "description": "This will expose SIP URI you can use to connect to the call. Disabled by default."
           },
           "metadata": {
             "type": "object",
