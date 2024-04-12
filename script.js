@@ -52,7 +52,7 @@ inkeepScript.addEventListener("load", function () {
         "What voices are supported?",
         "What languages are supported?",
         "How do I connect a custom LLM?",
-        "Can I use my Twilio account with Vapi?",
+        "How do I fetch the prompt dynamically?",
       ],
     },
   };
