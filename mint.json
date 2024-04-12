@@ -2,10 +2,11 @@
   "$schema": "https://mintlify.com/schema.json",
   "name": "Vapi",
   "logo": {
-    "dark": "/logo/dark.png",
-    "light": "/logo/light.png"
+    "dark": "/static/images/logo/logo-dark.png",
+    "light": "/static/images/logo/logo-light.png",
+    "href": "/"
   },
-  "favicon": "/favicon.png",
+  "favicon": "/static/images/favicon.png",
   "colors": {
     "primary": "#37AA9D",
     "light": "#5DFECA",
@@ -18,57 +19,79 @@
       "to": "#5DFECA"
     }
   },
+  "modeToggle": {
+    "default": "dark",
+    "isHidden": false
+  },
+
   "topbarLinks": [
     {
-      "name": "Pricing",
-      "url": "https://docs.vapi.ai/pricing"
+      "name": "Home",
+      "url": "https://vapi.ai"
     },
     {
-      "name": "Blog",
-      "url": "https://blog.vapi.ai"
+      "name": "Pricing",
+      "url": "/pricing"
+    },
+    {
+      "name": "Status",
+      "url": "https://status.vapi.ai"
     },
     {
       "name": "Support",
       "url": "mailto:support@vapi.ai"
-    },
-    {
-      "name": "Resources",
-      "url": "/resources"
     }
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
     "url": "https://dashboard.vapi.ai"
   },
+
   "tabs": [
     {
       "name": "API Reference",
       "url": "api-reference"
     }
   ],
-  "navigation": [
+  "anchors": [
     {
-      "group": "Overview",
-      "pages": [
-        "introduction",
-        "getting_started",
-        "resources",
-        "faq",
-        "pricing",
-        "dashboard",
-        "support",
-        "privacy_hipaa"
-      ]
+      "icon": "bolt",
+      "iconType": "regular",
+      "name": "Quickstart",
+      "url": "quickstart"
     },
     {
-      "group": "Examples",
+      "icon": "gauge",
+      "iconType": "regular",
+      "name": "Dashboard",
+      "url": "https://dashboard.vapi.ai"
+    },
+    {
+      "icon": "discord",
+      "iconType": "regular",
+      "name": "Community",
+      "url": "https://discord.gg/pUFNcf2WmH"
+    },
+    {
+      "icon": "github",
+      "iconType": "regular",
+      "name": "GitHub",
+      "url": "https://github.com/VapiAI"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Welcome",
+      "pages": ["introduction", "pricing", "support", "faq", "resources", "status"]
+    },
+    {
+      "group": "Get Started",
       "pages": [
-        "outbound_sales",
-        "technical_support",
-        "pizza_website",
-        "text_message",
-        "outbound_call_python",
-        "voice_widget"
+        "quickstart",
+        {
+          "group": "Quickstart Guides",
+          "pages": ["quickstart/dashboard"]
+        }
       ]
     },
     {
@@ -81,8 +104,8 @@
         {
           "group": "Advanced",
           "pages": [
-            "provider_keys",
-            "custom_llm",
+            "provider-keys",
+            "custom-llm",
             "custom_voice",
             "call_functions",
             "persistent_assistants"
@@ -91,12 +114,31 @@
       ]
     },
     {
-      "group": "Guides",
-      "pages": ["multilingual_support"]
+      "group": "Example Workflows",
+      "pages": [
+        "workflows/outbound-sales",
+        "workflows/inbound-support",
+        "pizza_website",
+        "text_message",
+        "outbound_call_python",
+        "voice_widget"
+      ]
     },
     {
-      "group": "Links",
-      "pages": ["privacy", "tos", "status"]
+      "group": "Guides",
+      "pages": ["multilingual_support", "privacy_hipaa"]
+    },
+    {
+      "group": "Platform",
+      "pages": ["platform/how-vapi-works"]
+    },
+    {
+      "group": "Knowledge",
+      "pages": ["glossary", "faq"]
+    },
+    {
+      "group": "Legal",
+      "pages": ["privacy", "tos"]
     },
     {
       "group": "",
@@ -132,7 +174,7 @@
       ]
     }
   ],
-  "openapi": "api.json",
+
   "feedback": {
     "thumbsRating": true,
     "suggestEdit": true,
@@ -143,5 +185,44 @@
     "twitter": "https://twitter.com/vapi_ai",
     "linkedin": "https://www.linkedin.com/company/vapi-ai",
     "website": "https://vapi.ai"
-  }
+  },
+
+  "integrations": {
+    "intercom": "z2m28kob"
+  },
+  "openapi": "api.json",
+
+  "search": {
+    "prompt": "Search or ask..."
+  },
+  "seo": {
+    "indexHiddenPages": true
+  },
+  "redirects": [
+    {
+      "source": "/getting_started",
+      "destination": "/quickstart/dashboard"
+    },
+    {
+      "source": "/dashboard",
+      "destination": "/quickstart/dashboard"
+    },
+
+    {
+      "source": "/provider_keys",
+      "destination": "/provider-keys"
+    },
+    {
+      "source": "/custom_llm",
+      "destination": "/custom-llm"
+    },
+    {
+      "source": "/outbound_sales",
+      "destination": "/workflows/outbound-sales"
+    },
+    {
+      "source": "/technical_support",
+      "destination": "/workflows/inbound-support"
+    }
+  ]
 }
