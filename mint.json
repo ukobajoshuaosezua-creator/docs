@@ -181,7 +181,6 @@
       ]
     }
   ],
-
   "feedback": {
     "thumbsRating": true,
     "suggestEdit": true,
@@ -193,7 +192,6 @@
     "linkedin": "https://www.linkedin.com/company/vapi-ai",
     "website": "https://vapi.ai"
   },
-
   "openapi": "api.json",
 
   "search": {

@@ -1,10 +1,13 @@
 "use client";
 
 // Get the Mintlify search containers, going to reuse them as the triggers for Inkeep
-const searchButtonContainerIds = ["search-bar-entry", "search-bar-entry-mobile"];
+const searchButtonContainerIds = [
+  "search-bar-entry",
+  "search-bar-entry-mobile",
+];
 
 // Clone and replace, needed to remove existing event listeners
-const clonedSearchButtonContainers = searchButtonContainerIds.map(id => {
+const clonedSearchButtonContainers = searchButtonContainerIds.map((id) => {
   const originalElement = document.getElementById(id);
   const clonedElement = originalElement.cloneNode(true);
 
@@ -25,31 +28,34 @@ inkeepScript.addEventListener("load", function () {
   // Customization settings
   const sharedConfig = {
     baseSettings: {
-        apiKey: "a58574ddc0e41c75990d1c0e890ad3c8725dc9e7c8ee3d3e",
-        integrationId: "clthv1rgg000sdjil26l2vg03",
-        organizationId: "org_SGvQFUfKzrYkf8z8",
-        primaryBrandColor: "#5DFECA"
+      apiKey: "a58574ddc0e41c75990d1c0e890ad3c8725dc9e7c8ee3d3e",
+      integrationId: "clthv1rgg000sdjil26l2vg03",
+      organizationId: "org_SGvQFUfKzrYkf8z8",
+      primaryBrandColor: "#5DFECA",
     },
     aiChatSettings: {
-        chatSubjectName: "Vapi",
-        botAvatarSrcUrl: "https://storage.googleapis.com/organization-image-assets/vapi-botAvatarSrcUrl-1709929183314.png",
-        botAvatarDarkSrcUrl: "https://storage.googleapis.com/organization-image-assets/vapi-botAvatarDarkSrcUrl-1709929110474.png",
-        getHelpCallToActions: [
-            {
-                name: "Contact Us",
-                url: "mailto:support@vapi.ai",
-                icon: {
-                    builtIn: "IoMail"
-                }
-            }
-        ],
-        quickQuestions: [
-            "How do I automatically reply to what someone says?",
-            "What voices are supported?",
-            "Can I use Twilio with Vapi?"
-        ]
-    }
-};
+      chatSubjectName: "Vapi",
+      botAvatarSrcUrl:
+        "https://storage.googleapis.com/organization-image-assets/vapi-botAvatarSrcUrl-1709929183314.png",
+      botAvatarDarkSrcUrl:
+        "https://storage.googleapis.com/organization-image-assets/vapi-botAvatarDarkSrcUrl-1709929110474.png",
+      getHelpCallToActions: [
+        {
+          name: "Contact Us",
+          url: "mailto:support@vapi.ai",
+          icon: {
+            builtIn: "IoMail",
+          },
+        },
+      ],
+      quickQuestions: [
+        "What voices are supported?",
+        "What languages are supported?",
+        "How do I connect a custom LLM?",
+        "Can I use my Twilio account with Vapi?",
+      ],
+    },
+  };
 
   // for syncing with dark mode
   const colorModeSettings = {
@@ -61,7 +67,7 @@ inkeepScript.addEventListener("load", function () {
   };
 
   // add the "Ask AI" pill chat button
-   Inkeep().embed({
+  Inkeep().embed({
     componentType: "ChatButton",
     colorModeSync: colorModeSettings,
     properties: sharedConfig,
@@ -85,7 +91,7 @@ inkeepScript.addEventListener("load", function () {
   });
 
   // When the Mintlify search bar clone is clicked, open the Inkeep search modal
-  clonedSearchButtonContainers.forEach(trigger => {
+  clonedSearchButtonContainers.forEach((trigger) => {
     trigger.addEventListener("click", function () {
       inkeepSearchModal.render({
         isOpen: true,
