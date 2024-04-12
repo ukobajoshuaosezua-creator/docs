@@ -82,7 +82,14 @@
   "navigation": [
     {
       "group": "Welcome",
-      "pages": ["introduction", "pricing", "support", "faq", "resources", "status"]
+      "pages": [
+        "introduction",
+        "pricing",
+        "support",
+        "faq",
+        "resources",
+        "status"
+      ]
     },
     {
       "group": "Get Started",
@@ -187,9 +194,6 @@
     "website": "https://vapi.ai"
   },
 
-  "integrations": {
-    "intercom": "z2m28kob"
-  },
   "openapi": "api.json",
 
   "search": {
