@@ -82,14 +82,7 @@
   "navigation": [
     {
       "group": "Welcome",
-      "pages": [
-        "introduction",
-        "pricing",
-        "support",
-        "faq",
-        "resources",
-        "status"
-      ]
+      "pages": ["introduction", "pricing", "support", "faq", "resources", "status"]
     },
     {
       "group": "Get Started",
@@ -142,6 +135,10 @@
     {
       "group": "Knowledge",
       "pages": ["glossary", "faq"]
+    },
+    {
+      "group": "Community",
+      "pages": ["community/videos"]
     },
     {
       "group": "Legal",
