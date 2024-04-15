@@ -114,7 +114,7 @@
       ]
     },
     {
-      "group": "Example Workflows",
+      "group": "Workflows",
       "pages": [
         "workflows/outbound-sales",
         "workflows/inbound-support",
@@ -125,12 +125,30 @@
       ]
     },
     {
-      "group": "Guides",
-      "pages": ["multilingual_support", "privacy_hipaa"]
-    },
-    {
-      "group": "Platform",
-      "pages": ["platform/how-vapi-works"]
+      "group": "Learn",
+      "pages": [
+        {
+          "group": "Privacy",
+          "pages": ["learn/privacy/hipaa"]
+        },
+        {
+          "group": "Multilingual Support",
+          "pages": ["learn/multilingual/introduction"]
+        },
+        {
+          "group": "Platform",
+          "pages": ["learn/platform/how-vapi-works"]
+        },
+        {
+          "group": "Billing",
+          "pages": [
+            "learn/billing/cost-routing",
+            "learn/billing/billing-limits",
+            "learn/billing/estimating-costs",
+            "learn/billing/examples"
+          ]
+        }
+      ]
     },
     {
       "group": "Knowledge",
@@ -142,7 +160,7 @@
     },
     {
       "group": "Legal",
-      "pages": ["privacy", "tos"]
+      "pages": ["privacy-policy", "tos"]
     },
     {
       "group": "",
@@ -186,8 +204,9 @@
   "footerSocials": {
     "github": "https://github.com/vapiai",
     "twitter": "https://twitter.com/vapi_ai",
-    "linkedin": "https://www.linkedin.com/company/vapi-ai",
-    "website": "https://vapi.ai"
+    "discord": "https://discord.gg/pUFNcf2WmH",
+    "website": "https://vapi.ai",
+    "linkedin": "https://www.linkedin.com/company/vapi-ai"
   },
   "openapi": "api.json",
 
@@ -222,6 +241,22 @@
     {
       "source": "/technical_support",
       "destination": "/workflows/inbound-support"
+    },
+    {
+      "source": "/platform/how-vapi-workst",
+      "destination": "/learn/platform/how-vapi-works"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy-policy"
+    },
+    {
+      "source": "/multilingual_support",
+      "destination": "/learn/multilingual/introduction"
+    },
+    {
+      "source": "/privacy_hipaa",
+      "destination": "/learn/privacy/hipaa"
     }
   ]
 }
