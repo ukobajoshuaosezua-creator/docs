@@ -1,3 +1,5 @@
+/* for a grid of videos */
+
 .video-grid {
   display: flex;
   flex-wrap: wrap;
