@@ -89,12 +89,18 @@
       "pages": ["pricing", "support", "faq", "resources", "status"]
     },
     {
-      "group": "Get Started",
+      "group": "Quickstart",
       "pages": [
         "quickstart",
         {
-          "group": "Quickstart Guides",
-          "pages": ["quickstart/dashboard"]
+          "group": "Guides",
+          "pages": [
+            "quickstart/dashboard",
+            {
+              "group": "Phone Calling",
+              "pages": ["quickstart/phone/inbound"]
+            }
+          ]
         }
       ]
     },
