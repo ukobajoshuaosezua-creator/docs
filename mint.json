@@ -219,13 +219,6 @@
       ]
     },
     {
-      "group": "Voice Library",
-      "pages": [
-        "api-reference/voice-library/get-voices-in-voice-library-by-providers",
-        "api-reference/voice-library/list-preset-voices-by-providers"
-      ]
-    },
-    {
       "group": "Metrics",
       "pages": ["api-reference/metrics/list-metrics"]
     },
