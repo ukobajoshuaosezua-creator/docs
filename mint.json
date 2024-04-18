@@ -193,7 +193,6 @@
         "api-reference/assistants/get-assistant",
         "api-reference/assistants/create-assistant",
         "api-reference/assistants/update-assistant",
-        "api-reference/assistants/replace-assistant",
         "api-reference/assistants/delete-assistant"
       ]
     },
