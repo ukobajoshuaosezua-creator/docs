@@ -6,12 +6,28 @@ description: "Quickstart with Vapi on the Web."
 
 import InstallWebSDK from "/snippets/sdks/web/install-web-sdk.mdx";
 import ImportWebSDK from "/snippets/sdks/web/import-web-sdk.mdx";
-import NoCodePrerequisites from "/snippets/quickstart/platform-specific/no-code-prerequisites.mdx";
+import NoCodePrerequisitesAccordion from "/snippets/quickstart/platform-specific/no-code-prerequisites.mdx";
 import AssistantSetupInboundAccordionGroup from "/snippets/quickstart/dashboard/assistant-setup-inbound.mdx";
+import { quickstartDemoLink } from "/snippets/quickstart/web/links.mdx";
 
 **Anywhere you can run clientside JavaScript, you can run Vapi.** All the way from file-by-file vanilla JavaScript, to writing complex component-based applications (w/ React + Next.js).
 
-<NoCodePrerequisites />
+<AccordionGroup>
+  <NoCodePrerequisitesAccordion />
+  <Accordion title="Follow-Along Live Demo" icon="browsers" iconType="regular">
+    <CardGroup cols={1}>
+      <Card
+        title="Skim Our Live React Demo (as you read)"
+        icon="arrow-up-right-from-square"
+        iconType="regular"
+        color="#f25130"
+        href={quickstartDemoLink}
+      >
+        As you follow this guide you can interact with a live demo to deepen your understanding.
+      </Card>
+    </CardGroup>
+  </Accordion>
+</AccordionGroup>
 
 ## Vapi’s Pizzeria
 
@@ -176,6 +192,18 @@ Let's look at each option we passed individually:
 
 To discover additional fields you can pass at call creation, see our [create assistant](/api-reference/assistants/create-assistant) API.
 
+<CardGroup cols={2}>
+  <Card
+    title="Try Our Live Demo"
+    icon="arrow-up-right-from-square"
+    iconType="regular"
+    color="#f25130"
+    href={quickstartDemoLink}
+  >
+    Try eveything you've learned so far with real code in our live demo.
+  </Card>
+</CardGroup>
+
 ## Creating An Assistant Separately
 
 Now that we know how to start an assistant call inline, lets look at separating the process of assistant creation & calling into **2 steps**.
@@ -226,5 +254,14 @@ This will have the same effect as what we did inline before, we just broke up th
 <CardGroup cols={2}>
   <Card title="The Web SDK" icon="window" iconType="duotone" href="/sdk/web">
     Explore the full Vapi Web SDK.
+  </Card>
+  <Card
+    title="Live Demo"
+    icon="arrow-up-right-from-square"
+    iconType="regular"
+    color="#f25130"
+    href={quickstartDemoLink}
+  >
+    Try eveything you've learned so far with real code in our live demo.
   </Card>
 </CardGroup>
