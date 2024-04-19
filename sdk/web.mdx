@@ -123,7 +123,7 @@ You can listen on the `vapi` instance for events. These events allow you to reac
 
 #### `speech-start`
 
-Occurs when Vapi detects the user has started speaking.
+Occurs when your AI assistant has started speaking.
 
 ```javascript
 vapi.on("speech-start", () => {
@@ -133,7 +133,7 @@ vapi.on("speech-start", () => {
 
 #### `speech-end`
 
-Occurs when Vapi detects the user has stopped speaking.
+Occurs when your AI assistant has finished speaking.
 
 ```javascript
 vapi.on("speech-end", () => {
@@ -163,7 +163,7 @@ vapi.on("call-end", () => {
 
 #### `volume-level`
 
-Realtime volume level updates for the assistant.
+Realtime volume level updates for the assistant. A floating-point number between `0` & `1`.
 
 ```javascript
 vapi.on("volume-level", (volume) => {
