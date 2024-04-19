@@ -1,0 +1,215 @@
+---
+title: "Web SDK"
+sidebarTitle: "Web"
+description: "Integrate Vapi into your web application."
+---
+
+import InstallWebSDK from "/snippets/sdks/web/install-web-sdk.mdx";
+import ImportWebSDK from "/snippets/sdks/web/import-web-sdk.mdx";
+
+The Vapi Web SDK provides web developers a simple API for interacting with the realtime call functionality of Vapi.
+
+### Installation
+
+<InstallWebSDK />
+
+### Importing
+
+<ImportWebSDK />
+
+---
+
+## Usage
+
+### `.start()`
+
+You can start a web call by calling the `.start()` function. The `start` function can either accept:
+
+1. **a string**, representing an assistant ID
+2. **an object**, representing a set of assistant configs (see [Create Assistant](/api-reference/assistants/create-assistant))
+
+#### Passing an Assistant ID
+
+If you already have an assistant that you created (either via [the Dashboard](/quickstart/dashboard) or [the API](/api-reference/assistants/create-assistant)), you can start the call with the assistant's ID:
+
+```javascript
+vapi.start("79f3XXXX-XXXX-XXXX-XXXX-XXXXXXXXce48");
+```
+
+#### Passing Assistant Configuration Inline
+
+You can also specify configuration for your assistant inline.
+
+This will not create a [persistent assistant](/persistent_assistants) that is saved to your account, rather it will create an ephemeral assistant only used for this call specifically.
+
+You can pass the assistant's configuration in an object (see [Create Assistant](/api-reference/assistants/create-assistant) for a list of acceptable fields):
+
+```javascript
+vapi.start({
+  transcriber: {
+    provider: "deepgram",
+    model: "nova-2",
+    language: "en-US",
+  },
+  model: {
+    provider: "openai",
+    model: "gpt-3.5-turbo",
+    messages: [
+      {
+        role: "system",
+        content: "You are a helpful assistant.",
+      },
+    ],
+  },
+  voice: {
+    provider: "playht",
+    voiceId: "jennifer",
+  },
+  name: "My Inline Assistant",
+  ...
+});
+```
+
+### `.send()`
+
+During the call, you can send intermediate messages to the assistant (like [silent text messages](/text_message)).
+
+- `type` will always be `"add-message"`
+- the `message` field will have 2 items, `role` and `content`.
+
+```javascript
+vapi.send({
+  type: "add-message",
+  message: {
+    role: "system",
+    content: "The user has pressed the button, say peanuts",
+  },
+});
+```
+
+<Info>Possible values for role are `system`, `user`, `assistant`, `tool` or `function`.</Info>
+
+### `.stop()`
+
+You can stop the call session by calling the `stop` method:
+
+```javascript
+vapi.stop();
+```
+
+This will stop the recording and close the connection.
+
+### `.isMuted()`
+
+Check if the user's microphone is muted:
+
+```javascript
+vapi.isMuted();
+```
+
+### `.setMuted(muted: boolean)`
+
+You can mute & unmute the user's microphone with `setMuted`:
+
+```javascript
+vapi.isMuted(); // false
+vapi.setMuted(true);
+vapi.isMuted(); // true
+```
+
+## Events
+
+You can listen on the `vapi` instance for events. These events allow you to react to changes in the state of the call or user speech.
+
+#### `speech-start`
+
+Occurs when Vapi detects the user has started speaking.
+
+```javascript
+vapi.on("speech-start", () => {
+  console.log("User speech has started.");
+});
+```
+
+#### `speech-end`
+
+Occurs when Vapi detects the user has stopped speaking.
+
+```javascript
+vapi.on("speech-end", () => {
+  console.log("User speech has ended.");
+});
+```
+
+#### `call-start`
+
+Occurs when the call has connected & begins.
+
+```javascript
+vapi.on("call-start", () => {
+  console.log("Call has started.");
+});
+```
+
+#### `call-end`
+
+Occurs when the call has disconnected & ended.
+
+```javascript
+vapi.on("call-end", () => {
+  console.log("Call has ended.");
+});
+```
+
+#### `volume-level`
+
+Realtime volume level updates for the assistant.
+
+```javascript
+vapi.on("volume-level", (volume) => {
+  console.log(`Assistant volume level: ${volume}`);
+});
+```
+
+#### `message`
+
+Various assistant messages can be sent back to the client during the call. These are the same messages that your [server](/server_url) would receive.
+
+At [assistant creation time](/api-reference/assistants/create-assistant), you can specify on the `clientMessages` field the set of messages you'd like the assistant to send back to the client.
+
+Those messages will come back via the `message` event:
+
+```javascript
+// Various assistant messages can come back (like function calls, transcripts, etc)
+vapi.on("message", (message) => {
+  console.log(message);
+});
+```
+
+#### `error`
+
+Handle errors that occur during the call.
+
+```javascript
+vapi.on("error", (e) => {
+  console.error(e);
+});
+```
+
+---
+
+## Resources
+
+<CardGroup cols={2}>
+  <Card title="NPM" icon="npm" iconType="solid" href="https://www.npmjs.com/package/@vapi-ai/web">
+    View the package on NPM.
+  </Card>
+  <Card title="GitHub" icon="github" iconType="solid" href="https://github.com/VapiAI/web">
+    View the package on GitHub.
+  </Card>
+</CardGroup>
+<CardGroup cols={1}>
+  <Card title="Try Our Quickstart" icon="bolt" iconType="solid" href="/quickstart/web">
+    Get up and running quickly with the Web SDK.
+  </Card>
+</CardGroup>

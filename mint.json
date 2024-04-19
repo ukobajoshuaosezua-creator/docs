@@ -95,18 +95,23 @@
       "pages": ["pricing", "support", "faq", "resources", "status"]
     },
     {
-      "group": "Quickstart",
+      "group": "Get Started",
       "pages": [
         "quickstart",
         {
-          "group": "Guides",
+          "group": "Quickstart Guides",
           "pages": [
             "quickstart/dashboard",
             {
               "group": "Phone Calling",
               "pages": ["quickstart/phone/inbound", "quickstart/phone/outbound"]
-            }
+            },
+            "quickstart/web"
           ]
+        },
+        {
+          "group": "SDKs",
+          "pages": ["sdks", "sdk/web"]
         }
       ]
     },
@@ -115,7 +120,6 @@
       "pages": [
         "assistants",
         "phone_calling",
-        "clients",
         "server_url",
         {
           "group": "Advanced",
@@ -145,23 +149,23 @@
       "pages": [
         {
           "group": "Privacy",
-          "pages": ["learn/privacy/hipaa"]
+          "pages": ["privacy/hipaa"]
         },
         {
           "group": "Multilingual Support",
-          "pages": ["learn/multilingual/introduction"]
+          "pages": ["multilingual/introduction"]
         },
         {
           "group": "Platform",
-          "pages": ["learn/platform/how-vapi-works"]
+          "pages": ["platform/how-vapi-works"]
         },
         {
           "group": "Billing",
           "pages": [
-            "learn/billing/cost-routing",
-            "learn/billing/billing-limits",
-            "learn/billing/estimating-costs",
-            "learn/billing/examples"
+            "billing/cost-routing",
+            "billing/billing-limits",
+            "billing/estimating-costs",
+            "billing/examples"
           ]
         }
       ]
@@ -273,20 +277,20 @@
       "destination": "/workflows/inbound-support"
     },
     {
-      "source": "/platform/how-vapi-workst",
-      "destination": "/learn/platform/how-vapi-works"
-    },
-    {
       "source": "/privacy",
       "destination": "/privacy-policy"
     },
     {
       "source": "/multilingual_support",
-      "destination": "/learn/multilingual/introduction"
+      "destination": "/multilingual/introduction"
     },
     {
       "source": "/privacy_hipaa",
-      "destination": "/learn/privacy/hipaa"
+      "destination": "/privacy/hipaa"
+    },
+    {
+      "source": "/clients",
+      "destination": "/sdks"
     }
   ],
 

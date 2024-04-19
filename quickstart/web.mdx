@@ -1,9 +1,218 @@
 ---
 title: "Web"
 sidebarTitle: "Web"
-description: "Quickstart with the Vapi web SDK."
+description: "Quickstart with Vapi on the Web."
 ---
 
-The Vapi web dashboard uses the Vapi web SDK underneath — so this guide will peel back the layers a bit more to make it more clear how you can programmatically talk to Vapi yourself from a web application.
+import InstallWebSDK from "/snippets/sdks/web/install-web-sdk.mdx";
+import ImportWebSDK from "/snippets/sdks/web/import-web-sdk.mdx";
+import NoCodePrerequisites from "/snippets/quickstart/platform-specific/no-code-prerequisites.mdx";
+import AssistantSetupInboundAccordionGroup from "/snippets/quickstart/dashboard/assistant-setup-inbound.mdx";
 
-`under construction`
+**Anywhere you can run clientside JavaScript, you can run Vapi.** All the way from file-by-file vanilla JavaScript, to writing complex component-based applications (w/ React + Next.js).
+
+<NoCodePrerequisites />
+
+## Vapi’s Pizzeria
+
+We will be implementing a simple order-taking assistant at a pizza shop called “Vapi’s Pizzeria”.
+
+Vapi’s has 3 types of menu items: `pizza`, `side`s, & `drink`s. Customers will be ordering 1 of each.
+
+<Frame caption="Customers will order 3 items: 1 pizza, 1 side, & 1 drink. The assistant will handle the full order taking conversation.">
+  <img src="/static/images/quickstart/vapis-pizzeria.png" />
+</Frame>
+
+### TODOs
+
+There are 2 ways we can do this:
+
+1. **Inline call:** we can start a web call in 1 function call w/ the Web SDK (passing [assistant](/assistants) configuration inline)
+2. **Create an assistant, then call:** we can create a [persistent assistant](/persistent_assistants), then start a web call (with the assistant's ID)
+
+In both cases, we will be using the [Web SDK](/sdk/web) to start a call.
+
+## Starting a Web Call Inline (fastest)
+
+#### Install the Web SDK
+
+<InstallWebSDK />
+
+#### Import
+
+<ImportWebSDK />
+
+#### Start the Web Call
+
+Now that we have the code imported, we just have to call `.start()`, passing in our assistant configuration to begin the call.
+
+We will break down each component afterwards — here are the options we will pass:
+
+```javascript
+const assistantOptions = {
+  name: "Vapi’s Pizza Front Desk",
+  firstMessage: "Vappy’s Pizzeria speaking, how can I help you?",
+  transcriber: {
+    provider: "deepgram",
+    model: "nova-2",
+    language: "en-US",
+  },
+  voice: {
+    provider: "playht",
+    voiceId: "jennifer",
+  },
+  model: {
+    provider: "openai",
+    model: "gpt-4",
+    messages: [
+      {
+        role: "system",
+        content: `You are a voice assistant for Vappy’s Pizzeria, a pizza shop located on the Internet.
+
+Your job is to take the order of customers calling in. The menu has only 3 types
+of items: pizza, sides, and drinks. There are no other types of items on the menu.
+
+1) There are 3 kinds of pizza: cheese pizza, pepperoni pizza, and vegetarian pizza
+(often called "veggie" pizza).
+2) There are 3 kinds of sides: french fries, garlic bread, and chicken wings.
+3) There are 2 kinds of drinks: soda, and water. (if a customer asks for a
+brand name like "coca cola", just let them know that we only offer "soda")
+
+Customers can only order 1 of each item. If a customer tries to order more
+than 1 item within each category, politely inform them that only 1 item per
+category may be ordered.
+
+Customers must order 1 item from at least 1 category to have a complete order.
+They can order just a pizza, or just a side, or just a drink.
+
+Be sure to introduce the menu items, don't assume that the caller knows what
+is on the menu (most appropriate at the start of the conversation).
+
+If the customer goes off-topic or off-track and talks about anything but the
+process of ordering, politely steer the conversation back to collecting their order.
+
+Once you have all the information you need pertaining to their order, you can
+end the conversation. You can say something like "Awesome, we'll have that ready
+for you in 10-20 minutes." to naturally let the customer know the order has been
+fully communicated.
+
+It is important that you collect the order in an efficient manner (succinct replies
+& direct questions). You only have 1 task here, and it is to collect the customers
+order, then end the conversation.
+
+- Be sure to be kind of funny and witty!
+- Keep all your responses short and simple. Use casual language, phrases like "Umm...", "Well...", and "I mean" are preferred.
+- This is a voice conversation, so keep your responses short, like in a real conversation. Don't ramble for too long.`,
+      },
+    ],
+  },
+};
+```
+
+And here is how we start the call:
+
+```javascript
+vapi.start(assistantOptions);
+```
+
+<Accordion title="Allow Microphone Access" icon="microphone" iconType="solid">
+  The SDK will request access to your system's microphone, make sure you grant it.
+
+  <Frame caption="Your browser may ask you for microphone permissions, make sure you grant them to the application.">
+    <img src="/static/images/quickstart/web/microphone-permissions.png" />
+  </Frame>
+</Accordion>
+
+#### Breakdown
+
+When we call `.start()` and pass an assistant configuration inline above, Vapi will do **2 things**:
+
+1. **create an ephemeral assistant:** Vapi will conduct the call with an assistant as we configured (but [the assistant will not persist](/persistent_assistants) to your account)
+2. **start a web call (w/ [Daily](https://www.daily.co))**: the SDK will start a realtime web call with bi-directional audio streaming
+
+Let's look at each option we passed individually:
+
+<AccordionGroup>
+  <Accordion title="name" icon="signature" iconType="solid">
+    This is a display name for the assistant in our dashboard (for internal purposes only). This is an optional field.
+
+  </Accordion>
+  <Accordion title="firstMessage" icon="message" iconType="light">
+    This is the first message that our assistant will say when it picks up the web call.
+  </Accordion>
+  <Accordion title="transcriber" icon="microphone" iconType="solid">
+    The **transcriber** is what turns user speech into processable text for our LLM. This is the first step in the end-to-end voice pipeline.
+
+    We are using [Deepgram](https://deepgram.com) for transcription, specifically, their `Nova 2` model. We also set the language to be transcribed as English.
+
+  </Accordion>
+  <Accordion title="voice" icon="person" iconType="solid">
+    The final portion of the voice pipeline is turning LLM output-text into speech. This process is called "Text-to-speech" (or TTS for short).
+
+    We use a voice provider called [PlayHT](https://play.ht), & a voice provided by them called `jennifer`.
+
+  </Accordion>
+  <Accordion title="model" icon="microchip" iconType="solid">
+    For our LLM, we use `gpt-4` (from [OpenAI](https://openai.com/)) & set our system prompt for the assistant.
+
+    The system prompt configures the context, role, personality, instructions and so on for the assistant.
+
+    In our case, the system prompt above will give us the behaviour we want.
+
+  </Accordion>
+</AccordionGroup>
+
+To discover additional fields you can pass at call creation, see our [create assistant](/api-reference/assistants/create-assistant) API.
+
+## Creating An Assistant Separately
+
+Now that we know how to start an assistant call inline, lets look at separating the process of assistant creation & calling into **2 steps**.
+
+Let's look at how we can create the same assistant "by hand" in the Vapi dashboard, then call it separately.
+
+<Tip>
+  Remember that we can also programmatically [create an
+  assistant](/api-reference/assistants/create-assistant) via the API.
+</Tip>
+
+### Assistant Creation
+
+We will perform the same configuration of our assistant's **transcriber**, **model**, & **voice**.
+
+<AssistantSetupInboundAccordionGroup />
+
+### Calling Our Premade Assistant
+
+Now that we have created our assistant, we just need to:
+
+1. **copy the assistant ID** from the dashboard
+2. **start a web call** with the assistant ID
+
+<Accordion title="Copy Your Assistant ID" icon="fingerprint" iconType="solid">
+  You can find your assistant's ID at the top of the assistant detail page:
+
+  <Frame caption="Your assistant's identifier will look something like this.">
+    <img src="/static/images/quickstart/assistant-id-dashboard.png" />
+  </Frame>
+</Accordion>
+
+Now we can call `.start()`, passing the pre-made assistant's ID:
+
+```javascript
+vapi.start("79f3XXXX-XXXX-XXXX-XXXX-XXXXXXXXce48");
+```
+
+This will have the same effect as what we did inline before, we just broke up the steps. Happy ordering!d
+
+<Tip>
+  Your assistant won't yet be able to hang-up the phone at the end of the call. We will learn more
+  about configuring call end behaviour in later guides.
+</Tip>
+
+## Further Reading
+
+<CardGroup cols={2}>
+  <Card title="The Web SDK" icon="window" iconType="duotone" href="/sdk/web">
+    Explore the full Vapi Web SDK.
+  </Card>
+</CardGroup>
