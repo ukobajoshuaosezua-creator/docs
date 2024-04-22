@@ -98,32 +98,26 @@
       "group": "Get Started",
       "pages": [
         "quickstart",
-        {
-          "group": "Quickstart Guides",
-          "pages": [
-            "quickstart/dashboard",
-            {
-              "group": "Phone Calling",
-              "pages": ["quickstart/phone/inbound", "quickstart/phone/outbound"]
-            },
-            "quickstart/web"
-          ]
-        },
+        "quickstart/dashboard",
+        "quickstart/phone/inbound",
+        "quickstart/phone/outbound",
+        "quickstart/web",
         {
           "group": "SDKs",
-          "pages": ["sdks", "sdk/web"]
-        }
-      ]
-    },
-    {
-      "group": "Examples",
-      "pages": [
-        "examples/outbound-sales",
-        "examples/inbound-support",
-        "examples/pizza-website",
+          "pages": ["sdks", "sdk/web"],
+          "defaultOpen": true
+        },
         {
-          "group": "Extras",
-          "pages": ["examples/outbound-call-python", "examples/voice-widget"]
+          "group": "More Examples",
+          "pages": [
+            "examples/outbound-sales",
+            "examples/inbound-support",
+            "examples/pizza-website",
+            {
+              "group": "Extras",
+              "pages": ["examples/outbound-call-python", "examples/voice-widget"]
+            }
+          ]
         }
       ]
     },
