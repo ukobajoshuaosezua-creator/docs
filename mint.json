@@ -172,7 +172,7 @@
     },
     {
       "group": "Knowledge",
-      "pages": ["glossary", "faq"]
+      "pages": ["glossary", "faq","error_message_guide"]
     },
     {
       "group": "Community",
