@@ -104,8 +104,7 @@
         "quickstart/web",
         {
           "group": "SDKs",
-          "pages": ["sdks", "sdk/web"],
-          "defaultOpen": true
+          "pages": ["sdks", "sdk/web"]
         },
         {
           "group": "More Examples",
