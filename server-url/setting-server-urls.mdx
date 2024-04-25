@@ -91,7 +91,7 @@ Here's a breakdown of where you can set server URLs in Vapi:
 
 Events are only sent/assigned to 1 server URL in the priority stack. Here's the order of priority:
 
-1. **Function:** if a function call has a server URL, the function call even will be sent to that URL
+1. **Function:** if a function call has a server URL, the function call event will be sent to that URL
 2. **Assistant:** assistant server URLs are the next highest priority
 3. **Phone Number:** if a phone number has a server URL, it will be used over the account-wide URL
 4. **Account-wide:** Default / "lowest" importance. It will be used if no other server URL is set.
