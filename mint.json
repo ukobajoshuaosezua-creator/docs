@@ -121,7 +121,7 @@
       ]
     },
     {
-      "group": "Learn",
+      "group": "Core Concepts",
       "pages": [
         {
           "group": "Assistants",
@@ -137,12 +137,17 @@
         },
         {
           "group": "Server URL",
-          "pages": ["server-url"]
+          "pages": ["server-url", "server-url/events"]
         },
         {
           "group": "Phone Calling",
           "pages": ["phone-calling"]
-        },
+        }
+      ]
+    },
+    {
+      "group": "Learn",
+      "pages": [
         {
           "group": "Privacy",
           "pages": ["privacy/hipaa"]
