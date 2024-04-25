@@ -1,0 +1,47 @@
+---
+title: "Call Forwarding"
+sidebarTitle: "Call Forwarding"
+---
+
+Vapi offers call forwarding functionality through its `forwardingPhoneNumbers` and `forwardingPhoneNumber` attributes. While seemingly straightforward, the implementation involves specific considerations depending on your call setup. Here's a breakdown:
+
+**Key Concepts:**
+
+* **forwardingPhoneNumbers:** This attribute allows you to define an array of phone numbers for call forwarding. It's ideal for scenarios where you want to direct calls to different departments or individuals based on the conversation context.
+* **forwardingPhoneNumber:** This attribute accepts a single phone number for forwarding all calls. Use this if you have a general fallback number for all situations.
+* **sipUri:** Within the `forwardingPhoneNumbers` array, you can specify a SIP URI instead of a regular phone number. This is crucial when dealing with calls originating from SIP, as Vapi currently only supports SIP REFER for such transfers.
+
+**Setting Up Call Forwarding:**
+
+1. **API:**
+ * **API:** When using the Create Assistant API, the `forwardingPhoneNumber` attribute might cause errors if not handled properly. Consider omitting it or setting it to `null` or an empty string (`''`) to avoid issues.
+
+2. **Choosing the Right Attribute:**
+ * **Multiple Forwarding Options:** If you need to route calls to different destinations based on user requests or other criteria, use the `forwardingPhoneNumbers` array.
+ * **Single Forwarding Number:** For a simple, catch-all forwarding solution, the `forwardingPhoneNumber` attribute is sufficient.
+
+3. **Handling SIP Calls:**
+ * **SIP Origination:** If calls originate from SIP, ensure you use the `sipUri` attribute within the `forwardingPhoneNumbers` array to specify the destination SIP address.
+ * **SIP REFER:** Vapi utilizes SIP REFER to transfer SIP calls. Make sure your receiving system is configured to handle SIP REFER messages.
+
+**Instructing the Assistant:**
+
+* **System Prompt:** Use the system prompt to guide the assistant on when to utilize each forwarding number. For example, include instructions like:
+  * "If the user asks for sales, call the `transferCall` function with `+1123123123`."
+  * "If the user requests technical support, use the `sipUri` `sip:support@example.com`."
+
+**Additional Notes:**
+
+<Note>
+    Vapi currently does not support transferring calls to regular phone numbers if the call originated from SIP.
+</Note>
+
+* Pay attention to the format of phone numbers (E.164) when using the API.
+* Test your call forwarding setup thoroughly to ensure it functions as expected.
+
+**Troubleshooting:**
+
+* If calls are not being transferred despite the transcript indicating "forwarded," check the logs for error messages and ensure your Vici system can handle SIP REFER messages if applicable.
+* If you encounter issues with the `forwardingPhoneNumber` attribute in the API, try omitting it or setting it to `null` or an empty string.
+
+By following these guidelines and understanding the nuances of Vapi's call forwarding functionality, you can effectively manage call routing and ensure a seamless experience for your users.

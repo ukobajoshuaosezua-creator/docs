@@ -181,7 +181,7 @@
     },
     {
       "group": "Knowledge",
-      "pages": ["glossary", "faq", "prompting_guide"]
+      "pages": ["glossary", "faq", "prompting_guide", "call_forwarding"]
     },
     {
       "group": "Community",
