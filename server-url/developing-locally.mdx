@@ -23,20 +23,20 @@ We will be using a service called [ngrok](https://ngrok.com/) to create a secure
 
 <Steps>
   <Step title="Start Our API Locally">
-    We will start our server locally so it is listening for http traffic.
+    We will start our server locally so it is listening for http traffic. We will take note of the port our server is running on.
   </Step>
   <Step title="Start Ngrok Agent">
     We will use the `ngrok` command to start the [ngrok agent](https://ngrok.com/docs/agent) on our
     machine. This will establish a connection from your local machine to ngrok's servers.
   </Step>
-  <Step title="Copy Public Ngrok URL">
-    Ngrok will give us a public URL that can receive traffic. We will use this as a server URL
+  <Step title="Copy Ngrok Forwarding URL">
+    Ngrok will give us a public forwarding URL that can receive traffic. We will use this as a server URL
     during development.
   </Step>
   <Step title="Trigger Call Events">
     We will conduct normal calls on Vapi to trigger events. These events will go to the Ngrok URL & get tunnelled to our local machine.
 
-    We will see the event payloads come through locally & log them.
+    We will see the event payloads come through locally & log them in our terminal.
 
   </Step>
 </Steps>
@@ -63,7 +63,7 @@ Next we will install & run Ngrok agent to establish the forwarding pathway for I
   </Step>
 </Steps>
 
-#### Copy Public Ngrok URL
+#### Copy Ngrok Forwarding URL
 
 You will see an output from the Ngrok Agent CLI that looks like the following:
 
@@ -83,6 +83,18 @@ You can now use this as a server URL in the various places you can [set server U
 
 #### Trigger Call Events
 
-We will now be able to see call events come through and get logged to our terminal.
+We will now be able to see call events come through as `POST` requests, & can log payloads to our terminal.
+
+<Frame caption="Logging call events routed to our local environment.">
+  <img src="/static/images/server-url/developing-locally/logging-events-locally.png" />
+</Frame>
 
 Feel free to follow any of our [quickstart](/quickstart) guides to get started with building assistants & conducting calls.
+
+## Troubleshooting
+
+Here's a list of a few things to recheck if you face issues seeing payloads:
+
+- Ensure that you input the correct port to the `ngrok http {your_port}` command
+- Ensure your route handling server URL events is a `POST` endpoint
+- Ensure your path on top of the base forwarding url is set correctly (ex: `/callbacks/vapi`)
