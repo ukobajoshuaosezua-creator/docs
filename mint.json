@@ -92,32 +92,55 @@
     },
     {
       "group": "General",
-      "pages": ["pricing", "support", "faq", "resources", "status"]
+      "pages": [
+        {
+          "group": "How Vapi Works",
+          "pages": ["quickstart", "how-vapi-works"]
+        },
+        {
+          "group": "Pricing",
+          "pages": [
+            "pricing",
+            "billing/cost-routing",
+            "billing/billing-limits",
+            "billing/estimating-costs",
+            "billing/examples"
+          ]
+        },
+        {
+          "group": "Enterprise",
+          "pages": [
+            "enterprise/plans",
+            "enterprise/onprem",
+            "enterprise/hipaa",
+            "enterprise/soc"
+          ]
+        },
+        "support",
+        "status"
+      ]
     },
     {
       "group": "Get Started",
       "pages": [
-        "quickstart",
         "quickstart/dashboard",
         "quickstart/phone/inbound",
         "quickstart/phone/outbound",
         "quickstart/web",
         {
-          "group": "SDKs",
-          "pages": ["sdks", "sdk/web"]
+          "group": "Client SDKs",
+          "pages": ["sdks", "sdk/web", "examples/voice-widget"]
         },
         {
-          "group": "More Examples",
+          "group": "Examples",
           "pages": [
             "examples/outbound-sales",
             "examples/inbound-support",
             "examples/pizza-website",
-            {
-              "group": "Extras",
-              "pages": ["examples/outbound-call-python", "examples/voice-widget"]
-            }
+            "examples/outbound-call-python"
           ]
-        }
+        },
+        "resources"
       ]
     },
     {
@@ -154,39 +177,20 @@
       "group": "Learn",
       "pages": [
         {
-          "group": "Privacy",
-          "pages": ["privacy/hipaa"]
-        },
-        {
           "group": "Calls",
-          "pages": ["calls/call-ended-reason"]
+          "pages": ["call_forwarding", "calls/call-ended-reason"]
         },
         {
           "group": "Multilingual Support",
           "pages": ["multilingual"]
         },
-        {
-          "group": "Platform",
-          "pages": ["platform/how-vapi-works"]
-        },
-        {
-          "group": "Billing",
-          "pages": [
-            "billing/cost-routing",
-            "billing/billing-limits",
-            "billing/estimating-costs",
-            "billing/examples"
-          ]
-        }
+        "GHL"
       ]
     },
+
     {
-      "group": "How-To",
-      "pages": ["GHL"]
-    },
-    {
-      "group": "Knowledge",
-      "pages": ["glossary", "faq", "prompting_guide", "call_forwarding"]
+      "group": "Glossary",
+      "pages": ["prompting_guide", "glossary", "faq"]
     },
     {
       "group": "Community",
@@ -323,7 +327,7 @@
     },
     {
       "source": "/privacy_hipaa",
-      "destination": "/privacy/hipaa"
+      "destination": "/enterprise/hipaa"
     },
     {
       "source": "/server_url",

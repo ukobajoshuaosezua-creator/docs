@@ -11,12 +11,15 @@ Since there are so many moving parts to the voice pipeline that can incur cost, 
 The Vapi dashboard provides static cost projections on a per-assistant basis, so you can get a rough idea of the costs your assistant will incur during live execution.
 
 <Tip>
-  You can view your dashboard at [dashboard.vapi.ai](https://dashboard.vapi.ai/) & get started with
-  our [dashboard quickstart](/quickstart/dashboard).
+  You can view your dashboard at [dashboard.vapi.ai](https://dashboard.vapi.ai/)
+  & get started with our [dashboard quickstart](/quickstart/dashboard).
 </Tip>
 
 <Frame caption="Vapi-computed per-minute cost projection, as well as latency projection.">
-  <img className="hidden h-32 dark:block" src="/static/images/learn/billing/cost-estimate.gif" />
+  <img
+    className="hidden h-32 dark:block"
+    src="/static/images/learn/billing/cost-estimate.gif"
+  />
 </Frame>
 
 ### General Provider Estimates
@@ -73,7 +76,12 @@ The provider costs listed below are subject to change as we get more data, but t
 Here are direct links to different provider's pricing pages to assist in estimating cost:
 
 <AccordionGroup>
-  <Accordion title="Transcription Providers" icon="microphone" iconType="solid" defaultOpen={true}>
+  <Accordion
+    title="Transcription Providers"
+    icon="microphone"
+    iconType="solid"
+    defaultOpen={true}
+  >
     <CardGroup cols={2}>
       <Card
         title="Deepgram"
@@ -85,7 +93,12 @@ Here are direct links to different provider's pricing pages to assist in estimat
       </Card>
     </CardGroup>
   </Accordion>
-  <Accordion title="Model Providers" icon="microchip" iconType="solid" defaultOpen={true}>
+  <Accordion
+    title="Model Providers"
+    icon="microchip"
+    iconType="solid"
+    defaultOpen={true}
+  >
     <CardGroup cols={2}>
       <Card
         title="OpenAI"
@@ -97,7 +110,12 @@ Here are direct links to different provider's pricing pages to assist in estimat
       </Card>
     </CardGroup>
   </Accordion>
-  <Accordion title="Voice Providers" icon="person" iconType="solid" defaultOpen={true}>
+  <Accordion
+    title="Voice Providers"
+    icon="person"
+    iconType="solid"
+    defaultOpen={true}
+  >
     <CardGroup cols={3}>
       <Card
         title="ElevenLabs"
@@ -218,6 +236,6 @@ Here is what each line item corresponds to:
 This method can be effective because **per-minute costs will not scale** with the amount of call minutes you consume. The cost for the 1st minute will be the same as the 10,000th minute.
 
 <Tip>
-  Bulk discounts are available on enterprise plans which can make the per-minute cost cheaper as
-  volume increases. View [pricing](/pricing) to learn more.
+  Volume pricing is available on enterprise plans. Check out
+  [enterprise](/enterprise) to learn more.
 </Tip>
