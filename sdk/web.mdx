@@ -70,6 +70,28 @@ vapi.start({
 });
 ```
 
+#### Overriding Assistant Configurations
+
+To override assistant settings or set template variables, you can pass `assistantOverrides` as the second argument.
+
+For example, if the first message is "Hello `{{name}}`", set `assistantOverrides` to the following to replace `{{name}}` with `John`:
+
+```javascript
+const assistantOverrides = {
+  transcriber: {
+    provider: "deepgram",
+    model: "nova-2",
+    language: "en-US",
+  },
+  recordingEnabled: false,
+  variableValues: {
+    name: "Alice",
+  },
+};
+
+vapi.start("79f3XXXX-XXXX-XXXX-XXXX-XXXXXXXXce48", assistantOverrides);
+```
+
 ### `.send()`
 
 During the call, you can send intermediate messages to the assistant (like [background messages](/assistants/background-messages)).
