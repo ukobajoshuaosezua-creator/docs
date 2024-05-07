@@ -379,6 +379,10 @@
       "destination": "/privacy-policy"
     }
   ],
-
+  "analytics": {
+    "ga4": {
+      "measurementId": "G-G6EN8MLZLK"
+    }
+  },
   "openapi": "api.json"
 }
