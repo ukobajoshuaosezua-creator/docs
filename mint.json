@@ -185,7 +185,8 @@
           "pages": ["multilingual"]
         },
         "GHL",
-        "custom-llm-guide"
+        "custom-llm-guide",
+        "tools-calling"
       ]
     },
 
