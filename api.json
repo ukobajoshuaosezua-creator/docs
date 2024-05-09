@@ -9,14 +9,18 @@
         "requestBody": {
           "required": true,
           "content": {
-            "application/json": { "schema": { "$ref": "#/components/schemas/CreateAssistantDTO" } }
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CreateAssistantDTO" }
+            }
           }
         },
         "responses": {
           "201": {
             "description": "",
             "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/Assistant" } }
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Assistant" }
+              }
             }
           }
         },
@@ -96,7 +100,10 @@
             "description": "",
             "content": {
               "application/json": {
-                "schema": { "type": "array", "items": { "$ref": "#/components/schemas/Assistant" } }
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/Assistant" }
+                }
               }
             }
           }
@@ -110,13 +117,20 @@
         "operationId": "AssistantController_findOne",
         "summary": "Get Assistant",
         "parameters": [
-          { "name": "id", "required": true, "in": "path", "schema": { "type": "string" } }
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
         ],
         "responses": {
           "200": {
             "description": "",
             "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/Assistant" } }
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Assistant" }
+              }
             }
           }
         },
@@ -127,19 +141,28 @@
         "operationId": "AssistantController_update",
         "summary": "Update Assistant",
         "parameters": [
-          { "name": "id", "required": true, "in": "path", "schema": { "type": "string" } }
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
         ],
         "requestBody": {
           "required": true,
           "content": {
-            "application/json": { "schema": { "$ref": "#/components/schemas/UpdateAssistantDTO" } }
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpdateAssistantDTO" }
+            }
           }
         },
         "responses": {
           "200": {
             "description": "",
             "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/Assistant" } }
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Assistant" }
+              }
             }
           }
         },
@@ -150,19 +173,28 @@
         "operationId": "AssistantController_replace",
         "summary": "Replace Assistant",
         "parameters": [
-          { "name": "id", "required": true, "in": "path", "schema": { "type": "string" } }
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
         ],
         "requestBody": {
           "required": true,
           "content": {
-            "application/json": { "schema": { "$ref": "#/components/schemas/UpdateAssistantDTO" } }
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpdateAssistantDTO" }
+            }
           }
         },
         "responses": {
           "200": {
             "description": "",
             "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/Assistant" } }
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Assistant" }
+              }
             }
           }
         },
@@ -173,13 +205,20 @@
         "operationId": "AssistantController_remove",
         "summary": "Delete Assistant",
         "parameters": [
-          { "name": "id", "required": true, "in": "path", "schema": { "type": "string" } }
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
         ],
         "responses": {
           "200": {
             "description": "",
             "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/Assistant" } }
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Assistant" }
+              }
             }
           }
         },
@@ -268,7 +307,10 @@
             "description": "",
             "content": {
               "application/json": {
-                "schema": { "type": "array", "items": { "$ref": "#/components/schemas/Call" } }
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/Call" }
+                }
               }
             }
           }
@@ -282,12 +324,21 @@
         "operationId": "CallController_findOne",
         "summary": "Get Call",
         "parameters": [
-          { "name": "id", "required": true, "in": "path", "schema": { "type": "string" } }
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
         ],
         "responses": {
           "200": {
             "description": "",
-            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Call" } } }
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Call" }
+              }
+            }
           }
         },
         "tags": ["Calls"],
@@ -310,7 +361,11 @@
         "responses": {
           "201": {
             "description": "",
-            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Call" } } }
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Call" }
+              }
+            }
           }
         },
         "tags": ["Calls"],
@@ -697,7 +752,12 @@
         "operationId": "CredentialController_findOne",
         "summary": "Get Credential",
         "parameters": [
-          { "name": "id", "required": true, "in": "path", "schema": { "type": "string" } }
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
         ],
         "responses": {
           "200": {
@@ -804,7 +864,12 @@
         "operationId": "CredentialController_update",
         "summary": "Update Credential",
         "parameters": [
-          { "name": "id", "required": true, "in": "path", "schema": { "type": "string" } }
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
         ],
         "requestBody": {
           "required": true,
@@ -1007,7 +1072,12 @@
         "operationId": "CredentialController_remove",
         "summary": "Delete Credential",
         "parameters": [
-          { "name": "id", "required": true, "in": "path", "schema": { "type": "string" } }
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
         ],
         "responses": {
           "200": {
@@ -1119,14 +1189,18 @@
         "requestBody": {
           "required": true,
           "content": {
-            "application/json": { "schema": { "$ref": "#/components/schemas/BuyPhoneNumberDTO" } }
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/BuyPhoneNumberDTO" }
+            }
           }
         },
         "responses": {
           "201": {
             "description": "",
             "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/PhoneNumber" } }
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/PhoneNumber" }
+              }
             }
           }
         },
@@ -1143,7 +1217,9 @@
           "required": true,
           "content": {
             "application/json": {
-              "schema": { "$ref": "#/components/schemas/ImportTwilioPhoneNumberDTO" }
+              "schema": {
+                "$ref": "#/components/schemas/ImportTwilioPhoneNumberDTO"
+              }
             }
           }
         },
@@ -1151,7 +1227,9 @@
           "201": {
             "description": "",
             "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/PhoneNumber" } }
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/PhoneNumber" }
+              }
             }
           }
         },
@@ -1168,7 +1246,9 @@
           "required": true,
           "content": {
             "application/json": {
-              "schema": { "$ref": "#/components/schemas/ImportVonagePhoneNumberDTO" }
+              "schema": {
+                "$ref": "#/components/schemas/ImportVonagePhoneNumberDTO"
+              }
             }
           }
         },
@@ -1176,7 +1256,9 @@
           "201": {
             "description": "",
             "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/PhoneNumber" } }
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/PhoneNumber" }
+              }
             }
           }
         },
@@ -1275,13 +1357,20 @@
         "operationId": "PhoneNumberController_findOne",
         "summary": "Get Phone Number",
         "parameters": [
-          { "name": "id", "required": true, "in": "path", "schema": { "type": "string" } }
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
         ],
         "responses": {
           "200": {
             "description": "",
             "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/PhoneNumber" } }
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/PhoneNumber" }
+              }
             }
           }
         },
@@ -1292,7 +1381,12 @@
         "operationId": "PhoneNumberController_update",
         "summary": "Update Phone Number",
         "parameters": [
-          { "name": "id", "required": true, "in": "path", "schema": { "type": "string" } }
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
         ],
         "requestBody": {
           "required": true,
@@ -1306,7 +1400,9 @@
           "200": {
             "description": "",
             "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/PhoneNumber" } }
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/PhoneNumber" }
+              }
             }
           }
         },
@@ -1317,13 +1413,20 @@
         "operationId": "PhoneNumberController_remove",
         "summary": "Delete Phone Number",
         "parameters": [
-          { "name": "id", "required": true, "in": "path", "schema": { "type": "string" } }
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
         ],
         "responses": {
           "200": {
             "description": "",
             "content": {
-              "application/json": { "schema": { "$ref": "#/components/schemas/PhoneNumber" } }
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/PhoneNumber" }
+              }
             }
           }
         },
@@ -1364,7 +1467,10 @@
             "description": "",
             "content": {
               "application/json": {
-                "schema": { "type": "array", "items": { "$ref": "#/components/schemas/Metrics" } }
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/Metrics" }
+                }
               }
             }
           }
@@ -1417,7 +1523,7 @@
     "/voice-library/sync/{provider}": {
       "post": {
         "operationId": "VoiceLibraryController_voiceLibrarySyncByProvider",
-        "summary": "List Preset Voices by Providers",
+        "summary": "Sync voices in Voice Library by Providers",
         "parameters": [
           {
             "name": "provider",
@@ -1453,16 +1559,209 @@
           "201": {
             "description": "",
             "content": {
+              "application/json": { "schema": { "type": "object" } }
+            }
+          }
+        },
+        "tags": ["Voice Library"],
+        "security": [{ "bearer": [] }]
+      }
+    },
+    "/log": {
+      "get": {
+        "operationId": "LoggingController_getLogs",
+        "summary": "Get Logging Logs",
+        "parameters": [
+          {
+            "name": "callId",
+            "required": true,
+            "in": "query",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "description": "This is the page number to return. Defaults to 1.",
+            "schema": { "minimum": 1, "type": "number" }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "description": "This is the maximum number of items to return. Defaults to 100.",
+            "schema": { "minimum": 0, "maximum": 1000, "type": "number" }
+          },
+          {
+            "name": "createdAtGt",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the createdAt is greater than the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "createdAtLt",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the createdAt is less than the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "createdAtGe",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the createdAt is greater than or equal to the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "createdAtLe",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the createdAt is less than or equal to the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "updatedAtGt",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the updatedAt is greater than the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "updatedAtLt",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the updatedAt is less than the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "updatedAtGe",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the updatedAt is greater than or equal to the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          },
+          {
+            "name": "updatedAtLe",
+            "required": false,
+            "in": "query",
+            "description": "This will return items where the updatedAt is less than or equal to the specified value.",
+            "schema": { "format": "date-time", "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": { "$ref": "#/components/schemas/VoiceLibrary" }
+                  "$ref": "#/components/schemas/CallLogsPaginatedResponse"
                 }
               }
             }
           }
         },
-        "tags": ["Voice Library"],
+        "tags": ["Log"],
+        "security": [{ "bearer": [] }]
+      }
+    },
+    "/file/upload": {
+      "post": {
+        "operationId": "FileController_create",
+        "summary": "Upload a file to Supabase",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": { "$ref": "#/components/schemas/CreateFileDTO" }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "File uploaded successfully",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/File" }
+              }
+            }
+          },
+          "400": { "description": "Invalid file" }
+        },
+        "tags": ["File"],
+        "security": [{ "bearer": [] }]
+      }
+    },
+    "/file": {
+      "get": {
+        "operationId": "FileController_findAll",
+        "summary": "List all files",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/File" }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["File"],
+        "security": [{ "bearer": [] }]
+      }
+    },
+    "/file/{id}": {
+      "get": {
+        "operationId": "FileController_findOne",
+        "summary": "Get a file",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/File" }
+              }
+            }
+          }
+        },
+        "tags": ["File"],
+        "security": [{ "bearer": [] }]
+      },
+      "delete": {
+        "operationId": "FileController_remove",
+        "summary": "Delete a file",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/File" }
+              }
+            }
+          }
+        },
+        "tags": ["File"],
         "security": [{ "bearer": [] }]
       }
     }
@@ -1488,6 +1787,76 @@
       "DeepgramVoice": {
         "type": "object",
         "properties": {
+          "inputMinCharacters": {
+            "type": "number",
+            "description": "This is the minimum number of characters that will be passed to the voice provider. This helps decides the minimum chunk size that is sent to the voice provider for the voice generation as the LLM tokens are streaming in. Defaults to 30.",
+            "minimum": 1,
+            "maximum": 80,
+            "example": 10
+          },
+          "inputPunctuationBoundaries": {
+            "type": "array",
+            "description": "These are the punctuations that are considered valid boundaries / \"delimiters\". This helps decides the chunks that are sent to the voice provider for the voice generation as the LLM tokens are streaming in. Defaults to ['。', '，', '.', '!', '?', ';', ')', '،', '۔', '।', '॥', '|', '||', ',', ':'].",
+            "enum": [
+              "。",
+              "，",
+              ".",
+              "!",
+              "?",
+              ";",
+              ")",
+              "،",
+              "۔",
+              "।",
+              "॥",
+              "|",
+              "||",
+              ",",
+              ":"
+            ],
+            "example": [
+              "。",
+              "，",
+              ".",
+              "!",
+              "?",
+              ";",
+              ")",
+              "،",
+              "۔",
+              "।",
+              "॥",
+              "|",
+              "||",
+              ",",
+              ":"
+            ],
+            "items": {
+              "type": "string",
+              "enum": [
+                "。",
+                "，",
+                ".",
+                "!",
+                "?",
+                ";",
+                ")",
+                "،",
+                "۔",
+                "।",
+                "॥",
+                "|",
+                "||",
+                ",",
+                ":"
+              ]
+            }
+          },
+          "fillerInjectionEnabled": {
+            "type": "boolean",
+            "description": "This determines whether fillers are injected into the Model output before inputting it into the Voice provider. Defaults to false.",
+            "example": false
+          },
           "provider": {
             "type": "string",
             "description": "This is the voice provider that will be used.",
@@ -1520,22 +1889,19 @@
         },
         "required": ["provider", "voiceId"]
       },
-      "OpenAIMessage": {
-        "type": "object",
-        "properties": {
-          "content": { "type": "string", "nullable": true },
-          "role": { "type": "string", "enum": ["assistant", "function", "user", "system"] },
-          "function_call": { "type": "object" },
-          "tool_calls": { "type": "array", "items": { "type": "object" } }
-        },
-        "required": ["content", "role"]
-      },
       "JsonSchema": {
         "type": "object",
         "properties": {
           "type": {
             "type": "string",
-            "enum": ["string", "number", "integer", "boolean", "array", "object"]
+            "enum": [
+              "string",
+              "number",
+              "integer",
+              "boolean",
+              "array",
+              "object"
+            ]
           },
           "items": {
             "type": "object",
@@ -1649,7 +2015,9 @@
           "properties": {
             "type": "object",
             "description": "This provides a description of the properties required by the function.\nJSON Schema can be used to specify expectations for each property.\nRefer to [this doc](https://ajv.js.org/json-schema.html#json-data-type) for a comprehensive guide on JSON Schema.",
-            "additionalProperties": { "$ref": "#/components/schemas/JsonSchema" }
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JsonSchema"
+            }
           },
           "required": {
             "description": "This specifies the properties that are required by the function.",
@@ -1668,10 +2036,6 @@
             "maxLength": 64,
             "pattern": "/^[a-zA-Z0-9_-]{1,64}$/"
           },
-          "async": {
-            "type": "boolean",
-            "description": "Setting async: true will cause the function to be called asynchronously, meaning that the Assistant will not wait for the function to return before continuing."
-          },
           "description": {
             "type": "string",
             "description": "This is the description of what the function does, used by the AI to choose when and how to call the function.",
@@ -1679,18 +2043,306 @@
           },
           "parameters": {
             "description": "These are the parameters the functions accepts, described as a JSON Schema object.\n\nSee the [OpenAI guide](https://platform.openai.com/docs/guides/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema) for documentation about the format.\n\nOmitting parameters defines a function with an empty parameter list.",
-            "allOf": [{ "$ref": "#/components/schemas/OpenAIFunctionParameters" }]
-          },
-          "serverUrl": {
-            "type": "string",
-            "description": "This is the URL Vapi will communicate with via HTTP GET and POST Requests. This is used for retrieving context, function calling, and end-of-call reports.\n\nAll requests will be sent with the call object among other things relevant to that message. You can find more details in the Server URL documentation.\n\nThis overrides the serverUrl set on the org and the phoneNumber. Order of precedence: function.serverUrl > assistant.serverUrl > phoneNumber.serverUrl > org.serverUrl"
-          },
-          "serverUrlSecret": {
-            "type": "string",
-            "description": "This is the secret you can set that Vapi will send with every request to your server. Will be sent as a header called x-vapi-secret.\n\nSame precendence logic as serverUrl."
+            "allOf": [
+              { "$ref": "#/components/schemas/OpenAIFunctionParameters" }
+            ]
           }
         },
         "required": ["name"]
+      },
+      "Server": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "API endpoint to send requests to."
+          },
+          "secret": {
+            "type": "string",
+            "description": "This is the secret you can set that Vapi will send with every request to your server. Will be sent as a header called x-vapi-secret.\n\nSame precedence logic as server."
+          }
+        },
+        "required": ["url"]
+      },
+      "FunctionTool": {
+        "type": "object",
+        "properties": {
+          "type": { "type": "string", "enum": ["function"] },
+          "messages": {
+            "type": "array",
+            "description": "These are the messages that will be spoken to the user as the tool is running.",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/ToolMessageStart",
+                  "title": "ToolMessageStart"
+                },
+                {
+                  "$ref": "#/components/schemas/ToolMessageComplete",
+                  "title": "ToolMessageComplete"
+                },
+                {
+                  "$ref": "#/components/schemas/ToolMessageFailed",
+                  "title": "ToolMessageFailed"
+                },
+                {
+                  "$ref": "#/components/schemas/ToolMessageDelayed",
+                  "title": "ToolMessageDelayed"
+                }
+              ]
+            }
+          },
+          "function": {
+            "description": "The function definition details for the function tool.",
+            "allOf": [{ "$ref": "#/components/schemas/OpenAIFunction" }]
+          },
+          "server": {
+            "description": "This is the server VAPI will hit this tool is requested by the model.\n\nAll requests will be sent with the call object among other things. You can find more details in the Server URL documentation.\n\nThis overrides the serverUrl set on the org and the phoneNumber. Order of precedence: tool.server.url > assistant.serverUrl > phoneNumber.serverUrl > org.serverUrl",
+            "allOf": [{ "$ref": "#/components/schemas/Server" }]
+          },
+          "async": {
+            "type": "boolean",
+            "description": "Setting async: true will cause the function to be called asynchronously, meaning that the Assistant will not wait for the function to return before continuing."
+          }
+        },
+        "required": ["type", "function"]
+      },
+      "TransferCallTool": {
+        "type": "object",
+        "properties": {
+          "type": { "type": "string", "enum": ["transferCall"] },
+          "messages": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/ToolMessageStart",
+                  "title": "ToolMessageStart"
+                },
+                {
+                  "$ref": "#/components/schemas/ToolMessageComplete",
+                  "title": "ToolMessageComplete"
+                },
+                {
+                  "$ref": "#/components/schemas/ToolMessageFailed",
+                  "title": "ToolMessageFailed"
+                },
+                {
+                  "$ref": "#/components/schemas/ToolMessageDelayed",
+                  "title": "ToolMessageDelayed"
+                }
+              ]
+            }
+          },
+          "destinations": {
+            "description": "These are the destinations that the call can be transferred to. If no destinations are provided, server url will be used to get the transfer destination once the tool is called.",
+            "type": "array",
+            "items": { "type": "object" }
+          },
+          "server": {
+            "description": "This is the server VAPI will hit when this tool is requested by the model if no destinations are provided.\n\nAll requests will be sent with the call object among other things. You can find more details in the Server URL documentation.",
+            "allOf": [{ "$ref": "#/components/schemas/Server" }]
+          },
+          "function": {
+            "description": "This is optional but can be used to change the name and description of the default function provided to the model.",
+            "allOf": [{ "$ref": "#/components/schemas/OpenAIFunction" }]
+          }
+        },
+        "required": ["type", "function"]
+      },
+      "EndCallTool": {
+        "type": "object",
+        "properties": {
+          "type": { "type": "string", "enum": ["endCall"] },
+          "messages": {
+            "type": "array",
+            "description": "These are the messages that will be spoken to the user as the tool is running.",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/ToolMessageStart",
+                  "title": "ToolMessageStart"
+                },
+                {
+                  "$ref": "#/components/schemas/ToolMessageComplete",
+                  "title": "ToolMessageComplete"
+                },
+                {
+                  "$ref": "#/components/schemas/ToolMessageFailed",
+                  "title": "ToolMessageFailed"
+                },
+                {
+                  "$ref": "#/components/schemas/ToolMessageDelayed",
+                  "title": "ToolMessageDelayed"
+                }
+              ]
+            }
+          },
+          "function": {
+            "description": "This is optional but can be used to change the name and description of the default function provided to the model.",
+            "allOf": [{ "$ref": "#/components/schemas/OpenAIFunction" }]
+          }
+        },
+        "required": ["type", "function"]
+      },
+      "DtmfTool": {
+        "type": "object",
+        "properties": {
+          "type": { "type": "string", "enum": ["dtmf"] },
+          "messages": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/ToolMessageStart",
+                  "title": "ToolMessageStart"
+                },
+                {
+                  "$ref": "#/components/schemas/ToolMessageComplete",
+                  "title": "ToolMessageComplete"
+                },
+                {
+                  "$ref": "#/components/schemas/ToolMessageFailed",
+                  "title": "ToolMessageFailed"
+                },
+                {
+                  "$ref": "#/components/schemas/ToolMessageDelayed",
+                  "title": "ToolMessageDelayed"
+                }
+              ]
+            }
+          },
+          "function": {
+            "description": "This is optional but can be used to change the name and description of the default function provided to the model.",
+            "allOf": [{ "$ref": "#/components/schemas/OpenAIFunction" }]
+          }
+        },
+        "required": ["type", "function"]
+      },
+      "Condition": {
+        "type": "object",
+        "properties": {
+          "param": { "type": "string" },
+          "value": { "type": "object" },
+          "operator": {
+            "type": "string",
+            "enum": ["eq", "neq", "gt", "gte", "lt", "lte"]
+          }
+        },
+        "required": ["param", "value", "operator"]
+      },
+      "ToolMessageComplete": {
+        "type": "object",
+        "properties": {
+          "type": { "type": "string", "enum": ["request-complete"] },
+          "content": { "type": "string" },
+          "conditions": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/Condition" }
+          }
+        },
+        "required": ["type", "content"]
+      },
+      "ToolMessageDelayed": {
+        "type": "object",
+        "properties": {
+          "type": { "type": "string", "enum": ["request-response-delayed"] },
+          "content": { "type": "string" },
+          "timingMilliseconds": {
+            "type": "number",
+            "example": 1000,
+            "description": "The number of milliseconds to wait for the server response before saying this message."
+          },
+          "conditions": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/Condition" }
+          }
+        },
+        "required": ["type", "content"]
+      },
+      "ToolMessageFailed": {
+        "type": "object",
+        "properties": {
+          "type": { "type": "string", "enum": ["request-failed"] },
+          "content": { "type": "string" },
+          "conditions": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/Condition" }
+          }
+        },
+        "required": ["type", "content"]
+      },
+      "ToolMessageStart": {
+        "type": "object",
+        "properties": {
+          "type": { "type": "string", "enum": ["request-start"] },
+          "content": { "type": "string" },
+          "conditions": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/Condition" }
+          }
+        },
+        "required": ["type", "content"]
+      },
+      "PhoneNumberTransferDestination": {
+        "type": "object",
+        "properties": {
+          "type": { "type": "string", "enum": ["phoneNumber"] },
+          "number": {
+            "type": "string",
+            "description": "This is the phone number to transfer the call to."
+          },
+          "message": {
+            "type": "string",
+            "description": "This is the message to say before transferring the call to the destination."
+          },
+          "description": {
+            "type": "string",
+            "description": "This is the description of the destination, used by the AI to choose when and how to transfer the call."
+          }
+        },
+        "required": ["type", "number"]
+      },
+      "SipTransferDestination": {
+        "type": "object",
+        "properties": {
+          "type": { "type": "string", "enum": ["sip"] },
+          "sipUri": {
+            "type": "string",
+            "description": "This is the SIP URI to transfer the call to."
+          },
+          "message": {
+            "type": "string",
+            "description": "This is the message to say before transferring the call to the destination."
+          },
+          "description": {
+            "type": "string",
+            "description": "This is the description of the destination, used by the AI to choose when and how to transfer the call."
+          }
+        },
+        "required": ["type", "sipUri"]
+      },
+      "OpenAIMessage": {
+        "type": "object",
+        "properties": {
+          "content": { "type": "string", "nullable": true },
+          "role": {
+            "type": "string",
+            "enum": ["assistant", "function", "user", "system"]
+          },
+          "function_call": { "type": "object" },
+          "tool_calls": { "type": "array", "items": { "type": "object" } }
+        },
+        "required": ["content", "role"]
+      },
+      "KnowledgeBase": {
+        "type": "object",
+        "properties": {
+          "topK": { "type": "number" },
+          "fileIds": { "type": "array", "items": { "type": "string" } },
+          "provider": { "type": "string", "enum": ["canonical"] }
+        },
+        "required": ["fileIds", "provider"]
       },
       "TogetherAIModel": {
         "type": "object",
@@ -1699,6 +2351,27 @@
             "description": "This is the starting state for the conversation.",
             "type": "array",
             "items": { "$ref": "#/components/schemas/OpenAIMessage" }
+          },
+          "tools": {
+            "type": "array",
+            "description": "These are the tools functions that the assistant can execute during the call.",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/TransferCallTool",
+                  "title": "TransferTool"
+                },
+                {
+                  "$ref": "#/components/schemas/FunctionTool",
+                  "title": "FunctionTool"
+                },
+                {
+                  "$ref": "#/components/schemas/EndCallTool",
+                  "title": "EndCallTool"
+                },
+                { "$ref": "#/components/schemas/DtmfTool", "title": "DtmfTool" }
+              ]
+            }
           },
           "provider": { "type": "string", "enum": ["together-ai"] },
           "model": {
@@ -1711,16 +2384,19 @@
             "minimum": 0,
             "maximum": 2
           },
-          "functions": {
-            "description": "These are the functions that the assistant can execute during the call.",
-            "type": "array",
-            "items": { "$ref": "#/components/schemas/OpenAIFunction" }
+          "knowledgeBase": {
+            "description": "Configure your knowledge base by adding document uuids and provider.",
+            "allOf": [{ "$ref": "#/components/schemas/KnowledgeBase" }]
           },
           "maxTokens": {
             "type": "number",
             "description": "This is the max number of tokens that the assistant will be allowed to generate in each turn of the conversation. Default is 250.",
             "minimum": 50,
             "maximum": 1000
+          },
+          "emotionRecognitionEnabled": {
+            "type": "boolean",
+            "description": "This property handles whether we should detect user's emotion while they speak and send it as an additional info to model"
           }
         },
         "required": ["provider", "model"]
@@ -1733,6 +2409,27 @@
             "type": "array",
             "items": { "$ref": "#/components/schemas/OpenAIMessage" }
           },
+          "tools": {
+            "type": "array",
+            "description": "These are the tools functions that the assistant can execute during the call.",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/TransferCallTool",
+                  "title": "TransferTool"
+                },
+                {
+                  "$ref": "#/components/schemas/FunctionTool",
+                  "title": "FunctionTool"
+                },
+                {
+                  "$ref": "#/components/schemas/EndCallTool",
+                  "title": "EndCallTool"
+                },
+                { "$ref": "#/components/schemas/DtmfTool", "title": "DtmfTool" }
+              ]
+            }
+          },
           "provider": { "type": "string", "enum": ["anyscale"] },
           "model": {
             "type": "string",
@@ -1744,16 +2441,19 @@
             "minimum": 0,
             "maximum": 2
           },
-          "functions": {
-            "description": "These are the functions that the assistant can execute during the call.",
-            "type": "array",
-            "items": { "$ref": "#/components/schemas/OpenAIFunction" }
+          "knowledgeBase": {
+            "description": "Configure your knowledge base by adding document uuids and provider.",
+            "allOf": [{ "$ref": "#/components/schemas/KnowledgeBase" }]
           },
           "maxTokens": {
             "type": "number",
             "description": "This is the max number of tokens that the assistant will be allowed to generate in each turn of the conversation. Default is 250.",
             "minimum": 50,
             "maximum": 1000
+          },
+          "emotionRecognitionEnabled": {
+            "type": "boolean",
+            "description": "This property handles whether we should detect user's emotion while they speak and send it as an additional info to model"
           }
         },
         "required": ["provider", "model"]
@@ -1766,6 +2466,27 @@
             "type": "array",
             "items": { "$ref": "#/components/schemas/OpenAIMessage" }
           },
+          "tools": {
+            "type": "array",
+            "description": "These are the tools functions that the assistant can execute during the call.",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/TransferCallTool",
+                  "title": "TransferTool"
+                },
+                {
+                  "$ref": "#/components/schemas/FunctionTool",
+                  "title": "FunctionTool"
+                },
+                {
+                  "$ref": "#/components/schemas/EndCallTool",
+                  "title": "EndCallTool"
+                },
+                { "$ref": "#/components/schemas/DtmfTool", "title": "DtmfTool" }
+              ]
+            }
+          },
           "provider": { "type": "string", "enum": ["openrouter"] },
           "model": {
             "type": "string",
@@ -1777,16 +2498,19 @@
             "minimum": 0,
             "maximum": 2
           },
-          "functions": {
-            "description": "These are the functions that the assistant can execute during the call.",
-            "type": "array",
-            "items": { "$ref": "#/components/schemas/OpenAIFunction" }
+          "knowledgeBase": {
+            "description": "Configure your knowledge base by adding document uuids and provider.",
+            "allOf": [{ "$ref": "#/components/schemas/KnowledgeBase" }]
           },
           "maxTokens": {
             "type": "number",
             "description": "This is the max number of tokens that the assistant will be allowed to generate in each turn of the conversation. Default is 250.",
             "minimum": 50,
             "maximum": 1000
+          },
+          "emotionRecognitionEnabled": {
+            "type": "boolean",
+            "description": "This property handles whether we should detect user's emotion while they speak and send it as an additional info to model"
           }
         },
         "required": ["provider", "model"]
@@ -1799,6 +2523,27 @@
             "type": "array",
             "items": { "$ref": "#/components/schemas/OpenAIMessage" }
           },
+          "tools": {
+            "type": "array",
+            "description": "These are the tools functions that the assistant can execute during the call.",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/TransferCallTool",
+                  "title": "TransferTool"
+                },
+                {
+                  "$ref": "#/components/schemas/FunctionTool",
+                  "title": "FunctionTool"
+                },
+                {
+                  "$ref": "#/components/schemas/EndCallTool",
+                  "title": "EndCallTool"
+                },
+                { "$ref": "#/components/schemas/DtmfTool", "title": "DtmfTool" }
+              ]
+            }
+          },
           "provider": { "type": "string", "enum": ["perplexity-ai"] },
           "model": {
             "type": "string",
@@ -1810,16 +2555,19 @@
             "minimum": 0,
             "maximum": 2
           },
-          "functions": {
-            "description": "These are the functions that the assistant can execute during the call.",
-            "type": "array",
-            "items": { "$ref": "#/components/schemas/OpenAIFunction" }
+          "knowledgeBase": {
+            "description": "Configure your knowledge base by adding document uuids and provider.",
+            "allOf": [{ "$ref": "#/components/schemas/KnowledgeBase" }]
           },
           "maxTokens": {
             "type": "number",
             "description": "This is the max number of tokens that the assistant will be allowed to generate in each turn of the conversation. Default is 250.",
             "minimum": 50,
             "maximum": 1000
+          },
+          "emotionRecognitionEnabled": {
+            "type": "boolean",
+            "description": "This property handles whether we should detect user's emotion while they speak and send it as an additional info to model"
           }
         },
         "required": ["provider", "model"]
@@ -1832,6 +2580,27 @@
             "type": "array",
             "items": { "$ref": "#/components/schemas/OpenAIMessage" }
           },
+          "tools": {
+            "type": "array",
+            "description": "These are the tools functions that the assistant can execute during the call.",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/TransferCallTool",
+                  "title": "TransferTool"
+                },
+                {
+                  "$ref": "#/components/schemas/FunctionTool",
+                  "title": "FunctionTool"
+                },
+                {
+                  "$ref": "#/components/schemas/EndCallTool",
+                  "title": "EndCallTool"
+                },
+                { "$ref": "#/components/schemas/DtmfTool", "title": "DtmfTool" }
+              ]
+            }
+          },
           "provider": { "type": "string", "enum": ["deepinfra"] },
           "model": {
             "type": "string",
@@ -1843,16 +2612,19 @@
             "minimum": 0,
             "maximum": 2
           },
-          "functions": {
-            "description": "These are the functions that the assistant can execute during the call.",
-            "type": "array",
-            "items": { "$ref": "#/components/schemas/OpenAIFunction" }
+          "knowledgeBase": {
+            "description": "Configure your knowledge base by adding document uuids and provider.",
+            "allOf": [{ "$ref": "#/components/schemas/KnowledgeBase" }]
           },
           "maxTokens": {
             "type": "number",
             "description": "This is the max number of tokens that the assistant will be allowed to generate in each turn of the conversation. Default is 250.",
             "minimum": 50,
             "maximum": 1000
+          },
+          "emotionRecognitionEnabled": {
+            "type": "boolean",
+            "description": "This property handles whether we should detect user's emotion while they speak and send it as an additional info to model"
           }
         },
         "required": ["provider", "model"]
@@ -1864,6 +2636,27 @@
             "description": "This is the starting state for the conversation.",
             "type": "array",
             "items": { "$ref": "#/components/schemas/OpenAIMessage" }
+          },
+          "tools": {
+            "type": "array",
+            "description": "These are the tools functions that the assistant can execute during the call.",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/TransferCallTool",
+                  "title": "TransferTool"
+                },
+                {
+                  "$ref": "#/components/schemas/FunctionTool",
+                  "title": "FunctionTool"
+                },
+                {
+                  "$ref": "#/components/schemas/EndCallTool",
+                  "title": "EndCallTool"
+                },
+                { "$ref": "#/components/schemas/DtmfTool", "title": "DtmfTool" }
+              ]
+            }
           },
           "provider": {
             "type": "string",
@@ -1888,16 +2681,19 @@
             "minimum": 0,
             "maximum": 2
           },
-          "functions": {
-            "description": "These are the functions that the assistant can execute during the call.",
-            "type": "array",
-            "items": { "$ref": "#/components/schemas/OpenAIFunction" }
+          "knowledgeBase": {
+            "description": "Configure your knowledge base by adding document uuids and provider.",
+            "allOf": [{ "$ref": "#/components/schemas/KnowledgeBase" }]
           },
           "maxTokens": {
             "type": "number",
             "description": "This is the max number of tokens that the assistant will be allowed to generate in each turn of the conversation. Default is 250.",
             "minimum": 50,
             "maximum": 1000
+          },
+          "emotionRecognitionEnabled": {
+            "type": "boolean",
+            "description": "This property handles whether we should detect user's emotion while they speak and send it as an additional info to model"
           }
         },
         "required": ["provider", "url", "urlRequestMetadataEnabled", "model"]
@@ -1910,10 +2706,31 @@
             "type": "array",
             "items": { "$ref": "#/components/schemas/OpenAIMessage" }
           },
+          "tools": {
+            "type": "array",
+            "description": "These are the tools functions that the assistant can execute during the call.",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/TransferCallTool",
+                  "title": "TransferTool"
+                },
+                {
+                  "$ref": "#/components/schemas/FunctionTool",
+                  "title": "FunctionTool"
+                },
+                {
+                  "$ref": "#/components/schemas/EndCallTool",
+                  "title": "EndCallTool"
+                },
+                { "$ref": "#/components/schemas/DtmfTool", "title": "DtmfTool" }
+              ]
+            }
+          },
           "model": {
             "type": "string",
             "description": "The key of the model from the custom provider. Ex. cognitivecomputations/dolphin-mixtral-8x7b",
-            "enum": ["mixtral-8x7b-32768"]
+            "enum": ["mixtral-8x7b-32768", "llama3-8b-8192", "llama3-70b-8192"]
           },
           "provider": { "type": "string", "enum": ["groq"] },
           "temperature": {
@@ -1922,16 +2739,19 @@
             "minimum": 0,
             "maximum": 2
           },
-          "functions": {
-            "description": "These are the functions that the assistant can execute during the call.",
-            "type": "array",
-            "items": { "$ref": "#/components/schemas/OpenAIFunction" }
+          "knowledgeBase": {
+            "description": "Configure your knowledge base by adding document uuids and provider.",
+            "allOf": [{ "$ref": "#/components/schemas/KnowledgeBase" }]
           },
           "maxTokens": {
             "type": "number",
             "description": "This is the max number of tokens that the assistant will be allowed to generate in each turn of the conversation. Default is 250.",
             "minimum": 50,
             "maximum": 1000
+          },
+          "emotionRecognitionEnabled": {
+            "type": "boolean",
+            "description": "This property handles whether we should detect user's emotion while they speak and send it as an additional info to model"
           }
         },
         "required": ["model", "provider"]
@@ -1943,6 +2763,27 @@
             "description": "This is the starting state for the conversation.",
             "type": "array",
             "items": { "$ref": "#/components/schemas/OpenAIMessage" }
+          },
+          "tools": {
+            "type": "array",
+            "description": "These are the tools functions that the assistant can execute during the call.",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/TransferCallTool",
+                  "title": "TransferTool"
+                },
+                {
+                  "$ref": "#/components/schemas/FunctionTool",
+                  "title": "FunctionTool"
+                },
+                {
+                  "$ref": "#/components/schemas/EndCallTool",
+                  "title": "EndCallTool"
+                },
+                { "$ref": "#/components/schemas/DtmfTool", "title": "DtmfTool" }
+              ]
+            }
           },
           "model": {
             "type": "string",
@@ -1960,16 +2801,19 @@
             "minimum": 0,
             "maximum": 2
           },
-          "functions": {
-            "description": "These are the functions that the assistant can execute during the call.",
-            "type": "array",
-            "items": { "$ref": "#/components/schemas/OpenAIFunction" }
+          "knowledgeBase": {
+            "description": "Configure your knowledge base by adding document uuids and provider.",
+            "allOf": [{ "$ref": "#/components/schemas/KnowledgeBase" }]
           },
           "maxTokens": {
             "type": "number",
             "description": "This is the max number of tokens that the assistant will be allowed to generate in each turn of the conversation. Default is 250.",
             "minimum": 50,
             "maximum": 1000
+          },
+          "emotionRecognitionEnabled": {
+            "type": "boolean",
+            "description": "This property handles whether we should detect user's emotion while they speak and send it as an additional info to model"
           }
         },
         "required": ["model", "provider"]
@@ -1998,7 +2842,24 @@
                   "nova-2-video",
                   "nova-2-medical",
                   "nova-2-drivethru",
-                  "nova-2-automotive"
+                  "nova-2-automotive",
+                  "nova",
+                  "nova-general",
+                  "nova-phonecall",
+                  "nova-medical",
+                  "enhanced",
+                  "enhanced-general",
+                  "enhanced-meeting",
+                  "enhanced-phonecall",
+                  "enhanced-finance",
+                  "base",
+                  "base-general",
+                  "base-meeting",
+                  "base-phonecall",
+                  "base-finance",
+                  "base-conversationalai",
+                  "base-voicemail",
+                  "base-video"
                 ]
               },
               { "type": "string" }
@@ -2048,10 +2909,18 @@
               "zh-TW"
             ]
           },
+          "smartFormat": {
+            "type": "boolean",
+            "description": "This will be use smart format option provided by Deepgram. It's default disabled because it can sometimes format numbers as times sometimes but it's getting better.",
+            "example": false
+          },
           "keywords": {
             "description": "These keywords are passed to the transcription model to help it pick up use-case specific words. Anything that may not be a common word, like your company name, should be added here.",
             "type": "array",
-            "items": { "type": "string", "pattern": "/^\\p{L}[\\p{L}\\d]*(?::[+-]?\\d+)?$/u" }
+            "items": {
+              "type": "string",
+              "pattern": "/^\\p{L}[\\p{L}\\d]*(?::[+-]?\\d+)?$/u"
+            }
           }
         },
         "required": ["provider"]
@@ -2181,6 +3050,76 @@
       "ElevenLabsVoice": {
         "type": "object",
         "properties": {
+          "inputMinCharacters": {
+            "type": "number",
+            "description": "This is the minimum number of characters that will be passed to the voice provider. This helps decides the minimum chunk size that is sent to the voice provider for the voice generation as the LLM tokens are streaming in. Defaults to 30.",
+            "minimum": 1,
+            "maximum": 80,
+            "example": 10
+          },
+          "inputPunctuationBoundaries": {
+            "type": "array",
+            "description": "These are the punctuations that are considered valid boundaries / \"delimiters\". This helps decides the chunks that are sent to the voice provider for the voice generation as the LLM tokens are streaming in. Defaults to ['。', '，', '.', '!', '?', ';', ')', '،', '۔', '।', '॥', '|', '||', ',', ':'].",
+            "enum": [
+              "。",
+              "，",
+              ".",
+              "!",
+              "?",
+              ";",
+              ")",
+              "،",
+              "۔",
+              "।",
+              "॥",
+              "|",
+              "||",
+              ",",
+              ":"
+            ],
+            "example": [
+              "。",
+              "，",
+              ".",
+              "!",
+              "?",
+              ";",
+              ")",
+              "،",
+              "۔",
+              "।",
+              "॥",
+              "|",
+              "||",
+              ",",
+              ":"
+            ],
+            "items": {
+              "type": "string",
+              "enum": [
+                "。",
+                "，",
+                ".",
+                "!",
+                "?",
+                ";",
+                ")",
+                "،",
+                "۔",
+                "।",
+                "॥",
+                "|",
+                "||",
+                ",",
+                ":"
+              ]
+            }
+          },
+          "fillerInjectionEnabled": {
+            "type": "boolean",
+            "description": "This determines whether fillers are injected into the Model output before inputting it into the Voice provider. Defaults to false.",
+            "example": false
+          },
           "provider": {
             "type": "string",
             "description": "This is the voice provider that will be used.",
@@ -2246,10 +3185,19 @@
             "maximum": 4,
             "example": 4
           },
+          "enableSsmlParsing": {
+            "type": "boolean",
+            "description": "Defines the use of https://elevenlabs.io/docs/speech-synthesis/prompting#pronunciation. Disabled by default.",
+            "example": false
+          },
           "model": {
             "type": "string",
             "description": "This is the model that will be used. Defaults to 'eleven_multilingual_v2' if transcriber.language is non-English, otherwise 'eleven_turbo_v2'.",
-            "enum": ["eleven_multilingual_v2", "eleven_turbo_v2", "eleven_monolingual_v1"],
+            "enum": [
+              "eleven_multilingual_v2",
+              "eleven_turbo_v2",
+              "eleven_monolingual_v1"
+            ],
             "example": "eleven_turbo_v2"
           }
         },
@@ -2263,6 +3211,27 @@
             "type": "array",
             "items": { "$ref": "#/components/schemas/OpenAIMessage" }
           },
+          "tools": {
+            "type": "array",
+            "description": "These are the tools functions that the assistant can execute during the call.",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/TransferCallTool",
+                  "title": "TransferTool"
+                },
+                {
+                  "$ref": "#/components/schemas/FunctionTool",
+                  "title": "FunctionTool"
+                },
+                {
+                  "$ref": "#/components/schemas/EndCallTool",
+                  "title": "EndCallTool"
+                },
+                { "$ref": "#/components/schemas/DtmfTool", "title": "DtmfTool" }
+              ]
+            }
+          },
           "provider": {
             "type": "string",
             "description": "This is the provider that will be used for the model.",
@@ -2272,63 +3241,81 @@
             "type": "string",
             "description": "This is the OpenAI model that will be used.",
             "enum": [
-              "gpt-4-1106-preview",
+              "gpt-4-turbo",
+              "gpt-4-turbo-2024-04-09",
+              "gpt-4-turbo-preview",
               "gpt-4-0125-preview",
+              "gpt-4-1106-preview",
+              "gpt-4",
               "gpt-4-0613",
+              "gpt-3.5-turbo",
+              "gpt-3.5-turbo-0125",
               "gpt-3.5-turbo-1106",
               "gpt-3.5-turbo-16k",
-              "gpt-3.5-turbo-0613",
-              "gpt-3.5-turbo-0125",
-              "gpt-4",
-              "gpt-3.5-turbo"
+              "gpt-3.5-turbo-0613"
             ]
           },
           "fallbackModels": {
             "type": "array",
+            "description": "These are the fallback models that will be used if the primary model fails. This shouldn't be specified unless you have a specific reason to do so. Vapi will automatically find the fastest fallbacks that make sense.",
             "enum": [
-              "gpt-4-1106-preview",
+              "gpt-4-turbo",
+              "gpt-4-turbo-2024-04-09",
+              "gpt-4-turbo-preview",
               "gpt-4-0125-preview",
+              "gpt-4-1106-preview",
+              "gpt-4",
               "gpt-4-0613",
+              "gpt-3.5-turbo",
+              "gpt-3.5-turbo-0125",
               "gpt-3.5-turbo-1106",
               "gpt-3.5-turbo-16k",
-              "gpt-3.5-turbo-0613",
-              "gpt-3.5-turbo-0125",
-              "gpt-4",
-              "gpt-3.5-turbo"
+              "gpt-3.5-turbo-0613"
             ],
             "example": ["gpt-4-0125-preview", "gpt-4-0613"],
             "items": {
               "type": "string",
               "enum": [
-                "gpt-4-1106-preview",
+                "gpt-4-turbo",
+                "gpt-4-turbo-2024-04-09",
+                "gpt-4-turbo-preview",
                 "gpt-4-0125-preview",
+                "gpt-4-1106-preview",
+                "gpt-4",
                 "gpt-4-0613",
+                "gpt-3.5-turbo",
+                "gpt-3.5-turbo-0125",
                 "gpt-3.5-turbo-1106",
                 "gpt-3.5-turbo-16k",
-                "gpt-3.5-turbo-0613",
-                "gpt-3.5-turbo-0125",
-                "gpt-4",
-                "gpt-3.5-turbo"
+                "gpt-3.5-turbo-0613"
               ]
             }
           },
           "semanticCachingEnabled": { "type": "boolean", "example": true },
+          "numFastTurns": {
+            "type": "number",
+            "description": "This sets how many turns at the start of the conversation to use gpt-3.5-turbo before switching to the primary model. Default is 0.",
+            "minimum": 0
+          },
           "temperature": {
             "type": "number",
             "description": "This is the temperature that will be used for calls. Default is 0 to leverage caching for lower latency.",
             "minimum": 0,
             "maximum": 2
           },
-          "functions": {
-            "description": "These are the functions that the assistant can execute during the call.",
-            "type": "array",
-            "items": { "$ref": "#/components/schemas/OpenAIFunction" }
+          "knowledgeBase": {
+            "description": "Configure your knowledge base by adding document uuids and provider.",
+            "allOf": [{ "$ref": "#/components/schemas/KnowledgeBase" }]
           },
           "maxTokens": {
             "type": "number",
             "description": "This is the max number of tokens that the assistant will be allowed to generate in each turn of the conversation. Default is 250.",
             "minimum": 50,
             "maximum": 1000
+          },
+          "emotionRecognitionEnabled": {
+            "type": "boolean",
+            "description": "This property handles whether we should detect user's emotion while they speak and send it as an additional info to model"
           }
         },
         "required": ["provider", "model"]
@@ -2336,6 +3323,76 @@
       "PlayHTVoice": {
         "type": "object",
         "properties": {
+          "inputMinCharacters": {
+            "type": "number",
+            "description": "This is the minimum number of characters that will be passed to the voice provider. This helps decides the minimum chunk size that is sent to the voice provider for the voice generation as the LLM tokens are streaming in. Defaults to 30.",
+            "minimum": 1,
+            "maximum": 80,
+            "example": 10
+          },
+          "inputPunctuationBoundaries": {
+            "type": "array",
+            "description": "These are the punctuations that are considered valid boundaries / \"delimiters\". This helps decides the chunks that are sent to the voice provider for the voice generation as the LLM tokens are streaming in. Defaults to ['。', '，', '.', '!', '?', ';', ')', '،', '۔', '।', '॥', '|', '||', ',', ':'].",
+            "enum": [
+              "。",
+              "，",
+              ".",
+              "!",
+              "?",
+              ";",
+              ")",
+              "،",
+              "۔",
+              "।",
+              "॥",
+              "|",
+              "||",
+              ",",
+              ":"
+            ],
+            "example": [
+              "。",
+              "，",
+              ".",
+              "!",
+              "?",
+              ";",
+              ")",
+              "،",
+              "۔",
+              "।",
+              "॥",
+              "|",
+              "||",
+              ",",
+              ":"
+            ],
+            "items": {
+              "type": "string",
+              "enum": [
+                "。",
+                "，",
+                ".",
+                "!",
+                "?",
+                ";",
+                ")",
+                "،",
+                "۔",
+                "।",
+                "॥",
+                "|",
+                "||",
+                ",",
+                ":"
+              ]
+            }
+          },
+          "fillerInjectionEnabled": {
+            "type": "boolean",
+            "description": "This determines whether fillers are injected into the Model output before inputting it into the Voice provider. Defaults to false.",
+            "example": false
+          },
           "provider": {
             "type": "string",
             "description": "This is the voice provider that will be used.",
@@ -2423,6 +3480,76 @@
       "RimeAIVoice": {
         "type": "object",
         "properties": {
+          "inputMinCharacters": {
+            "type": "number",
+            "description": "This is the minimum number of characters that will be passed to the voice provider. This helps decides the minimum chunk size that is sent to the voice provider for the voice generation as the LLM tokens are streaming in. Defaults to 30.",
+            "minimum": 1,
+            "maximum": 80,
+            "example": 10
+          },
+          "inputPunctuationBoundaries": {
+            "type": "array",
+            "description": "These are the punctuations that are considered valid boundaries / \"delimiters\". This helps decides the chunks that are sent to the voice provider for the voice generation as the LLM tokens are streaming in. Defaults to ['。', '，', '.', '!', '?', ';', ')', '،', '۔', '।', '॥', '|', '||', ',', ':'].",
+            "enum": [
+              "。",
+              "，",
+              ".",
+              "!",
+              "?",
+              ";",
+              ")",
+              "،",
+              "۔",
+              "।",
+              "॥",
+              "|",
+              "||",
+              ",",
+              ":"
+            ],
+            "example": [
+              "。",
+              "，",
+              ".",
+              "!",
+              "?",
+              ";",
+              ")",
+              "،",
+              "۔",
+              "।",
+              "॥",
+              "|",
+              "||",
+              ",",
+              ":"
+            ],
+            "items": {
+              "type": "string",
+              "enum": [
+                "。",
+                "，",
+                ".",
+                "!",
+                "?",
+                ";",
+                ")",
+                "،",
+                "۔",
+                "।",
+                "॥",
+                "|",
+                "||",
+                ",",
+                ":"
+              ]
+            }
+          },
+          "fillerInjectionEnabled": {
+            "type": "boolean",
+            "description": "This determines whether fillers are injected into the Model output before inputting it into the Voice provider. Defaults to false.",
+            "example": false
+          },
           "provider": {
             "type": "string",
             "description": "This is the voice provider that will be used.",
@@ -2501,18 +3628,83 @@
               { "type": "string", "title": "RimeAI Voice ID" }
             ]
           },
-          "speed": {
-            "type": "number",
-            "description": "This is the speed multiplier that will be used.",
-            "minimum": 0.1,
-            "example": null
-          }
+          "speed": { "type": "number", "minimum": 0.1, "example": null }
         },
         "required": ["provider", "voiceId"]
       },
       "OpenAIVoice": {
         "type": "object",
         "properties": {
+          "inputMinCharacters": {
+            "type": "number",
+            "description": "This is the minimum number of characters that will be passed to the voice provider. This helps decides the minimum chunk size that is sent to the voice provider for the voice generation as the LLM tokens are streaming in. Defaults to 30.",
+            "minimum": 1,
+            "maximum": 80,
+            "example": 10
+          },
+          "inputPunctuationBoundaries": {
+            "type": "array",
+            "description": "These are the punctuations that are considered valid boundaries / \"delimiters\". This helps decides the chunks that are sent to the voice provider for the voice generation as the LLM tokens are streaming in. Defaults to ['。', '，', '.', '!', '?', ';', ')', '،', '۔', '।', '॥', '|', '||', ',', ':'].",
+            "enum": [
+              "。",
+              "，",
+              ".",
+              "!",
+              "?",
+              ";",
+              ")",
+              "،",
+              "۔",
+              "।",
+              "॥",
+              "|",
+              "||",
+              ",",
+              ":"
+            ],
+            "example": [
+              "。",
+              "，",
+              ".",
+              "!",
+              "?",
+              ";",
+              ")",
+              "،",
+              "۔",
+              "।",
+              "॥",
+              "|",
+              "||",
+              ",",
+              ":"
+            ],
+            "items": {
+              "type": "string",
+              "enum": [
+                "。",
+                "，",
+                ".",
+                "!",
+                "?",
+                ";",
+                ")",
+                "،",
+                "۔",
+                "।",
+                "॥",
+                "|",
+                "||",
+                ",",
+                ":"
+              ]
+            }
+          },
+          "fillerInjectionEnabled": {
+            "type": "boolean",
+            "description": "This determines whether fillers are injected into the Model output before inputting it into the Voice provider. Defaults to false.",
+            "example": false
+          },
           "provider": {
             "type": "string",
             "description": "This is the voice provider that will be used.",
@@ -2543,6 +3735,76 @@
       "AzureVoice": {
         "type": "object",
         "properties": {
+          "inputMinCharacters": {
+            "type": "number",
+            "description": "This is the minimum number of characters that will be passed to the voice provider. This helps decides the minimum chunk size that is sent to the voice provider for the voice generation as the LLM tokens are streaming in. Defaults to 30.",
+            "minimum": 1,
+            "maximum": 80,
+            "example": 10
+          },
+          "inputPunctuationBoundaries": {
+            "type": "array",
+            "description": "These are the punctuations that are considered valid boundaries / \"delimiters\". This helps decides the chunks that are sent to the voice provider for the voice generation as the LLM tokens are streaming in. Defaults to ['。', '，', '.', '!', '?', ';', ')', '،', '۔', '।', '॥', '|', '||', ',', ':'].",
+            "enum": [
+              "。",
+              "，",
+              ".",
+              "!",
+              "?",
+              ";",
+              ")",
+              "،",
+              "۔",
+              "।",
+              "॥",
+              "|",
+              "||",
+              ",",
+              ":"
+            ],
+            "example": [
+              "。",
+              "，",
+              ".",
+              "!",
+              "?",
+              ";",
+              ")",
+              "،",
+              "۔",
+              "।",
+              "॥",
+              "|",
+              "||",
+              ",",
+              ":"
+            ],
+            "items": {
+              "type": "string",
+              "enum": [
+                "。",
+                "，",
+                ".",
+                "!",
+                "?",
+                ";",
+                ")",
+                "،",
+                "۔",
+                "।",
+                "॥",
+                "|",
+                "||",
+                ",",
+                ":"
+              ]
+            }
+          },
+          "fillerInjectionEnabled": {
+            "type": "boolean",
+            "description": "This determines whether fillers are injected into the Model output before inputting it into the Voice provider. Defaults to false.",
+            "example": false
+          },
           "provider": {
             "type": "string",
             "description": "This is the voice provider that will be used.",
@@ -2571,6 +3833,76 @@
       "LMNTVoice": {
         "type": "object",
         "properties": {
+          "inputMinCharacters": {
+            "type": "number",
+            "description": "This is the minimum number of characters that will be passed to the voice provider. This helps decides the minimum chunk size that is sent to the voice provider for the voice generation as the LLM tokens are streaming in. Defaults to 30.",
+            "minimum": 1,
+            "maximum": 80,
+            "example": 10
+          },
+          "inputPunctuationBoundaries": {
+            "type": "array",
+            "description": "These are the punctuations that are considered valid boundaries / \"delimiters\". This helps decides the chunks that are sent to the voice provider for the voice generation as the LLM tokens are streaming in. Defaults to ['。', '，', '.', '!', '?', ';', ')', '،', '۔', '।', '॥', '|', '||', ',', ':'].",
+            "enum": [
+              "。",
+              "，",
+              ".",
+              "!",
+              "?",
+              ";",
+              ")",
+              "،",
+              "۔",
+              "।",
+              "॥",
+              "|",
+              "||",
+              ",",
+              ":"
+            ],
+            "example": [
+              "。",
+              "，",
+              ".",
+              "!",
+              "?",
+              ";",
+              ")",
+              "،",
+              "۔",
+              "।",
+              "॥",
+              "|",
+              "||",
+              ",",
+              ":"
+            ],
+            "items": {
+              "type": "string",
+              "enum": [
+                "。",
+                "，",
+                ".",
+                "!",
+                "?",
+                ";",
+                ")",
+                "،",
+                "۔",
+                "।",
+                "॥",
+                "|",
+                "||",
+                ",",
+                ":"
+              ]
+            }
+          },
+          "fillerInjectionEnabled": {
+            "type": "boolean",
+            "description": "This determines whether fillers are injected into the Model output before inputting it into the Voice provider. Defaults to false.",
+            "example": false
+          },
           "provider": {
             "type": "string",
             "description": "This is the voice provider that will be used.",
@@ -2579,7 +3911,11 @@
           "voiceId": {
             "description": "This is the provider-specific ID that will be used.",
             "oneOf": [
-              { "type": "string", "enum": ["lily", "daniel"], "title": "Preset Voice Options" },
+              {
+                "type": "string",
+                "enum": ["lily", "daniel"],
+                "title": "Preset Voice Options"
+              },
               { "type": "string", "title": "LMNT Voice ID" }
             ]
           },
@@ -2596,6 +3932,76 @@
       "NeetsVoice": {
         "type": "object",
         "properties": {
+          "inputMinCharacters": {
+            "type": "number",
+            "description": "This is the minimum number of characters that will be passed to the voice provider. This helps decides the minimum chunk size that is sent to the voice provider for the voice generation as the LLM tokens are streaming in. Defaults to 30.",
+            "minimum": 1,
+            "maximum": 80,
+            "example": 10
+          },
+          "inputPunctuationBoundaries": {
+            "type": "array",
+            "description": "These are the punctuations that are considered valid boundaries / \"delimiters\". This helps decides the chunks that are sent to the voice provider for the voice generation as the LLM tokens are streaming in. Defaults to ['。', '，', '.', '!', '?', ';', ')', '،', '۔', '।', '॥', '|', '||', ',', ':'].",
+            "enum": [
+              "。",
+              "，",
+              ".",
+              "!",
+              "?",
+              ";",
+              ")",
+              "،",
+              "۔",
+              "।",
+              "॥",
+              "|",
+              "||",
+              ",",
+              ":"
+            ],
+            "example": [
+              "。",
+              "，",
+              ".",
+              "!",
+              "?",
+              ";",
+              ")",
+              "،",
+              "۔",
+              "।",
+              "॥",
+              "|",
+              "||",
+              ",",
+              ":"
+            ],
+            "items": {
+              "type": "string",
+              "enum": [
+                "。",
+                "，",
+                ".",
+                "!",
+                "?",
+                ";",
+                ")",
+                "،",
+                "۔",
+                "।",
+                "॥",
+                "|",
+                "||",
+                ",",
+                ":"
+              ]
+            }
+          },
+          "fillerInjectionEnabled": {
+            "type": "boolean",
+            "description": "This determines whether fillers are injected into the Model output before inputting it into the Voice provider. Defaults to false.",
+            "example": false
+          },
           "provider": {
             "type": "string",
             "description": "This is the voice provider that will be used.",
@@ -2604,29 +4010,16 @@
           "voiceId": {
             "description": "This is the provider-specific ID that will be used.",
             "oneOf": [
-              { "type": "string", "enum": ["lily", "daniel"], "title": "Preset Voice Options" },
+              {
+                "type": "string",
+                "enum": ["lily", "daniel"],
+                "title": "Preset Voice Options"
+              },
               { "type": "string", "title": "Neets Voice ID" }
             ]
           }
         },
         "required": ["provider", "voiceId"]
-      },
-      "ForwardingPhoneNumber": {
-        "type": "object",
-        "properties": {
-          "number": {
-            "type": "string",
-            "description": "This is the number to forward to. Pass one of `number` or `sipUri`."
-          },
-          "sipUri": {
-            "type": "string",
-            "description": "This is the SIP URI to forward to. Pass one of `number` or `sipUri`."
-          },
-          "message": {
-            "type": "string",
-            "description": "This is the message that the assistant will say when the call is forwarded to this number."
-          }
-        }
       },
       "CreateAssistantDTO": {
         "type": "object",
@@ -2647,35 +4040,118 @@
           "model": {
             "description": "These are the options for the assistant's LLM.",
             "oneOf": [
-              { "$ref": "#/components/schemas/OpenAIModel", "title": "OpenAIModel" },
-              { "$ref": "#/components/schemas/TogetherAIModel", "title": "TogetherAIModel" },
-              { "$ref": "#/components/schemas/AnyscaleModel", "title": "AnyscaleModel" },
-              { "$ref": "#/components/schemas/OpenRouterModel", "title": "OpenRouterModel" },
-              { "$ref": "#/components/schemas/PerplexityAIModel", "title": "PerplexityAIModel" },
-              { "$ref": "#/components/schemas/DeepInfraModel", "title": "DeepInfraModel" },
-              { "$ref": "#/components/schemas/GroqModel", "title": "GroqModel" },
-              { "$ref": "#/components/schemas/AnthropicModel", "title": "AnthropicModel" },
-              { "$ref": "#/components/schemas/CustomLLMModel", "title": "CustomLLMModel" }
+              {
+                "$ref": "#/components/schemas/OpenAIModel",
+                "title": "OpenAIModel"
+              },
+              {
+                "$ref": "#/components/schemas/TogetherAIModel",
+                "title": "TogetherAIModel"
+              },
+              {
+                "$ref": "#/components/schemas/AnyscaleModel",
+                "title": "AnyscaleModel"
+              },
+              {
+                "$ref": "#/components/schemas/OpenRouterModel",
+                "title": "OpenRouterModel"
+              },
+              {
+                "$ref": "#/components/schemas/PerplexityAIModel",
+                "title": "PerplexityAIModel"
+              },
+              {
+                "$ref": "#/components/schemas/DeepInfraModel",
+                "title": "DeepInfraModel"
+              },
+              {
+                "$ref": "#/components/schemas/GroqModel",
+                "title": "GroqModel"
+              },
+              {
+                "$ref": "#/components/schemas/AnthropicModel",
+                "title": "AnthropicModel"
+              },
+              {
+                "$ref": "#/components/schemas/CustomLLMModel",
+                "title": "CustomLLMModel"
+              }
             ]
           },
           "voice": {
             "description": "These are the options for the assistant's voice.",
             "oneOf": [
-              { "$ref": "#/components/schemas/AzureVoice", "title": "AzureVoice" },
-              { "$ref": "#/components/schemas/ElevenLabsVoice", "title": "ElevenLabsVoice" },
-              { "$ref": "#/components/schemas/PlayHTVoice", "title": "PlayHTVoice" },
-              { "$ref": "#/components/schemas/RimeAIVoice", "title": "RimeAIVoice" },
-              { "$ref": "#/components/schemas/DeepgramVoice", "title": "DeepgramVoice" },
-              { "$ref": "#/components/schemas/OpenAIVoice", "title": "OpenAIVoice" },
-              { "$ref": "#/components/schemas/LMNTVoice", "title": "LMNTVoice" },
-              { "$ref": "#/components/schemas/NeetsVoice", "title": "NeetsVoice" }
+              {
+                "$ref": "#/components/schemas/AzureVoice",
+                "title": "AzureVoice"
+              },
+              {
+                "$ref": "#/components/schemas/ElevenLabsVoice",
+                "title": "ElevenLabsVoice"
+              },
+              {
+                "$ref": "#/components/schemas/PlayHTVoice",
+                "title": "PlayHTVoice"
+              },
+              {
+                "$ref": "#/components/schemas/RimeAIVoice",
+                "title": "RimeAIVoice"
+              },
+              {
+                "$ref": "#/components/schemas/DeepgramVoice",
+                "title": "DeepgramVoice"
+              },
+              {
+                "$ref": "#/components/schemas/OpenAIVoice",
+                "title": "OpenAIVoice"
+              },
+              {
+                "$ref": "#/components/schemas/LMNTVoice",
+                "title": "LMNTVoice"
+              },
+              {
+                "$ref": "#/components/schemas/NeetsVoice",
+                "title": "NeetsVoice"
+              }
             ],
             "default": { "provider": "playht", "voiceId": "jennifer" }
           },
-          "forwardingPhoneNumber": {
+          "forwardingPhoneNumber": { "type": "string", "example": null },
+          "firstMessageMode": {
             "type": "string",
-            "description": "This is the number to forward to if assistant runs into issues.",
-            "example": null
+            "description": "This is the mode for the first message. Default is 'assistant-speaks-first'.\n\nSpecify 'assistant-waits-for-user' to have the assistant wait for the user to speak first.",
+            "enum": ["assistant-speaks-first", "assistant-waits-for-user"],
+            "example": "assistant-speaks-first"
+          },
+          "voicemailDetectionTypes": {
+            "type": "array",
+            "description": "These are the AMD messages from Twilio that are considered as voicemail. Default is ['machine_end_beep', 'machine_end_silence', 'machine_end_other'].",
+            "enum": [
+              "machine_start",
+              "human",
+              "fax",
+              "unknown",
+              "machine_end_beep",
+              "machine_end_silence",
+              "machine_end_other"
+            ],
+            "example": [
+              "machine_end_beep",
+              "machine_end_silence",
+              "machine_end_other"
+            ],
+            "items": {
+              "type": "string",
+              "enum": [
+                "machine_start",
+                "human",
+                "fax",
+                "unknown",
+                "machine_end_beep",
+                "machine_end_silence",
+                "machine_end_other"
+              ]
+            }
           },
           "recordingEnabled": {
             "type": "boolean",
@@ -2699,20 +4175,23 @@
           },
           "clientMessages": {
             "type": "array",
-            "description": "These are the messages that will be sent to the Client SDKs. Default is ['transcript', 'hang', 'function-call', 'speech-update', 'metadata', 'conversation-update']",
+            "description": "These are the messages that will be sent to the Client SDKs. Default is ['transcript', 'hang', 'tool-calls', 'speech-update', 'metadata', 'conversation-update']",
             "enum": [
               "status-update",
               "speech-update",
               "transcript",
               "hang",
               "function-call",
+              "tool-calls",
               "metadata",
-              "conversation-update"
+              "conversation-update",
+              "model-output",
+              "voice-input"
             ],
             "example": [
               "transcript",
               "hang",
-              "function-call",
+              "tool-calls",
               "speech-update",
               "metadata",
               "conversation-update"
@@ -2725,24 +4204,35 @@
                 "transcript",
                 "hang",
                 "function-call",
+                "tool-calls",
                 "metadata",
-                "conversation-update"
+                "conversation-update",
+                "model-output",
+                "voice-input"
               ]
             }
           },
           "serverMessages": {
             "type": "array",
-            "description": "These are the messages that will be sent to your Server URL. Default is ['end-of-call-report', 'status-update', 'hang', 'function-call']",
+            "description": "These are the messages that will be sent to your Server URL. Default is ['end-of-call-report', 'status-update', 'hang', 'tool-calls']",
             "enum": [
               "status-update",
               "transcript",
               "hang",
               "function-call",
+              "tool-calls",
               "end-of-call-report",
               "conversation-update",
-              "phone-call-control"
+              "phone-call-control",
+              "model-output",
+              "voice-input"
             ],
-            "example": ["end-of-call-report", "status-update", "hang", "function-call"],
+            "example": [
+              "end-of-call-report",
+              "status-update",
+              "hang",
+              "tool-calls"
+            ],
             "items": {
               "type": "string",
               "enum": [
@@ -2750,9 +4240,12 @@
                 "transcript",
                 "hang",
                 "function-call",
+                "tool-calls",
                 "end-of-call-report",
                 "conversation-update",
-                "phone-call-control"
+                "phone-call-control",
+                "model-output",
+                "voice-input"
               ]
             }
           },
@@ -2767,7 +4260,7 @@
             "type": "number",
             "description": "The minimum number of seconds after user speech to wait before the assistant starts speaking. Defaults to 0.4.",
             "minimum": 0,
-            "maximum": 2,
+            "maximum": 5,
             "example": 0.4
           },
           "llmRequestDelaySeconds": {
@@ -2779,10 +4272,10 @@
           },
           "numWordsToInterruptAssistant": {
             "type": "number",
-            "description": "The number of words to wait for before interrupting the assistant. Words like \"stop\", \"actually\", \"no\", etc. will always interrupt immediately regardless of this value. Words like \"okay\", \"yeah\", \"right\" will never interrupt. Defaults to 2.",
+            "description": "The number of words to wait for before interrupting the assistant. Words like \"stop\", \"actually\", \"no\", etc. will always interrupt immediately regardless of this value. Words like \"okay\", \"yeah\", \"right\" will never interrupt. Defaults to 1.",
             "minimum": 1,
             "maximum": 10,
-            "example": 2
+            "example": 1
           },
           "maxDurationSeconds": {
             "type": "number",
@@ -2797,19 +4290,19 @@
             "enum": ["off", "office"],
             "example": "office"
           },
+          "backchannelingEnabled": {
+            "type": "boolean",
+            "description": "backchanneling is the bot say while listening like 'mhmm', 'ahem' etc. this make the conversation sounds natural. Default True",
+            "example": true
+          },
           "name": {
             "type": "string",
             "description": "This is the name of the assistant. This is just for your own reference.",
             "maxLength": 100
           },
-          "forwardingPhoneNumbers": {
-            "description": "You can provide a set of phone numbers to forward to. You'll want to tell the assistant when to use each of these numbers in the system prompt.",
-            "type": "array",
-            "items": { "$ref": "#/components/schemas/ForwardingPhoneNumber" }
-          },
           "firstMessage": {
             "type": "string",
-            "description": "This is the first message that the assistant will say. This can also be a URL to a containerized audio file (mp3, wav, etc.).\n\nIf unspecified, it will wait for the user to speak.",
+            "description": "This is the first message that the assistant will say. This can also be a URL to a containerized audio file (mp3, wav, etc.).\n\nIf unspecified, assistant will wait for user to speak and use the model to respond once they speak.",
             "maxLength": 1000
           },
           "voicemailDetectionEnabled": {
@@ -2829,7 +4322,7 @@
           "endCallPhrases": {
             "description": "This list contains phrases that, if spoken by the assistant, will trigger the call to be hung up. Case insensitive.",
             "type": "array",
-            "items": { "type": "string", "maxLength": 25, "minLength": 2 }
+            "items": { "type": "string", "maxLength": 35, "minLength": 2 }
           },
           "metadata": {
             "type": "object",
@@ -2841,7 +4334,12 @@
           },
           "serverUrlSecret": {
             "type": "string",
-            "description": "This is the secret you can set that Vapi will send with every request to your server. Will be sent as a header called x-vapi-secret.\n\nSame precendence logic as serverUrl."
+            "description": "This is the secret you can set that Vapi will send with every request to your server. Will be sent as a header called x-vapi-secret.\n\nSame precedence logic as serverUrl."
+          },
+          "summaryPrompt": {
+            "type": "string",
+            "description": "This is the prompt that's used to summarize the call at the end.\n\nDefault is 'You are an expert note-taker. You will be given a transcript of a conversation. Please summarize the conversation in 4-5 sentences if applicable.'\n\nSet to '' or 'off' to disable post-call summarization.",
+            "maxLength": 2000
           }
         }
       },
@@ -2864,35 +4362,118 @@
           "model": {
             "description": "These are the options for the assistant's LLM.",
             "oneOf": [
-              { "$ref": "#/components/schemas/OpenAIModel", "title": "OpenAIModel" },
-              { "$ref": "#/components/schemas/TogetherAIModel", "title": "TogetherAIModel" },
-              { "$ref": "#/components/schemas/AnyscaleModel", "title": "AnyscaleModel" },
-              { "$ref": "#/components/schemas/OpenRouterModel", "title": "OpenRouterModel" },
-              { "$ref": "#/components/schemas/PerplexityAIModel", "title": "PerplexityAIModel" },
-              { "$ref": "#/components/schemas/DeepInfraModel", "title": "DeepInfraModel" },
-              { "$ref": "#/components/schemas/GroqModel", "title": "GroqModel" },
-              { "$ref": "#/components/schemas/AnthropicModel", "title": "AnthropicModel" },
-              { "$ref": "#/components/schemas/CustomLLMModel", "title": "CustomLLMModel" }
+              {
+                "$ref": "#/components/schemas/OpenAIModel",
+                "title": "OpenAIModel"
+              },
+              {
+                "$ref": "#/components/schemas/TogetherAIModel",
+                "title": "TogetherAIModel"
+              },
+              {
+                "$ref": "#/components/schemas/AnyscaleModel",
+                "title": "AnyscaleModel"
+              },
+              {
+                "$ref": "#/components/schemas/OpenRouterModel",
+                "title": "OpenRouterModel"
+              },
+              {
+                "$ref": "#/components/schemas/PerplexityAIModel",
+                "title": "PerplexityAIModel"
+              },
+              {
+                "$ref": "#/components/schemas/DeepInfraModel",
+                "title": "DeepInfraModel"
+              },
+              {
+                "$ref": "#/components/schemas/GroqModel",
+                "title": "GroqModel"
+              },
+              {
+                "$ref": "#/components/schemas/AnthropicModel",
+                "title": "AnthropicModel"
+              },
+              {
+                "$ref": "#/components/schemas/CustomLLMModel",
+                "title": "CustomLLMModel"
+              }
             ]
           },
           "voice": {
             "description": "These are the options for the assistant's voice.",
             "oneOf": [
-              { "$ref": "#/components/schemas/AzureVoice", "title": "AzureVoice" },
-              { "$ref": "#/components/schemas/ElevenLabsVoice", "title": "ElevenLabsVoice" },
-              { "$ref": "#/components/schemas/PlayHTVoice", "title": "PlayHTVoice" },
-              { "$ref": "#/components/schemas/RimeAIVoice", "title": "RimeAIVoice" },
-              { "$ref": "#/components/schemas/DeepgramVoice", "title": "DeepgramVoice" },
-              { "$ref": "#/components/schemas/OpenAIVoice", "title": "OpenAIVoice" },
-              { "$ref": "#/components/schemas/LMNTVoice", "title": "LMNTVoice" },
-              { "$ref": "#/components/schemas/NeetsVoice", "title": "NeetsVoice" }
+              {
+                "$ref": "#/components/schemas/AzureVoice",
+                "title": "AzureVoice"
+              },
+              {
+                "$ref": "#/components/schemas/ElevenLabsVoice",
+                "title": "ElevenLabsVoice"
+              },
+              {
+                "$ref": "#/components/schemas/PlayHTVoice",
+                "title": "PlayHTVoice"
+              },
+              {
+                "$ref": "#/components/schemas/RimeAIVoice",
+                "title": "RimeAIVoice"
+              },
+              {
+                "$ref": "#/components/schemas/DeepgramVoice",
+                "title": "DeepgramVoice"
+              },
+              {
+                "$ref": "#/components/schemas/OpenAIVoice",
+                "title": "OpenAIVoice"
+              },
+              {
+                "$ref": "#/components/schemas/LMNTVoice",
+                "title": "LMNTVoice"
+              },
+              {
+                "$ref": "#/components/schemas/NeetsVoice",
+                "title": "NeetsVoice"
+              }
             ],
             "default": { "provider": "playht", "voiceId": "jennifer" }
           },
-          "forwardingPhoneNumber": {
+          "forwardingPhoneNumber": { "type": "string", "example": null },
+          "firstMessageMode": {
             "type": "string",
-            "description": "This is the number to forward to if assistant runs into issues.",
-            "example": null
+            "description": "This is the mode for the first message. Default is 'assistant-speaks-first'.\n\nSpecify 'assistant-waits-for-user' to have the assistant wait for the user to speak first.",
+            "enum": ["assistant-speaks-first", "assistant-waits-for-user"],
+            "example": "assistant-speaks-first"
+          },
+          "voicemailDetectionTypes": {
+            "type": "array",
+            "description": "These are the AMD messages from Twilio that are considered as voicemail. Default is ['machine_end_beep', 'machine_end_silence', 'machine_end_other'].",
+            "enum": [
+              "machine_start",
+              "human",
+              "fax",
+              "unknown",
+              "machine_end_beep",
+              "machine_end_silence",
+              "machine_end_other"
+            ],
+            "example": [
+              "machine_end_beep",
+              "machine_end_silence",
+              "machine_end_other"
+            ],
+            "items": {
+              "type": "string",
+              "enum": [
+                "machine_start",
+                "human",
+                "fax",
+                "unknown",
+                "machine_end_beep",
+                "machine_end_silence",
+                "machine_end_other"
+              ]
+            }
           },
           "recordingEnabled": {
             "type": "boolean",
@@ -2916,20 +4497,23 @@
           },
           "clientMessages": {
             "type": "array",
-            "description": "These are the messages that will be sent to the Client SDKs. Default is ['transcript', 'hang', 'function-call', 'speech-update', 'metadata', 'conversation-update']",
+            "description": "These are the messages that will be sent to the Client SDKs. Default is ['transcript', 'hang', 'tool-calls', 'speech-update', 'metadata', 'conversation-update']",
             "enum": [
               "status-update",
               "speech-update",
               "transcript",
               "hang",
               "function-call",
+              "tool-calls",
               "metadata",
-              "conversation-update"
+              "conversation-update",
+              "model-output",
+              "voice-input"
             ],
             "example": [
               "transcript",
               "hang",
-              "function-call",
+              "tool-calls",
               "speech-update",
               "metadata",
               "conversation-update"
@@ -2942,24 +4526,35 @@
                 "transcript",
                 "hang",
                 "function-call",
+                "tool-calls",
                 "metadata",
-                "conversation-update"
+                "conversation-update",
+                "model-output",
+                "voice-input"
               ]
             }
           },
           "serverMessages": {
             "type": "array",
-            "description": "These are the messages that will be sent to your Server URL. Default is ['end-of-call-report', 'status-update', 'hang', 'function-call']",
+            "description": "These are the messages that will be sent to your Server URL. Default is ['end-of-call-report', 'status-update', 'hang', 'tool-calls']",
             "enum": [
               "status-update",
               "transcript",
               "hang",
               "function-call",
+              "tool-calls",
               "end-of-call-report",
               "conversation-update",
-              "phone-call-control"
+              "phone-call-control",
+              "model-output",
+              "voice-input"
             ],
-            "example": ["end-of-call-report", "status-update", "hang", "function-call"],
+            "example": [
+              "end-of-call-report",
+              "status-update",
+              "hang",
+              "tool-calls"
+            ],
             "items": {
               "type": "string",
               "enum": [
@@ -2967,9 +4562,12 @@
                 "transcript",
                 "hang",
                 "function-call",
+                "tool-calls",
                 "end-of-call-report",
                 "conversation-update",
-                "phone-call-control"
+                "phone-call-control",
+                "model-output",
+                "voice-input"
               ]
             }
           },
@@ -2984,7 +4582,7 @@
             "type": "number",
             "description": "The minimum number of seconds after user speech to wait before the assistant starts speaking. Defaults to 0.4.",
             "minimum": 0,
-            "maximum": 2,
+            "maximum": 5,
             "example": 0.4
           },
           "llmRequestDelaySeconds": {
@@ -2996,10 +4594,10 @@
           },
           "numWordsToInterruptAssistant": {
             "type": "number",
-            "description": "The number of words to wait for before interrupting the assistant. Words like \"stop\", \"actually\", \"no\", etc. will always interrupt immediately regardless of this value. Words like \"okay\", \"yeah\", \"right\" will never interrupt. Defaults to 2.",
+            "description": "The number of words to wait for before interrupting the assistant. Words like \"stop\", \"actually\", \"no\", etc. will always interrupt immediately regardless of this value. Words like \"okay\", \"yeah\", \"right\" will never interrupt. Defaults to 1.",
             "minimum": 1,
             "maximum": 10,
-            "example": 2
+            "example": 1
           },
           "maxDurationSeconds": {
             "type": "number",
@@ -3014,19 +4612,19 @@
             "enum": ["off", "office"],
             "example": "office"
           },
+          "backchannelingEnabled": {
+            "type": "boolean",
+            "description": "backchanneling is the bot say while listening like 'mhmm', 'ahem' etc. this make the conversation sounds natural. Default True",
+            "example": true
+          },
           "name": {
             "type": "string",
             "description": "This is the name of the assistant. This is just for your own reference.",
             "maxLength": 100
           },
-          "forwardingPhoneNumbers": {
-            "description": "You can provide a set of phone numbers to forward to. You'll want to tell the assistant when to use each of these numbers in the system prompt.",
-            "type": "array",
-            "items": { "$ref": "#/components/schemas/ForwardingPhoneNumber" }
-          },
           "firstMessage": {
             "type": "string",
-            "description": "This is the first message that the assistant will say. This can also be a URL to a containerized audio file (mp3, wav, etc.).\n\nIf unspecified, it will wait for the user to speak.",
+            "description": "This is the first message that the assistant will say. This can also be a URL to a containerized audio file (mp3, wav, etc.).\n\nIf unspecified, assistant will wait for user to speak and use the model to respond once they speak.",
             "maxLength": 1000
           },
           "voicemailDetectionEnabled": {
@@ -3046,7 +4644,7 @@
           "endCallPhrases": {
             "description": "This list contains phrases that, if spoken by the assistant, will trigger the call to be hung up. Case insensitive.",
             "type": "array",
-            "items": { "type": "string", "maxLength": 25, "minLength": 2 }
+            "items": { "type": "string", "maxLength": 35, "minLength": 2 }
           },
           "metadata": {
             "type": "object",
@@ -3058,7 +4656,12 @@
           },
           "serverUrlSecret": {
             "type": "string",
-            "description": "This is the secret you can set that Vapi will send with every request to your server. Will be sent as a header called x-vapi-secret.\n\nSame precendence logic as serverUrl."
+            "description": "This is the secret you can set that Vapi will send with every request to your server. Will be sent as a header called x-vapi-secret.\n\nSame precedence logic as serverUrl."
+          },
+          "summaryPrompt": {
+            "type": "string",
+            "description": "This is the prompt that's used to summarize the call at the end.\n\nDefault is 'You are an expert note-taker. You will be given a transcript of a conversation. Please summarize the conversation in 4-5 sentences if applicable.'\n\nSet to '' or 'off' to disable post-call summarization.",
+            "maxLength": 2000
           },
           "id": {
             "type": "string",
@@ -3100,35 +4703,118 @@
           "model": {
             "description": "These are the options for the assistant's LLM.",
             "oneOf": [
-              { "$ref": "#/components/schemas/OpenAIModel", "title": "OpenAIModel" },
-              { "$ref": "#/components/schemas/TogetherAIModel", "title": "TogetherAIModel" },
-              { "$ref": "#/components/schemas/AnyscaleModel", "title": "AnyscaleModel" },
-              { "$ref": "#/components/schemas/OpenRouterModel", "title": "OpenRouterModel" },
-              { "$ref": "#/components/schemas/PerplexityAIModel", "title": "PerplexityAIModel" },
-              { "$ref": "#/components/schemas/DeepInfraModel", "title": "DeepInfraModel" },
-              { "$ref": "#/components/schemas/GroqModel", "title": "GroqModel" },
-              { "$ref": "#/components/schemas/AnthropicModel", "title": "AnthropicModel" },
-              { "$ref": "#/components/schemas/CustomLLMModel", "title": "CustomLLMModel" }
+              {
+                "$ref": "#/components/schemas/OpenAIModel",
+                "title": "OpenAIModel"
+              },
+              {
+                "$ref": "#/components/schemas/TogetherAIModel",
+                "title": "TogetherAIModel"
+              },
+              {
+                "$ref": "#/components/schemas/AnyscaleModel",
+                "title": "AnyscaleModel"
+              },
+              {
+                "$ref": "#/components/schemas/OpenRouterModel",
+                "title": "OpenRouterModel"
+              },
+              {
+                "$ref": "#/components/schemas/PerplexityAIModel",
+                "title": "PerplexityAIModel"
+              },
+              {
+                "$ref": "#/components/schemas/DeepInfraModel",
+                "title": "DeepInfraModel"
+              },
+              {
+                "$ref": "#/components/schemas/GroqModel",
+                "title": "GroqModel"
+              },
+              {
+                "$ref": "#/components/schemas/AnthropicModel",
+                "title": "AnthropicModel"
+              },
+              {
+                "$ref": "#/components/schemas/CustomLLMModel",
+                "title": "CustomLLMModel"
+              }
             ]
           },
           "voice": {
             "description": "These are the options for the assistant's voice.",
             "oneOf": [
-              { "$ref": "#/components/schemas/AzureVoice", "title": "AzureVoice" },
-              { "$ref": "#/components/schemas/ElevenLabsVoice", "title": "ElevenLabsVoice" },
-              { "$ref": "#/components/schemas/PlayHTVoice", "title": "PlayHTVoice" },
-              { "$ref": "#/components/schemas/RimeAIVoice", "title": "RimeAIVoice" },
-              { "$ref": "#/components/schemas/DeepgramVoice", "title": "DeepgramVoice" },
-              { "$ref": "#/components/schemas/OpenAIVoice", "title": "OpenAIVoice" },
-              { "$ref": "#/components/schemas/LMNTVoice", "title": "LMNTVoice" },
-              { "$ref": "#/components/schemas/NeetsVoice", "title": "NeetsVoice" }
+              {
+                "$ref": "#/components/schemas/AzureVoice",
+                "title": "AzureVoice"
+              },
+              {
+                "$ref": "#/components/schemas/ElevenLabsVoice",
+                "title": "ElevenLabsVoice"
+              },
+              {
+                "$ref": "#/components/schemas/PlayHTVoice",
+                "title": "PlayHTVoice"
+              },
+              {
+                "$ref": "#/components/schemas/RimeAIVoice",
+                "title": "RimeAIVoice"
+              },
+              {
+                "$ref": "#/components/schemas/DeepgramVoice",
+                "title": "DeepgramVoice"
+              },
+              {
+                "$ref": "#/components/schemas/OpenAIVoice",
+                "title": "OpenAIVoice"
+              },
+              {
+                "$ref": "#/components/schemas/LMNTVoice",
+                "title": "LMNTVoice"
+              },
+              {
+                "$ref": "#/components/schemas/NeetsVoice",
+                "title": "NeetsVoice"
+              }
             ],
             "default": { "provider": "playht", "voiceId": "jennifer" }
           },
-          "forwardingPhoneNumber": {
+          "forwardingPhoneNumber": { "type": "string", "example": null },
+          "firstMessageMode": {
             "type": "string",
-            "description": "This is the number to forward to if assistant runs into issues.",
-            "example": null
+            "description": "This is the mode for the first message. Default is 'assistant-speaks-first'.\n\nSpecify 'assistant-waits-for-user' to have the assistant wait for the user to speak first.",
+            "enum": ["assistant-speaks-first", "assistant-waits-for-user"],
+            "example": "assistant-speaks-first"
+          },
+          "voicemailDetectionTypes": {
+            "type": "array",
+            "description": "These are the AMD messages from Twilio that are considered as voicemail. Default is ['machine_end_beep', 'machine_end_silence', 'machine_end_other'].",
+            "enum": [
+              "machine_start",
+              "human",
+              "fax",
+              "unknown",
+              "machine_end_beep",
+              "machine_end_silence",
+              "machine_end_other"
+            ],
+            "example": [
+              "machine_end_beep",
+              "machine_end_silence",
+              "machine_end_other"
+            ],
+            "items": {
+              "type": "string",
+              "enum": [
+                "machine_start",
+                "human",
+                "fax",
+                "unknown",
+                "machine_end_beep",
+                "machine_end_silence",
+                "machine_end_other"
+              ]
+            }
           },
           "recordingEnabled": {
             "type": "boolean",
@@ -3152,20 +4838,23 @@
           },
           "clientMessages": {
             "type": "array",
-            "description": "These are the messages that will be sent to the Client SDKs. Default is ['transcript', 'hang', 'function-call', 'speech-update', 'metadata', 'conversation-update']",
+            "description": "These are the messages that will be sent to the Client SDKs. Default is ['transcript', 'hang', 'tool-calls', 'speech-update', 'metadata', 'conversation-update']",
             "enum": [
               "status-update",
               "speech-update",
               "transcript",
               "hang",
               "function-call",
+              "tool-calls",
               "metadata",
-              "conversation-update"
+              "conversation-update",
+              "model-output",
+              "voice-input"
             ],
             "example": [
               "transcript",
               "hang",
-              "function-call",
+              "tool-calls",
               "speech-update",
               "metadata",
               "conversation-update"
@@ -3178,24 +4867,35 @@
                 "transcript",
                 "hang",
                 "function-call",
+                "tool-calls",
                 "metadata",
-                "conversation-update"
+                "conversation-update",
+                "model-output",
+                "voice-input"
               ]
             }
           },
           "serverMessages": {
             "type": "array",
-            "description": "These are the messages that will be sent to your Server URL. Default is ['end-of-call-report', 'status-update', 'hang', 'function-call']",
+            "description": "These are the messages that will be sent to your Server URL. Default is ['end-of-call-report', 'status-update', 'hang', 'tool-calls']",
             "enum": [
               "status-update",
               "transcript",
               "hang",
               "function-call",
+              "tool-calls",
               "end-of-call-report",
               "conversation-update",
-              "phone-call-control"
+              "phone-call-control",
+              "model-output",
+              "voice-input"
             ],
-            "example": ["end-of-call-report", "status-update", "hang", "function-call"],
+            "example": [
+              "end-of-call-report",
+              "status-update",
+              "hang",
+              "tool-calls"
+            ],
             "items": {
               "type": "string",
               "enum": [
@@ -3203,9 +4903,12 @@
                 "transcript",
                 "hang",
                 "function-call",
+                "tool-calls",
                 "end-of-call-report",
                 "conversation-update",
-                "phone-call-control"
+                "phone-call-control",
+                "model-output",
+                "voice-input"
               ]
             }
           },
@@ -3220,7 +4923,7 @@
             "type": "number",
             "description": "The minimum number of seconds after user speech to wait before the assistant starts speaking. Defaults to 0.4.",
             "minimum": 0,
-            "maximum": 2,
+            "maximum": 5,
             "example": 0.4
           },
           "llmRequestDelaySeconds": {
@@ -3232,10 +4935,10 @@
           },
           "numWordsToInterruptAssistant": {
             "type": "number",
-            "description": "The number of words to wait for before interrupting the assistant. Words like \"stop\", \"actually\", \"no\", etc. will always interrupt immediately regardless of this value. Words like \"okay\", \"yeah\", \"right\" will never interrupt. Defaults to 2.",
+            "description": "The number of words to wait for before interrupting the assistant. Words like \"stop\", \"actually\", \"no\", etc. will always interrupt immediately regardless of this value. Words like \"okay\", \"yeah\", \"right\" will never interrupt. Defaults to 1.",
             "minimum": 1,
             "maximum": 10,
-            "example": 2
+            "example": 1
           },
           "maxDurationSeconds": {
             "type": "number",
@@ -3250,19 +4953,19 @@
             "enum": ["off", "office"],
             "example": "office"
           },
+          "backchannelingEnabled": {
+            "type": "boolean",
+            "description": "backchanneling is the bot say while listening like 'mhmm', 'ahem' etc. this make the conversation sounds natural. Default True",
+            "example": true
+          },
           "name": {
             "type": "string",
             "description": "This is the name of the assistant. This is just for your own reference.",
             "maxLength": 100
           },
-          "forwardingPhoneNumbers": {
-            "description": "You can provide a set of phone numbers to forward to. You'll want to tell the assistant when to use each of these numbers in the system prompt.",
-            "type": "array",
-            "items": { "$ref": "#/components/schemas/ForwardingPhoneNumber" }
-          },
           "firstMessage": {
             "type": "string",
-            "description": "This is the first message that the assistant will say. This can also be a URL to a containerized audio file (mp3, wav, etc.).\n\nIf unspecified, it will wait for the user to speak.",
+            "description": "This is the first message that the assistant will say. This can also be a URL to a containerized audio file (mp3, wav, etc.).\n\nIf unspecified, assistant will wait for user to speak and use the model to respond once they speak.",
             "maxLength": 1000
           },
           "voicemailDetectionEnabled": {
@@ -3282,7 +4985,7 @@
           "endCallPhrases": {
             "description": "This list contains phrases that, if spoken by the assistant, will trigger the call to be hung up. Case insensitive.",
             "type": "array",
-            "items": { "type": "string", "maxLength": 25, "minLength": 2 }
+            "items": { "type": "string", "maxLength": 35, "minLength": 2 }
           },
           "metadata": {
             "type": "object",
@@ -3294,7 +4997,12 @@
           },
           "serverUrlSecret": {
             "type": "string",
-            "description": "This is the secret you can set that Vapi will send with every request to your server. Will be sent as a header called x-vapi-secret.\n\nSame precendence logic as serverUrl."
+            "description": "This is the secret you can set that Vapi will send with every request to your server. Will be sent as a header called x-vapi-secret.\n\nSame precedence logic as serverUrl."
+          },
+          "summaryPrompt": {
+            "type": "string",
+            "description": "This is the prompt that's used to summarize the call at the end.\n\nDefault is 'You are an expert note-taker. You will be given a transcript of a conversation. Please summarize the conversation in 4-5 sentences if applicable.'\n\nSet to '' or 'off' to disable post-call summarization.",
+            "maxLength": 2000
           }
         }
       },
@@ -3309,13 +5017,22 @@
             "type": "number",
             "description": "This is the cost of the speech-to-text service."
           },
-          "llm": { "type": "number", "description": "This is the cost of the language model." },
+          "llm": {
+            "type": "number",
+            "description": "This is the cost of the language model."
+          },
           "tts": {
             "type": "number",
             "description": "This is the cost of the text-to-speech service."
           },
-          "vapi": { "type": "number", "description": "This is the cost of Vapi." },
-          "total": { "type": "number", "description": "This is the total cost of the call." },
+          "vapi": {
+            "type": "number",
+            "description": "This is the cost of Vapi."
+          },
+          "total": {
+            "type": "number",
+            "description": "This is the total cost of the call."
+          },
           "llmPromptTokens": {
             "type": "number",
             "description": "This is the LLM prompt tokens used for the call."
@@ -3335,43 +5052,355 @@
         "properties": {
           "statusCallbackEvent": {
             "type": "string",
-            "description": "This is the status events to subscribe to",
             "enum": ["initiated", "ringing", "answered", "completed"]
           },
           "machineDetection": {
             "type": "string",
-            "description": "This is whether to detect if a human, answering machine, or fax has picked up the call.",
             "enum": ["Enable", "DetectMessageEnd"]
           },
-          "to": {
-            "type": "string",
-            "description": "This is the phone number, SIP address, or client identifier to call."
-          },
-          "from": {
-            "type": "string",
-            "description": "This is the phone number or client identifier to use as the caller id."
-          },
-          "twiml": { "type": "string", "description": "This is TwiML instructions for the call" },
-          "statusCallback": {
-            "type": "string",
-            "description": "This is the URL to send status events to"
-          },
-          "asyncAmd": {
-            "type": "string",
-            "description": "This is whether to do the machine detection asyncronously or synchronously"
-          },
-          "asyncAmdStatusCallback": {
-            "type": "string",
-            "description": "This is the URL to send the asyncronous machine detection status events to"
-          },
-          "record": { "type": "boolean", "description": "This is whether to record the call" }
+          "to": { "type": "string" },
+          "from": { "type": "string" },
+          "twiml": { "type": "string" },
+          "statusCallback": { "type": "string" },
+          "asyncAmd": { "type": "string" },
+          "asyncAmdStatusCallback": { "type": "string" },
+          "record": { "type": "boolean" }
         },
         "required": ["to", "from"]
+      },
+      "OverrideAssistantDTO": {
+        "type": "object",
+        "properties": {
+          "transcriber": {
+            "description": "These are the options for the assistant's transcriber.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/DeepgramTranscriber",
+                "title": "DeepgramTranscriber"
+              },
+              {
+                "$ref": "#/components/schemas/TalkscriberTranscriber",
+                "title": "TalkscriberTranscriber"
+              }
+            ]
+          },
+          "model": {
+            "description": "These are the options for the assistant's LLM.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OpenAIModel",
+                "title": "OpenAIModel"
+              },
+              {
+                "$ref": "#/components/schemas/TogetherAIModel",
+                "title": "TogetherAIModel"
+              },
+              {
+                "$ref": "#/components/schemas/AnyscaleModel",
+                "title": "AnyscaleModel"
+              },
+              {
+                "$ref": "#/components/schemas/OpenRouterModel",
+                "title": "OpenRouterModel"
+              },
+              {
+                "$ref": "#/components/schemas/PerplexityAIModel",
+                "title": "PerplexityAIModel"
+              },
+              {
+                "$ref": "#/components/schemas/DeepInfraModel",
+                "title": "DeepInfraModel"
+              },
+              {
+                "$ref": "#/components/schemas/GroqModel",
+                "title": "GroqModel"
+              },
+              {
+                "$ref": "#/components/schemas/AnthropicModel",
+                "title": "AnthropicModel"
+              },
+              {
+                "$ref": "#/components/schemas/CustomLLMModel",
+                "title": "CustomLLMModel"
+              }
+            ]
+          },
+          "voice": {
+            "description": "These are the options for the assistant's voice.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/AzureVoice",
+                "title": "AzureVoice"
+              },
+              {
+                "$ref": "#/components/schemas/ElevenLabsVoice",
+                "title": "ElevenLabsVoice"
+              },
+              {
+                "$ref": "#/components/schemas/PlayHTVoice",
+                "title": "PlayHTVoice"
+              },
+              {
+                "$ref": "#/components/schemas/RimeAIVoice",
+                "title": "RimeAIVoice"
+              },
+              {
+                "$ref": "#/components/schemas/DeepgramVoice",
+                "title": "DeepgramVoice"
+              },
+              {
+                "$ref": "#/components/schemas/OpenAIVoice",
+                "title": "OpenAIVoice"
+              },
+              {
+                "$ref": "#/components/schemas/LMNTVoice",
+                "title": "LMNTVoice"
+              },
+              {
+                "$ref": "#/components/schemas/NeetsVoice",
+                "title": "NeetsVoice"
+              }
+            ],
+            "default": { "provider": "playht", "voiceId": "jennifer" }
+          },
+          "forwardingPhoneNumber": { "type": "string", "example": null },
+          "firstMessageMode": {
+            "type": "string",
+            "description": "This is the mode for the first message. Default is 'assistant-speaks-first'.\n\nSpecify 'assistant-waits-for-user' to have the assistant wait for the user to speak first.",
+            "enum": ["assistant-speaks-first", "assistant-waits-for-user"],
+            "example": "assistant-speaks-first"
+          },
+          "voicemailDetectionTypes": {
+            "type": "array",
+            "description": "These are the AMD messages from Twilio that are considered as voicemail. Default is ['machine_end_beep', 'machine_end_silence', 'machine_end_other'].",
+            "enum": [
+              "machine_start",
+              "human",
+              "fax",
+              "unknown",
+              "machine_end_beep",
+              "machine_end_silence",
+              "machine_end_other"
+            ],
+            "example": [
+              "machine_end_beep",
+              "machine_end_silence",
+              "machine_end_other"
+            ],
+            "items": {
+              "type": "string",
+              "enum": [
+                "machine_start",
+                "human",
+                "fax",
+                "unknown",
+                "machine_end_beep",
+                "machine_end_silence",
+                "machine_end_other"
+              ]
+            }
+          },
+          "recordingEnabled": {
+            "type": "boolean",
+            "description": "This sets whether the assistant's calls are recorded. Defaults to true.",
+            "example": true
+          },
+          "endCallFunctionEnabled": {
+            "type": "boolean",
+            "description": "This sets whether the assistant will be able to hang up the call. Defaults to false.",
+            "example": false
+          },
+          "dialKeypadFunctionEnabled": {
+            "type": "boolean",
+            "description": "This sets whether the assistant can dial digits on the keypad. Defaults to false.",
+            "default": null
+          },
+          "hipaaEnabled": {
+            "type": "boolean",
+            "description": "When this is enabled, no logs, recordings, or transcriptions will be stored. At the end of the call, you will still receive an end-of-call-report message to store on your server. Defaults to false.",
+            "example": false
+          },
+          "clientMessages": {
+            "type": "array",
+            "description": "These are the messages that will be sent to the Client SDKs. Default is ['transcript', 'hang', 'tool-calls', 'speech-update', 'metadata', 'conversation-update']",
+            "enum": [
+              "status-update",
+              "speech-update",
+              "transcript",
+              "hang",
+              "function-call",
+              "tool-calls",
+              "metadata",
+              "conversation-update",
+              "model-output",
+              "voice-input"
+            ],
+            "example": [
+              "transcript",
+              "hang",
+              "tool-calls",
+              "speech-update",
+              "metadata",
+              "conversation-update"
+            ],
+            "items": {
+              "type": "string",
+              "enum": [
+                "status-update",
+                "speech-update",
+                "transcript",
+                "hang",
+                "function-call",
+                "tool-calls",
+                "metadata",
+                "conversation-update",
+                "model-output",
+                "voice-input"
+              ]
+            }
+          },
+          "serverMessages": {
+            "type": "array",
+            "description": "These are the messages that will be sent to your Server URL. Default is ['end-of-call-report', 'status-update', 'hang', 'tool-calls']",
+            "enum": [
+              "status-update",
+              "transcript",
+              "hang",
+              "function-call",
+              "tool-calls",
+              "end-of-call-report",
+              "conversation-update",
+              "phone-call-control",
+              "model-output",
+              "voice-input"
+            ],
+            "example": [
+              "end-of-call-report",
+              "status-update",
+              "hang",
+              "tool-calls"
+            ],
+            "items": {
+              "type": "string",
+              "enum": [
+                "status-update",
+                "transcript",
+                "hang",
+                "function-call",
+                "tool-calls",
+                "end-of-call-report",
+                "conversation-update",
+                "phone-call-control",
+                "model-output",
+                "voice-input"
+              ]
+            }
+          },
+          "silenceTimeoutSeconds": {
+            "type": "number",
+            "description": "How many seconds of silence to wait before ending the call. Defaults to 30.",
+            "minimum": 10,
+            "maximum": 600,
+            "example": 30
+          },
+          "responseDelaySeconds": {
+            "type": "number",
+            "description": "The minimum number of seconds after user speech to wait before the assistant starts speaking. Defaults to 0.4.",
+            "minimum": 0,
+            "maximum": 5,
+            "example": 0.4
+          },
+          "llmRequestDelaySeconds": {
+            "type": "number",
+            "description": "The minimum number of seconds to wait after punctuation before sending a request to the LLM. Defaults to 0.1.",
+            "minimum": 0,
+            "maximum": 3,
+            "example": 0.1
+          },
+          "numWordsToInterruptAssistant": {
+            "type": "number",
+            "description": "The number of words to wait for before interrupting the assistant. Words like \"stop\", \"actually\", \"no\", etc. will always interrupt immediately regardless of this value. Words like \"okay\", \"yeah\", \"right\" will never interrupt. Defaults to 1.",
+            "minimum": 1,
+            "maximum": 10,
+            "example": 1
+          },
+          "maxDurationSeconds": {
+            "type": "number",
+            "description": "This is the maximum number of seconds that the call will last. When the call reaches this duration, it will be ended.",
+            "minimum": 10,
+            "maximum": 3600,
+            "example": 1800
+          },
+          "backgroundSound": {
+            "type": "string",
+            "description": "This is the background sound in the call. Default for phone calls is 'office' and default for web calls is 'off'.",
+            "enum": ["off", "office"],
+            "example": "office"
+          },
+          "backchannelingEnabled": {
+            "type": "boolean",
+            "description": "backchanneling is the bot say while listening like 'mhmm', 'ahem' etc. this make the conversation sounds natural. Default True",
+            "example": true
+          },
+          "variableValues": {
+            "type": "object",
+            "description": "These are template variables that will be replaced in the assistant messages and prompts."
+          },
+          "name": {
+            "type": "string",
+            "description": "This is the name of the assistant. This is just for your own reference.",
+            "maxLength": 100
+          },
+          "firstMessage": {
+            "type": "string",
+            "description": "This is the first message that the assistant will say. This can also be a URL to a containerized audio file (mp3, wav, etc.).\n\nIf unspecified, assistant will wait for user to speak and use the model to respond once they speak.",
+            "maxLength": 1000
+          },
+          "voicemailDetectionEnabled": {
+            "type": "boolean",
+            "description": "This sets whether the assistant should detect voicemail. Defaults to true."
+          },
+          "voicemailMessage": {
+            "type": "string",
+            "description": "This is the message that the assistant will say if the call is forwarded to voicemail.\n\nIf unspecified, it will hang up.",
+            "maxLength": 1000
+          },
+          "endCallMessage": {
+            "type": "string",
+            "description": "This is the message that the assistant will say if it ends the call.\n\nIf unspecified, it will hang up without saying anything.",
+            "maxLength": 400
+          },
+          "endCallPhrases": {
+            "description": "This list contains phrases that, if spoken by the assistant, will trigger the call to be hung up. Case insensitive.",
+            "type": "array",
+            "items": { "type": "string", "maxLength": 35, "minLength": 2 }
+          },
+          "metadata": {
+            "type": "object",
+            "description": "This is the metadata associated with the call."
+          },
+          "serverUrl": {
+            "type": "string",
+            "description": "This is the URL Vapi will communicate with via HTTP GET and POST Requests. This is used for retrieving context, function calling, and end-of-call reports.\n\nAll requests will be sent with the call object among other things relevant to that message. You can find more details in the Server URL documentation.\n\nThis overrides the serverUrl set on the org and the phoneNumber. Order of precedence: function.serverUrl > assistant.serverUrl > phoneNumber.serverUrl > org.serverUrl"
+          },
+          "serverUrlSecret": {
+            "type": "string",
+            "description": "This is the secret you can set that Vapi will send with every request to your server. Will be sent as a header called x-vapi-secret.\n\nSame precedence logic as serverUrl."
+          },
+          "summaryPrompt": {
+            "type": "string",
+            "description": "This is the prompt that's used to summarize the call at the end.\n\nDefault is 'You are an expert note-taker. You will be given a transcript of a conversation. Please summarize the conversation in 4-5 sentences if applicable.'\n\nSet to '' or 'off' to disable post-call summarization.",
+            "maxLength": 2000
+          }
+        }
       },
       "CreateCustomerDTO": {
         "type": "object",
         "properties": {
-          "number": { "type": "string", "description": "This is the number of the customer." },
+          "number": {
+            "type": "string",
+            "description": "This is the number of the customer."
+          },
           "name": {
             "type": "string",
             "description": "This is the name of the customer. This is just for your own reference.",
@@ -3469,8 +5498,6 @@
               "pipeline-error-deepgram-transcriber-failed",
               "pipeline-error-deepgram-voice-failed",
               "pipeline-error-eleven-labs-voice-failed",
-              "pipeline-error-eleven-labs-voice-not-found",
-              "pipeline-error-eleven-labs-quota-exceeded",
               "pipeline-error-playht-voice-failed",
               "pipeline-error-lmnt-voice-failed",
               "pipeline-error-azure-voice-failed",
@@ -3483,6 +5510,11 @@
               "vonage-disconnected",
               "vonage-failed-to-connect-call",
               "phone-call-provider-bypass-enabled-but-no-call-received",
+              "vapi-error-phone-call-worker-setup-socket-error",
+              "vapi-error-phone-call-worker-worker-setup-socket-timeout",
+              "vapi-error-phone-call-worker-could-not-find-call",
+              "vapi-error-phone-call-worker-call-never-connected",
+              "vapi-error-web-call-worker-setup-failed",
               "assistant-not-invalid",
               "assistant-not-provided",
               "assistant-request-returned-error",
@@ -3501,6 +5533,11 @@
               "manually-canceled",
               "phone-call-provider-closed-websocket",
               "pipeline-error-custom-llm-llm-failed",
+              "pipeline-error-eleven-labs-voice-not-found",
+              "pipeline-error-eleven-labs-quota-exceeded",
+              "pipeline-error-eleven-labs-blocked-free-plan",
+              "pipeline-error-eleven-labs-blocked-concurrent-requests",
+              "pipeline-error-eleven-labs-unauthorized-access",
               "silence-timed-out",
               "voicemail",
               "vonage-rejected"
@@ -3513,7 +5550,10 @@
             "maximum": 3600,
             "example": 1800
           },
-          "id": { "type": "string", "description": "This is the unique identifier for the call." },
+          "id": {
+            "type": "string",
+            "description": "This is the unique identifier for the call."
+          },
           "orgId": {
             "type": "string",
             "description": "This is the unique identifier for the org that this call belongs to."
@@ -3538,12 +5578,18 @@
             "type": "string",
             "description": "This is the ISO 8601 date-time string of when the call was ended."
           },
-          "cost": { "type": "number", "description": "This is the cost of the call in USD." },
+          "cost": {
+            "type": "number",
+            "description": "This is the cost of the call in USD."
+          },
           "costBreakdown": {
             "description": "This is the cost of the call in USD.",
             "allOf": [{ "$ref": "#/components/schemas/CostBreakdown" }]
           },
-          "transcript": { "type": "string", "description": "This is the transcript of the call." },
+          "transcript": {
+            "type": "string",
+            "description": "This is the transcript of the call."
+          },
           "recordingUrl": {
             "type": "string",
             "description": "This is the URL of the recording of the call."
@@ -3552,7 +5598,10 @@
             "type": "string",
             "description": "This is the URL of the recording of the call in two channels."
           },
-          "summary": { "type": "string", "description": "This is the summary of the call." },
+          "summary": {
+            "type": "string",
+            "description": "This is the summary of the call."
+          },
           "messages": {
             "description": "These are the messages that were spoken during the call.",
             "type": "array",
@@ -3570,10 +5619,7 @@
             "description": "This is the phone call provider details to bridge the assistant into the external call. Only filled if `phoneCallProviderBypassEnabled` is true.\n\nOnly relevant for `outboundPhoneCall` and `inboundPhoneCall` types.",
             "allOf": [{ "$ref": "#/components/schemas/PhoneCallTwilioDetails" }]
           },
-          "webCallUrl": {
-            "type": "string",
-            "description": "This is the URL of the call that the assistant will join.\n\nOnly relevant for `webCall` type."
-          },
+          "webCallUrl": { "type": "string" },
           "webCallSipUri": {
             "type": "string",
             "description": "This is the SIP URI of the call that the assistant will join.\n\nOnly relevant for `webCall` type."
@@ -3586,6 +5632,10 @@
             "type": "string",
             "nullable": true,
             "description": "This is the assistant that will be used for the call. To use a transient assistant, use `assistant` instead."
+          },
+          "assistantOverrides": {
+            "description": "Overrides for the assistant's settings and template variables.",
+            "allOf": [{ "$ref": "#/components/schemas/OverrideAssistantDTO" }]
           },
           "assistant": {
             "description": "This is the assistant that will be used for the call. To use an existing assistant, use `assistantId` instead.",
@@ -3605,7 +5655,9 @@
           },
           "phoneNumber": {
             "description": "This is the phone number that will be used for the call. To use an existing number, use `phoneNumberId` instead.\n\nOnly relevant for `outboundPhoneCall` and `inboundPhoneCall` type.",
-            "allOf": [{ "$ref": "#/components/schemas/ImportTwilioPhoneNumberDTO" }]
+            "allOf": [
+              { "$ref": "#/components/schemas/ImportTwilioPhoneNumberDTO" }
+            ]
           },
           "metadata": {
             "type": "object",
@@ -3629,6 +5681,10 @@
             "nullable": true,
             "description": "This is the assistant that will be used for the call. To use a transient assistant, use `assistant` instead."
           },
+          "assistantOverrides": {
+            "description": "Overrides for the assistant's settings and template variables.",
+            "allOf": [{ "$ref": "#/components/schemas/OverrideAssistantDTO" }]
+          },
           "assistant": {
             "description": "This is the assistant that will be used for the call. To use an existing assistant, use `assistantId` instead.",
             "allOf": [{ "$ref": "#/components/schemas/CreateAssistantDTO" }]
@@ -3647,7 +5703,9 @@
           },
           "phoneNumber": {
             "description": "This is the phone number that will be used for the call. To use an existing number, use `phoneNumberId` instead.\n\nOnly relevant for `outboundPhoneCall` and `inboundPhoneCall` type.",
-            "allOf": [{ "$ref": "#/components/schemas/ImportTwilioPhoneNumberDTO" }]
+            "allOf": [
+              { "$ref": "#/components/schemas/ImportTwilioPhoneNumberDTO" }
+            ]
           },
           "metadata": {
             "type": "object",
@@ -3659,7 +5717,10 @@
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["twilio"] },
-          "authToken": { "type": "string", "description": "This is not returned in the API." },
+          "authToken": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
           "id": {
             "type": "string",
             "description": "This is the unique identifier for the credential."
@@ -3680,13 +5741,24 @@
           },
           "accountSid": { "type": "string" }
         },
-        "required": ["provider", "authToken", "id", "orgId", "createdAt", "updatedAt", "accountSid"]
+        "required": [
+          "provider",
+          "authToken",
+          "id",
+          "orgId",
+          "createdAt",
+          "updatedAt",
+          "accountSid"
+        ]
       },
       "DeepgramCredential": {
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["deepgram"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
           "id": {
             "type": "string",
             "description": "This is the unique identifier for the credential."
@@ -3706,13 +5778,23 @@
             "description": "This is the ISO 8601 date-time string of when the assistant was last updated."
           }
         },
-        "required": ["provider", "apiKey", "id", "orgId", "createdAt", "updatedAt"]
+        "required": [
+          "provider",
+          "apiKey",
+          "id",
+          "orgId",
+          "createdAt",
+          "updatedAt"
+        ]
       },
       "ElevenLabsCredential": {
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["11labs"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
           "id": {
             "type": "string",
             "description": "This is the unique identifier for the credential."
@@ -3732,13 +5814,23 @@
             "description": "This is the ISO 8601 date-time string of when the assistant was last updated."
           }
         },
-        "required": ["provider", "apiKey", "id", "orgId", "createdAt", "updatedAt"]
+        "required": [
+          "provider",
+          "apiKey",
+          "id",
+          "orgId",
+          "createdAt",
+          "updatedAt"
+        ]
       },
       "PlayHTCredential": {
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["playht"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
           "id": {
             "type": "string",
             "description": "This is the unique identifier for the credential."
@@ -3759,13 +5851,24 @@
           },
           "userId": { "type": "string" }
         },
-        "required": ["provider", "apiKey", "id", "orgId", "createdAt", "updatedAt", "userId"]
+        "required": [
+          "provider",
+          "apiKey",
+          "id",
+          "orgId",
+          "createdAt",
+          "updatedAt",
+          "userId"
+        ]
       },
       "RimeAICredential": {
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["rime-ai"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
           "id": {
             "type": "string",
             "description": "This is the unique identifier for the credential."
@@ -3785,13 +5888,23 @@
             "description": "This is the ISO 8601 date-time string of when the assistant was last updated."
           }
         },
-        "required": ["provider", "apiKey", "id", "orgId", "createdAt", "updatedAt"]
+        "required": [
+          "provider",
+          "apiKey",
+          "id",
+          "orgId",
+          "createdAt",
+          "updatedAt"
+        ]
       },
       "OpenAICredential": {
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["openai"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
           "id": {
             "type": "string",
             "description": "This is the unique identifier for the credential."
@@ -3811,13 +5924,23 @@
             "description": "This is the ISO 8601 date-time string of when the assistant was last updated."
           }
         },
-        "required": ["provider", "apiKey", "id", "orgId", "createdAt", "updatedAt"]
+        "required": [
+          "provider",
+          "apiKey",
+          "id",
+          "orgId",
+          "createdAt",
+          "updatedAt"
+        ]
       },
       "TogetherAICredential": {
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["together-ai"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
           "id": {
             "type": "string",
             "description": "This is the unique identifier for the credential."
@@ -3837,13 +5960,23 @@
             "description": "This is the ISO 8601 date-time string of when the assistant was last updated."
           }
         },
-        "required": ["provider", "apiKey", "id", "orgId", "createdAt", "updatedAt"]
+        "required": [
+          "provider",
+          "apiKey",
+          "id",
+          "orgId",
+          "createdAt",
+          "updatedAt"
+        ]
       },
       "AnyscaleCredential": {
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["anyscale"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
           "id": {
             "type": "string",
             "description": "This is the unique identifier for the credential."
@@ -3863,13 +5996,23 @@
             "description": "This is the ISO 8601 date-time string of when the assistant was last updated."
           }
         },
-        "required": ["provider", "apiKey", "id", "orgId", "createdAt", "updatedAt"]
+        "required": [
+          "provider",
+          "apiKey",
+          "id",
+          "orgId",
+          "createdAt",
+          "updatedAt"
+        ]
       },
       "OpenRouterCredential": {
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["openrouter"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
           "id": {
             "type": "string",
             "description": "This is the unique identifier for the credential."
@@ -3889,13 +6032,23 @@
             "description": "This is the ISO 8601 date-time string of when the assistant was last updated."
           }
         },
-        "required": ["provider", "apiKey", "id", "orgId", "createdAt", "updatedAt"]
+        "required": [
+          "provider",
+          "apiKey",
+          "id",
+          "orgId",
+          "createdAt",
+          "updatedAt"
+        ]
       },
       "PerplexityAICredential": {
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["perplexity-ai"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
           "id": {
             "type": "string",
             "description": "This is the unique identifier for the credential."
@@ -3915,13 +6068,23 @@
             "description": "This is the ISO 8601 date-time string of when the assistant was last updated."
           }
         },
-        "required": ["provider", "apiKey", "id", "orgId", "createdAt", "updatedAt"]
+        "required": [
+          "provider",
+          "apiKey",
+          "id",
+          "orgId",
+          "createdAt",
+          "updatedAt"
+        ]
       },
       "DeepInfraCredential": {
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["deepinfra"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
           "id": {
             "type": "string",
             "description": "This is the unique identifier for the credential."
@@ -3941,13 +6104,23 @@
             "description": "This is the ISO 8601 date-time string of when the assistant was last updated."
           }
         },
-        "required": ["provider", "apiKey", "id", "orgId", "createdAt", "updatedAt"]
+        "required": [
+          "provider",
+          "apiKey",
+          "id",
+          "orgId",
+          "createdAt",
+          "updatedAt"
+        ]
       },
       "CustomLLMCredential": {
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["custom-llm"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
           "id": {
             "type": "string",
             "description": "This is the unique identifier for the credential."
@@ -3967,13 +6140,23 @@
             "description": "This is the ISO 8601 date-time string of when the assistant was last updated."
           }
         },
-        "required": ["provider", "apiKey", "id", "orgId", "createdAt", "updatedAt"]
+        "required": [
+          "provider",
+          "apiKey",
+          "id",
+          "orgId",
+          "createdAt",
+          "updatedAt"
+        ]
       },
       "RunpodCredential": {
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["runpod"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
           "id": {
             "type": "string",
             "description": "This is the unique identifier for the credential."
@@ -3993,13 +6176,23 @@
             "description": "This is the ISO 8601 date-time string of when the assistant was last updated."
           }
         },
-        "required": ["provider", "apiKey", "id", "orgId", "createdAt", "updatedAt"]
+        "required": [
+          "provider",
+          "apiKey",
+          "id",
+          "orgId",
+          "createdAt",
+          "updatedAt"
+        ]
       },
       "GroqCredential": {
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["groq"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
           "id": {
             "type": "string",
             "description": "This is the unique identifier for the credential."
@@ -4019,13 +6212,23 @@
             "description": "This is the ISO 8601 date-time string of when the assistant was last updated."
           }
         },
-        "required": ["provider", "apiKey", "id", "orgId", "createdAt", "updatedAt"]
+        "required": [
+          "provider",
+          "apiKey",
+          "id",
+          "orgId",
+          "createdAt",
+          "updatedAt"
+        ]
       },
       "AnthropicCredential": {
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["anthropic"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
           "id": {
             "type": "string",
             "description": "This is the unique identifier for the credential."
@@ -4045,13 +6248,23 @@
             "description": "This is the ISO 8601 date-time string of when the assistant was last updated."
           }
         },
-        "required": ["provider", "apiKey", "id", "orgId", "createdAt", "updatedAt"]
+        "required": [
+          "provider",
+          "apiKey",
+          "id",
+          "orgId",
+          "createdAt",
+          "updatedAt"
+        ]
       },
       "VonageCredential": {
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["vonage"] },
-          "apiSecret": { "type": "string", "description": "This is not returned in the API." },
+          "apiSecret": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
           "id": {
             "type": "string",
             "description": "This is the unique identifier for the credential."
@@ -4096,7 +6309,10 @@
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["twilio"] },
-          "authToken": { "type": "string", "description": "This is not returned in the API." },
+          "authToken": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
           "accountSid": { "type": "string" }
         },
         "required": ["provider", "authToken", "accountSid"]
@@ -4105,7 +6321,10 @@
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["deepgram"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." }
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
         },
         "required": ["provider", "apiKey"]
       },
@@ -4113,7 +6332,10 @@
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["openai"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." }
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
         },
         "required": ["provider", "apiKey"]
       },
@@ -4121,7 +6343,10 @@
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["together-ai"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." }
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
         },
         "required": ["provider", "apiKey"]
       },
@@ -4129,7 +6354,10 @@
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["anyscale"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." }
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
         },
         "required": ["provider", "apiKey"]
       },
@@ -4137,7 +6365,10 @@
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["openrouter"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." }
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
         },
         "required": ["provider", "apiKey"]
       },
@@ -4145,7 +6376,10 @@
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["perplexity-ai"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." }
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
         },
         "required": ["provider", "apiKey"]
       },
@@ -4153,7 +6387,10 @@
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["deepinfra"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." }
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
         },
         "required": ["provider", "apiKey"]
       },
@@ -4161,7 +6398,10 @@
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["custom-llm"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." }
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
         },
         "required": ["provider", "apiKey"]
       },
@@ -4169,7 +6409,10 @@
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["11labs"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." }
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
         },
         "required": ["provider", "apiKey"]
       },
@@ -4177,7 +6420,10 @@
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["playht"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
           "userId": { "type": "string" }
         },
         "required": ["provider", "apiKey", "userId"]
@@ -4186,7 +6432,10 @@
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["rime-ai"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." }
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
         },
         "required": ["provider", "apiKey"]
       },
@@ -4194,7 +6443,10 @@
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["runpod"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." }
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
         },
         "required": ["provider", "apiKey"]
       },
@@ -4202,7 +6454,10 @@
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["groq"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." }
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
         },
         "required": ["provider", "apiKey"]
       },
@@ -4210,7 +6465,10 @@
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["anthropic"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." }
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
         },
         "required": ["provider", "apiKey"]
       },
@@ -4218,7 +6476,10 @@
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["vonage"] },
-          "apiSecret": { "type": "string", "description": "This is not returned in the API." },
+          "apiSecret": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
           "apiKey": { "type": "string" }
         },
         "required": ["provider", "apiSecret", "apiKey"]
@@ -4227,7 +6488,10 @@
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["twilio"] },
-          "authToken": { "type": "string", "description": "This is not returned in the API." },
+          "authToken": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
           "accountSid": { "type": "string" }
         },
         "required": ["provider", "authToken", "accountSid"]
@@ -4236,7 +6500,10 @@
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["deepgram"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." }
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
         },
         "required": ["provider", "apiKey"]
       },
@@ -4244,7 +6511,10 @@
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["openai"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." }
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
         },
         "required": ["provider", "apiKey"]
       },
@@ -4252,7 +6522,10 @@
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["together-ai"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." }
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
         },
         "required": ["provider", "apiKey"]
       },
@@ -4260,7 +6533,10 @@
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["anyscale"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." }
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
         },
         "required": ["provider", "apiKey"]
       },
@@ -4268,7 +6544,10 @@
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["openrouter"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." }
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
         },
         "required": ["provider", "apiKey"]
       },
@@ -4276,7 +6555,10 @@
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["perplexity-ai"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." }
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
         },
         "required": ["provider", "apiKey"]
       },
@@ -4284,7 +6566,10 @@
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["deepinfra"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." }
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
         },
         "required": ["provider", "apiKey"]
       },
@@ -4292,7 +6577,10 @@
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["custom-llm"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." }
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
         },
         "required": ["provider", "apiKey"]
       },
@@ -4300,7 +6588,10 @@
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["11labs"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." }
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
         },
         "required": ["provider", "apiKey"]
       },
@@ -4308,7 +6599,10 @@
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["playht"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." },
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
           "userId": { "type": "string" }
         },
         "required": ["provider", "apiKey", "userId"]
@@ -4317,7 +6611,10 @@
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["rime-ai"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." }
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
         },
         "required": ["provider", "apiKey"]
       },
@@ -4325,7 +6622,10 @@
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["runpod"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." }
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
         },
         "required": ["provider", "apiKey"]
       },
@@ -4333,7 +6633,10 @@
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["groq"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." }
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
         },
         "required": ["provider", "apiKey"]
       },
@@ -4341,7 +6644,10 @@
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["anthropic"] },
-          "apiKey": { "type": "string", "description": "This is not returned in the API." }
+          "apiKey": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          }
         },
         "required": ["provider", "apiKey"]
       },
@@ -4349,7 +6655,10 @@
         "type": "object",
         "properties": {
           "provider": { "type": "string", "enum": ["vonage"] },
-          "apiSecret": { "type": "string", "description": "This is not returned in the API." },
+          "apiSecret": {
+            "type": "string",
+            "description": "This is not returned in the API."
+          },
           "apiKey": { "type": "string" }
         },
         "required": ["provider", "apiSecret", "apiKey"]
@@ -4551,17 +6860,38 @@
           "provider": {
             "type": "object",
             "description": "This is the voice provider that will be used.",
-            "enum": ["11labs", "playht", "rime-ai", "deepgram", "openai", "azure", "lmnt", "neets"]
+            "enum": [
+              "11labs",
+              "playht",
+              "rime-ai",
+              "deepgram",
+              "openai",
+              "azure",
+              "lmnt",
+              "neets"
+            ]
           },
           "providerId": {
             "type": "string",
             "description": "The ID of the voice provided by the provider."
           },
-          "slug": { "type": "string", "description": "The unique slug of the voice." },
+          "slug": {
+            "type": "string",
+            "description": "The unique slug of the voice."
+          },
           "name": { "type": "string", "description": "The name of the voice." },
-          "language": { "type": "string", "description": "The language of the voice." },
-          "languageCode": { "type": "string", "description": "The language code of the voice." },
-          "model": { "type": "string", "description": "The model of the voice." },
+          "language": {
+            "type": "string",
+            "description": "The language of the voice."
+          },
+          "languageCode": {
+            "type": "string",
+            "description": "The language code of the voice."
+          },
+          "model": {
+            "type": "string",
+            "description": "The model of the voice."
+          },
           "supportedModels": {
             "type": "string",
             "description": "The supported models of the voice."
@@ -4571,11 +6901,26 @@
             "description": "The gender of the voice.",
             "enum": ["male", "female"]
           },
-          "accent": { "type": "string", "description": "The accent of the voice." },
-          "previewUrl": { "type": "string", "description": "The preview URL of the voice." },
-          "credentialId": { "type": "string", "description": "The credential ID of the voice." },
-          "isDeleted": { "type": "boolean", "description": "The deletion status of the voice." },
-          "id": { "type": "string", "description": "The unique identifier for the voice library." },
+          "accent": {
+            "type": "string",
+            "description": "The accent of the voice."
+          },
+          "previewUrl": {
+            "type": "string",
+            "description": "The preview URL of the voice."
+          },
+          "credentialId": {
+            "type": "string",
+            "description": "The credential ID of the voice."
+          },
+          "isDeleted": {
+            "type": "boolean",
+            "description": "The deletion status of the voice."
+          },
+          "id": {
+            "type": "string",
+            "description": "The unique identifier for the voice library."
+          },
           "orgId": {
             "type": "string",
             "description": "The unique identifier for the organization that this voice library belongs to."
@@ -4595,7 +6940,106 @@
             "description": "The ISO 8601 date-time string of when the voice library was last updated."
           }
         },
-        "required": ["isDeleted", "id", "orgId", "isPublic", "createdAt", "updatedAt"]
+        "required": [
+          "isDeleted",
+          "id",
+          "orgId",
+          "isPublic",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "CallLogPrivileged": {
+        "type": "object",
+        "properties": {
+          "callId": {
+            "type": "string",
+            "description": "This is the unique identifier for the call."
+          },
+          "orgId": {
+            "type": "string",
+            "description": "This is the unique identifier for the org that this call log belongs to."
+          },
+          "log": {
+            "type": "string",
+            "description": "This is the log message associated with the call."
+          },
+          "level": {
+            "type": "string",
+            "description": "This is the level of the log message.",
+            "enum": ["INFO", "LOG", "WARN", "ERROR", "CHECKPOINT"]
+          },
+          "time": {
+            "format": "date-time",
+            "type": "string",
+            "description": "This is the ISO 8601 date-time string of when the log was created."
+          }
+        },
+        "required": ["callId", "orgId", "log", "level", "time"]
+      },
+      "PaginationMeta": {
+        "type": "object",
+        "properties": {
+          "itemsPerPage": { "type": "number" },
+          "totalItems": { "type": "number" },
+          "currentPage": { "type": "number" }
+        },
+        "required": ["itemsPerPage", "totalItems", "currentPage"]
+      },
+      "CallLogsPaginatedResponse": {
+        "type": "object",
+        "properties": {
+          "results": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/CallLogPrivileged" }
+          },
+          "metadata": { "$ref": "#/components/schemas/PaginationMeta" }
+        },
+        "required": ["results", "metadata"]
+      },
+      "CreateFileDTO": {
+        "type": "object",
+        "properties": { "file": { "type": "string", "format": "binary" } },
+        "required": ["file"]
+      },
+      "File": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "This is the name of the file. This is just for your own reference."
+          },
+          "originalName": { "type": "string" },
+          "object": { "type": "string", "default": "file", "enum": ["file"] },
+          "bytes": { "type": "number" },
+          "purpose": { "type": "string" },
+          "mimetype": { "type": "string" },
+          "url": { "type": "string" },
+          "metadata": { "type": "object" },
+          "status": { "enum": ["indexed", "not_indexed"], "type": "string" },
+          "key": { "type": "string" },
+          "path": { "type": "string" },
+          "bucket": { "type": "string", "default": "files" },
+          "id": {
+            "type": "string",
+            "description": "This is the unique identifier for the file."
+          },
+          "orgId": {
+            "type": "string",
+            "description": "This is the unique identifier for the org that this file belongs to."
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "This is the ISO 8601 date-time string of when the file was created."
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "This is the ISO 8601 date-time string of when the file was last updated."
+          }
+        },
+        "required": ["id", "orgId", "createdAt", "updatedAt"]
       }
     }
   }
