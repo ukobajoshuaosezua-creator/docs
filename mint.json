@@ -234,6 +234,15 @@
       ]
     },
     {
+      "group": "Files",
+      "pages": [
+        "api-reference/files/list-files",
+        "api-reference/files/get-file",
+        "api-reference/files/upload-file",
+        "api-reference/files/delete-file"
+      ]
+    },
+    {
       "group": "Credentials",
       "pages": [
         "api-reference/credentials/list-credentials",
