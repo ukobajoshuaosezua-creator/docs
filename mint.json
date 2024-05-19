@@ -179,7 +179,7 @@
       "pages": [
         {
           "group": "Calls",
-          "pages": ["call_forwarding", "calls/call-ended-reason"]
+          "pages": ["call-forwarding", "calls/call-ended-reason"]
         },
         {
           "group": "Multilingual Support",
@@ -193,7 +193,7 @@
 
     {
       "group": "Glossary",
-      "pages": ["prompting_guide", "glossary", "faq"]
+      "pages": ["prompting-guide", "glossary", "faq"]
     },
     {
       "group": "Community",
