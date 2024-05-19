@@ -396,6 +396,14 @@
     {
       "source": "/privacy",
       "destination": "/privacy-policy"
+    },
+    {
+      "source": "/call_forwarding",
+      "destination": "/call-forwarding"
+    },
+    {
+      "source": "/prompting_guide",
+      "destination": "/prompting-guide"
     }
   ],
   "analytics": {
