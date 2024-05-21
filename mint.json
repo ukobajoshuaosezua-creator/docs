@@ -182,6 +182,10 @@
           "pages": ["call-forwarding", "calls/call-ended-reason"]
         },
         {
+          "group": "Custom Voices",
+          "pages": ["custom-voices/playht"]
+        },
+        {
           "group": "Multilingual Support",
           "pages": ["multilingual"]
         },
