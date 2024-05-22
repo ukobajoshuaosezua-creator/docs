@@ -87,6 +87,14 @@ inkeepScript.addEventListener("load", function () {
           isOpen: false,
         });
       },
+      modalSettings: {
+        onShortcutKeyPressed: () => {
+          inkeepSearchModal.render({
+            isOpen: true,
+          });
+        },
+        shortcutKey: "k",
+      }
     },
   });
 
