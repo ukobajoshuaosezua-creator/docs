@@ -183,7 +183,7 @@
         },
         {
           "group": "Custom Voices",
-          "pages": ["custom-voices/playht"]
+          "pages": ["custom-voices/playht", "custom-voices/elevenlabs"]
         },
         {
           "group": "Multilingual Support",
