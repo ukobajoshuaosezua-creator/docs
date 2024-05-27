@@ -19,6 +19,36 @@ by passing `assistantOverrides` with `variableValues` to the API or SDK:
 }
 ```
 
+## Utilizing Dynamic Variables in Phone Calls
+
+To leverage dynamic variables during phone calls, follow these steps:
+
+1.  **Prepare Your Request:** Construct a JSON payload containing the following key-value pairs:
+
+    *   `assistantId`: Replace `"your-assistant-id"` with the actual ID of your assistant.
+    *   `assistantOverride`: This object is used to customize your assistant's behavior.
+        *   `variableValues`: An object containing the dynamic variables you want to use, in the format `{ "variableName": "variableValue" }`. For example, `{ "name": "John" }`.
+    *   `customer`: An object representing the call recipient.
+        *   `number`: Replace `"+1xxxxxxxxxx"` with the phone number you wish to call (in E.164 format).
+    *   `phoneNumberId`: Replace `"your-phone-id"` with the ID of your registered phone number. You can get it from the [Phone number](https://dashboard.vapi.ai/phone-numbers) in the dashboard.
+
+2.  **Send the Request:** Dispatch the JSON payload to the `/call/phone` endpoint using your preferred method (e.g., HTTP POST request).
+
+```json
+{
+  "assistantId": "your-assistant-id",
+  "assistantOverride": {
+    "variableValues": {
+      "name": "John"
+    }
+  },
+  "customer": {
+    "number": "+1xxxxxxxxxx"
+  },
+  "phoneNumberId": "your-phone-id"
+}
+```
+
 ## Default Variables
 
 By default, the following variables are automatically filled based on the current (UTC) time,
