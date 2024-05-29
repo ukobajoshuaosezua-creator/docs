@@ -156,10 +156,7 @@
             "assistants/custom-llm",
             "assistants/persistent-assistants",
             "assistants/dynamic-variables",
-<<<<<<< Updated upstream
-=======
             "assistants/call-analysis",
->>>>>>> Stashed changes
             "assistants/background-messages"
           ]
         },
@@ -350,8 +347,6 @@
       "destination": "/assistants/dynamic-variables"
     },
     {
-<<<<<<< Updated upstream
-=======
       "source": "/call_analysis",
       "destination": "/assistants/call-analysis"
     },
@@ -360,7 +355,6 @@
       "destination": "/assistants/call-analysis"
     },
     {
->>>>>>> Stashed changes
       "source": "/text_message",
       "destination": "/assistants/background-messages"
     },
