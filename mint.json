@@ -156,6 +156,7 @@
             "assistants/custom-llm",
             "assistants/persistent-assistants",
             "assistants/dynamic-variables",
+            "assistants/call-analysis",
             "assistants/background-messages"
           ]
         },
@@ -344,6 +345,14 @@
     {
       "source": "/dynamic-variables",
       "destination": "/assistants/dynamic-variables"
+    },
+    {
+      "source": "/call_analysis",
+      "destination": "/assistants/call-analysis"
+    },
+    {
+      "source": "/call-analysis",
+      "destination": "/assistants/call-analysis"
     },
     {
       "source": "/text_message",
