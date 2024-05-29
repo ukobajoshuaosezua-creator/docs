@@ -171,6 +171,10 @@
         {
           "group": "Phone Calling",
           "pages": ["phone-calling"]
+        },
+        {
+          "group": "Squads",
+          "pages": ["squads"]
         }
       ]
     },
