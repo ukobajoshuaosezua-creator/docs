@@ -142,6 +142,14 @@ vapi.setMuted(true);
 vapi.isMuted(); // true
 ```
 
+### `say(message: string, endCallAfterSpoken?: boolean)`
+
+The `say` method can be used to invoke speech and gracefully terminate the call if needed
+
+```javascript
+vapi.say("Our time's up, goodbye!", true)
+```
+
 ## Events
 
 You can listen on the `vapi` instance for events. These events allow you to react to changes in the state of the call or user speech.
