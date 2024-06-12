@@ -175,7 +175,7 @@
         },
         {
           "group": "Squads",
-          "pages": ["squads"]
+          "pages": ["squads","squads-example"]
         }
       ]
     },
