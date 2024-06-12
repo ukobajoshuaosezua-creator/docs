@@ -277,6 +277,10 @@
       "pages": ["api-reference/metrics/list-metrics"]
     },
     {
+      "group": "Call Logs",
+      "pages": ["api-reference/logs/list-logs"]
+    },
+    {
       "group": "",
       "pages": ["api-reference/swagger", "api-reference/openapi"]
     }
