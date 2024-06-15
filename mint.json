@@ -263,16 +263,6 @@
       ]
     },
     {
-      "group": "Credentials",
-      "pages": [
-        "api-reference/credentials/list-credentials",
-        "api-reference/credentials/get-credential",
-        "api-reference/credentials/create-credential",
-        "api-reference/credentials/update-credential",
-        "api-reference/credentials/delete-credential"
-      ]
-    },
-    {
       "group": "Server and Client",
       "pages": [
         "api-reference/messages/server-message",
