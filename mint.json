@@ -273,6 +273,14 @@
       ]
     },
     {
+      "group": "Server and Client",
+      "pages": [
+        "api-reference/messages/server-message",
+        "api-reference/messages/client-message",
+        "api-reference/messages/server-message-response"
+      ]
+    },
+    {
       "group": "Billing Metrics",
       "pages": ["api-reference/metrics/list-metrics"]
     },
