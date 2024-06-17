@@ -95,7 +95,7 @@
       "pages": [
         {
           "group": "How Vapi Works",
-          "pages": ["quickstart", "how-vapi-works", "knowledgebase"]
+          "pages": ["quickstart", "how-vapi-works"]
         },
         {
           "group": "Pricing",
@@ -121,7 +121,7 @@
       ]
     },
     {
-      "group": "Get Started",
+      "group": "Quickstart",
       "pages": [
         "quickstart/dashboard",
         "quickstart/phone/inbound",
@@ -144,16 +144,38 @@
       ]
     },
     {
+      "group": "Customization",
+      "pages": [
+        "customization/provider-keys",
+        {
+          "group": "Custom LLM",
+          "pages": [
+            "customization/custom-llm/fine-tuned-openai-models",
+            "customization/custom-llm/using-your-server"
+          ]
+        },
+        {
+          "group": "Custom Voices",
+          "pages": [
+            "customization/custom-voices/custom-voice",
+            "customization/custom-voices/elevenlabs",
+            "customization/custom-voices/playht"
+          ]
+        },
+        "customization/custom-keywords",
+        "customization/knowledgebase",
+        "customization/multilingual",
+        "customization/jwt-authentication"
+      ]
+    },
+    {
       "group": "Core Concepts",
       "pages": [
         {
           "group": "Assistants",
           "pages": [
             "assistants",
-            "assistants/provider-keys",
             "assistants/function-calling",
-            "assistants/custom-voice",
-            "assistants/custom-llm",
             "assistants/persistent-assistants",
             "assistants/dynamic-variables",
             "assistants/call-analysis",
@@ -186,16 +208,7 @@
           "group": "Calls",
           "pages": ["call-forwarding", "calls/call-ended-reason"]
         },
-        {
-          "group": "Custom Voices",
-          "pages": ["custom-voices/playht", "custom-voices/elevenlabs"]
-        },
-        {
-          "group": "Multilingual Support",
-          "pages": ["multilingual"]
-        },
         "GHL",
-        "custom-llm-guide",
         "tools-calling"
       ]
     },
