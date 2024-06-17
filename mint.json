@@ -95,7 +95,7 @@
       "pages": [
         {
           "group": "How Vapi Works",
-          "pages": ["quickstart", "how-vapi-works"]
+          "pages": ["quickstart", "how-vapi-works", "knowledgebase"]
         },
         {
           "group": "Pricing",
