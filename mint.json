@@ -197,25 +197,30 @@
         },
         {
           "group": "Squads",
-          "pages": ["squads","squads-example"]
+          "pages": ["squads", "squads-example"]
         }
       ]
     },
     {
-      "group": "Learn",
+      "group": "Advanced Concepts",
       "pages": [
         {
           "group": "Calls",
-          "pages": ["call-forwarding", "calls/call-ended-reason"]
+          "pages": [
+            "call-forwarding",
+            "calls/call-ended-reason",
+            "advanced/calls/sip"
+          ]
         },
         "GHL",
-        "tools-calling"
+        "tools-calling",
+        "prompting-guide"
       ]
     },
 
     {
       "group": "Glossary",
-      "pages": ["prompting-guide", "glossary", "faq"]
+      "pages": ["glossary", "faq"]
     },
     {
       "group": "Community",
