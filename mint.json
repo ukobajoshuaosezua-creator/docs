@@ -111,9 +111,7 @@
           "group": "Enterprise",
           "pages": [
             "enterprise/plans",
-            "enterprise/onprem",
-            "enterprise/hipaa",
-            "enterprise/soc"
+            "enterprise/onprem"
           ]
         },
         "support",
@@ -227,8 +225,8 @@
       "pages": ["community/videos"]
     },
     {
-      "group": "Legal",
-      "pages": ["privacy-policy", "tos"]
+      "group": "Security & Privacy",
+      "pages": ["security-and-privacy/hipaa","security-and-privacy/soc","security-and-privacy/privacy-policy","security-and-privacy/tos"]
     },
     {
       "group": "Calls",
