@@ -222,7 +222,26 @@
     },
     {
       "group": "Community",
-      "pages": ["community/videos"]
+      "pages": [
+        {
+        "group": "Videos",
+        "pages": [
+          "community/appointment-scheduling",
+          "community/comparisons",
+          "community/conferences",
+          "community/demos",
+          "community/ghl",
+          "community/guide",
+          "community/inbound-outbound",
+          "community/knowledgebase",
+          "community/podcast",
+          "community/snippets-sdks-tutorials",
+          "community/special-mentions",
+          "community/television",
+          "community/usecase"
+        ]
+      }
+    ]
     },
     {
       "group": "Security & Privacy",
