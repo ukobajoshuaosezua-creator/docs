@@ -229,15 +229,6 @@
       "pages": ["security-and-privacy/hipaa","security-and-privacy/soc","security-and-privacy/privacy-policy","security-and-privacy/tos"]
     },
     {
-      "group": "Calls",
-      "pages": [
-        "api-reference/calls/list-calls",
-        "api-reference/calls/get-call",
-        "api-reference/calls/delete-call-data",
-        "api-reference/calls/create-phone-call"
-      ]
-    },
-    {
       "group": "Assistants",
       "pages": [
         "api-reference/assistants/list-assistants",
@@ -248,24 +239,13 @@
       ]
     },
     {
-      "group": "Phone Numbers",
+      "group": "Calls",
       "pages": [
-        "api-reference/phone-numbers/list-phone-numbers",
-        "api-reference/phone-numbers/get-phone-number",
-        "api-reference/phone-numbers/buy-phone-number",
-        "api-reference/phone-numbers/import-twilio-number",
-        "api-reference/phone-numbers/import-vonage-number",
-        "api-reference/phone-numbers/update-phone-number",
-        "api-reference/phone-numbers/delete-phone-number"
-      ]
-    },
-    {
-      "group": "Files",
-      "pages": [
-        "api-reference/files/list-files",
-        "api-reference/files/get-file",
-        "api-reference/files/upload-file",
-        "api-reference/files/delete-file"
+        "api-reference/calls/list-calls",
+        "api-reference/calls/get-call",
+        "api-reference/calls/update-call",
+        "api-reference/calls/delete-call-data",
+        "api-reference/calls/create-call"
       ]
     },
     {
@@ -279,20 +259,50 @@
       ]
     },
     {
+      "group": "Phone Numbers",
+      "pages": [
+        "api-reference/phone-numbers/create-phone-number",
+        "api-reference/phone-numbers/list-phone-numbers",
+        "api-reference/phone-numbers/get-phone-number",
+        "api-reference/phone-numbers/update-phone-number",
+        "api-reference/phone-numbers/delete-phone-number"
+      ]
+    },
+    {
+      "group": "Tools",
+      "pages": [
+        "api-reference/tools/create-tool",
+        "api-reference/tools/delete-tool",
+        "api-reference/tools/get-tool",
+        "api-reference/tools/list-tools",
+        "api-reference/tools/update-tool"
+      ]
+    },
+    {
+      "group": "Files",
+      "pages": [
+        "api-reference/files/upload-file",
+        "api-reference/files/list-files",
+        "api-reference/files/get-file",
+        "api-reference/files/update-file",
+        "api-reference/files/delete-file"
+      ]
+    },
+    {
+      "group": "Billing Metrics",
+      "pages": ["api-reference/billing-metrics/list-billing-metrics"]
+    },
+    {
+      "group": "Call Logs",
+      "pages": ["api-reference/call-logs/list-call-logs"]
+    },
+    {
       "group": "Server and Client",
       "pages": [
         "api-reference/messages/server-message",
         "api-reference/messages/client-message",
         "api-reference/messages/server-message-response"
       ]
-    },
-    {
-      "group": "Billing Metrics",
-      "pages": ["api-reference/metrics/list-metrics"]
-    },
-    {
-      "group": "Call Logs",
-      "pages": ["api-reference/logs/list-logs"]
     },
     {
       "group": "",
