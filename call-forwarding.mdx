@@ -3,46 +3,159 @@ title: "Call Forwarding"
 sidebarTitle: "Call Forwarding"
 ---
 
-Vapi offers call forwarding functionality through its `forwardingPhoneNumbers` and `forwardingPhoneNumber` attributes. While seemingly straightforward, the implementation involves specific considerations depending on your call setup. Here's a breakdown:
+Vapi's call forwarding functionality allows you to redirect calls to different phone numbers based on specific conditions using tools. This guide explains how to set up and use the `transferCall` function for call forwarding.
 
-**Key Concepts:**
+## Key Concepts
 
-* **forwardingPhoneNumbers:** This attribute allows you to define an array of phone numbers for call forwarding. It's ideal for scenarios where you want to direct calls to different departments or individuals based on the conversation context.
-* **forwardingPhoneNumber:** This attribute accepts a single phone number for forwarding all calls. Use this if you have a general fallback number for all situations.
-* **sipUri:** Within the `forwardingPhoneNumbers` array, you can specify a SIP URI instead of a regular phone number. This is crucial when dealing with calls originating from SIP, as Vapi currently only supports SIP REFER for such transfers.
+### Call Forwarding Tools
 
-**Setting Up Call Forwarding:**
+- **`transferCall` Tool**: This tool enables call forwarding to predefined phone numbers with specific messages based on the destination.
 
-1. **API:**
- * **API:** When using the Create Assistant API, the `forwardingPhoneNumber` attribute might cause errors if not handled properly. Consider omitting it or setting it to `null` or an empty string (`''`) to avoid issues.
+### Parameters and Messages
 
-2. **Choosing the Right Attribute:**
- * **Multiple Forwarding Options:** If you need to route calls to different destinations based on user requests or other criteria, use the `forwardingPhoneNumbers` array.
- * **Single Forwarding Number:** For a simple, catch-all forwarding solution, the `forwardingPhoneNumber` attribute is sufficient.
+- **Destinations**: A list of phone numbers where the call can be forwarded.
+- **Messages**: Custom messages that inform the caller about the call being forwarded.
 
-3. **Handling SIP Calls:**
- * **SIP Origination:** If calls originate from SIP, ensure you use the `sipUri` attribute within the `forwardingPhoneNumbers` array to specify the destination SIP address.
- * **SIP REFER:** Vapi utilizes SIP REFER to transfer SIP calls. Make sure your receiving system is configured to handle SIP REFER messages.
+## Setting Up Call Forwarding
 
-**Instructing the Assistant:**
+### 1. Defining Destinations and Messages
 
-* **System Prompt:** Use the system prompt to guide the assistant on when to utilize each forwarding number. For example, include instructions like:
-  * "If the user asks for sales, call the `transferCall` function with `+1123123123`."
-  * "If the user requests technical support, use the `sipUri` `sip:support@example.com`."
+The `transferCall` tool includes a list of destinations and corresponding messages to notify the caller:
 
-**Prompting Style**
-```jsx
-  When X condition is met, use the transferCall function with this phone number: +1123123123.
-  When Y condition is met, use the transferCall function with this phone number: +1123123141.
+```json
+{
+  "tools": [
+    {
+      "type": "transferCall",
+      "destinations": [
+        {
+          "type": "phoneNumber",
+          "number": "+1234567890",
+          "message": "I am forwarding your call to Department A. Please stay on the line."
+        },
+        {
+          "type": "phoneNumber",
+          "number": "+0987654321",
+          "message": "I am forwarding your call to Department B. Please stay on the line."
+        },
+        {
+          "type": "phoneNumber",
+          "number": "+1122334455",
+          "message": "I am forwarding your call to Department C. Please stay on the line."
+        }
+      ],
+      "function": {
+        "name": "transferCall",
+        "description": "Use this function to transfer the call. Only use it when following instructions that explicitly ask you to use the transferCall function. DO NOT call this function unless you are instructed to do so.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "destination": {
+              "type": "string",
+              "enum": [
+                "+1234567890",
+                "+0987654321",
+                "+1122334455"
+              ],
+              "description": "The destination to transfer the call to."
+            }
+          },
+          "required": [
+            "destination"
+          ]
+        }
+      },
+      "messages": [
+        {
+          "type": "request-start",
+          "content": "I am forwarding your call to Department A. Please stay on the line.",
+          "conditions": [
+            {
+              "param": "destination",
+              "operator": "eq",
+              "value": "+1234567890"
+            }
+          ]
+        },
+        {
+          "type": "request-start",
+          "content": "I am forwarding your call to Department B. Please stay on the line.",
+          "conditions": [
+            {
+              "param": "destination",
+              "operator": "eq",
+              "value": "+0987654321"
+            }
+          ]
+        },
+        {
+          "type": "request-start",
+          "content": "I am forwarding your call to Department C. Please stay on the line.",
+          "conditions": [
+            {
+              "param": "destination",
+              "operator": "eq",
+              "value": "+1122334455"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
 ```
 
-**Additional Notes:**
-* Pay attention to the format of phone numbers (E.164) when using the API.
-* Test your call forwarding setup thoroughly to ensure it functions as expected.
+### 2. Using the `transferCall` Function
 
-**Troubleshooting:**
+When the assistant needs to forward a call, it uses the `transferCall` function with the appropriate destination:
 
-* If calls are not being transferred despite the transcript indicating "forwarded," check the logs for error messages and ensure your Vici system can handle SIP REFER messages if applicable.
-* If you encounter issues with the `forwardingPhoneNumber` attribute in the API, try omitting it or setting it to `null` or an empty string.
+```json
+{
+  "function": {
+    "name": "transferCall",
+    "parameters": {
+      "destination": "+1234567890"
+    }
+  }
+}
 
-By following these guidelines and understanding the nuances of Vapi's call forwarding functionality, you can effectively manage call routing and ensure a seamless experience for your users.
+```
+
+### 3. Customizing Messages
+
+Customize the messages for each destination to provide clear information to the caller:
+
+```json
+{
+  "messages": [
+    {
+      "type": "request-start",
+      "content": "I am forwarding your call to Department A. Please stay on the line.",
+      "conditions": [
+        {
+          "param": "destination",
+          "operator": "eq",
+          "value": "+1234567890"
+        }
+      ]
+    }
+  ]
+}
+
+```
+
+## Instructing the Assistant
+
+Use the system prompt to guide the assistant on when to utilize each forwarding number. For example:
+
+- "If the user asks for sales, call the `transferCall` function with `+1234567890`."
+- "If the user requests technical support, use the `transferCall` function with `+0987654321`."
+
+## Troubleshooting
+
+- If calls are not being transferred, check the logs for errors.
+- Ensure that the correct destination numbers are used.
+- Ensure you have written the function description properly to indicate where you want to forward the call
+- Test the call forwarding setup thoroughly to confirm its functionality.
+
+By following these guidelines and utilizing the `transferCall` tool, you can effectively manage call routing and provide a seamless experience for your users.
