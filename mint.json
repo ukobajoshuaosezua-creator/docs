@@ -250,9 +250,9 @@
     {
       "group": "Assistants",
       "pages": [
-        "api-reference/assistants/list-assistants",
-        "api-reference/assistants/get-assistant",
         "api-reference/assistants/create-assistant",
+        "api-reference/assistants/get-assistant",
+        "api-reference/assistants/list-assistants",
         "api-reference/assistants/update-assistant",
         "api-reference/assistants/delete-assistant"
       ]
@@ -260,19 +260,19 @@
     {
       "group": "Calls",
       "pages": [
-        "api-reference/calls/list-calls",
+        "api-reference/calls/create-call",
         "api-reference/calls/get-call",
+        "api-reference/calls/list-calls",
         "api-reference/calls/update-call",
-        "api-reference/calls/delete-call-data",
-        "api-reference/calls/create-call"
+        "api-reference/calls/delete-call-data"
       ]
     },
     {
       "group": "Squads",
       "pages": [
-        "api-reference/squads/list-squads",
-        "api-reference/squads/get-squad",
         "api-reference/squads/create-squad",
+        "api-reference/squads/get-squad",
+        "api-reference/squads/list-squads",
         "api-reference/squads/update-squad",
         "api-reference/squads/delete-squad"
       ]
@@ -281,8 +281,8 @@
       "group": "Phone Numbers",
       "pages": [
         "api-reference/phone-numbers/create-phone-number",
-        "api-reference/phone-numbers/list-phone-numbers",
         "api-reference/phone-numbers/get-phone-number",
+        "api-reference/phone-numbers/list-phone-numbers",
         "api-reference/phone-numbers/update-phone-number",
         "api-reference/phone-numbers/delete-phone-number"
       ]
@@ -291,18 +291,18 @@
       "group": "Tools",
       "pages": [
         "api-reference/tools/create-tool",
-        "api-reference/tools/delete-tool",
         "api-reference/tools/get-tool",
         "api-reference/tools/list-tools",
-        "api-reference/tools/update-tool"
+        "api-reference/tools/update-tool",
+        "api-reference/tools/delete-tool"
       ]
     },
     {
       "group": "Files",
       "pages": [
         "api-reference/files/upload-file",
-        "api-reference/files/list-files",
         "api-reference/files/get-file",
+        "api-reference/files/list-files",
         "api-reference/files/update-file",
         "api-reference/files/delete-file"
       ]
