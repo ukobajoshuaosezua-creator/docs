@@ -350,6 +350,10 @@
   },
   "redirects": [
     {
+      "source": "/api-reference/phone-numbers/import-twilio-number",
+      "destination": "/api-reference/phone-numbers/create-phone-number"
+    },
+    {
       "source": "/getting_started",
       "destination": "/quickstart/dashboard"
     },
