@@ -1949,7 +1949,7 @@
         ]
       }
     },
-    "/metric": {
+    "/metrics": {
       "get": {
         "operationId": "MetricsController_findAll",
         "summary": "List Billing Metrics",
