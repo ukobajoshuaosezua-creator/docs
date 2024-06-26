@@ -4,7 +4,7 @@ title: "My Vapi"
 
 # MyVapi User Guide
 
-Welcome to MyVapi! This guide will help you get started with using MyVapi, your custom GPT, to enhance your productivity and streamline your tasks. Follow the steps below to make the most out of this powerful tool.
+Welcome to MyVapi! This guide will help you get started with using MyVapi, a GPT that interacts and manages your VAPI account. Follow the steps below to make the most out of this powerful tool.
 
 ## Table of Contents
 - [Introduction to MyVapi](#introduction-to-myvapi)
@@ -19,7 +19,7 @@ Welcome to MyVapi! This guide will help you get started with using MyVapi, your 
 ## Introduction to MyVapi
 
 ### What is MyVapi?
-MyVapi is a custom GPT designed to allow users to manage their Vapi accounts with ease. While the Vapi Dashboard provides limited functionality and using PostMan can be cumbersome, MyVapi offers a streamlined solution to interact with the Vapi API directly. This eliminates the back-and-forth usually associated with manual API interactions and JSON validation, making the process more efficient and user-friendly.
+MyVapi is a custom GPT designed to allow users to manage their Vapi accounts with ease. While the Vapi Dashboard provides limited functionality and using PostMan can be cumbersome, MyVapi offers a streamlined solution to interact with the Vapi API directly. This eliminates the back-and-forth usually associated with manual API interactions and JSON validation, making the process more efficient and user-friendly. The reason MyVapi was created is to help users understand the power of using VAPI's API. MyVapi uses 22 out of the 33 available VAPI APIs.
 
 ### Key Features
 - **Full API Access:** Leverage the full power of the Vapi API without the limitations of the Dashboard.
@@ -37,7 +37,7 @@ MyVapi is not connected to a user's account but will help with almost anything y
 
 ## Getting Started
 
-## Accessing MyVapi
+### Accessing MyVapi
 MyVapi can be accessed in the following ways:
 - Visit [https://chatgpt.com/g/g-3luI9WIdj-myvapi](https://chatgpt.com/g/g-3luI9WIdj-myvapi)
 - Search for "MyVapi" in the GPT Store
@@ -53,43 +53,53 @@ MyVapi provides a range of commands to interact with your Vapi account efficient
 - **Get Assistants**
   - **Method:** GET
   - **Endpoint:** /assistant
-  - **Description:** Retrieve a list of all assistants.
+  - **Description:** List Assistants
 
 - **Create Assistant**
   - **Method:** POST
   - **Endpoint:** /assistant
-  - **Description:** Create a new assistant.
+  - **Description:** Create Assistant
 
 - **Get Assistant by ID**
   - **Method:** GET
   - **Endpoint:** /assistant/{id}
-  - **Description:** Retrieve details of a specific assistant using its ID.
+  - **Description:** Get Assistant
 
 - **Update Assistant by ID**
   - **Method:** PATCH
   - **Endpoint:** /assistant/{id}
-  - **Description:** Update details of a specific assistant using its ID.
+  - **Description:** Update Assistant
 
 - **Delete Assistant by ID**
   - **Method:** DELETE
   - **Endpoint:** /assistant/{id}
-  - **Description:** Delete a specific assistant using its ID.
+  - **Description:** Delete Assistant
 
 #### Phone Call Management
 - **Get Phone Calls**
   - **Method:** GET
   - **Endpoint:** /call
-  - **Description:** Retrieve a list of all phone calls.
-
-- **Get Phone Call by ID**
-  - **Method:** GET
-  - **Endpoint:** /call/{id}
-  - **Description:** Retrieve details of a specific phone call using its ID.
+  - **Description:** List Calls
 
 - **Create Phone Call**
   - **Method:** POST
   - **Endpoint:** /call/phone
-  - **Description:** Create a new phone call.
+  - **Description:** Create Call
+
+- **Get Phone Call by ID**
+  - **Method:** GET
+  - **Endpoint:** /call/{id}
+  - **Description:** Get Call
+
+- **Update Phone Call by ID**
+  - **Method:** PATCH
+  - **Endpoint:** /call/{id}
+  - **Description:** Update Call
+
+- **Delete Phone Call by ID**
+  - **Method:** DELETE
+  - **Endpoint:** /call/{id}
+  - **Description:** Delete Call Data
 
 - **Get Call Logs**
   - **Method:** GET
@@ -100,27 +110,27 @@ MyVapi provides a range of commands to interact with your Vapi account efficient
 - **Get Squads**
   - **Method:** GET
   - **Endpoint:** /squad
-  - **Description:** Retrieve a list of all squads.
+  - **Description:** List Squads
 
 - **Create Squad**
   - **Method:** POST
   - **Endpoint:** /squad
-  - **Description:** Create a new squad.
+  - **Description:** Create Squad
 
 - **Get Squad by ID**
   - **Method:** GET
   - **Endpoint:** /squad/{id}
-  - **Description:** Retrieve details of a specific squad using its ID.
+  - **Description:** Get Squad
 
 - **Update Squad by ID**
   - **Method:** PATCH
   - **Endpoint:** /squad/{id}
-  - **Description:** Update details of a specific squad using its ID.
+  - **Description:** Update Squad
 
 - **Delete Squad by ID**
   - **Method:** DELETE
   - **Endpoint:** /squad/{id}
-  - **Description:** Delete a specific squad using its ID.
+  - **Description:** Delete Squad
 
 #### Metrics Management
 - **Get Metrics**
@@ -132,27 +142,27 @@ MyVapi provides a range of commands to interact with your Vapi account efficient
 - **List Tools**
   - **Method:** GET
   - **Endpoint:** /tool
-  - **Description:** Retrieve a list of all tools.
+  - **Description:** List Tools
 
 - **Create Tool**
   - **Method:** POST
   - **Endpoint:** /tool
-  - **Description:** Create a new tool.
+  - **Description:** Create Tool
 
 - **Get Tool by ID**
   - **Method:** GET
   - **Endpoint:** /tool/{id}
-  - **Description:** Retrieve details of a specific tool using its ID.
+  - **Description:** Get Tool
 
 - **Update Tool by ID**
   - **Method:** PATCH
   - **Endpoint:** /tool/{id}
-  - **Description:** Update details of a specific tool using its ID.
+  - **Description:** Update Tool
 
 - **Delete Tool by ID**
   - **Method:** DELETE
   - **Endpoint:** /tool/{id}
-  - **Description:** Delete a specific tool using its ID.
+  - **Description:** Delete Tool
 
 ## Tips and Best Practices
 - **Be Specific:** The more specific your request, the better MyVapi can assist you.
@@ -166,8 +176,8 @@ If you encounter any issues while using MyVapi, try the following steps:
 3. **Restart Browser:** Close and reopen your browser to refresh the session.
 
 ## FAQ
-**Q: Is MyVapi free to use?**  
+**Q:** Is MyVapi free to use?  
 **A:** MyVapi is available to both free and paid ChatGPT accounts.
 
-**Q: How secure is my data?**  
+**Q:** How secure is my data?  
 **A:** We prioritize your data security and use advanced encryption methods to protect your information.
