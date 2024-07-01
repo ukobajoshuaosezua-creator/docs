@@ -252,16 +252,6 @@
       ]
     },
     {
-      "group": "Assistants",
-      "pages": [
-        "api-reference/assistants/create-assistant",
-        "api-reference/assistants/get-assistant",
-        "api-reference/assistants/list-assistants",
-        "api-reference/assistants/update-assistant",
-        "api-reference/assistants/delete-assistant"
-      ]
-    },
-    {
       "group": "Calls",
       "pages": [
         "api-reference/calls/create-call",
@@ -272,13 +262,13 @@
       ]
     },
     {
-      "group": "Squads",
+      "group": "Assistants",
       "pages": [
-        "api-reference/squads/create-squad",
-        "api-reference/squads/get-squad",
-        "api-reference/squads/list-squads",
-        "api-reference/squads/update-squad",
-        "api-reference/squads/delete-squad"
+        "api-reference/assistants/create-assistant",
+        "api-reference/assistants/get-assistant",
+        "api-reference/assistants/list-assistants",
+        "api-reference/assistants/update-assistant",
+        "api-reference/assistants/delete-assistant"
       ]
     },
     {
@@ -292,16 +282,6 @@
       ]
     },
     {
-      "group": "Tools",
-      "pages": [
-        "api-reference/tools/create-tool",
-        "api-reference/tools/get-tool",
-        "api-reference/tools/list-tools",
-        "api-reference/tools/update-tool",
-        "api-reference/tools/delete-tool"
-      ]
-    },
-    {
       "group": "Files",
       "pages": [
         "api-reference/files/upload-file",
@@ -311,6 +291,27 @@
         "api-reference/files/delete-file"
       ]
     },
+    {
+      "group": "Squads",
+      "pages": [
+        "api-reference/squads/create-squad",
+        "api-reference/squads/get-squad",
+        "api-reference/squads/list-squads",
+        "api-reference/squads/update-squad",
+        "api-reference/squads/delete-squad"
+      ]
+    },
+    {
+      "group": "Tools",
+      "pages": [
+        "api-reference/tools/create-tool",
+        "api-reference/tools/get-tool",
+        "api-reference/tools/list-tools",
+        "api-reference/tools/update-tool",
+        "api-reference/tools/delete-tool"
+      ]
+    },
+
     {
       "group": "Analytics",
       "pages": ["api-reference/analytics/create-analytics-queries"]
