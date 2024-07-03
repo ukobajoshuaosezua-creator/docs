@@ -11,14 +11,14 @@ Before you proceed, ensure you have the following:
 
 - An environment that supports JWT generation and API calls (e.g., a programming language or framework)
 - An account with a service that requires JWT authentication
-- Environment variables set up for the necessary credentials (e.g., organization ID and private key)
+- Environment variables set up for the necessary credentials (e.g., organization ID and private key, both can be found in your Vapi portal)
 
 ## Generating a JWT Token
 
 The following steps outline how to generate a JWT token:
 
 1. **Define the Payload**: The payload contains the data you want to include in the token. In this case, it includes an `orgId`.
-2. **Get the Private Key**: The private key is used to sign the token. Ensure it is securely stored, often in environment variables.
+2. **Get the Private Key**: The private key (provided by Vapi) is used to sign the token. Ensure it is securely stored, often in environment variables.
 3. **Set Token Options**: Define options for the token, such as the expiration time (`expiresIn`).
 4. **Generate the Token**: Use a JWT library or built-in functionality to generate the token with the payload, key, and options.
 
