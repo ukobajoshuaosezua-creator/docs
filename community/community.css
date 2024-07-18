@@ -19,3 +19,28 @@
     max-width: 100%; /* Allow max-width to be full width on mobile */
   }
 }
+
+.card-img {
+  height: 200px;
+  object-fit: contain;
+  background: white; /*TODO: change color as per theme*/
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: auto;
+  text-align: center;
+}
+
+.card-content > h3 {
+  margin: 16px 0 8px 0;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.card-content > p {
+  font-size: 1em;
+  text-align: center;
+}

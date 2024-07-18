@@ -239,7 +239,8 @@
             "community/usecase"
           ]
         },
-        "community/myvapi"
+        "community/myvapi",
+        "community/expert-directory"
       ]
     },
     {
