@@ -6,11 +6,16 @@
   gap: 20px; /* Spacing between videos */
 }
 
-.video-grid iframe {
+.video-grid iframe,
+.video-grid a {
   flex: 0 0 calc(50% - 20px); /* Flex grow is 0, basis is 50% minus the gap */
   aspect-ratio: 560 / 315; /* Maintain the aspect ratio of 16:9 */
   max-width: calc(50% - 20px); /* Max width is also set to 50% minus the gap */
   height: auto; /* Allow height to auto adjust based on aspect ratio */
+}
+
+.video-grid a {
+  aspect-ratio: 1;
 }
 
 @media (max-width: 600px) {
@@ -23,6 +28,7 @@
 .card-img {
   height: 200px;
   object-fit: contain;
+  margin: auto;
   background: white; /*TODO: change color as per theme*/
 }
 
