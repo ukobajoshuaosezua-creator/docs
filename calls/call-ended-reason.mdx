@@ -35,9 +35,9 @@ These relate to issues within the AI processing pipeline or the Large Language M
 
 #### **Phone Calls and Connectivity**
 
-- **customer-busy**: The called party's line was busy.
-- **customer-ended-call**: The called party ended the call.
-- **customer-did-not-answer**: The called party didn't answer the call. If you're looking to build a usecase where you need the bot to talk to automated IVRs, set `assistant.voicemailDetectionEnabled=false`.
+- **customer-busy**: The customer's line was busy.
+- **customer-ended-call**: The customer(end human user) ended the call for both inbound and outbound calls.
+- **customer-did-not-answer**: The customer didn't answer the call. If you're looking to build a usecase where you need the bot to talk to automated IVRs, set `assistant.voicemailDetectionEnabled=false`.
 - **customer-did-not-give-microphone-permission**: The user didn't grant the necessary microphone access for the call.
 - **phone-call-provider-closed-websocket**: The connection with the call provider was unexpectedly closed.
 - **twilio-failed-to-connect-call**: The Twilio service, responsible for managing calls, failed to establish a connection.
