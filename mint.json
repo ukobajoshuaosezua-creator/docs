@@ -278,7 +278,8 @@
             "providers/transcriber/gladia",
             "providers/transcriber/talkscriber"
           ]
-        }
+        },
+        "providers/voiceflow"
       ]
     },
     {
