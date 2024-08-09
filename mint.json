@@ -50,7 +50,7 @@
   "tabs": [
     {
       "name": "API Reference",
-      "url": "https://api.vapi.ai/api"
+      "url": "api-reference"
     }
   ],
   "anchors": [
@@ -525,6 +525,10 @@
     {
       "source": "/prompting_guide",
       "destination": "/prompting-guide"
+    },
+    {
+      "source": "/api-reference/calls/create-call",
+      "destination": "/api"
     }
   ],
   "analytics": {
