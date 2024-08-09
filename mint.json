@@ -525,10 +525,6 @@
     {
       "source": "/prompting_guide",
       "destination": "/prompting-guide"
-    },
-    {
-      "source": "/api-reference/calls/create-call",
-      "destination": "/api"
     }
   ],
   "analytics": {
