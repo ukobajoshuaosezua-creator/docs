@@ -292,16 +292,6 @@
       ]
     },
     {
-      "group": "Calls",
-      "pages": [
-        "api-reference/calls/create-call",
-        "api-reference/calls/get-call",
-        "api-reference/calls/list-calls",
-        "api-reference/calls/update-call",
-        "api-reference/calls/delete-call-data"
-      ]
-    },
-    {
       "group": "Assistants",
       "pages": [
         "api-reference/assistants/create-assistant",
@@ -311,6 +301,17 @@
         "api-reference/assistants/delete-assistant"
       ]
     },
+    {
+      "group": "Calls",
+      "pages": [
+        "api-reference/calls/create-call",
+        "api-reference/calls/get-call",
+        "api-reference/calls/list-calls",
+        "api-reference/calls/update-call",
+        "api-reference/calls/delete-call-data"
+      ]
+    },
+
     {
       "group": "Phone Numbers",
       "pages": [
@@ -393,6 +394,10 @@
     {
       "source": "/api-reference/phone-numbers/import-twilio-number",
       "destination": "/api-reference/phone-numbers/create-phone-number"
+    },
+    {
+      "source": "api-reference/calls/create-call",
+      "destination": "https://api.vapi.ai/api#/Calls/CallController_create"
     },
     {
       "source": "/getting_started",
