@@ -6321,14 +6321,6 @@
             "description": "These are the overrides for the `assistant` or `assistantId`'s settings and template variables.",
             "allOf": [{ "$ref": "#/components/schemas/AssistantOverrides" }]
           },
-          "squadId": {
-            "type": "string",
-            "description": "This is the squad that will be used for the call. To use a transient squad, use `squad` instead."
-          },
-          "squad": {
-            "description": "This is a squad that will be used for the call. To use an existing squad, use `squadId` instead.",
-            "allOf": [{ "$ref": "#/components/schemas/CreateSquadDTO" }]
-          },
           "phoneNumberId": {
             "type": "string",
             "description": "This is the phone number that will be used for the call. To use a transient number, use `phoneNumber` instead.\n\nOnly relevant for `outboundPhoneCall` and `inboundPhoneCall` type."
