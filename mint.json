@@ -160,7 +160,8 @@
         "customization/custom-keywords",
         "customization/knowledgebase",
         "customization/multilingual",
-        "customization/jwt-authentication"
+        "customization/jwt-authentication",
+        "customization/speech-configuration"
       ]
     },
     {
@@ -538,5 +539,5 @@
       "measurementId": "G-G6EN8MLZLK"
     }
   },
-  "openapi": "/api.json"
+  "openapi": "https://api.vapi.ai/api-json"
 }
