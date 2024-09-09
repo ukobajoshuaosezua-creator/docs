@@ -205,7 +205,8 @@
           "pages": [
             "call-forwarding",
             "calls/call-ended-reason",
-            "advanced/calls/sip"
+            "advanced/calls/sip",
+            "calls/call-features"
           ]
         },
         "GHL",

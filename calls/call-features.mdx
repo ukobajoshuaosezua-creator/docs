@@ -1,0 +1,99 @@
+---
+title: "Listen, Control, Language Detection"
+sidebarTitle: "Live Call Features"
+---
+
+In this documentation, we will showcase our three new features and how you can use them:
+
+1. **Call Control**: Enables dynamic injection of conversation elements during live calls.
+2. **Call Listen**: Provides real-time audio streaming and processing during the call.
+3. **Automatic Language Detection**: Detect the language in real-time conversation and talk in that particular language.
+
+## Call Control and Call Listen Feature
+
+When you initiate a call with the `/call` endpoint, you will receive a call ID. You can listen to the call directly via the Call Listen feature, and if you want to inject some operations into it, you can use the Call Control functionality.
+
+### Call Control
+
+Call Control allows you to inject conversation elements dynamically during a live call via HTTP POST requests. Currently, we support injecting messages in real-time. More operations will be supported in the future.
+
+To inject a message, send a POST request in this format:
+
+```bash
+curl -X POST https://aws-us-west-2-production3-phone-call-websocket.vapi.ai/{call_id}/control \
+-H "Content-Type: application/json" \
+-d '{
+  "type": "say",
+  "message": "Welcome to Vapi, this message was injected during the call."
+}'
+```
+
+### Call Listen
+
+Call Listen enables real-time streaming and processing of audio data using WebSocket connections. Here's an example implementation showcasing how you can receive audio packets and manipulate them based on your needs:
+
+```javascript
+const WebSocket = require('ws');
+const fs = require('fs');
+
+let pcmBuffer = Buffer.alloc(0);
+const ws = new WebSocket(`${listenUrl}/listen`);
+
+ws.on('open', () => console.log('WebSocket connection established'));
+
+ws.on('message', (data, isBinary) => {
+  if (isBinary) {
+    pcmBuffer = Buffer.concat([pcmBuffer, data]);
+    console.log(`Received PCM data, buffer size: ${pcmBuffer.length}`);
+  } else {
+    console.log('Received message:', JSON.parse(data.toString()));
+  }
+});
+
+ws.on('close', () => {
+  if (pcmBuffer.length > 0) {
+    fs.writeFileSync('audio.pcm', pcmBuffer);
+    console.log('Audio data saved to audio.pcm');
+  }
+});
+
+ws.on('error', (error) => console.error('WebSocket error:', error));
+```
+
+## Automatic Language Detection
+
+This feature allows you to automatically switch between languages during a call. It is currently supported only on Deepgram and supports the following languages:
+
+<ul>
+  <li>ar: Arabic</li>
+  <li>bn: Bengali</li>
+  <li>yue: Cantonese</li>
+  <li>zh: Chinese</li>
+  <li>en: English</li>
+  <li>fr: French</li>
+  <li>de: German</li>
+  <li>hi: Hindi</li>
+  <li>it: Italian</li>
+  <li>ja: Japanese</li>
+  <li>ko: Korean</li>
+  <li>pt: Portuguese</li>
+  <li>ru: Russian</li>
+  <li>es: Spanish</li>
+  <li>th: Thai</li>
+  <li>vi: Vietnamese</li>
+</ul>
+
+To enable automatic language detection for multilingual calls, set `transcriber.languageDetectionEnabled: true` through the `/assistant` API endpoint or use the assistantOverride.
+
+### Requirements for Multilingual Support
+
+To make multilingual support work, you need to choose the following models:
+
+* **Transcriber**:
+  * **Deepgram**: `nova-2` or `nova-2-general`
+
+* **Voice Providers**:
+  * **11labs**: Multilingual model or Turbo v2.5
+  * **Cartesia**: `sonic-multilingual` model
+
+By using these models and enabling automatic language detection, your application will be able to handle multilingual conversations seamlessly.
