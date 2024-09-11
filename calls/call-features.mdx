@@ -2,42 +2,93 @@
 title: "Listen, Control, Language Detection"
 sidebarTitle: "Live Call Features"
 ---
+Vapi offers two main features that provide enhanced control over live calls:
 
-In this documentation, we will showcase our three new features and how you can use them:
+1. **Call Control**: This feature allows you to inject conversation elements dynamically during an ongoing call.
+2. **Call Listen**: This feature enables real-time audio data streaming using WebSocket connections.
 
-1. **Call Control**: Enables dynamic injection of conversation elements during live calls.
-2. **Call Listen**: Provides real-time audio streaming and processing during the call.
-3. **Automatic Language Detection**: Detect the language in real-time conversation and talk in that particular language.
+To use these features, you first need to obtain the URLs specific to the live call. These URLs can be retrieved by triggering a `/call` endpoint, which returns the `listenUrl` and `controlUrl` within the `monitor` object.
 
-## Call Control and Call Listen Feature
+## Obtaining URLs for Call Control and Listen
 
-When you initiate a call with the `/call` endpoint, you will receive a call ID. You can listen to the call directly via the Call Listen feature, and if you want to inject some operations into it, you can use the Call Control functionality.
+To initiate a call and retrieve the `listenUrl` and `controlUrl`, send a POST request to the `/call` endpoint.
 
-### Call Control
-
-Call Control allows you to inject conversation elements dynamically during a live call via HTTP POST requests. Currently, we support injecting messages in real-time. More operations will be supported in the future.
-
-To inject a message, send a POST request in this format:
+### Sample Request
 
 ```bash
-curl -X POST https://aws-us-west-2-production3-phone-call-websocket.vapi.ai/{call_id}/control \
--H "Content-Type: application/json" \
--d '{
+curl 'https://api.vapi.ai/call/phone' 
+-H 'authorization: Bearer YOUR_API_KEY' 
+-H 'content-type: application/json' 
+--data-raw '{
+  "assistantId": "5b0a4a08-133c-4146-9315-0984f8c6be80",
+  "customer": {
+    "number": "+12345678913"
+  },
+  "phoneNumberId": "42b4b25d-031e-4786-857f-63b346c9580f"
+}'
+
+```
+
+### Sample Response
+
+```json
+{
+  "id": "7420f27a-30fd-4f49-a995-5549ae7cc00d",
+  "assistantId": "5b0a4a08-133c-4146-9315-0984f8c6be80",
+  "phoneNumberId": "42b4b25d-031e-4786-857f-63b346c9580f",
+  "type": "outboundPhoneCall",
+  "createdAt": "2024-09-10T11:14:12.339Z",
+  "updatedAt": "2024-09-10T11:14:12.339Z",
+  "orgId": "eb166faa-7145-46ef-8044-589b47ae3b56",
+  "cost": 0,
+  "customer": {
+    "number": "+12345678913"
+  },
+  "status": "queued",
+  "phoneCallProvider": "twilio",
+  "phoneCallProviderId": "CA4c6793d069ef42f4ccad69a0957451ec",
+  "phoneCallTransport": "pstn",
+  "monitor": {
+    "listenUrl": "wss://aws-us-west-2-production1-phone-call-websocket.vapi.ai/7420f27a-30fd-4f49-a995-5549ae7cc00d/transport",
+    "controlUrl": "<https://aws-us-west-2-production1-phone-call-websocket.vapi.ai/7420f27a-30fd-4f49-a995-5549ae7cc00d/control>"
+  }
+}
+
+```
+
+## Call Control Feature
+
+Once you have the `controlUrl`, you can inject a message into the live call using a POST request. This can be done by sending a JSON payload to the `controlUrl`.
+
+### Example: Injecting a Message
+
+```bash
+curl -X POST 'https://aws-us-west-2-production1-phone-call-websocket.vapi.ai/7420f27a-30fd-4f49-a995-5549ae7cc00d/control' 
+-H 'content-type: application/json' 
+--data-raw '{
   "type": "say",
   "message": "Welcome to Vapi, this message was injected during the call."
 }'
+
 ```
 
-### Call Listen
+The message will be spoken in real-time during the ongoing call.
 
-Call Listen enables real-time streaming and processing of audio data using WebSocket connections. Here's an example implementation showcasing how you can receive audio packets and manipulate them based on your needs:
+## Call Listen Feature
 
-```javascript
+The `listenUrl` allows you to connect to a WebSocket and stream the audio data in real-time. You can either process the audio directly or save the binary data to analyze or replay later.
+
+### Example: Saving Audio Data from a Live Call
+
+Here is a simple implementation for saving the audio buffer from a live call using Node.js:
+
+```jsx
 const WebSocket = require('ws');
 const fs = require('fs');
 
 let pcmBuffer = Buffer.alloc(0);
-const ws = new WebSocket(`${listenUrl}/listen`);
+
+const ws = new WebSocket("wss://aws-us-west-2-production1-phone-call-websocket.vapi.ai/7420f27a-30fd-4f49-a995-5549ae7cc00d/transport");
 
 ws.on('open', () => console.log('WebSocket connection established'));
 
@@ -58,42 +109,5 @@ ws.on('close', () => {
 });
 
 ws.on('error', (error) => console.error('WebSocket error:', error));
+
 ```
-
-## Automatic Language Detection
-
-This feature allows you to automatically switch between languages during a call. It is currently supported only on Deepgram and supports the following languages:
-
-<ul>
-  <li>ar: Arabic</li>
-  <li>bn: Bengali</li>
-  <li>yue: Cantonese</li>
-  <li>zh: Chinese</li>
-  <li>en: English</li>
-  <li>fr: French</li>
-  <li>de: German</li>
-  <li>hi: Hindi</li>
-  <li>it: Italian</li>
-  <li>ja: Japanese</li>
-  <li>ko: Korean</li>
-  <li>pt: Portuguese</li>
-  <li>ru: Russian</li>
-  <li>es: Spanish</li>
-  <li>th: Thai</li>
-  <li>vi: Vietnamese</li>
-</ul>
-
-To enable automatic language detection for multilingual calls, set `transcriber.languageDetectionEnabled: true` through the `/assistant` API endpoint or use the assistantOverride.
-
-### Requirements for Multilingual Support
-
-To make multilingual support work, you need to choose the following models:
-
-* **Transcriber**:
-  * **Deepgram**: `nova-2` or `nova-2-general`
-
-* **Voice Providers**:
-  * **11labs**: Multilingual model or Turbo v2.5
-  * **Cartesia**: `sonic-multilingual` model
-
-By using these models and enabling automatic language detection, your application will be able to handle multilingual conversations seamlessly.
