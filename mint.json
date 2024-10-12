@@ -553,5 +553,5 @@
       "measurementId": "G-G6EN8MLZLK"
     }
   },
-  "openapi": "./api.json"
+  "openapi": "api.vapi.ai/api-json"
 }
