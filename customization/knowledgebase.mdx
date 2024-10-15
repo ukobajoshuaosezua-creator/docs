@@ -57,4 +57,136 @@ Customize your assistant's system prompt to utilize the Knowledge Base for respo
   For more information on creating effective Knowledge Bases, check out our tutorial on [Best Practices for Knowledge Base Creation](https://youtu.be/i5mvqC5sZxU).
 </Tip>
 
+## Custom Knowledge Base Documentation
+
+### Overview
+
+This guide is about setting up your own custom knowledge base. You can hook up your own server to handle knowledge requests, which are then sent to a language model to generate responses based on the info you provide.
+
+---
+
+### Custom Knowledge Base Class
+
+#### CustomKnowledgeBase
+
+This is where you define your custom knowledge base setup. It tells the system where to send requests and how to handle them.
+
+**Properties:**
+
+- **provider**: Set this to `custom-knowledge-base` since you're using a custom setup.
+- **server**: This is where you configure your server's details, like the URL, secret key (if you have one), and the request timeout.
+
+---
+
+### Server Configuration
+
+#### Server
+
+This class defines your server settings, which is where the system will send all the requests.
+
+**Properties:**
+
+- **url**: The endpoint where requests will be sent. Needs to be a valid HTTPS URL. Example: `https://my-restaurant-knowledgebase.com`.
+  
+- **secret**: Optional. A secret key to add as a header (`x-vapi-secret`) for extra security.
+
+- **timeoutSeconds**: How long to wait for a response before timing out. Default is 20 seconds, but you can set it anywhere between 1 and 60 seconds.
+
+---
+
+### Making a Request
+
+When the system needs info from your knowledge base, it sends a `POST` request to your server’s URL.
+
+#### Example 1: Restaurant Opening Hours
+
+Let’s say a user asks for your restaurant’s opening hours. Here's the request:
+
+```bash
+curl -X POST https://my-restaurant-knowledgebase.com \
+  -H "Content-Type: application/json" \
+  -H "x-vapi-secret: your-secret-key" \
+  -d '{
+    "message": {
+      "type": "knowledge-base-request",
+      "messages": [
+        {
+          "role": "user",
+          "content": "What are your opening hours?"
+        }
+      ]
+    }
+  }'
+```
+
+---
+
+### Expected Response
+
+When your server gets the request, it’ll return one of two things:
+1. A direct answer that the assistant can speak or display.
+2. A list of documents that the system will use to generate a reply.
+
+#### Example 1: Direct Response for Opening Hours
+
+```json
+{
+  "message": {
+    "role": "assistant",
+    "content": "Our restaurant is open from 10 AM to 9 PM, Monday to Saturday."
+  }
+}
+```
+
+The assistant will say:  
+**"Our restaurant is open from 10 AM to 9 PM, Monday to Saturday."**
+
+#### Example 2: Document-Based Response for Opening Hours
+
+```json
+{
+  "documents": [
+    {
+      "content": "The restaurant is open from 10 AM to 9 PM, Monday to Saturday. Sunday hours are 11 AM to 6 PM.",
+      "similarity": 1
+    },
+    {
+      "content": "We are closed on Thanksgiving and Christmas.",
+      "similarity": 0.9
+    }
+  ]
+}
+```
+
+The assistant might respond with:  
+**"We’re open from 10 AM to 9 PM, Monday to Saturday, and from 11 AM to 6 PM on Sundays."**
+
+---
+
+### Server Message Request Structure
+
+`ServerMessageKnowledgeBaseRequest` is how the system sends messages to your server.
+
+- **type**: Always `"knowledge-base-request"` to ask for info from the knowledge base.
+- **messages**: The user’s question or conversation context, which gets sent to your server.
+- **messagesOpenAIFormatted**: If you’re using OpenAI or something similar, this is where you send formatted messages.
+
+---
+
+### Response Message Structure
+
+`ServerMessageResponseKnowledgeBaseRequest` defines how your server should respond.
+
+- **documents**: An array of documents, each containing a piece of content (e.g., a menu item or a policy) and its relevance (similarity score).
+- **message**: Optional. This is where you can send a direct response instead of letting the system process the documents.
+
+---
+
+
+### Choosing Between Response Types
+
+- **Custom Message Response**: Use this when you already have a simple answer ready to go, like stating opening hours.
+  
+- **Document-Based Response**: Use this when the assistant requires to be provided with more context or pull from additional documents more context or detail, like explaining the full menu or availability rules.
+
 By following these guidelines, you can create a comprehensive Knowledge Base that enhances the capabilities of your voice AI assistant and provides valuable information to users.
